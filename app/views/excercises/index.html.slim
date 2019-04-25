@@ -1,0 +1,22 @@
+section.section-padding
+	.container-fluid
+
+		h1 Excercises
+
+		table.table
+			thead
+				tr
+					th Name
+					th Muscles
+					th
+
+			tbody
+				- @excercises.each do |excercise|
+					tr
+						td = excercise.name
+						td
+							- excercise.muscles.each do |muscle|
+								= muscle.name
+						td = link_to "Edit", [:edit, excercise], class: "btn btn-secondary btn-sm"
+
+		= link_to "Add new", new_excercise_path, class: "btn btn-primary"

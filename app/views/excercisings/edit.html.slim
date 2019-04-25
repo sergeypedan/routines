@@ -1,0 +1,37 @@
+.container.section-padding
+
+	= form_with model: @excercising, local: true do |f|
+
+		/ .form-group
+		/ 	= f.label          :datetime, nil, class: "control-label"
+		/ 	= f.datetime_field :datetime, required: true, class: "form-control"
+
+		.form-group
+			= f.label      :date, nil, class: "control-label"
+			= f.date_field :date, required: true, class: "form-control"
+
+		.form-group
+			= f.label             :excercise_id
+			= f.collection_select :excercise_id, Excercise.all, :id, :name, {}, required: true, class: "form-control"
+
+		- if @excercising.persisted?
+			.form-group
+				- if @excercising.excercise.repetition_based?
+					= f.label        :repetitions_count, nil, class: "control-label"
+					= f.number_field :repetitions_count, required: true, class: "form-control"
+				- else
+					= f.label        :resistance_duration, nil, class: "control-label"
+					= f.number_field :resistance_duration, required: true, class: "form-control"
+
+		- else
+			.form-group
+				= f.label        :repetitions_count, nil, class: "control-label"
+				= f.number_field :repetitions_count, class: "form-control"
+
+			.form-group
+				= f.label        :resistance_duration, nil, class: "control-label"
+				= f.number_field :resistance_duration, class: "form-control"
+
+		= render "application/form_errors", record: @excercising
+
+		= f.submit nil, class: "btn btn-primary"

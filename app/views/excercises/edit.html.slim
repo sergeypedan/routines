@@ -1,0 +1,31 @@
+.container.section-padding
+
+	= form_with model: @excercise, local: true do |f|
+
+		.form-group
+			= f.label      :name, nil, class: "control-label required"
+			= f.text_field :name, required: true, class: "form-control"
+
+		.row
+			.col-md-3
+				.form-group id="reps-controls"
+					= f.label        :default_repetitions_count, nil, class: "control-label"
+					= f.number_field :default_repetitions_count, min: 1, class: "form-control"
+
+				.form-group id="time-controls" hidden="hidden"
+					= f.label        :default_time, nil, class: "control-label"
+					= f.number_field :default_time, class: "form-control"
+
+				.form-group.form-check
+					= f.check_box :repetition_based, class: "form-check-input"
+					= f.label     :repetition_based, class: "form-check-label"
+
+			.col-md-8
+				= f.label             :muscle_ids, nil, class: "control-label"
+				= f.collection_select :muscle_ids, Muscle.all, :id, :name, { prompt: false }, multiple: true, class: "form-control"
+
+		= render "application/form_errors", record: @excercise
+
+		hr
+
+		= f.submit nil, class: "btn btn-primary"

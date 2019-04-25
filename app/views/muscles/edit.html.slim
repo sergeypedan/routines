@@ -1,0 +1,11 @@
+.container.section-padding
+
+	= form_with model: @muscle, local: true do |f|
+
+		.form-group
+			= f.label      :name, nil, class: "control-label"
+			= f.text_field :name, required: true, class: "form-control"
+
+		= render "application/form_errors", record: @muscle
+
+		= f.submit nil, class: "btn btn-primary"

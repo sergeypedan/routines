@@ -1,0 +1,1991 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"fun",
+				"function"
+			],
+			[
+				"exc",
+				"excercisings\t(excercising.rb)"
+			],
+			[
+				"reo",
+				"repetitions_count\t(edit.html.slim)"
+			],
+			[
+				"excer",
+				"excercise_id\t(edit.html.slim)"
+			],
+			[
+				"rep",
+				"repetitions_count\t(edit.html.slim)"
+			],
+			[
+				"ext",
+				"extension"
+			],
+			[
+				"link",
+				"link_node"
+			],
+			[
+				"trim",
+				"trim_and_cleanup_parsed_value"
+			],
+			[
+				"def",
+				"default_user_list"
+			],
+			[
+				"vue",
+				"vue_instance"
+			],
+			[
+				"valid",
+				"validation"
+			],
+			[
+				"user_list",
+				"user_lists"
+			],
+			[
+				"ta",
+				"target_list"
+			],
+			[
+				"sort",
+				"sort_order"
+			],
+			[
+				"sor",
+				"sorted_column_names"
+			],
+			[
+				"record",
+				"record_keys"
+			],
+			[
+				"column",
+				"column_delimiter"
+			],
+			[
+				"row",
+				"row_array"
+			],
+			[
+				"tra",
+				"translate_header_row"
+			],
+			[
+				"new",
+				"new_route"
+			],
+			[
+				"new_",
+				"new_route"
+			],
+			[
+				"user_",
+				"user_lists"
+			],
+			[
+				"curr",
+				"current_operation"
+			],
+			[
+				"list_",
+				"list_uid"
+			],
+			[
+				"list",
+				"list_uid"
+			],
+			[
+				"open",
+				"list_manager_open"
+			],
+			[
+				"conta",
+				"contacts-main"
+			],
+			[
+				"no",
+				"nowrap\twhite-space"
+			],
+			[
+				"user",
+				"user_hash"
+			],
+			[
+				"vue_",
+				"vue_collect\t(vue_collect.js)"
+			],
+			[
+				"coll",
+				"collected_count\t(vue_collect.js)"
+			],
+			[
+				"con",
+				"container_id"
+			],
+			[
+				"edi",
+				"edited_user\t(vue-contacts.js)"
+			],
+			[
+				"cov",
+				"cover_letter_editor_visible"
+			],
+			[
+				"null",
+				"null_user"
+			],
+			[
+				"butt",
+				"button-counter"
+			],
+			[
+				"ui",
+				"user_uid"
+			],
+			[
+				"box",
+				"border-box\tbox-sizing"
+			],
+			[
+				"box-",
+				"box-sizing\tproperty"
+			],
+			[
+				"count",
+				"count_of_users_to_parse"
+			],
+			[
+				"is",
+				"window_is_at_search_page"
+			],
+			[
+				"sear",
+				"search page\t(popup.html)"
+			],
+			[
+				"curre",
+				"current_tab_URL"
+			],
+			[
+				"stra",
+				"strategy"
+			],
+			[
+				"se",
+				"settings"
+			],
+			[
+				"get",
+				"getElementById"
+			],
+			[
+				"cur",
+				"cursor\tproperty"
+			],
+			[
+				"v-",
+				"v-if"
+			],
+			[
+				"tmi",
+				"timeouts"
+			],
+			[
+				"parsed",
+				"parsed_data"
+			],
+			[
+				"stri",
+				"stringified_options"
+			],
+			[
+				"options",
+				"options_key"
+			],
+			[
+				"status-",
+				"status-layer-limit"
+			],
+			[
+				"typin",
+				"typing_speed"
+			],
+			[
+				"radio",
+				"radio_name"
+			],
+			[
+				"time",
+				"timeouts-form\t(popup.html)"
+			],
+			[
+				"mess",
+				"message_config"
+			],
+			[
+				"field",
+				"fieldset\tTag"
+			],
+			[
+				"batch",
+				"batch-settings"
+			],
+			[
+				"pre",
+				"preventDefault"
+			],
+			[
+				"cons",
+				"console\t(page-manager.js)"
+			],
+			[
+				"st",
+				"stragety"
+			],
+			[
+				"pure-",
+				"pure-button"
+			],
+			[
+				"email",
+				"email_input"
+			],
+			[
+				"fil",
+				"fill_in_email"
+			],
+			[
+				"ava",
+				"avatar_node"
+			],
+			[
+				"send",
+				"sending-list.js"
+			],
+			[
+				"back",
+				"background-color\tproperty"
+			],
+			[
+				"meta",
+				"meta_description\t(show.html.slim)"
+			],
+			[
+				"in",
+				"inspect"
+			],
+			[
+				"sche",
+				"schedule_events"
+			],
+			[
+				"ap",
+				"application\t(routes.rb)"
+			],
+			[
+				"uni",
+				"uniqueness"
+			],
+			[
+				"table",
+				"table_name"
+			],
+			[
+				"colu",
+				"column_name"
+			],
+			[
+				"name",
+				"namespace"
+			],
+			[
+				"fa",
+				"favorites"
+			],
+			[
+				"redirec",
+				"redirect_to"
+			],
+			[
+				"sess",
+				"session_key"
+			],
+			[
+				"text-",
+				"text-align\t(_head_styles.html.erb)"
+			],
+			[
+				"icon",
+				"icon_dir"
+			],
+			[
+				"image",
+				"image_url"
+			],
+			[
+				"prese",
+				"presence\t(schedule_helper.rb)"
+			],
+			[
+				"ra",
+				"rating_value"
+			],
+			[
+				"j",
+				"javascript\t(comments_controller.rb)"
+			],
+			[
+				"target",
+				"target_scale"
+			],
+			[
+				"scr",
+				"scroll_to\t(create_child_comment.js.erb)"
+			],
+			[
+				"comm",
+				"comment_container"
+			],
+			[
+				"parent",
+				"parent_comment_id"
+			],
+			[
+				"end",
+				"end_time\t(_event_schedule.html.slim)"
+			],
+			[
+				"start",
+				"start_time"
+			],
+			[
+				"ite",
+				"items_lists"
+			],
+			[
+				"items_",
+				"items_lists\t(item.rb)"
+			],
+			[
+				"visib",
+				"visible_comments_count\t(item.rb)"
+			],
+			[
+				"comme",
+				"comment_id"
+			],
+			[
+				"form-cont",
+				"form-control-file\t(_new_comment_section.html.slim)"
+			],
+			[
+				"btn-",
+				"btn-md-wider"
+			],
+			[
+				"Com",
+				"Comment\t(comment.rb)"
+			],
+			[
+				"white",
+				"white-space\tproperty"
+			],
+			[
+				"transition-",
+				"transition-property\tproperty"
+			],
+			[
+				"item",
+				"item_type"
+			],
+			[
+				"level1",
+				"level1_id"
+			],
+			[
+				"ba",
+				"background-color"
+			],
+			[
+				"even",
+				"event-masthead"
+			],
+			[
+				"transition",
+				"transition-duration\tproperty"
+			],
+			[
+				"qe",
+				"quest-1__type"
+			],
+			[
+				"app",
+				"application"
+			],
+			[
+				"schoo",
+				"school_id"
+			],
+			[
+				"socia",
+				"social_net_accounts\t(show.html.slim)"
+			],
+			[
+				"lst-n",
+				"list-n\tlist-style-type: none"
+			],
+			[
+				"mar",
+				"margin-top"
+			],
+			[
+				"max-",
+				"max-width"
+			],
+			[
+				"lk_order",
+				"lk_orders_path\t(_menu.slim)"
+			],
+			[
+				"aciton",
+				"action_name"
+			],
+			[
+				"que",
+				"quests_ids"
+			],
+			[
+				"expor",
+				"export-csv"
+			],
+			[
+				"title",
+				"title_with_link"
+			],
+			[
+				"cate",
+				"categories"
+			],
+			[
+				"marker",
+				"marker_index"
+			],
+			[
+				"lat",
+				"latitude"
+			],
+			[
+				"long",
+				"longitude"
+			],
+			[
+				"loca",
+				"location"
+			],
+			[
+				"type",
+				"typeof"
+			],
+			[
+				"java",
+				"javascripts\t(scripts.js)"
+			],
+			[
+				"qye",
+				"quest_type"
+			],
+			[
+				"sa",
+				"sanitize_quest_types\t(quests_searcher.rb)"
+			],
+			[
+				"quest",
+				"quest_types"
+			],
+			[
+				"par",
+				"params"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/Ruby/Ruby.sublime-build",
+					""
+				],
+				[
+					"Packages/User/Build systems/Ruby 2.3.0.sublime-build",
+					""
+				],
+				[
+					"Packages/User/Build systems/Ruby 2.3.1.sublime-build",
+					""
+				],
+				[
+					"Packages/User/Build systems/Ruby 2.4.0.sublime-build",
+					""
+				]
+			],
+			[
+				"Packages/User/Build systems/Ruby 2.4.0.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 400.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"tabs",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"terminal",
+				"Preferences: Terminal Key Bindings – User"
+			],
+			[
+				"terminal ",
+				"Preferences: Terminal Key Bindings – Default"
+			],
+			[
+				"terminal noti",
+				"Terminal: Open in project folder"
+			],
+			[
+				"keybin",
+				"Preferences: Terminal View: Keybindings"
+			],
+			[
+				"toggle",
+				"SublimeLinter: Toggle Highlights"
+			],
+			[
+				"sublimelinter",
+				"Preferences: SublimeLinter Settings"
+			],
+			[
+				"ruby",
+				"Set Syntax: Ruby Slim"
+			],
+			[
+				"rub",
+				"Set Syntax: Ruby Slim"
+			],
+			[
+				"slim",
+				"Set Syntax: Ruby Slim"
+			],
+			[
+				"save",
+				"Project: Save As"
+			],
+			[
+				"chang",
+				"Git: Change Branch"
+			],
+			[
+				"json",
+				"Set Syntax: JSON"
+			],
+			[
+				"spaces",
+				"Indentation: Convert to Spaces"
+			],
+			[
+				"javasc",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"push",
+				"Git: Push"
+			],
+			[
+				"comm",
+				"Git: Commit"
+			],
+			[
+				"add all",
+				"Git: Add All"
+			],
+			[
+				"add l",
+				"Git: Add All"
+			],
+			[
+				"live",
+				"AlignTab: Live Preview Mode"
+			],
+			[
+				"statu",
+				"Git: Status"
+			],
+			[
+				"bra",
+				"Git: Change Branch"
+			],
+			[
+				"gita",
+				"Git: Add All"
+			],
+			[
+				"new",
+				"Git: New Branch"
+			],
+			[
+				"git pull",
+				"Git: Pull"
+			],
+			[
+				"delet",
+				"Git: Delete Branch"
+			],
+			[
+				"branch",
+				"Git: Change Branch"
+			],
+			[
+				"add ",
+				"Git: Add All"
+			],
+			[
+				"title",
+				"Convert Case: Title Case"
+			],
+			[
+				"tab",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"add",
+				"Git: Add..."
+			],
+			[
+				"add al",
+				"Git: Add All"
+			],
+			[
+				"tavs",
+				"Preferences: Terminal View: Settings"
+			],
+			[
+				"git add ",
+				"Git: Add All"
+			],
+			[
+				"ad",
+				"Git: Add..."
+			],
+			[
+				"add a",
+				"Git: Add All"
+			],
+			[
+				"com",
+				"Git: Commit"
+			],
+			[
+				"git add all",
+				"Git: Add All"
+			],
+			[
+				"javs",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"git add",
+				"Git: Add All"
+			],
+			[
+				"javas",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"commi",
+				"Git: Commit"
+			],
+			[
+				"status",
+				"Git: Status"
+			],
+			[
+				"pull",
+				"Git: Pull"
+			],
+			[
+				"new bra",
+				"Git: New Branch"
+			],
+			[
+				"change",
+				"Git: Change Branch"
+			],
+			[
+				"wrap",
+				"Word Wrap: Toggle"
+			],
+			[
+				"new ",
+				"Git: New Branch"
+			],
+			[
+				"chan",
+				"Git: Change Branch"
+			],
+			[
+				"git mer",
+				"Git: Merge Branch"
+			],
+			[
+				"git comm",
+				"Git: Commit"
+			],
+			[
+				"git status",
+				"Git: Status"
+			],
+			[
+				"new b",
+				"Git: New Branch"
+			],
+			[
+				"change ",
+				"Git: Change Branch"
+			],
+			[
+				"cha",
+				"Git: Change Branch"
+			],
+			[
+				"diff",
+				"Diffy Compare"
+			],
+			[
+				"html",
+				"Set Syntax: HTML (Rails)"
+			],
+			[
+				"low",
+				"Convert Case: Lower Case"
+			],
+			[
+				"up",
+				"Convert Case: Upper Case"
+			],
+			[
+				"sql",
+				"Set Syntax: SQL"
+			],
+			[
+				"rails html",
+				"Set Syntax: HTML (Rails)"
+			],
+			[
+				"commit",
+				"Git: Commit"
+			],
+			[
+				"compare",
+				"Diffy Compare"
+			],
+			[
+				"upper",
+				"Convert Case: Upper Case"
+			],
+			[
+				"ruby slim",
+				"Set Syntax: Ruby Slim"
+			],
+			[
+				"scss",
+				"Set Syntax: SCSS"
+			],
+			[
+				"space",
+				"Indentation: Convert to Spaces"
+			],
+			[
+				"stash app",
+				"Git: Stash Apply"
+			],
+			[
+				"stash",
+				"Git: Stash Changes"
+			],
+			[
+				"lower",
+				"Convert Case: Lower Case"
+			],
+			[
+				"brah",
+				"Git: New Branch"
+			],
+			[
+				"upca",
+				"Convert Case: Upper Case"
+			],
+			[
+				"align",
+				"AlignTab: Live Preview Mode"
+			],
+			[
+				"git push",
+				"Git: Push"
+			],
+			[
+				"ali",
+				"AlignTab: Live Preview Mode"
+			],
+			[
+				"git ",
+				"Git: Add..."
+			],
+			[
+				"stash drop",
+				"Git: Stash Drop"
+			],
+			[
+				"stash apply",
+				"Git: Stash Apply"
+			],
+			[
+				"git change",
+				"Git: Change Branch"
+			],
+			[
+				"erb",
+				"Snippet: ERB print"
+			],
+			[
+				"shell",
+				"Set Syntax: Shell Script (Bash)"
+			],
+			[
+				"sass",
+				"Set Syntax: Sass"
+			],
+			[
+				"title case",
+				"Convert Case: Title Case"
+			],
+			[
+				"",
+				"Convert Case: Lower Case"
+			],
+			[
+				"lint t",
+				"SublimeLinter: Lint This View"
+			],
+			[
+				"alig",
+				"AlignTab: Live Preview Mode"
+			],
+			[
+				"syntax ruby ",
+				"Set Syntax: Ruby on Rails"
+			],
+			[
+				"table",
+				"AlignTab: Live Preview Mode"
+			],
+			[
+				"markdown",
+				"Set Syntax: Markdown"
+			],
+			[
+				"syntax html r",
+				"Set Syntax: HTML (Rails)"
+			],
+			[
+				"linter to",
+				"SublimeLinter: Toggle Linter"
+			],
+			[
+				"lint",
+				"SublimeLinter: Toggle Linter"
+			],
+			[
+				"convert to tabs",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"converto ta",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"random",
+				"Random:Int"
+			],
+			[
+				"rwap",
+				"Word Wrap: Toggle"
+			],
+			[
+				"align ",
+				"AlignTab: Live Preview Mode"
+			],
+			[
+				"java",
+				"Set Syntax: JavaScript (Rails)"
+			],
+			[
+				"xml",
+				"Set Syntax: XML"
+			],
+			[
+				"markdo",
+				"Set Syntax: Markdown"
+			],
+			[
+				"plain ",
+				"Set Syntax: Plain Text"
+			],
+			[
+				"plain",
+				"Set Syntax: Plain Text"
+			],
+			[
+				"syntax txt",
+				"Set Syntax: Plain Text"
+			],
+			[
+				"mini",
+				"View: Toggle Minimap"
+			],
+			[
+				"html rails",
+				"Set Syntax: HTML (Rails)"
+			],
+			[
+				"syntax ",
+				"Set Syntax: Makefile"
+			],
+			[
+				"save as",
+				"Project: Save As"
+			]
+		],
+		"width": 552.0
+	},
+	"console":
+	{
+		"height": 649.0,
+		"history":
+		[
+			"__FILE__",
+			"ruby -v",
+			"a",
+			"def test",
+			"which python",
+			"print(\"yes\")",
+			"clear",
+			"git status"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": true,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/Sergey/Sites/routines"
+	],
+	"file_history":
+	[
+		"/Users/Sergey/Sites/routines/app/views/excercises/edit.html.slim",
+		"/Users/Sergey/Sites/routines/app/models/excercise.rb",
+		"/Users/Sergey/Sites/routines/app/models/association_excercise_muscle.rb",
+		"/Users/Sergey/Sites/routines/config/routes.rb",
+		"/Users/Sergey/Sites/routines/app/models/muscle.rb",
+		"/Users/Sergey/Sites/routines/app/controllers/excercises_controller.rb",
+		"/Users/Sergey/Sites/routines/app/models/excercising.rb",
+		"/Users/Sergey/Sites/routines/app/views/excercises/_muscle_fields.html.slim",
+		"/Users/Sergey/Sites/routines/app/views/excercises/_association_excercise_muscles_fields.html.slim",
+		"/Users/Sergey/Sites/routines/Routines.sublime-project",
+		"/Users/Sergey/Sites/routines/app/views/excercises/index.html.slim",
+		"/Users/Sergey/Sites/routines/app/assets/stylesheets/application.sass",
+		"/Users/Sergey/Sites/routines/app/javascript/modules/reps-based-toggle.js",
+		"/Users/Sergey/Sites/routines/app/javascript/packs/application.js",
+		"/Users/Sergey/Sites/routines/app/assets/javascripts/public/reps-based-toggle.js",
+		"/Users/Sergey/Sites/routines/app/assets/config/manifest.js",
+		"/Users/Sergey/Sites/routines/app/views/muscles/edit.html.slim",
+		"/Users/Sergey/Sites/routines/app/views/muscles/index.html.slim",
+		"/Users/Sergey/Sites/routines/app/views/excercisings/edit.html.slim",
+		"/Users/Sergey/Sites/routines/app/views/application/_navbar.html.slim",
+		"/Users/Sergey/Sites/routines/app/controllers/muscles_controller.rb",
+		"/Users/Sergey/Sites/routines/db/migrate/20190318221828_create_association_excercise_muscles.rb",
+		"/Users/Sergey/Sites/routines/app/assets/javascripts/application.js",
+		"/Users/Sergey/Sites/routines/Gemfile",
+		"/Users/Sergey/Sites/routines/app/views/application/_form_errors.html.slim",
+		"/Users/Sergey/Sites/routines/app/assets/javascripts/date-inputs.js",
+		"/Users/Sergey/Sites/routines/config/database.yml",
+		"/Users/Sergey/Sites/routines/.ruby-version",
+		"/Users/Sergey/Sites/routines/db/schema.rb",
+		"/Users/Sergey/Sites/routines/app/views/excercisings/index.html.slim",
+		"/Users/Sergey/Sites/routines/app/controllers/excercisings_controller.rb",
+		"/Users/Sergey/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
+		"/Users/Sergey/Library/Application Support/Sublime Text 3/Packages/Terminal/Default (OSX).sublime-keymap",
+		"/Users/Sergey/Library/Application Support/Sublime Text 3/Packages/User/Terminal.sublime-settings",
+		"/Users/Sergey/Library/Application Support/Sublime Text 3/Packages/Terminal/Terminal.sublime-settings",
+		"/Users/Sergey/Sites/routines/app/views/layouts/application.html.slim",
+		"/Users/Sergey/Sites/routines/app/javascript/modules/modernizer-datetime.js",
+		"/Users/Sergey/Sites/routines/db/migrate/20190318201239_add_current_date_as_default_to_excercisings.rb",
+		"/Users/Sergey/Sites/routines/db/migrate/20190318201057_switch_excercising_to_dates.rb",
+		"/Users/Sergey/Sites/routines/db/migrate/20190318195839_switch_excercising_from_d_tto_date.rb",
+		"/Users/Sergey/Sites/routines/db/migrate/20190318194845_add_default_reps_count_to_excercisings.rb",
+		"/Users/Sergey/Sites/routines/db/migrate/20190318193757_not_null_excercising_reps_count.rb",
+		"/Users/Sergey/Sites/routines/db/migrate/20190318193431_not_null_excercising_datetime.rb",
+		"/Users/Sergey/Sites/routines/modernizr-config.json",
+		"/Users/Sergey/Sites/routines/db/migrate/20190318170138_add_resistance_duration_to_excercisings.rb",
+		"/Users/Sergey/Sites/routines/.browserslistrc",
+		"/Users/Sergey/Sites/routines/app/assets/stylesheets/variables-bs/buttons.sass",
+		"/Users/Sergey/Sites/routines/app/assets/stylesheets/front-bootstrap.sass",
+		"/Users/Sergey/Sites/routines/db/migrate/20190318165644_rename_act_of_excercises_to_excercisings.rb",
+		"/Users/Sergey/Sites/routines/app/models/act_of_excercise.rb",
+		"/Users/Sergey/Sites/routines/app/models/weight_bundle.rb",
+		"/Users/Sergey/Sites/routines/app/models/weight.rb",
+		"/Users/Sergey/Sites/routines/app/models/association_weight_bundle_weight.rb",
+		"/Users/Sergey/Sites/routines/app/models/application_record.rb",
+		"/Users/Sergey/Sites/routines/app/models/association_excercise_weight_bundle.rb",
+		"/Users/Sergey/Sites/routines/db/migrate/20190318164926_rename_association_excercise_weight_bundle_excersise_id.rb",
+		"/Users/Sergey/Sites/routines/app/views/excersisings/index.html.slim",
+		"/Users/Sergey/Sites/routines/app/models/act_of_excersise.rb",
+		"/Users/Sergey/Sites/routines/db/migrate/20190318164444_rename_excersises_to_excercises.rb",
+		"/Users/Sergey/Sites/routines/db/migrate/20190318164218_add_repetition_based_to_excercises.rb",
+		"/Users/Sergey/Sites/routines/app/assets/stylesheets/front-vendor.sass",
+		"/Users/Sergey/Sites/routines/config/initializers/assets.rb",
+		"/Users/Sergey/Sites/routines/app/controllers/excersisings_controller.rb",
+		"/Users/Sergey/Sites/routines/db/migrate/20190312083844_remove_name_from_weights.rb",
+		"/Users/Sergey/Sites/routines/db/migrate/20190312082621_delete_repetitions_count_from_excersises.rb",
+		"/Users/Sergey/Sites/routines/db/migrate/20190312083012_rename_excercises_default_columns.rb",
+		"/Users/Sergey/Sites/routines/db/migrate/20190312083524_change_type_weight_mass.rb",
+		"/Users/Sergey/Sites/routines/db/migrate/20190312080447_create_association_excercise_weight_bundles.rb",
+		"/Users/Sergey/Sites/routines/db/migrate/20190312080214_create_association_weight_bundle_weights.rb",
+		"/Users/Sergey/Sites/routines/db/migrate/20190312080021_create_excercises.rb",
+		"/Users/Sergey/Sites/routines/db/migrate/20190312075824_create_weight_bundles.rb",
+		"/Users/Sergey/Sites/routines/db/migrate/20190312075521_create_weights.rb",
+		"/Users/Sergey/Sites/routines/db/migrate/20190312075330_create_muscles.rb",
+		"/Users/Sergey/Sites/linkedin-inviter/src/utilities/dom-manipulators.js",
+		"/Users/Sergey/Sites/linkedin-inviter/src/background/background.js",
+		"/Users/Sergey/Sites/linkedin-inviter/src/invite/dashboard.js",
+		"/Users/Sergey/Sites/linkedin-inviter/src/data/defaults.js",
+		"/Users/Sergey/Sites/linkedin-inviter/src/popup/popup.vue",
+		"/Users/Sergey/Sites/linkedin-inviter/src/utilities/messaging.js",
+		"/Users/Sergey/Sites/linkedin-inviter/src/collect/dashboard.vue",
+		"/Users/Sergey/Sites/linkedin-inviter/src/invite/message-test.js",
+		"/Users/Sergey/Sites/linkedin-inviter/src/css/my-button.css",
+		"/Users/Sergey/Sites/linkedin-inviter/src/manifest.json",
+		"/Users/Sergey/Sites/linkedin-inviter/src/data/user.js",
+		"/Users/Sergey/Sites/linkedin-inviter/src/utilities/tab.js",
+		"/Users/Sergey/Sites/linkedin-inviter/src/collect/dom-checks.js",
+		"/Users/Sergey/Sites/linkedin-inviter/src/collect/dom-parsers.js",
+		"/Users/Sergey/Sites/linkedin-inviter/src/collect/collect.js",
+		"/Users/Sergey/Sites/linkedin-inviter/dist/background.js",
+		"/Users/Sergey/Sites/linkedin-inviter/src/contacts/contacts.vue",
+		"/Users/Sergey/Sites/linkedin-inviter/package.json",
+		"/Users/Sergey/Sites/linkedin-inviter/.eslintrc",
+		"/Users/Sergey/Sites/linkedin-inviter/.eslintrc.json",
+		"/Users/Sergey/Sites/linkedin-inviter/dist/contacts.5134ddac.js",
+		"/Users/Sergey/Sites/linkedin-inviter/dist/contacts.695d1b2a.js",
+		"/Users/Sergey/Sites/linkedin-inviter/src/utilities/cleanup_text.js",
+		"/Users/Sergey/Sites/linkedin-inviter/src/collect/dashboard.js",
+		"/Users/Sergey/Sites/linkedin-inviter/src/collect/parser.js",
+		"/Users/Sergey/Sites/linkedin-inviter/src/data/validations.js",
+		"/Users/Sergey/Sites/linkedin-inviter/src/data/storage.js",
+		"/Users/Sergey/Sites/linkedin-inviter/src/utilities/export-csv.js",
+		"/Users/Sergey/Sites/linkedin-inviter/src/contacts/index.js",
+		"/Users/Sergey/Sites/linkedin-inviter/src/collect/parser-logic.js",
+		"/Users/Sergey/Sites/linkedin-inviter/src/collect/dashboard.sass",
+		"/Users/Sergey/Sites/linkedin-inviter/src/collect/dom-finders.js",
+		"/Users/Sergey/Sites/linkedin-inviter/src/popup/popup-vue.js",
+		"/Users/Sergey/Sites/linkedin-inviter/src/collect/dashboard-vue.js",
+		"/Users/Sergey/Sites/linkedin-inviter/src/contacts/contacts-vue.js",
+		"/Users/Sergey/Sites/linkedin-inviter/src/popup/index.js",
+		"/Users/Sergey/Sites/linkedin-inviter/src/invite/type-in-textarea.js",
+		"/Users/Sergey/Sites/linkedin-inviter/src/data/user_list.js",
+		"/Users/Sergey/Sites/linkedin-inviter/src/collect/dom-manipulators.js",
+		"/Users/Sergey/Sites/linkedin-inviter/src/utilities/user_list.js",
+		"/Users/Sergey/Sites/linkedin-inviter/dist/collect/collect.js",
+		"/Users/Sergey/Sites/linkedin-inviter/src/utilities/user.js",
+		"/Users/Sergey/Sites/linkedin-inviter/src/collect/onload.js",
+		"/Users/Sergey/Sites/linkedin-inviter/src/invite/dashboard.css",
+		"/Users/Sergey/Sites/linkedin-inviter/src/manifest-backup.json",
+		"/Users/Sergey/Sites/linkedin-inviter/src/collect/status-layer.js",
+		"/Users/Sergey/Sites/linkedin-inviter/src/collect/status-layer-backup.js",
+		"/Users/Sergey/Sites/linkedin-inviter/src/collect/vue_collect.js",
+		"/Users/Sergey/Sites/linkedin-inviter/dist/collect/collect.js.map",
+		"/Users/Sergey/Sites/linkedin-inviter/dist/popup.43cc8d60.js.map",
+		"/Users/Sergey/Sites/linkedin-inviter/dist/contacts.1fe4c665.js.map",
+		"/Users/Sergey/Sites/linkedin-inviter/src/collect/vue_collect-backup.js",
+		"/Users/Sergey/Sites/linkedin-inviter/src/collect/parser-helpers.js",
+		"/Users/Sergey/Sites/linkedin-inviter/src/collect/router.js",
+		"/Users/Sergey/Sites/linkedin-inviter/src/collect/collect-backup.js"
+	],
+	"find":
+	{
+		"height": 40.0
+	},
+	"find_in_files":
+	{
+		"height": 127.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"muscles",
+			" style=\"max-width: 200px\"",
+			".form-group",
+			" style=\"max-width",
+			"root_path",
+			"excercises_path",
+			"excerce",
+			"@excercise.muscles.build",
+			"_",
+			"register_toggle_reps_based_controls",
+			"re_render",
+			"function",
+			"time_controls",
+			"function",
+			"document.getElementById(\"reps-controls\").",
+			".hidden = false",
+			"set_interface_state",
+			"find_input",
+			"switch_to_time_based",
+			"resistance_duration",
+			"excercising",
+			"- if @excercising.persisted?",
+			"{ name: \"Excercises\",   href: excercises_path }",
+			"excercising",
+			"Excercisings",
+			"excercise",
+			"Excercise",
+			"Excercisings",
+			"text_area",
+			"question",
+			"questions",
+			"question",
+			"content",
+			"Question",
+			"question",
+			"content",
+			", :",
+			"repetition_based",
+			"default_repetitions_count",
+			"default_time",
+			"repetitions_count",
+			"default_time",
+			"date",
+			"excercising",
+			"Navbar",
+			"excercising",
+			"resistance_duration",
+			"repetition_based",
+			"repetitions_count",
+			"default_time",
+			"date",
+			"act_of_excercise",
+			"act_of_excercises",
+			"default_repetitions_count",
+			"find_assign_excercising",
+			"find_assign_excercise",
+			"Excercising",
+			"excercising",
+			"excercisings",
+			"page.",
+			"excercises_path",
+			"li class=\"",
+			"Features",
+			"datetime",
+			"@excercising = Excercising.new: Time.current)",
+			"excercise_id",
+			"udpate",
+			"update",
+			"DOMContentReady",
+			"Modernizr",
+			"\n@import \"",
+			"@import \"",
+			"@import 'bootstrap-sprockets'",
+			"excercising",
+			"root_path",
+			"find_and_assign_excercising",
+			"find_excercising",
+			"save",
+			"create",
+			"resistance_duration",
+			"_field",
+			"datetime",
+			"resistance_duration",
+			"datetime",
+			"repetitions_count",
+			"datetime",
+			"= f.label :",
+			"excercising",
+			"ActOfExcercise",
+			"act_of_excercises",
+			"act_of",
+			"excercising",
+			"association_excercise_weight_bundles",
+			"excersi",
+			"excersicing",
+			"excersi",
+			"excersising",
+			"excersisings",
+			"excersi",
+			"ActOfExcersise",
+			"excersi",
+			"@import \"fonts/rouble\"",
+			"excersises",
+			"time",
+			"excersise"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"Excercising"
+		],
+		"reverse": false,
+		"show_context": false,
+		"use_buffer2": false,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 28.0
+	},
+	"input":
+	{
+		"height": 40.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.SublimeLinter":
+	{
+		"height": 128.0
+	},
+	"output.SublimeLinter Messages":
+	{
+		"height": 116.0
+	},
+	"output.doc":
+	{
+		"height": 0.0
+	},
+	"output.exec":
+	{
+		"height": 276.0
+	},
+	"output.find_results":
+	{
+		"height": 503.0
+	},
+	"output.git":
+	{
+		"height": 365.0
+	},
+	"output.mdpopups":
+	{
+		"height": 0.0
+	},
+	"output.unsaved_changes":
+	{
+		"height": 116.0
+	},
+	"pinned_build_system": "",
+	"project": "Routines.sublime-project",
+	"replace":
+	{
+		"height": 52.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"routes",
+				"config/routes.rb"
+			],
+			[
+				"associaion",
+				"app/models/association_excercise_muscle.rb"
+			],
+			[
+				"muscle.rb",
+				"app/models/muscle.rb"
+			],
+			[
+				"exce",
+				"app/models/excercising.rb"
+			],
+			[
+				"model excer",
+				"app/models/excercise.rb"
+			],
+			[
+				"excercises index",
+				"app/views/excercises/index.html.slim"
+			],
+			[
+				"associa",
+				"app/models/association_excercise_muscle.rb"
+			],
+			[
+				"model exce",
+				"app/models/excercise.rb"
+			],
+			[
+				"model muscle",
+				"app/models/muscle.rb"
+			],
+			[
+				"model associ",
+				"app/models/association_excercise_muscle.rb"
+			],
+			[
+				"models associaion",
+				"app/models/association_excercise_muscle.rb"
+			],
+			[
+				"manife",
+				"app/assets/config/manifest.js"
+			],
+			[
+				"excercises cont",
+				"app/controllers/excercises_controller.rb"
+			],
+			[
+				"muscles contr",
+				"db/migrate/20190318221828_create_association_excercise_muscles.rb"
+			],
+			[
+				"navba",
+				"app/views/application/_navbar.html.slim"
+			],
+			[
+				"gem",
+				"Gemfile"
+			],
+			[
+				"nav",
+				"app/views/application/_navbar.html.slim"
+			],
+			[
+				"application/form_errors",
+				"app/views/application/_form_errors.html.slim"
+			],
+			[
+				"model mus",
+				"app/models/muscle.rb"
+			],
+			[
+				"nava",
+				"app/views/application/_navbar.html.slim"
+			],
+			[
+				"data",
+				"config/database.yml"
+			],
+			[
+				"ruby-v",
+				".ruby-version"
+			],
+			[
+				"exc",
+				"app/models/excercise.rb"
+			],
+			[
+				"sche",
+				"db/schema.rb"
+			],
+			[
+				"model musc",
+				"app/models/muscle.rb"
+			],
+			[
+				"models exc",
+				"app/models/excercise.rb"
+			],
+			[
+				"navb",
+				"app/views/application/_navbar.html.slim"
+			],
+			[
+				"model exc",
+				"app/models/excercise.rb"
+			],
+			[
+				"schem",
+				"db/schema.rb"
+			],
+			[
+				"20190318201239_add_current_date_as_default_to_excercisings.rb",
+				"db/migrate/20190318201239_add_current_date_as_default_to_excercisings.rb"
+			],
+			[
+				"database",
+				"config/database.yml"
+			],
+			[
+				"da",
+				"config/database.yml"
+			],
+			[
+				"20190318195839_switch_excercising_from_d_tto_date.rb",
+				"db/migrate/20190318195839_switch_excercising_from_d_tto_date.rb"
+			],
+			[
+				"20190318194845_add_default_reps_count_to_excercisings.rb",
+				"db/migrate/20190318194845_add_default_reps_count_to_excercisings.rb"
+			],
+			[
+				"20190318193757_not_null_excercising_reps_count.rb",
+				"db/migrate/20190318193757_not_null_excercising_reps_count.rb"
+			],
+			[
+				"20190318193431_not_null_excercising_datetime.rb",
+				"db/migrate/20190318193431_not_null_excercising_datetime.rb"
+			],
+			[
+				"models excer",
+				"app/models/excercising.rb"
+			],
+			[
+				"controllers ex",
+				"app/controllers/excercisings_controller.rb"
+			],
+			[
+				"gemfi",
+				"Gemfile"
+			],
+			[
+				"20190318170138_add_resistance_duration_to_excercisings.rb",
+				"db/migrate/20190318170138_add_resistance_duration_to_excercisings.rb"
+			],
+			[
+				"route",
+				"config/routes.rb"
+			],
+			[
+				"rout",
+				"Routines.sublime-project"
+			],
+			[
+				"20190318165644_rename_act_of_excercises_to_excercisings.rb",
+				"db/migrate/20190318165644_rename_act_of_excercises_to_excercisings.rb"
+			],
+			[
+				"schema",
+				"db/schema.rb"
+			],
+			[
+				"act",
+				"app/models/act_of_excercise.rb"
+			],
+			[
+				"20190318164926_rename_association_excercise_weight_bundle_excersise_id.rb",
+				"db/migrate/20190318164926_rename_association_excercise_weight_bundle_excersise_id.rb"
+			],
+			[
+				"model ex",
+				"app/models/excercise.rb"
+			],
+			[
+				"20190318164444_rename_excersises_to_excercises.rb",
+				"db/migrate/20190318164444_rename_excersises_to_excercises.rb"
+			],
+			[
+				"20190318164218_add_repetition_based_to_excercises.rb",
+				"db/migrate/20190318164218_add_repetition_based_to_excercises.rb"
+			],
+			[
+				"exce index",
+				"app/views/excersisings/index.html.slim"
+			],
+			[
+				"layouts app",
+				"app/views/layouts/application.html.slim"
+			],
+			[
+				"asset",
+				"config/initializers/assets.rb"
+			],
+			[
+				"model a",
+				"app/models/act_of_excersise.rb"
+			],
+			[
+				"20190312083844_remove_name_from_weights.rb",
+				"db/migrate/20190312083844_remove_name_from_weights.rb"
+			],
+			[
+				"20190312083524_change_type_weight_mass.rb",
+				"db/migrate/20190312083524_change_type_weight_mass.rb"
+			],
+			[
+				"20190312083012_rename_excercises_default_columns.rb",
+				"db/migrate/20190312083012_rename_excercises_default_columns.rb"
+			],
+			[
+				"20190312080447_create_association_excercise_weight_bundles.rb",
+				"db/migrate/20190312080447_create_association_excercise_weight_bundles.rb"
+			],
+			[
+				"20190312082621_delete_repetitions_count_from_excersises.rb",
+				"db/migrate/20190312082621_delete_repetitions_count_from_excersises.rb"
+			],
+			[
+				"20190312080214_create_association_weight_bundle_weights.rb",
+				"db/migrate/20190312080214_create_association_weight_bundle_weights.rb"
+			],
+			[
+				"20190312080021_create_excercises.rb",
+				"db/migrate/20190312080021_create_excercises.rb"
+			],
+			[
+				"20190312075824_create_weight_bundles.rb",
+				"db/migrate/20190312075824_create_weight_bundles.rb"
+			],
+			[
+				"20190312075521_create_weights.rb",
+				"db/migrate/20190312075521_create_weights.rb"
+			],
+			[
+				"20190312075330_create_muscles.rb",
+				"db/migrate/20190312075330_create_muscles.rb"
+			],
+			[
+				"defaul",
+				"src/data/defaults.js"
+			],
+			[
+				"popup vue",
+				"src/popup/popup.vue"
+			],
+			[
+				"mani",
+				"src/manifest.json"
+			],
+			[
+				"manif",
+				"src/manifest.json"
+			],
+			[
+				"user.js",
+				"src/data/user.js"
+			],
+			[
+				"popup",
+				"src/popup/popup.vue"
+			],
+			[
+				"user.j",
+				"src/data/user.js"
+			],
+			[
+				"back",
+				"src/background/background.js"
+			],
+			[
+				"ba",
+				"dist/background.js"
+			],
+			[
+				"backgron",
+				"dist/background.js"
+			],
+			[
+				"contacts vue",
+				"src/contacts/contacts.vue"
+			],
+			[
+				"default",
+				"src/data/defaults.js"
+			],
+			[
+				"vali",
+				"src/data/validations.js"
+			],
+			[
+				"valida",
+				"src/data/validations.js"
+			],
+			[
+				"data/storage",
+				"src/data/storage.js"
+			],
+			[
+				"collect/dom-finders",
+				"src/collect/dom-finders.js"
+			],
+			[
+				"valid",
+				"src/data/validations.js"
+			],
+			[
+				"pars log",
+				"src/collect/parser-logic.js"
+			],
+			[
+				"dash",
+				"src/collect/dashboard.vue"
+			],
+			[
+				"collect/parser-logic",
+				"src/collect/parser-logic.js"
+			],
+			[
+				"collect/dom-manipulators",
+				"src/collect/dom-manipulators.js"
+			],
+			[
+				"storage",
+				"src/utilities/storage.js"
+			],
+			[
+				"cont",
+				"dist/contacts.html"
+			],
+			[
+				"dist module sto",
+				"dist/modules/storage.js"
+			],
+			[
+				"seed",
+				"dist/modules/seed.js"
+			],
+			[
+				"style.css",
+				"dist/css/style.css"
+			],
+			[
+				"css/pure-customizations.css",
+				"dist/css/pure-customizations.css"
+			],
+			[
+				"vendor/pure.min.css",
+				"dist/vendor/pure.min.css"
+			],
+			[
+				"css/popup.css",
+				"src/css/popup.css"
+			],
+			[
+				"packa",
+				"package.json"
+			],
+			[
+				"pack",
+				"package.json"
+			],
+			[
+				"git",
+				".gitignore"
+			],
+			[
+				"pa",
+				"package.json"
+			],
+			[
+				"src cont",
+				"src/contacts.html"
+			],
+			[
+				"conta",
+				"dist/contacts.html"
+			],
+			[
+				"src contacts js",
+				"src/js/contacts/contacts.js"
+			],
+			[
+				"vue con",
+				"dist/modules/contacts/vue-contacts.js"
+			],
+			[
+				"vue cont",
+				"dist/modules/contacts/vue-contacts.js"
+			],
+			[
+				"se",
+				"dist/modules/seed.js"
+			],
+			[
+				"see",
+				"dist/modules/seed.js"
+			],
+			[
+				"vue ",
+				"dist/modules/contacts/vue-contacts.js"
+			],
+			[
+				"collect ",
+				"dist/modules/collect/status-layer.js"
+			],
+			[
+				"collect",
+				"dist/modules/collect/vue_collect.js"
+			],
+			[
+				"popu",
+				"dist/popup.html"
+			],
+			[
+				"colle",
+				"dist/modules/collect/collect.js"
+			],
+			[
+				"vue co",
+				"dist/modules/collect/vue_collect.js"
+			],
+			[
+				"pop",
+				"dist/popup.html"
+			],
+			[
+				"pure",
+				"dist/css/pure-customizations.css"
+			],
+			[
+				"vue po",
+				"dist/modules/popup/vue-popup.js"
+			],
+			[
+				"style.",
+				"dist/css/style.css"
+			],
+			[
+				"vue pop",
+				"dist/modules/popup/vue-popup.js"
+			],
+			[
+				"con",
+				"dist/contacts.html"
+			],
+			[
+				"layer",
+				"dist/modules/collect/status-layer.js"
+			],
+			[
+				"vue op",
+				"dist/modules/popup/vue-popup.js"
+			],
+			[
+				"vue",
+				"dist/modules/popup/vue-popup.js"
+			],
+			[
+				"sta",
+				"dist/css/site/status-layers.css"
+			],
+			[
+				"status css",
+				"dist/css/site/status-layers.css"
+			],
+			[
+				"utils",
+				"dist/modules/utils.js"
+			],
+			[
+				"stora",
+				"dist/modules/storage.js"
+			],
+			[
+				"tab ma",
+				"dist/modules/tab-manager.js"
+			],
+			[
+				"contact",
+				"dist/css/contacts.css"
+			],
+			[
+				"pur",
+				"dist/css/pure-customizations.css"
+			],
+			[
+				"contacts css",
+				"dist/css/contacts.css"
+			],
+			[
+				"vue pu",
+				"dist/modules/popup/vue-popup.js"
+			],
+			[
+				"collect/dom-checks",
+				"dist/modules/collect/dom-checks.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "code",
+		"selected_items":
+		[
+			[
+				"code",
+				"~/Sites/code2travel/Code 2 travel.sublime-project"
+			],
+			[
+				"li",
+				"~/Sites/linkedin-inviter/LinkedIn invider.sublime-workspace"
+			],
+			[
+				"link",
+				"~/Sites/linkedin-inviter/LinkedIn invider.sublime-workspace"
+			],
+			[
+				"qui",
+				"~/Sites/mir-kvestov.ru-quiz/Quizz landing.sublime-project"
+			],
+			[
+				"env",
+				"~/Library/Mobile Documents/com~apple~CloudDocs/Programming/OS/Mac OS/ENV variables.sublime-project"
+			],
+			[
+				"jai",
+				"~/Sites/jaimini.ru/Jaimini.sublime-project"
+			],
+			[
+				"mir",
+				"~/Sites/mir-kvestov.ru/Mir kvestov.sublime-project"
+			],
+			[
+				"",
+				"~/Sites/code2travel/Code 2 travel.sublime-project"
+			],
+			[
+				"sarq",
+				"~/Sites/sarquests.ru/sarquests.ru.sublime-project"
+			],
+			[
+				"a-a-a",
+				"~/Sites/a-a-ah.ru/a-a-ah.ru.sublime-project"
+			],
+			[
+				"cod",
+				"~/Sites/code2travel/Code 2 travel.sublime-project"
+			],
+			[
+				"su",
+				"~/Sites/jaimini.ru/Jaimini.sublime-project"
+			],
+			[
+				"cup",
+				"~/Sites/mir-kvestov.ru-cup/Cup.sublime-project"
+			],
+			[
+				"ji",
+				"~/Sites/jaimini.ru/Jaimini.sublime-project"
+			],
+			[
+				"opensi",
+				"~/Sites/opensit.cloud/OpenSit.cloud.sublime-project"
+			],
+			[
+				"wo",
+				"~/Google Drive/Projects/World of escapes/Settings/World of escapes.sublime-project"
+			],
+			[
+				"ja",
+				"~/Sites/jaimini.ru/Jaimini.sublime-project"
+			],
+			[
+				"гиль",
+				"~/Sites/questguild.ru/Гильдия квестов.sublime-project"
+			],
+			[
+				"sergey",
+				"~/Sites/sergeypedan.ru/SergeyPedan.ru.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 361.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

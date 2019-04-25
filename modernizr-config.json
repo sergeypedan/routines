@@ -1,0 +1,11 @@
+// modernizr -c modernizr-config.json
+
+{
+  "minify": false,
+  "options": [
+    "setClasses"
+  ],
+  "feature-detects": [
+    "test/inputtypes"
+  ]
+}

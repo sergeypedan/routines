@@ -1,0 +1,18 @@
+section.section-padding
+	.container-fluid
+
+		h1 Muscles
+
+		table.table
+			thead
+				tr
+					th Name
+					th
+
+			tbody
+				- @muscles.each do |muscle|
+					tr
+						td = muscle.name
+						td = link_to "Edit", [:edit, muscle], class: "btn btn-secondary btn-sm"
+
+		= link_to "Add new", new_muscle_path, class: "btn btn-primary"

@@ -1,0 +1,14 @@
+//= link_tree ../images
+//= link_tree ../images/icons
+//= link_tree ../images/favicon
+
+
+// CSS entry points
+
+//= link_directory ../stylesheets .css
+
+
+// JS entry points
+
+//= link_directory ../javascripts .js
+//= link_directory ../javascripts/public .js

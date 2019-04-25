@@ -1,0 +1,11 @@
+{
+  "name": "routines",
+  "private": true,
+  "dependencies": {
+    "@rails/webpacker": "^4.0.2"
+  },
+  "devDependencies": {
+    "nodep-date-input-polyfill": "^5.2.0",
+    "webpack-dev-server": "^3.2.1"
+  }
+}
