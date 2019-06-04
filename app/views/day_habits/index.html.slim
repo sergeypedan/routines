@@ -1,0 +1,30 @@
+.container-fluid.section-padding
+
+  h1
+    | Habits for
+    =< l @date, format: "%-d %B %Y"
+
+  table.table
+    thead
+      tr
+        th Name
+        th Day target
+        th Done by now
+        th Increment
+        th Completed?
+
+    tbody
+      - @day_habits.each do |day_habit|
+        tr
+          td = day_habit.habit.name
+          td = day_habit.target_str
+          td = day_habit.progress_str
+          td
+            - unless day_habit.habit.time_based?
+              = form_with model: HabitEntry.new do |f|
+                = f.hidden_field :habit_id, day_habit.habit.id
+                = f.hidden_field :created_at, Time.current
+                = hidden_field_tag :from, "day_habit"
+                = f.button "+"
+
+          td = day_habit.completed? ? fa_icon("check") : "Not yet"

@@ -1,0 +1,44 @@
+.container-fluid.section-padding
+
+  h1 Habits
+
+  table.table
+    thead
+      tr
+        th Название
+        th Time per round
+        th Rounds per day
+        th Total time per day
+        th Actions
+
+    tbody
+      - @habits.each do |habit|
+        tr
+          td = habit.name
+          td
+            - if habit.time_based?
+              = habit.time_per_round
+              =<> habit.time_unit
+              | / round
+            - else
+              small.text-muted Not a time-based habit
+          td
+            - if habit.rounds_per_day == 1
+              | Once day
+            - else
+              => habit.rounds_per_day
+              | times / day
+
+          td
+            - if habit.time_based?
+              = habit.time_per_round * habit.rounds_per_day
+              =<> habit.time_unit
+              | / day
+            - else
+              small.text-muted Not a time-based habit
+
+          td
+            = link_to "Edit", [:edit, habit], class: "btn btn-outline-secondary btn-sm"
+            = link_to "Delete", habit, method: :delete, class: "btn btn-outline-danger btn-sm", style: "margin-left: 10px"
+
+  = link_to "Add a new habit", new_habit_path, class: "btn btn-primary"

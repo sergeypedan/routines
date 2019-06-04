@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_18_221828) do
+ActiveRecord::Schema.define(version: 2019_06_04_174504) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,6 +61,23 @@ ActiveRecord::Schema.define(version: 2019_03_18_221828) do
     t.index ["excercise_id"], name: "index_excercisings_on_excercise_id"
   end
 
+  create_table "habit_entries", force: :cascade do |t|
+    t.bigint "habit_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "time", default: 0, null: false
+    t.index ["habit_id"], name: "index_habit_entries_on_habit_id"
+  end
+
+  create_table "habits", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "rounds_per_day", default: 1, null: false
+    t.integer "time_per_round"
+    t.string "time_unit", default: "minutes", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "muscles", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
@@ -83,4 +100,5 @@ ActiveRecord::Schema.define(version: 2019_03_18_221828) do
 
   add_foreign_key "association_excercise_muscles", "excercises"
   add_foreign_key "association_excercise_muscles", "muscles"
+  add_foreign_key "habit_entries", "habits"
 end

@@ -13,21 +13,33 @@ require "action_view/railtie"
 require "sprockets/railtie"
 # require "rails/test_unit/railtie"
 
-# Require the gems listed in Gemfile, including any gems
-# you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
 module Routines
   class Application < Rails::Application
-    # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
 
-    # Settings in config/environments/* take precedence over those specified here.
-    # Application configuration can go into files in config/initializers
-    # -- all .rb files in that directory are automatically loaded after loading
-    # the framework and any gems in your application.
+    config.i18n.default_locale = :ru # не ru_RU
+    config.time_zone = "Moscow"
+    config.active_record.default_timezone = :utc
 
-    # Don't generate system test files.
-    config.generators.system_tests = nil
+    # API: http://edgeguides.rubyonrails.org/configuring.html#configuring-generators
+    # Разъяснение http://rusrails.ru/configuring-rails-applications
+    config.generators do |g|
+      g.assets false
+      g.channel assets: false
+      g.controller_specs false
+      g.factory_bot true
+      g.fixture_replacement :factory_bot, dir: "spec/factories"
+      g.helper false
+      g.helper_specs false
+      g.stylesheets false
+      g.system_tests false
+      g.view_specs false
+      g.test_framework :rspec, fixtures: false, view_specs: false, helper_specs: false, routing_specs: false, controller_specs: false, request_specs: false
+    end
+
+    config.paths.add "concepts", eager_load: true
+    config.paths.add "lib",      eager_load: true
   end
 end

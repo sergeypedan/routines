@@ -20,16 +20,15 @@ module AjaxFormHelper
 
 	private
 
+	def association_partial_file_name(association)
+		return association.to_s.singularize + "_fields"
+	end
+
 	def fields_for_new_association(form_builder, association, new_record)
 		form_builder.fields_for(association, new_record, child_index: new_record.object_id) do |builder|
 			render association_partial_file_name(association), f: builder
 		end
 	end
-
-	def association_partial_file_name(association)
-		return association.to_s.singularize + "_fields"
-	end
-
 
 	def new_associated_record(form_builder, association)
 		association_model = form_builder.object.send(association).klass

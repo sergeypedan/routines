@@ -11,9 +11,9 @@ end
 #
 # Table name: association_excercise_muscles
 #
-#  excercise_id :bigint(8)
-#  id           :bigint(8)        not null, primary key
-#  muscle_id    :bigint(8)
+#  excercise_id :bigint
+#  id           :bigint           not null, primary key
+#  muscle_id    :bigint
 #
 # Foreign Keys
 #

@@ -7,7 +7,7 @@ end
 #
 # Table name: weight_bundles
 #
-#  id         :bigint(8)        not null, primary key
+#  id         :bigint           not null, primary key
 #  name       :string           not null
 #  weight     :decimal(, )      not null
 #

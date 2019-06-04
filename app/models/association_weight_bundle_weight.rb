@@ -11,7 +11,7 @@ end
 #
 # Table name: association_weight_bundle_weights
 #
-#  id               :bigint(8)        not null, primary key
+#  id               :bigint           not null, primary key
 #  weight_bundle_id :integer
 #  weight_id        :integer
 #

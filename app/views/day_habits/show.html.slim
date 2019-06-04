@@ -1,0 +1,24 @@
+.container-fluid.section-padding
+
+	h1 style="margin-bottom: 10px"
+		=> @habit.name
+		| on
+		=< l @date, format: "%-d %B %Y"
+
+	div style="margin-bottom: 40px"
+		| ←
+		=< link_to "All habits on #{l @date, format: "%-d %B %Y"}", day_habits_path(date: @date.strftime("%F"))
+
+	h2 Entries
+
+	table.table
+		thead
+			tr
+				th Time
+				th
+
+		tbody
+			- @day_habit.entries.each do |entry|
+				tr
+					td = entry.created_at
+					td

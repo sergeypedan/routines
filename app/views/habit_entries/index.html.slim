@@ -1,0 +1,23 @@
+.container-fluid.section-padding
+
+	h1
+		| Habits log
+		- if @date
+			|  for
+			=< l @date, format: "%-d %B %Y"
+
+	table.table
+		thead
+			tr
+				td Habit
+				td Time
+				td Edit
+
+		tbody
+			- @entries.each do |entry|
+				tr
+					td = entry.habit.name
+					td = l entry.created_at, format: "%-d %B %Y, %H:%M"
+					td = link_to "Edit", [:edit, entry], class: "btn btn-secondary btn-sm"
+
+	= link_to "New entry", [:new, :habit_entry], class: "btn btn-primary"

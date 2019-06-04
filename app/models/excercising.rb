@@ -28,7 +28,7 @@ end
 #
 #  date                :date             not null
 #  excercise_id        :integer          not null
-#  id                  :bigint(8)        not null, primary key
+#  id                  :bigint           not null, primary key
 #  repetitions_count   :integer          default(1), not null
 #  resistance_duration :integer
 #

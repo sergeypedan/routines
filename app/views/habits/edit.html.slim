@@ -1,0 +1,26 @@
+.container-fluid.section-padding
+	= form_with model: @habit, local: true do |f|
+
+		.form-group
+			= f.label      :name, nil, class: "required"
+			= f.text_field :name, required: true, class: "form-control"
+
+		.form-group
+			= f.label        :rounds_per_day, nil, class: "required"
+			= f.number_field :rounds_per_day, required: true, class: "form-control"
+
+		.row
+			.col-auto.form-group
+				= f.label        :time_per_round
+				= f.number_field :time_per_round, class: "form-control"
+
+			.col-auto.form-group
+				= f.label  :time_unit, nil, class: "required"
+				= f.collection_radio_buttons :time_unit, \
+																		Habit.time_units_for_radios, :first, :last, \
+																		{}, { required: true } do |b|
+					.form-check
+						= b.radio_button class: "form-check-input"
+						= b.label class: "form-check-label"
+
+		= f.submit nil, class: "btn btn-primary"

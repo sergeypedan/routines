@@ -3,13 +3,13 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 gem "autoprefixer-rails"
 gem "bootsnap", ">= 1.1.0", require: false
-gem "bootstrap", "4.1.3"
+gem "bootstrap"
 gem "coffee-rails"
 gem "font-awesome-rails"
 gem "jbuilder"
 gem "jquery-rails"
 gem "pg", ">= 0.18", "< 2.0" # must appear before [puma, rails, russian]
-gem "puma", "~> 3.11"
+gem "puma"
 gem "rails"
 gem "sass-rails"
 gem "slim-rails"
@@ -29,4 +29,10 @@ group :development do
 	gem "annotate"
   gem "web-console"
   gem "listen", ">= 3.0.5", "< 3.2"
+end
+
+group :test do
+  gem "factory_bot_rails" # must be also in dev for generators
+  gem "faker" # must be also in dev for generators
+  gem "rspec-rails"
 end
