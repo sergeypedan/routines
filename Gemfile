@@ -3,7 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 gem "autoprefixer-rails"
 gem "bootsnap", ">= 1.1.0", require: false
-gem "bootstrap", "4.1.3"
+gem "bootstrap", "4.3.1"
 gem "coffee-rails"
 gem "font-awesome-rails"
 gem "jbuilder"
