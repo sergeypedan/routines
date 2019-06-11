@@ -1,0 +1,10 @@
+.container-fluid.section-padding
+	h1 «#{@habit.name}»
+	p #{l @time_frame.first, format: "%B, %-d"} to #{l @time_frame.last, format: "%B, %-d of %Y"}
+
+	table.table
+		- @day_habits.each do |day_habit|
+			tr
+				td = day_habit.date
+				td = day_habit.completed_percent
+				td = day_habit.completed?

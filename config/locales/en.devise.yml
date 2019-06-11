@@ -12,6 +12,9 @@ en:
         other: "%{count} errors prohibited this %{resource} from being saved:"
 
   devise:
+    buttons:
+      sign_in: Войти
+      sign_up: Зарегистрироваться
     failure:
       already_authenticated: 'You are already signed in.'
       unauthenticated: 'You need to sign in or sign up before continuing.'
@@ -24,6 +27,7 @@ en:
     sessions:
       signed_in: 'Welcome back!'
       signed_out: ''
+      remember_me: Remember me
     passwords:
       send_instructions: 'You will receive an email with instructions about how to reset your password in a few minutes.'
       updated: 'Your password was changed successfully. You are now signed in.'

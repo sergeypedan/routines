@@ -46,4 +46,9 @@ class Duration
 		self.public_send unit
 	end
 
+	def in_s(unit, to_i: true)
+		number = to_i ? self.in(unit).to_i : self.in(unit)
+		[number, unit.to_s].join(" ")
+	end
+
 end

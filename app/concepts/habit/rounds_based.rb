@@ -2,18 +2,14 @@
 
 class Habit::RoundsBased
 
-	def initialize(ar_habit)
-		@habit = ar_habit
+	def initialize(habit)
+		@habit = habit
 	end
 
-	delegate :created_at, to: :@habit
-
-	def target_rounds
-		@habit.rounds_per_day
-	end
+	# delegate :created_at, to: :@habit
 
 	def target_str
-		"#{target_rounds} rounds"
+		"#{@habit.rounds_per_day} rounds"
 	end
 
 	def time_based?

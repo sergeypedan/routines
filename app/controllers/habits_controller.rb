@@ -1,14 +1,17 @@
 # frozen_string_literal: true
 
-class HabitsController < ApplicationController
+class HabitsController < DashboardsController
+
+	skip_before_action :verify_authenticity_token, only: [:move]
+
 
   def index
-    @habits = Habit.all.order(created_at: :asc)
+    @habits = Habit.all.order(:position)
   end
 
 
   def new
-    @habit = Habit.new
+    @habit = Habit.new(user: current_user)
     render :edit
   end
 
@@ -45,10 +48,16 @@ class HabitsController < ApplicationController
   end
 
 
+	def move
+		@habit = Habit.find params[:id]
+		@habit.move_to! params[:position]
+	end
+
+
   private
 
   def filtered_params
-    params.require(:habit).permit(:id, :name, :rounds_per_day, :time_per_round, :time_unit)
+    params.require(:habit).permit(:id, :name, :position, :rounds_per_day, :time_per_round, :time_unit)
   end
 
 end

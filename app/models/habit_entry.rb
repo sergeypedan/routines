@@ -5,6 +5,7 @@ class HabitEntry < ApplicationRecord
 	# Validations
 
 	validates :habit_id, presence: true, numericality: { only_integer: true, greater_than: 0 }
+	validates :user_id,  presence: true, numericality: { only_integer: true, greater_than: 0 }
 
 
 	# Associations
@@ -12,13 +13,13 @@ class HabitEntry < ApplicationRecord
 	belongs_to :habit
 
 
-  # Methods
+	# Methods
 
-  delegate :time_unit, to: :habit
+	delegate :time_unit, to: :habit
 
-  def duration
-    @duration ||= Duration.new(time, time_unit)
-  end
+	def duration
+		@duration ||= Duration.new(time, :seconds)
+	end
 
 end
 
@@ -26,11 +27,13 @@ end
 #
 # Table name: habit_entries
 #
-#  habit_id   :bigint
-#  id         :bigint           not null, primary key
-#  time       :integer          default(0), not null
+#  habit_id         :bigint
+#  id               :bigint           not null, primary key
+#  time(in seconds) :integer          default(0), not null
+#  user_id          :bigint           not null
 #
 # Foreign Keys
 #
 #  fk_rails_...  (habit_id => habits.id)
+#  fk_rails_...  (user_id => users.id)
 #

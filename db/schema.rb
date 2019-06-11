@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_04_174504) do
+ActiveRecord::Schema.define(version: 2019_06_09_172520) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,23 +65,47 @@ ActiveRecord::Schema.define(version: 2019_06_04_174504) do
     t.bigint "habit_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "time", default: 0, null: false
+    t.integer "time", default: 0, null: false, comment: "in seconds"
+    t.bigint "user_id", null: false
     t.index ["habit_id"], name: "index_habit_entries_on_habit_id"
+    t.index ["user_id"], name: "index_habit_entries_on_user_id"
   end
 
   create_table "habits", force: :cascade do |t|
     t.string "name", null: false
     t.integer "rounds_per_day", default: 1, null: false
-    t.integer "time_per_round"
+    t.integer "time_per_round", default: 0, null: false
     t.string "time_unit", default: "minutes", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "position", default: 0, null: false
+    t.bigint "user_id", null: false
+    t.index ["position"], name: "index_habits_on_position"
+    t.index ["user_id"], name: "index_habits_on_user_id"
   end
 
   create_table "muscles", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer "failed_attempts", default: 0, null: false
+    t.string "unlock_token"
+    t.datetime "locked_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
   create_table "weight_bundles", force: :cascade do |t|
@@ -101,4 +125,6 @@ ActiveRecord::Schema.define(version: 2019_06_04_174504) do
   add_foreign_key "association_excercise_muscles", "excercises"
   add_foreign_key "association_excercise_muscles", "muscles"
   add_foreign_key "habit_entries", "habits"
+  add_foreign_key "habit_entries", "users"
+  add_foreign_key "habits", "users"
 end

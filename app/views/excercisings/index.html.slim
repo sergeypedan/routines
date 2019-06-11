@@ -13,6 +13,6 @@ section.section-padding
 				- @excercisings.each do |excercising|
 					tr
 						td = l excercising.date, format: "%-d %B %Y"
-						td = link_to "Edit", [:edit, excercising], class: "btn btn-secondary btn-sm"
+						td = link_to "Edit", [:edit, excercising], class: "btn btn-outline-secondary btn-sm"
 
 .container-fluid = link_to "Log new", new_excercising_path, class: "btn btn-primary"

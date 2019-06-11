@@ -2,56 +2,71 @@
 
 class DayHabit
 
-  attr_reader :date
-  attr_reader :habit
+	attr_reader :date
 
-  def initialize(date:, habit:)
-    @date  = date.to_date
-    @habit = habit
-    @specific_habit = time_based? ? Habit::TimeBased.new(@habit) : Habit::RoundsBased.new(@habit)
-  end
+	def initialize(date:, habit:)
+		@date  = date.to_date
+		@ar_habit = habit
+		@specific_habit = time_based? ? Habit::TimeBased.new(@ar_habit) : Habit::RoundsBased.new(@ar_habit)
+	end
 
-  def applicable?
-    @habit.created_at < @date
-  end
+	def applicable?
+		@date >= @ar_habit.created_at
+	end
 
-  def completed?
-    return done_rounds >= @specific_habit.target_rounds unless time_based?
-    done_time.in(:seconds) >= @specific_habit.target_time.in(:seconds)
-  end
+	def completed?
+		return done_rounds            >= target_rounds if rounds_based?
+		return done_time.in(:seconds) >= target_time.in(:seconds)
+	end
 
-  # Delegate me
-  def time_based?
-    @habit.time_based?
-  end
+	def completed_fraction
+		return done_rounds.to_f            / target_rounds.to_f if rounds_based?
+		return done_time.in(:seconds).to_f / target_time.in(:seconds).to_f
+	end
 
-  def entries
-    @entries ||= HabitEntry.where("DATE(created_at) = ?", @date)
-  end
+	def completed_percent
+		completed_fraction * 100
+	end
 
-  def done_rounds
-    @done_rounds ||= entries.size
-  end
+	attr_reader :date
 
-  def done_time
-    @done_time ||= if time_based?
-                      amount = (entries.map(&:duration).map(&:seconds).reduce(&:+)) || 0
-                      Duration.new amount, :seconds
-                    else
-                      0
-                    end
-  end
+	def done_rounds
+		@done_rounds ||= entries.size
+	end
 
-  def target_str
-    @specific_habit.target_str
-  end
+	def done_time
+		@done_time ||= if time_based?
+											amount = (entries.map(&:duration).map(&:seconds).reduce(&:+)) || 0
+											Duration.new amount, :seconds
+										else
+											Duration.new 0, :seconds
+										end
+	end
 
-  def progress_str
-    if time_based?
-      "#{done_time} min in #{done_rounds} round#{"s" if done_rounds > 1}"
-    else
-      "#{done_rounds} rounds"
-    end
-  end
+	def entries
+		@entries ||= HabitEntry.where(habit: @ar_habit).where("DATE(created_at) = ?", @date)
+	end
+
+	def exceeded?
+		completed_fraction > 1
+	end
+
+	def habit
+		@ar_habit
+	end
+
+	delegate :rounds_based?, to: :@ar_habit
+
+	def target_rounds
+		@ar_habit.rounds_per_day
+	end
+
+	delegate :target_str, to: :@specific_habit
+
+	def target_time
+		@ar_habit.duration
+	end
+
+	delegate :time_based?, to: :@ar_habit
 
 end

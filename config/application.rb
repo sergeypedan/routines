@@ -19,7 +19,8 @@ module Routines
   class Application < Rails::Application
     config.load_defaults 5.2
 
-    config.i18n.default_locale = :ru # не ru_RU
+    config.i18n.default_locale = :en # не ru_RU
+    # config.i18n.default_locale = :ru # не ru_RU
     config.time_zone = "Moscow"
     config.active_record.default_timezone = :utc
 

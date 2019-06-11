@@ -1,23 +1,53 @@
-nav class="navbar navbar-expand-lg navbar-dark bg-dark"
+nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #22a820"
 
-	a class="navbar-brand" href="#" Routines
+	= link_to "Routines", day_habits_path, class: "navbar-brand"
 
 	button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"
 		span class="navbar-toggler-icon"
 
 	div class="collapse navbar-collapse" id="navbarNav"
-		.navbar-nav
+		ul.navbar-nav
 
 			ruby:
 				pages = [
+									{ name: "Habit stats",  href: habit_stats_path },
 									{ name: "Habits today", href: day_habits_path },
 									{ name: "Habits log",   href: habit_entries_path },
-									{ name: "Habits",       href: habits_path },
-									{ name: "Excercisings", href: root_path },
-									{ name: "Excercises",   href: excercises_path },
-									{ name: "Muscles",      href: muscles_path }
+									{ name: "Workout log",  href: excercisings_path }
 								]
 
 			- pages.each do |page|
 				= tag.li class: ["nav-item", ("active" if current_page?(page[:href]) )]
 					= link_to( page[:name], page[:href], class: "nav-link")
+
+		.navbar-nav.ml-auto
+
+			ruby:
+				pages = [
+									{ name: "Habits",       href: habits_path },
+									# { name: "Habits today", href: day_habits_path },
+									# { name: "Habits log",   href: habit_entries_path },
+									{ name: "Excercises",   href: excercises_path },
+									{ name: "Muscles",      href: muscles_path },
+									# { name: "Workout log",  href: root_path }
+								]
+
+			- pages.each do |page|
+				= tag.li class: ["nav-item", ("active" if current_page?(page[:href]) )]
+					= link_to( page[:name], page[:href], class: "nav-link")
+
+			li
+				- if current_user
+					/ - href = user_root_path
+					/ - is_active = current_page?(href)
+					/ = tag.li class: li_classes(is_active)
+					/ 	= link_to href, class: a_classes(is_active)
+					/ 		= image_tag "placeholders/user/universal.svg", class: "header__userpic", alt: "Аватар"
+					/ 		= current_user.first_name
+				- else
+					- if current_page?(user_session_path)
+						= tag.li class: "header__menu__li"
+							= link_to fa_icon("user-plus", text: t("authentication.sign_up")), new_registration_path(:user), class: "nav-link"
+					- else
+						= tag.li class: "header__menu__li"
+							= link_to fa_icon("unlock-alt", text: t("authentication.sign_in")), new_user_session_path, class: "nav-link"

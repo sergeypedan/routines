@@ -16,6 +16,6 @@
 					td
 						- excercise.muscles.each do |muscle|
 							= muscle.name
-					td = link_to "Edit", [:edit, excercise], class: "btn btn-secondary btn-sm"
+					td = link_to "Edit", [:edit, excercise], class: "btn btn-outline-secondary btn-sm"
 
 	= link_to "Add new", new_excercise_path, class: "btn btn-primary"

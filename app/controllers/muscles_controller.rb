@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-class MusclesController < ApplicationController
+class MusclesController < DashboardsController
 
 	def index
-		@muscles = Muscle.all
+		@muscles = Muscle.all.includes(:excercises)
 	end
 
 

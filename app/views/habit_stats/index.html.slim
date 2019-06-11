@@ -1,0 +1,5 @@
+.container-fluid.section-padding
+	h1 Multiple habits stats
+	p #{l @time_frame.first, format: "%B, %-d"} to #{l @time_frame.last, format: "%B, %-d of %Y"}
+
+	= @habits_stats.inspect

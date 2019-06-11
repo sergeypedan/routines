@@ -1,23 +1,36 @@
 .container-fluid.section-padding
 
-	h1
+	h1 style="margin-bottom: 10px"
 		| Habits log
 		- if @date
 			|  for
 			=< l @date, format: "%-d %B %Y"
 
-	table.table
+	= link_to "New entry", [:new, :habit_entry], class: "btn btn-primary"
+
+	table.table style="margin-top: 40px"
 		thead
 			tr
-				td Habit
-				td Time
-				td Edit
+				th Created at
+				th Habit
+				th Duration
+				th Edit
 
 		tbody
-			- @entries.each do |entry|
-				tr
-					td = entry.habit.name
-					td = l entry.created_at, format: "%-d %B %Y, %H:%M"
-					td = link_to "Edit", [:edit, entry], class: "btn btn-secondary btn-sm"
+			- @entries.group_by { |i| i.created_at.to_date }.each do |created_at, entries|
+				tr.row-subhead
+					th colspan="4" = l created_at, format: "%-d %B %Y"
+				- entries.each do |entry|
+					tr
+						td = l entry.created_at, format: "%H:%M"
+						td = entry.habit.name
+						td
+							- if entry.habit.time_based?
+								= entry.duration.in_s(entry.habit.time_unit)
+							- else
+								small.text-muted Not a time-based habit
 
-	= link_to "New entry", [:new, :habit_entry], class: "btn btn-primary"
+						td
+							= link_to "Edit", [:edit, entry], class: "btn btn-outline-secondary btn-sm"
+							= link_to "Delete", entry, method: :delete, class: "btn btn-outline-danger btn-sm", style: "margin-left: 15px"
+

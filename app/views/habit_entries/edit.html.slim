@@ -1,22 +1,37 @@
 .container-fluid.section-padding
 	= form_with model: @entry, local: true do |f|
 
-		.form-group
-			= f.label             :habit_id, nil, class: "required"
-			= f.collection_select :habit_id, Habit.all, :id, :name, { prompt: true }, required: true, class: "form-control"
-
 		.row
-			.col-auto.form-group
-				= f.label        :time, nil, class: "required"
-				= f.number_field :time, class: "form-control"
 
 			.col-auto.form-group
-				= f.label                    :time_unit, nil, class: "required"
-				= f.collection_radio_buttons :time_unit, \
-																		Habit.time_units_for_radios, :first, :last, \
-																		{}, { required: true } do |b|
-					.form-check
-						= b.radio_button class: "form-check-input"
-						= b.label class: "form-check-label"
+				= f.label             :habit_id, nil, class: "required"
+				= f.collection_select :habit_id, Habit.order(:position), :id, :name, { prompt: true }, required: true, class: "form-control"
+
+			.col-auto.form-group
+				= f.label :time, nil, class: "required"
+				- if @entry.habit
+					.input-group
+						= f.number_field :time, class: "form-control"
+						.input-group-append
+							.input-group-text = @entry.habit.time_unit
+				- else
+					= f.number_field :time, min: 1, class: "form-control"
+
+			/ .col-auto.form-group
+			/ 	= f.label                    :time_unit, nil, class: "required"
+			/ 	= f.collection_radio_buttons :time_unit, \
+			/ 															Habit.time_units_for_radios, :first, :last, \
+			/ 															{}, { required: true } do |b|
+			/ 		.form-check
+			/ 			= b.radio_button class: "form-check-input"
+			/ 			= b.label class: "form-check-label"
+
+			.col-auto.form-group
+				= f.label      :created_at, nil
+				= f.date_field :created_at, required: true, class: "form-control"
+
+			.col-auto.form-group
+				= f.label      :created_at, nil
+				= f.time_field :created_at, required: true, class: "form-control"
 
 		= f.submit nil, class: "btn btn-primary"

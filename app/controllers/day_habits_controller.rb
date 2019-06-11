@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class DayHabitsController < ApplicationController
+class DayHabitsController < DashboardsController
 
   # /day_habits/
   # /day_habits/?date=today
@@ -8,11 +8,12 @@ class DayHabitsController < ApplicationController
   # /day_habits/?date=2019-05-29
   def index
     @date = case params[:date]
-            when "today" then Date.today
+            when nil         then Date.today
+            when "today"     then Date.today
             when "yesterday" then Date.today.advance(days: -1)
-            else Date.today
+            else Date.parse params[:date]
             end
-    @day_habits = Habit.all.map { |habit| DayHabit.new(date: @date, habit: habit) }
+    @day_habits = Habit.order(:position).map { |habit| DayHabit.new(date: @date, habit: habit) }
   end
 
   # /day_habits/2019-05-29?habit_id=1
@@ -21,5 +22,10 @@ class DayHabitsController < ApplicationController
     @habit     = Habit.find params[:habit_id]
     @day_habit = DayHabit.new(date: @date, habit: Habit.first)
   end
+
+  # /day_habits/increment_habit_entries?habit_id=1&date=2019-05-25
+  # def increment_habit_entries
+  #   filtered_params = params.permit(:date, :habit_id)
+  # end
 
 end

@@ -14,6 +14,14 @@ function state_is_reps_based() {
 }
 
 
+function has_reps_controls() {
+  if (!checkbox()) return false
+  if (!reps_controls()) return false
+  if (!time_controls()) return false
+  return true
+}
+
+
 // Manipulators
 
 function switch_to_reps_based() {
@@ -28,7 +36,10 @@ function switch_to_time_based() {
 
 const toggle_reps_based_controls = () => state_is_reps_based() ? switch_to_reps_based() : switch_to_time_based()
 
-export function register_toggle_reps_based_controls() {
+function register_toggle_reps_based_controls() {
+  if (!has_reps_controls()) return
 	document.addEventListener("DOMContentLoaded", () => toggle_reps_based_controls() )
 	checkbox().addEventListener("change", () => toggle_reps_based_controls() )
 }
+
+register_toggle_reps_based_controls()

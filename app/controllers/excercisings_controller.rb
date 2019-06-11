@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class ExcercisingsController < ApplicationController
+class ExcercisingsController < DashboardsController
 
 	def index
 		@excercisings = Excercising.all

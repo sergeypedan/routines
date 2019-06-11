@@ -1,0 +1,2 @@
+var tr = document.querySelector('[data-habit-id="<%= @day_habit.habit.id %>"]')
+tr.innerHTML = "<%= j render 'day_habits/tr', day_habit: @day_habit %>"

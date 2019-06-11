@@ -1,18 +1,25 @@
 # frozen_string_literal: true
 
-class HabitEntriesController < ApplicationController
+class HabitEntriesController < DashboardsController
 
 	def index
 		@date    = Date.parse(params[:date]) if /\d{4}-\d{2}-\d{2}/ === params[:date]
+		relation = HabitEntry.includes(:habit).order(created_at: :desc)
 		@entries =  if @date
-									HabitEntry.where("DATE(created_at) = ?", @date)
+									relation.where("DATE(created_at) = ?", @date)
 								else
-									HabitEntry.all
+									relation
 								end
 	end
 
 	def new
-		@entry = HabitEntry.new
+		@entry = HabitEntry.new(created_at: Time.current, habit: Habit.find_by(id: params[:habit_id]))
+
+		if /\d{4}-\d{2}-\d{2}/ === params[:date]
+			date = Date.parse(params[:date])
+			@entry.created_at = Time.current.change(day: date.day, month: date.month, year: date.year)
+		end
+
 		render :edit
 	end
 
@@ -29,7 +36,8 @@ class HabitEntriesController < ApplicationController
 
 			format.js do
 				if @entry.save
-					render "create_from_day_habit" if params[:from] == "day_habit"
+          @day_habit = DayHabit.new(date: @entry.created_at, habit: @entry.habit)
+					render "update_day_habit_tr" if params[:from] == "day_habit"
 				else
 					render :error
 				end
@@ -51,15 +59,27 @@ class HabitEntriesController < ApplicationController
 	end
 
 	def destroy
-		HabitEntry.find(params[:id]).destroy
-		redirect_to habit_entries_path
+		entry = HabitEntry.find(params[:id])
+    date  = entry.created_at  # for JS action
+    habit = entry.habit       # for JS action
+    entry.destroy
+
+    respond_to do |format|
+      format.html do
+    		redirect_to habit_entries_path
+      end
+      format.js do
+        @day_habit = DayHabit.new(date: date, habit: habit)
+        render "update_day_habit_tr" if params[:from] == "day_habit"
+      end
+    end
 	end
 
 
 	private
 
 	def filtered_params
-		params.require(:habit_entry).permit(:id, :habit_id)
+		params.require(:habit_entry).permit(:created_at, :id, :habit_id, :time, :user_id)
 	end
 
 end

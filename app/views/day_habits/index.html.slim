@@ -1,30 +1,27 @@
 .container-fluid.section-padding
 
-  h1
-    | Habits for
-    =< l @date, format: "%-d %B %Y"
+	.page-header style="text-align: center"
+		h1 style="margin-bottom: 20px"
+			| Habits for
+			=< l @date, format: "%-d %B %Y"
 
-  table.table
-    thead
-      tr
-        th Name
-        th Day target
-        th Done by now
-        th Increment
-        th Completed?
+		.day-habits__select-day style="margin-bottom: 40px"
+			- previous_day = @date.advance(days: -1)
+			- next_day     = @date.advance(days: 1)
 
-    tbody
-      - @day_habits.each do |day_habit|
-        tr
-          td = day_habit.habit.name
-          td = day_habit.target_str
-          td = day_habit.progress_str
-          td
-            - unless day_habit.habit.time_based?
-              = form_with model: HabitEntry.new do |f|
-                = f.hidden_field :habit_id, day_habit.habit.id
-                = f.hidden_field :created_at, Time.current
-                = hidden_field_tag :from, "day_habit"
-                = f.button "+"
+			= link_to "← #{l previous_day, format: "%-d %B"}", "/day_habits?date=#{previous_day}"
+			= link_to "#{l next_day, format: "%-d %B"} →",     "/day_habits?date=#{next_day}", style: "margin-left: 20px" if @date < Date.today
+			= link_to "Today",                                 "/day_habits?date=today",       style: "margin-left: 20px" unless @date.today?
 
-          td = day_habit.completed? ? fa_icon("check") : "Not yet"
+	table.table
+		thead
+			tr
+				th Name
+				th Day target
+				th Done by now
+				/ th Progress
+				th Increment
+				th Progress
+				/ th Completed?
+
+		tbody = render collection: @day_habits, partial: "day_habits/tr", as: :day_habit
