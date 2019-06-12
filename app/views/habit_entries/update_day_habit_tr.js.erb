@@ -1,2 +1,5 @@
-var tr = document.querySelector('[data-habit-id="<%= @day_habit.habit.id %>"]')
-tr.innerHTML = "<%= j render 'day_habits/tr', day_habit: @day_habit %>"
+var old_tr_node = document.querySelector('[data-habit-id="<%= @day_habit.habit.id %>"]')
+var new_tr_html = "<%= j render 'day_habits/tr', day_habit: @day_habit %>"
+
+old_tr_node.insertAdjacentHTML("afterend", new_tr_html)
+old_tr_node.parentElement.removeChild(old_tr_node)
