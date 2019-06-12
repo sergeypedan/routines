@@ -11,7 +11,7 @@ class HabitsController < DashboardsController
 
 
   def new
-    @habit = Habit.new(user: current_user)
+    @habit = Habit.new(user_id: current_user.id)
     render :edit
   end
 
@@ -57,7 +57,7 @@ class HabitsController < DashboardsController
   private
 
   def filtered_params
-    params.require(:habit).permit(:id, :name, :position, :rounds_per_day, :time_per_round, :time_unit)
+    params.require(:habit).permit(:id, :name, :position, :rounds_per_day, :time_per_round, :time_unit, :user_id)
   end
 
 end
