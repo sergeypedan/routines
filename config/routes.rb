@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 		post :move, on: :member
 	end
 	resources :muscles
+	resources :settings, only: [:index, :edit, :update]
 
 
 	# Devise

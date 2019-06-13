@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_09_172520) do
+ActiveRecord::Schema.define(version: 2019_06_12_084818) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -90,6 +90,15 @@ ActiveRecord::Schema.define(version: 2019_06_09_172520) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "settings", force: :cascade do |t|
+    t.string "language", default: "en", null: false
+    t.bigint "user_id", null: false
+    t.string "time_zone", default: "Moscow", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_settings_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -127,4 +136,5 @@ ActiveRecord::Schema.define(version: 2019_06_09_172520) do
   add_foreign_key "habit_entries", "habits"
   add_foreign_key "habit_entries", "users"
   add_foreign_key "habits", "users"
+  add_foreign_key "settings", "users"
 end

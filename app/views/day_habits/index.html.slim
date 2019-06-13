@@ -5,6 +5,8 @@
 			| Habits for
 			=< l @date, format: "%-d %B %Y"
 
+		p.text-muted.small You have #{distance_of_time_in_words(Time.current.end_of_day - Time.current)}
+
 		.day-habits__select-day style="margin-bottom: 40px"
 			- previous_day = @date.advance(days: -1)
 			- next_day     = @date.advance(days: 1)

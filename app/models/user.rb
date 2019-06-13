@@ -8,6 +8,11 @@ class User < ApplicationRecord
 	after_initialize :set_placeholder_valudes, if: :new_record?
 
 
+	# Associations
+
+	has_one :setting
+
+
 	# Macros
 
 	# Include default devise modules. Others available are: :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -19,6 +24,11 @@ class User < ApplicationRecord
 					:validatable
 
 	# Methods
+
+	def full_name
+		[first_name, last_name].join(" ")
+	end
+
 
 	private def set_placeholder_valudes
 		self.first_name ||= "Имя"

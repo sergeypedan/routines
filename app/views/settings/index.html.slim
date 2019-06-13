@@ -1,0 +1,24 @@
+.container.section-padding
+	h1 style="margin-bottom: 40px" Settings
+
+	table.table style="width: auto"
+		tbody
+			tr
+				th Name
+				td = current_user.full_name
+				td = link_to "Edit", root_path, class: "btn btn-outline-secondary btn-sm"
+
+			tr
+				th Language
+				td = @settings.language
+				td = link_to "Edit", [:edit, @settings], class: "btn btn-outline-secondary btn-sm"
+
+			tr
+				th Time zone in settings
+				td = @settings.time_zone
+				td = link_to "Edit", [:edit, @settings], class: "btn btn-outline-secondary btn-sm"
+
+			tr
+				th Time zone effective
+				td = Time.zone
+				td

@@ -1,0 +1,15 @@
+.container.section-padding
+	= form_with model: @settings, local: true do |f|
+
+		.form-group
+			= f.label                    :language, nil, class: "required"
+			= f.collection_radio_buttons :language, [["English", :en], ["Russian", :ru]], :last, :first, {}, { required: true } do |b|
+				.form-check
+					= b.radio_button class: "form-check-input"
+					= b.label class: "form-check-label"
+
+		.form-group
+			= f.label            :time_zone, nil, class: "required"
+			= f.time_zone_select :time_zone, nil, { default: "Moscow" }, { required: true, class: "form-control", style: "max-width: 300px" }
+
+		= f.button fa_icon("cloud-upload", text: "Save"), class: "btn btn-success", style: "margin-top: 30px"
