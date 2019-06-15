@@ -18,7 +18,7 @@
     "webpack-dev-server": "^3.2.1"
   },
   "engines": {
-    "node": ">= 12",
+    "node": "12.x",
     "yarn": ">= 1.16.0"
   },
   "license": "UNLICENSED",
