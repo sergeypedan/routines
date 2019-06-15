@@ -34,19 +34,20 @@ default: &default
     - .woff2
 
   extensions:
-    - .mjs
-    - .js
-    - .sass
-    - .scss
+    - .coffee
     - .css
-    - .module.sass
-    - .module.scss
-    - .module.css
-    - .png
-    - .svg
     - .gif
     - .jpeg
     - .jpg
+    - .js
+    - .mjs
+    - .module.css
+    - .module.sass
+    - .module.scss
+    - .png
+    - .sass
+    - .scss
+    - .svg
 
 development:
   <<: *default

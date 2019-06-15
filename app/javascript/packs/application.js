@@ -4,6 +4,11 @@
 import "jquery"
 
 
+// Rails UJS
+import Rails from 'rails-ujs'
+Rails.start()
+
+
 // Bootstrap
 
 // import "bootstrap/dist/js/bootstrap.js"
@@ -29,6 +34,8 @@ import { register_toggle_reps_based_controls } from "../modules/reps-based-toggl
 // })
 
 import "../modules/ajax-buttons-1"
+import "../modules/ajax-form-helper"
+import "../modules/sortable-init"
 
 
 // stimulus
@@ -41,3 +48,18 @@ application.load(definitionsFromContext(context))
 
 
 // import * as d3 from "d3"
+
+
+// SmoothScroll
+// import SmoothScroll from 'smooth-scroll'
+
+// options: https://github.com/cferdinandi/smooth-scroll#global-settings
+// var scroll = new SmoothScroll('[data-scroll]', { speed: 500, easing: 'easeOutQuint', updateURL: false })
+// window.SmoothScroll = SmoothScroll
+
+
+// import "vendor/modernizr-3.7.1"
+
+
+import "jquery-ui/ui/core"
+import "jquery-ui/ui/widgets/sortable"
