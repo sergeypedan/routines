@@ -18,8 +18,8 @@
     "webpack-dev-server": "^3.2.1"
   },
   "engines": {
-    "node": ">= 11",
-    "yarn": ">= 1.5.0"
+    "node": ">= 12",
+    "yarn": ">= 1.16.0"
   },
   "license": "UNLICENSED",
   "main": "webpack.config.js",
