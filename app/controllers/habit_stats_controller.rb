@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class HabitStatsController < ApplicationController
+class HabitStatsController < DashboardsController
 
 	def index
 		start_date    = Date.parse(params[:from]) rescue Date.today.advance(days: -7)
