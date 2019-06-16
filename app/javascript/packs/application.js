@@ -19,7 +19,8 @@ import "bootstrap/js/dist/collapse.js"
 
 
 // import { stub_datetime_inputs } from "../modules/modernizer-datetime.js"
-import 'nodep-date-input-polyfill'
+// import 'nodep-date-input-polyfill'
+
 import { register_toggle_reps_based_controls } from "../modules/reps-based-toggle"
 
 // document.addEventListener("DOMContentLoaded", function() {
