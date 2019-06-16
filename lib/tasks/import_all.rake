@@ -14,7 +14,7 @@ namespace :import do
 			"association_excercise_muscles"
 		]
 
-		puts "Will import:"
+		puts "\nWill import:"
 		resources.each do |resource|
 			puts "• #{resource}"
 		end
