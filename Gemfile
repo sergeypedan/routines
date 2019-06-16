@@ -20,6 +20,7 @@ gem "sass-rails"
 gem "slim-rails"
 gem "uglifier"
 gem "webpacker"
+gem "yaml_db"
 
 group :development, :test do
   gem "bullet"
