@@ -11,7 +11,7 @@ module YamlDb
 
 
 		def import!
-			puts "\nImporting #{resource}..."
+			puts "\nImporting #{@resource}..."
 
 			if klass.count.positive?
 				puts "#{klass} has records. Deleting them."
@@ -21,7 +21,7 @@ module YamlDb
 			records.each do |record|
 				klass.create! record_hash(record)
 			end
-			puts "#{resource} imported\n\n"
+			puts "#{@resource} imported\n\n"
 		end
 
 
