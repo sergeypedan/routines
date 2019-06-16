@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 namespace :import do
-	task :all, environment: true do
+	task environment: :all do
 
 		resources = [
 			"muscles",
