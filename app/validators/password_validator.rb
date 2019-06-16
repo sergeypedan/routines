@@ -2,7 +2,7 @@
 
 class PasswordValidator < ActiveModel::EachValidator
 
-  LENGTH = 10..40
+  LENGTH = Devise.password_length
   # REGEXP = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])$/
 
   def validate_each(record, attribute_name, value)
