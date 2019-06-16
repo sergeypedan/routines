@@ -6,12 +6,12 @@ class DayHabit
 
 	def initialize(date:, habit:)
 		@date  = date.to_date
-		@ar_habit = habit
-		@specific_habit = time_based? ? Habit::TimeBased.new(@ar_habit) : Habit::RoundsBased.new(@ar_habit)
+		@habit = habit
+		@specific_habit = time_based? ? Habit::TimeBased.new(@habit) : Habit::RoundsBased.new(@habit)
 	end
 
 	def applicable?
-		@date >= @ar_habit.created_at
+		@date >= @habit.created_at
 	end
 
 	def completed?
@@ -44,7 +44,7 @@ class DayHabit
 	end
 
 	def entries
-		@entries ||= HabitEntry.where(habit: @ar_habit).where("DATE(created_at) = ?", @date)
+		@entries ||= HabitEntry.where(habit: @habit).where("DATE(created_at) = ?", @date)
 	end
 
 	def exceeded?
@@ -52,21 +52,21 @@ class DayHabit
 	end
 
 	def habit
-		@ar_habit
+		@habit
 	end
 
-	delegate :rounds_based?, to: :@ar_habit
+	delegate :rounds_based?, to: :@habit
 
 	def target_rounds
-		@ar_habit.rounds_per_day
+		@habit.rounds_per_day
 	end
 
 	delegate :target_str, to: :@specific_habit
 
 	def target_time
-		@ar_habit.duration
+		@habit.duration
 	end
 
-	delegate :time_based?, to: :@ar_habit
+	delegate :time_based?, to: :@habit
 
 end

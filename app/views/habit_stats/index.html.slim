@@ -2,4 +2,7 @@
 	h1 Multiple habits stats
 	p #{l @time_frame.first, format: "%B, %-d"} to #{l @time_frame.last, format: "%B, %-d of %Y"}
 
-	= @habits_stats.inspect
+	/ = @habits_stats.to_json(except: ["ar_habit"])
+	= render "habit_stats/habit_stats.json", habits_stats: @habits_stats
+
+= javascript_tag "https://d3js.org/d3.v5.min.js"
