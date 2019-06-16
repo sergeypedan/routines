@@ -20,7 +20,7 @@ class Habit < ApplicationRecord
 	# Associaitons
 
 	belongs_to :excercise, optional: true
-	has_many :habit_entries, dependent: :destroy
+	has_many :entries, class_name: "HabitEntry", dependent: :destroy
 
 
 	# Macros

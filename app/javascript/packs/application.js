@@ -1,7 +1,7 @@
 "use strict"
 
 
-import "jquery"
+// import "jquery"
 
 
 // Rails UJS
@@ -13,9 +13,9 @@ Rails.start()
 
 // import "bootstrap/dist/js/bootstrap.js"
 // import "bootstrap/js/dist/util.js"
-import "bootstrap/js/dist/alert.js"
+// import "bootstrap/js/dist/alert.js"
 // import "bootstrap/js/dist/button.js"
-import "bootstrap/js/dist/collapse.js"
+// import "bootstrap/js/dist/collapse.js"
 
 
 // import { stub_datetime_inputs } from "../modules/modernizer-datetime.js"
@@ -27,9 +27,9 @@ import { register_toggle_reps_based_controls } from "../modules/reps-based-toggl
 // 	stub_datetime_inputs()
 // })
 
-import "../modules/ajax-buttons-1"
-import "../modules/ajax-form-helper"
-import "../modules/sortable-init"
+// import "../modules/ajax-buttons-1"
+// import "../modules/ajax-form-helper"
+// import "../modules/sortable-init"
 
 
 // stimulus
@@ -55,5 +55,5 @@ application.load(definitionsFromContext(context))
 // import "vendor/modernizr-3.7.1"
 
 
-import "jquery-ui/ui/core"
-import "jquery-ui/ui/widgets/sortable"
+// import "jquery-ui/ui/core"
+// import "jquery-ui/ui/widgets/sortable"

@@ -44,7 +44,7 @@ class DayHabit
 	end
 
 	def entries
-		@entries ||= HabitEntry.where(habit: @habit).where("DATE(created_at) = ?", @date)
+		@entries ||= @habit.entries.where(created_at: @date.all_day)
 	end
 
 	def exceeded?

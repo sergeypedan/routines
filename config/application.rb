@@ -21,7 +21,8 @@ module Routines
 
     config.i18n.default_locale = :en # не ru_RU
     # config.i18n.default_locale = :ru # не ru_RU
-    config.time_zone = "Moscow"
+    # config.time_zone = "Moscow"
+    config.time_zone = "UTC"
     config.active_record.default_timezone = :utc
 
     # API: http://edgeguides.rubyonrails.org/configuring.html#configuring-generators
