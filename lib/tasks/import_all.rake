@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
+require "yaml_db/importer"
+
 namespace :import do
-	task environment: :all do
+	task all: :environment do
 
 		resources = [
 			"muscles",
