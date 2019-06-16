@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_12_084818) do
+ActiveRecord::Schema.define(version: 2019_06_16_100619) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,6 +80,8 @@ ActiveRecord::Schema.define(version: 2019_06_12_084818) do
     t.datetime "updated_at", null: false
     t.integer "position", default: 0, null: false
     t.bigint "user_id", null: false
+    t.bigint "excercise_id"
+    t.index ["excercise_id"], name: "index_habits_on_excercise_id"
     t.index ["position"], name: "index_habits_on_position"
     t.index ["user_id"], name: "index_habits_on_user_id"
   end
@@ -135,6 +137,7 @@ ActiveRecord::Schema.define(version: 2019_06_12_084818) do
   add_foreign_key "association_excercise_muscles", "muscles"
   add_foreign_key "habit_entries", "habits"
   add_foreign_key "habit_entries", "users"
+  add_foreign_key "habits", "excercises"
   add_foreign_key "habits", "users"
   add_foreign_key "settings", "users"
 end

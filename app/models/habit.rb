@@ -9,15 +9,17 @@ class Habit < ApplicationRecord
 
 	# Validations
 
-	validates :name,           presence: true
-	validates :rounds_per_day, presence: true, numericality: { only_integer: true, greater_than: 0 }
-	validates :time_per_round, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
-	validates :time_unit,      presence: true, inclusion: { in: TIME_IDS }
-	validates :user_id,        presence: true, numericality: { only_integer: true, greater_than: 0 }
+	validates :excercise_id, allow_blank: true, numericality: { only_integer: true, greater_than: 0 }
+	validates :name,            presence: true
+	validates :rounds_per_day,  presence: true, numericality: { only_integer: true, greater_than: 0 }
+	validates :time_per_round,  presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+	validates :time_unit,       presence: true, inclusion: { in: TIME_IDS }
+	validates :user_id,         presence: true, numericality: { only_integer: true, greater_than: 0 }
 
 
 	# Associaitons
 
+	belongs_to :excercise, optional: true
 	has_many :habit_entries, dependent: :destroy
 
 
@@ -67,6 +69,7 @@ end
 #
 # Table name: habits
 #
+#  excercise_id   :bigint
 #  id             :bigint           not null, primary key
 #  name           :string           not null
 #  position       :integer          default(0), not null
@@ -77,5 +80,6 @@ end
 #
 # Foreign Keys
 #
+#  fk_rails_...  (excercise_id => excercises.id)
 #  fk_rails_...  (user_id => users.id)
 #

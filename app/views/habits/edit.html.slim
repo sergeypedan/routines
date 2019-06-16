@@ -1,6 +1,8 @@
 .container-fluid.section-padding
 	= form_with model: @habit, local: true do |f|
 
+		= render "application/form_errors", record: @habit
+
 		= f.hidden_field :user_id
 
 		.form-group
@@ -14,6 +16,10 @@
 		.form-group
 			= f.label        :rounds_per_day, nil, class: "required"
 			= f.number_field :rounds_per_day, required: true, class: "form-control"
+
+		.form-group
+			= f.label             :excercise_id
+			= f.collection_select :excercise_id, Excercise.all, :id, :name, { include_blank: true }, class: "form-control"
 
 		.row
 			.col-auto.form-group
@@ -30,4 +36,6 @@
 						= b.radio_button class: "form-check-input"
 						= b.label class: "form-check-label"
 
+		hr
 		= f.submit nil, class: "btn btn-primary"
+		= delete_btn @habit, style: "margin-left: 30px"
