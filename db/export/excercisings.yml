@@ -1,0 +1,18 @@
+---
+excercisings:
+  columns:
+  - id
+  - excercise_id
+  - repetitions_count
+  - created_at
+  - updated_at
+  - resistance_duration
+  - date
+  records:
+  - - 1
+    - 1
+    - 1
+    - '2019-04-25 04:39:55.523661'
+    - '2019-04-25 04:39:55.523661'
+    -
+    - '2019-04-25'
