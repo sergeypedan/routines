@@ -18,13 +18,6 @@ import "bootstrap/js/dist/alert.js"
 import "bootstrap/js/dist/collapse.js"
 
 
-// CSS
-
-import "stylesheets/site-bootstrap.sass"
-import "stylesheets/site-style.sass"
-// import "stylesheets/site-vendor.sass"
-
-
 // import { stub_datetime_inputs } from "../modules/modernizer-datetime.js"
 import 'nodep-date-input-polyfill'
 import { register_toggle_reps_based_controls } from "../modules/reps-based-toggle"

@@ -8,7 +8,8 @@ html lang=I18n.locale
 		= csrf_meta_tags
 		= csp_meta_tag
 
-		= stylesheet_pack_tag "application"
+		= stylesheet_link_tag "bootstrap-customized"
+		= stylesheet_link_tag "application"
 
 	= tag.body class: ["#{controller_name}-#{action_name}", "has-sticky-footer"]
 		= render "application/navbar"
@@ -16,6 +17,6 @@ html lang=I18n.locale
 		main.expands-to-push-footer-down == yield
 		hr
 		= render "application/footer"
-		= stylesheet_link_tag "front-vendor"
+		= stylesheet_link_tag "vendor"
 		= javascript_include_tag "application"
 		= javascript_pack_tag "application"
