@@ -6,11 +6,12 @@ class User < ApplicationRecord
 	# Callbacks
 
 	after_initialize :set_placeholder_valudes, if: :new_record?
+	# after_create :create_associate_settings
 
 
 	# Associations
 
-	has_one :setting
+	has_one :setting, dependent: :destroy
 
 
 	# Macros
@@ -30,9 +31,14 @@ class User < ApplicationRecord
 	end
 
 
+	# private def create_associate_settings
+	# 	self.create_setting
+	# end
+
+
 	private def set_placeholder_valudes
-		self.first_name ||= "Имя"
-		self.last_name  ||= "Фамилия"
+		self.first_name ||= "John"
+		self.last_name  ||= "Doe"
 		# self.uid        ||= SecureRandom.hex(7)
 	end
 
