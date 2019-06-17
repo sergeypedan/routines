@@ -24,7 +24,7 @@ class HabitEntriesController < DashboardsController
 	end
 
 	def create
-		@entry = HabitEntry.new(filtered_params)
+		@entry = HabitEntry.new(filtered_params.merge(user_id: current_user.id))
 		respond_to do |format|
 			format.html do
 				if @entry.save
