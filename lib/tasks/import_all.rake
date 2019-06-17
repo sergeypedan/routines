@@ -21,7 +21,7 @@ namespace :import do
 		puts
 
 		puts "\nFirst destroying records"
-		resources.reverse.each { |resourse| resources.singularize.camelize.constantize.destroy_all }
+		resources.reverse.each { |resourse| resource.singularize.camelize.constantize.destroy_all }
 
 		resources.each do |resource|
 			YamlDb::Importer.new(resource: resource).import!
