@@ -6,7 +6,7 @@ class HabitsController < DashboardsController
 
 
 	def index
-		@habits = Habit.all.order(:position)
+		@habits = Habit.includes(:excercise).order(:position)
 	end
 
 

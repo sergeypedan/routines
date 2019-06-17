@@ -17,9 +17,9 @@ section.section-padding
 							= muscle.name
 						td
 							- if muscle.excercises.any?
-								ul style="margin: 0; padding-left: 0; font-size: 12px; list-style-type: none; color: hsl(0, 0%, 60%);"
+								ul style="margin: 0 -5px; padding-left: 0; font-size: 12px; list-style-type: none; color: hsl(0, 0%, 60%);"
 									- muscle.excercises.pluck(:id, :name).each do |id, name|
-										li = link_to name, excercise_path(id)
+										li style="display: inline-block; padding: 2px 5px" = link_to name, excercise_path(id)
 						td
 							= link_to "Edit", [:edit, muscle], class: "btn btn-outline-secondary btn-sm"
 							= link_to "Delete", muscle, method: :delete, class: "btn btn-outline-danger btn-sm", style: "margin-left: 10px"

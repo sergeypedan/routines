@@ -7,6 +7,8 @@
 			tr
 				th Name
 				th Muscles
+				th Default reps
+				th Default time
 				th
 
 		tbody
@@ -16,6 +18,16 @@
 					td
 						- excercise.muscles.each do |muscle|
 							= muscle.name
+					td
+						=> excercise.default_repetitions_count
+						| reps
+
+					td
+						- if excercise.default_time.zero?
+							| —
+						- else
+							=> excercise.default_time
+							| sec
 					td = link_to "Edit", [:edit, excercise], class: "btn btn-outline-secondary btn-sm"
 
 	= link_to "Add new", new_excercise_path, class: "btn btn-primary"

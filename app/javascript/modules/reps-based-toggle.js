@@ -1,45 +1,68 @@
-// Finders
+"use strict";
 
-const checkbox      = () => document.querySelector('[name="excercise[repetition_based]"][type="checkbox"]')
-const reps_controls = () => document.getElementById("reps-controls")
-const time_controls = () => document.getElementById("time-controls")
+(function() {
 
+	// State
 
-// Checks
-
-function state_is_reps_based() {
-	const input = checkbox()
-	if (!input) return true
-	return input.checked
-}
+	const form_values   = { saved: { reps: -1, time: -1 }, off: { reps: 1, time: 0 } }
 
 
-function has_reps_controls() {
-  if (!checkbox()) return false
-  if (!reps_controls()) return false
-  if (!time_controls()) return false
-  return true
-}
+	// Finders
+
+	const checkbox      = () => document.querySelector('[name="excercise[repetition_based]"][type="checkbox"]')
+	const reps_controls = () => document.getElementById("reps-controls")
+	const time_controls = () => document.getElementById("time-controls")
+	const reps_input    = () => document.querySelector('[name="excercise[default_repetitions_count]"]')
+	const time_input    = () => document.querySelector('[name="excercise[default_time]"]')
 
 
-// Manipulators
+	// Modifiers
 
-function switch_to_reps_based() {
-	reps_controls().hidden = false
-	time_controls().hidden = true
-}
+	const toggle_reps_based_controls = () => state_is_reps_based() ? switch_to_reps_based() : switch_to_time_based()
 
-function switch_to_time_based() {
-	reps_controls().hidden = true
-	time_controls().hidden = false
-}
 
-const toggle_reps_based_controls = () => state_is_reps_based() ? switch_to_reps_based() : switch_to_time_based()
+	// Checks
 
-function register_toggle_reps_based_controls() {
-  if (!has_reps_controls()) return
-	document.addEventListener("DOMContentLoaded", () => toggle_reps_based_controls() )
-	checkbox().addEventListener("change", () => toggle_reps_based_controls() )
-}
+	function state_is_reps_based() {
+		return checkbox().checked
+	}
 
-register_toggle_reps_based_controls()
+
+	function has_reps_controls() {
+	  if (!checkbox()) return false
+	  if (!reps_controls()) return false
+	  if (!time_controls()) return false
+	  return true
+	}
+
+
+	// Manipulators
+
+	function switch_to_reps_based() {
+		form_values.saved.time = time_input().value
+		time_input().setAttribute("value", form_values.off.time)
+		time_controls().hidden = true
+
+		if (form_values.saved.reps !== -1) reps_input().setAttribute("value", form_values.saved.reps)
+		reps_controls().hidden = false
+	}
+
+
+	function switch_to_time_based() {
+		form_values.saved.reps = reps_input().value
+		reps_input().setAttribute("value", form_values.off.reps)
+		reps_controls().hidden = true
+
+		if (form_values.saved.time !== -1) time_input().setAttribute("value", form_values.saved.time)
+		time_controls().hidden = false
+	}
+
+
+	// Events
+
+	if (has_reps_controls()) {
+		checkbox().addEventListener("change", () => { toggle_reps_based_controls() } )
+		document.addEventListener("DOMContentLoaded", () => toggle_reps_based_controls() )
+	}
+
+})()

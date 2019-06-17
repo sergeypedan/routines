@@ -8,6 +8,7 @@ ruby:
 = tag.tr data: sortable_data
 	td = counter.is_a?(Integer) ? (counter + 1) : counter
 	td = habit.name
+	td = link_to habit.excercise.name, habit.excercise, target: "_blank", class: "small" if habit.excercise
 	td
 		- if habit.time_based?
 			=> Duration.new(habit.time_per_round, :seconds).in_s(habit.time_unit)

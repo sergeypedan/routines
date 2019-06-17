@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_16_100619) do
+ActiveRecord::Schema.define(version: 2019_06_17_082546) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,8 +44,8 @@ ActiveRecord::Schema.define(version: 2019_06_16_100619) do
 
   create_table "excercises", force: :cascade do |t|
     t.string "name", null: false
-    t.integer "default_repetitions_count"
-    t.integer "default_time"
+    t.integer "default_repetitions_count", default: 15, null: false
+    t.integer "default_time", default: 60, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "repetition_based", default: true
