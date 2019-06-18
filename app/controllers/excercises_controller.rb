@@ -7,6 +7,11 @@ class ExcercisesController < DashboardsController
 	end
 
 
+	def show
+		@excercise = Excercise.find params[:id]
+	end
+
+
 	def new
 		@excercise = Excercise.new
 		@excercise.muscles.build

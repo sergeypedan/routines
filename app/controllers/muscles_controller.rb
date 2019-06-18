@@ -7,6 +7,11 @@ class MusclesController < DashboardsController
 	end
 
 
+	def show
+		@muscle = Muscle.find params[:id]
+	end
+
+
 	def new
 		@muscle = Muscle.new
 		render :edit

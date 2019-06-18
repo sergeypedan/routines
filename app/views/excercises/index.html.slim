@@ -16,8 +16,10 @@
 				tr
 					td = excercise.name
 					td
-						- excercise.muscles.each do |muscle|
-							= muscle.name
+						- if excercise.muscles.any?
+							ul.tags-1.small
+								- excercise.muscles.each do |muscle|
+									li.tags-1__li = link_to muscle.name, muscle
 					td
 						=> excercise.default_repetitions_count
 						| reps

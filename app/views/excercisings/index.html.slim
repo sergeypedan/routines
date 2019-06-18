@@ -1,18 +1,31 @@
 section.section-padding
 	.container-fluid
 
-		h1 Excercisings
+		h1 Workout log
 
 		table.table
 			thead
 				tr
 					th Date
+					th Excercise
+					th Muscles
+					th Repetitions
 					th
 
 			tbody
 				- @excercisings.each do |excercising|
+					- excercise = excercising.excercise
 					tr
 						td = l excercising.date, format: "%-d %B %Y"
+						td = link_to excercise.name, excercise
+						td
+							- if excercise.muscles.any?
+								ul.tags-1.small
+									- excercise.muscles.each do |muscle|
+										li.tags-1__li = link_to muscle.name, muscle
+						td
+							=> excercising.repetitions_count
+							| reps
 						td = link_to "Edit", [:edit, excercising], class: "btn btn-outline-secondary btn-sm"
 
 .container-fluid = link_to "Log new", new_excercising_path, class: "btn btn-primary"

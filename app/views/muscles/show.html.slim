@@ -1,0 +1,8 @@
+.container-fluid.section-padding
+	h1 = @muscle.name
+
+	h2 Excercises
+
+	ul
+		- @muscle.excercises.each do |excercise|
+			li = link_to excercise.name, excercise
