@@ -9,7 +9,7 @@ class Habit::RoundsBased
 	# delegate :created_at, to: :@habit
 
 	def target_str
-		"#{@habit.rounds_per_day} rounds"
+		I18n.t :rounds, count: @habit.rounds_per_day
 	end
 
 	def time_based?

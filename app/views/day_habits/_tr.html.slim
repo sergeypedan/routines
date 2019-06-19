@@ -6,12 +6,8 @@ tr data-habit-id=habit.id class=("tr-completed-1" if day_habit.completed?)
 		- if day_habit.time_based?
 			=> day_habit.done_time.in(habit.time_unit).to_i
 			=> habit.time_unit
-			| in
-			=<> day_habit.done_rounds
-			| rounds
-		- else
-			=> day_habit.done_rounds
-			| rounds
+			| in 
+		= t :rounds, count: day_habit.done_rounds
 
 	td
 		.progress

@@ -14,3 +14,10 @@ ru:
     few:   "%{count} записи"
     many:  "%{count} записей"
     other: "%{count} записей"
+
+  rounds:
+    zero:  "%{count} раундов"
+    one:   "%{count} раунд"
+    few:   "%{count} раунда"
+    many:  "%{count} раундов"
+    other: "%{count} раундов"

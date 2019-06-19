@@ -1,0 +1,9 @@
+---
+en:
+
+  rounds:
+    zero:  "%{count} rounds"
+    one:   "%{count} round"
+    few:   "%{count} rounds"
+    many:  "%{count} rounds"
+    other: "%{count} rounds"
