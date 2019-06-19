@@ -15,6 +15,7 @@ ru:
     remember: Запомнить меня
     sign_in: Войти
     sign_in_with: Войти через
+    sign_out: Разлогиниться
     sign_up: Зарегистрироваться
 
     placeholders:

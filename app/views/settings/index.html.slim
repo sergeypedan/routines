@@ -1,16 +1,17 @@
 .container.section-padding
-	h1 style="margin-bottom: 40px" Settings
+
+	h1 style="margin-bottom: 40px" = Setting.model_name.human
 
 	table.table style="width: auto"
 		tbody
 			tr
-				th Name
+				th = User.human_attribute_name :full_name
 				td = current_user.full_name
 				td = link_to "Edit", root_path, class: "btn btn-outline-secondary btn-sm"
 
 			tr
-				th Language
-				td = @settings.language
+				th = Setting.human_attribute_name :language
+				td = @settings.language_to_s
 				td = link_to "Edit", [:edit, @settings], class: "btn btn-outline-secondary btn-sm"
 
 			tr
@@ -30,4 +31,4 @@
 
 	hr
 
-	= link_to "Log out", destroy_user_session_path, method: :delete, class: ["btn", "btn-outline-danger"]
+	= link_to t("authentication.sign_out"), destroy_user_session_path, method: :delete, class: ["btn", "btn-outline-danger"]

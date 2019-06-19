@@ -6,15 +6,15 @@
 		= f.hidden_field :user_id
 
 		.form-group
-			= f.label      :name, nil, class: "required"
+			= f.label      :name, nil, class: :required
 			= f.text_field :name, required: true, focus: (action_name == "new"), class: "form-control"
 
 		.form-group
-			= f.label        :position, nil, class: "required"
+			= f.label        :position, nil, class: :required
 			= f.number_field :position, required: true, class: "form-control"
 
 		.form-group
-			= f.label        :rounds_per_day, nil, class: "required"
+			= f.label        :rounds_per_day, nil, class: :required
 			= f.number_field :rounds_per_day, required: true, class: "form-control"
 
 		.form-group
@@ -23,12 +23,12 @@
 
 		.row
 			.col-auto.form-group
-				= f.label        :time_per_round, nil, class: "required"
+				= f.label        :time_per_round, nil, class: :required
 				= f.number_field :time_per_round, required: true, min: 0, class: "form-control"
 				small.form-text.text-muted Leave 0 if habit is not time-based
 
 			.col-auto.form-group
-				= f.label  :time_unit, nil, class: "required"
+				= f.label  :time_unit, nil, class: :required
 				= f.collection_radio_buttons :time_unit, \
 																		Habit.time_units_for_radios, :first, :last, \
 																		{}, { required: true } do |b|

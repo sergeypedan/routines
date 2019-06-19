@@ -2,7 +2,8 @@
 
 	.page-header style="text-align: center"
 		h1 style="margin-bottom: 20px"
-			| Habits for
+			=> Habit.model_name.human
+			| for
 			=< l @date, format: "%-d %B %Y"
 
 		p.text-muted.small You have #{distance_of_time_in_words(Time.current.end_of_day - Time.current)}

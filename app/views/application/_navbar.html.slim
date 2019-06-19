@@ -10,10 +10,10 @@ nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #22a820
 
 			ruby:
 				pages = [
-									{ name: "Habit stats",  href: habit_stats_path },
-									{ name: "Habits today", href: day_habits_path },
-									{ name: "Habits log",   href: habit_entries_path },
-									{ name: "Workout log",  href: excercisings_path }
+									{ name: t("activerecord.models.habit_stats"), href: habit_stats_path },
+									{ name: t("activerecord.models.day_habit"),   href: day_habits_path },
+									{ name: HabitEntry.model_name.human,          href: habit_entries_path },
+									{ name: Excercising.model_name.human,         href: excercisings_path }
 								]
 
 			- pages.each do |page|
@@ -24,14 +24,14 @@ nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #22a820
 
 			ruby:
 				pages = [
-									{ name: "Habits",       href: habits_path },
-									{ name: "Excercises",   href: excercises_path },
-									{ name: "Muscles",      href: muscles_path },
-									{ name: "Settings",     href: settings_path }
+									{ name: Habit.model_name.human,     href: habits_path },
+									{ name: Excercise.model_name.human, href: excercises_path },
+									{ name: Muscle.model_name.human,    href: muscles_path },
+									{ name: Setting.model_name.human,   href: settings_path }
 								]
 
 			- pages.each do |page|
-				= tag.li class: ["nav-item", ("active" if current_page?(page[:href]) )]
+				= tag.li class: ["nav-item", (:active if current_page?(page[:href]) )]
 					= link_to( page[:name], page[:href], class: "nav-link")
 
 			li

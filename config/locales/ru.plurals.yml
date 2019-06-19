@@ -21,3 +21,10 @@ ru:
     few:   "%{count} раунда"
     many:  "%{count} раундов"
     other: "%{count} раундов"
+
+  reps:
+    zero:  "%{count} повторений"
+    one:   "%{count} повторение"
+    few:   "%{count} повторения"
+    many:  "%{count} повторений"
+    other: "%{count} повторений"

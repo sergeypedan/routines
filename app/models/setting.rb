@@ -2,7 +2,25 @@
 
 class Setting < ApplicationRecord
 
+	LANGUAGES = { en: "English", ru: "Русский" }.freeze
+
+
+	# Associations
+
 	belongs_to :user
+
+
+	# Validations
+
+	validates :language, presence: true, inclusion: { in: LANGUAGES.keys.map(&:to_s) }
+	validates :user_id,  presence: true, numericality: { only_integer: true, greater_than: 0 }
+
+
+	# Methods
+
+	def language_to_s
+		LANGUAGES[self.language.to_sym]
+	end
 
 end
 

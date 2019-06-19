@@ -1,0 +1,26 @@
+---
+en:
+
+  activerecord:
+    models:
+
+      # habit: Habits
+
+      habit_entry: Habit log
+
+      day_habit: Habits today
+
+      # excercise: Excercises
+
+      excercising: Workout log
+
+      # muscle: Muscles
+
+      # setting: Settings
+
+      user:
+        one: Пользователь
+        few: Пользователей
+        many: Пользователей
+        other: Пользователей
+        zero: Пользователей

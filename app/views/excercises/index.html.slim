@@ -1,14 +1,16 @@
 .section-padding.container-fluid
 
-	h1 Excercises
+	h1 style="margin-bottom: 15px" = Excercise.model_name.human
 
-	table.table
+	= link_to "Add new", new_excercise_path, class: "btn btn-primary"
+
+	table.table style="margin-top: 30px"
 		thead
 			tr
-				th Name
-				th Muscles
-				th Default reps
-				th Default time
+				th = Excercise.human_attribute_name :name
+				th = Excercise.human_attribute_name :muscles
+				th = Excercise.human_attribute_name :default_repetitions_count
+				th = Excercise.human_attribute_name :default_time
 				th
 
 		tbody
@@ -20,9 +22,7 @@
 							ul.tags-1.small
 								- excercise.muscles.each do |muscle|
 									li.tags-1__li = link_to muscle.name, muscle
-					td
-						=> excercise.default_repetitions_count
-						| reps
+					td = t :reps, count: excercise.default_repetitions_count
 
 					td
 						- if excercise.default_time.zero?
@@ -31,5 +31,3 @@
 							=> excercise.default_time
 							| sec
 					td = link_to "Edit", [:edit, excercise], class: "btn btn-outline-secondary btn-sm"
-
-	= link_to "Add new", new_excercise_path, class: "btn btn-primary"

@@ -3,6 +3,23 @@ ru:
 
   activerecord:
     models:
+
+      day_habit: Привычки сегодня
+
+      habit: Привычки
+
+      habit_stats: Статистика привычек
+
+      habit_entry: Журнал привычек
+
+      excercise: Упражнения
+
+      excercising: Журнал упражнений
+
+      muscle: Мышцы
+
+      setting: Настройки
+
       user:
         one: Пользователь
         few: Пользователей

@@ -6,11 +6,11 @@
 		.row
 
 			.col-auto.form-group
-				= f.label             :habit_id, nil, class: "required"
+				= f.label             :habit_id, nil, class: :required
 				= f.collection_select :habit_id, Habit.order(:position), :id, :name, { prompt: true }, required: true, class: "form-control"
 
 			.col-auto.form-group
-				= f.label :time, nil, class: "required"
+				= f.label :time, nil, class: :required
 				- if @entry.habit
 					.input-group
 						= f.number_field :time, class: "form-control"
@@ -20,7 +20,7 @@
 					= f.number_field :time, min: 1, class: "form-control"
 
 			/ .col-auto.form-group
-			/ 	= f.label                    :time_unit, nil, class: "required"
+			/ 	= f.label                    :time_unit, nil, class: :required
 			/ 	= f.collection_radio_buttons :time_unit, \
 			/ 															Habit.time_units_for_radios, :first, :last, \
 			/ 															{}, { required: true } do |b|
@@ -29,7 +29,7 @@
 			/ 			= b.label class: "form-check-label"
 
 			.col-auto.form-group
-				= f.label      :date, nil, class: "required"
+				= f.label      :date, nil, class: :required
 				= f.date_field :date, value: @entry.created_at.to_date, required: true, class: "form-control"
 
 		= f.submit nil, class: "btn btn-primary"

@@ -1,20 +1,21 @@
 section.section-padding
 	.container-fluid
 
-		h1 Muscles
+		h1 style="margin-bottom: 15px" = Muscle.model_name.human
 
-		table.table
+		= link_to "Add new", new_muscle_path, class: "btn btn-primary"
+
+		table.table style="margin-top: 30px"
 			thead
 				tr
-					th Name
-					th Excercises
+					th = Muscle.human_attribute_name :name
+					th = Muscle.human_attribute_name :excercises
 					th Actions
 
 			tbody
 				- @muscles.each do |muscle|
 					tr
-						td
-							= muscle.name
+						td = muscle.name
 						td
 							- if muscle.excercises.any?
 								ul.tags-1.small
@@ -23,5 +24,3 @@ section.section-padding
 						td
 							= link_to "Edit", [:edit, muscle], class: "btn btn-outline-secondary btn-sm"
 							= link_to "Delete", muscle, method: :delete, class: "btn btn-outline-danger btn-sm", style: "margin-left: 10px"
-
-		= link_to "Add new", new_muscle_path, class: "btn btn-primary"
