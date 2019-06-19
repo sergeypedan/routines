@@ -27,7 +27,7 @@ import { register_toggle_reps_based_controls } from "../modules/reps-based-toggl
 // 	stub_datetime_inputs()
 // })
 
-// import "../modules/ajax-buttons-1"
+import "../modules/ajax-buttons-1"
 // import "../modules/ajax-form-helper"
 // import "../modules/sortable-init"
 
