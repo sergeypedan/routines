@@ -1,25 +1,27 @@
 {
   "author": "Sergey Pedan",
   "dependencies": {
-    "@rails/webpacker": "^4.0.2",
+    "@rails/webpacker": "https://github.com/rails/webpacker.git",
     "bootstrap": "^4.3.1",
     "coffee-loader": "^0.9.0",
-    "coffeescript": "^2.4.1",
+    "coffeescript": "2.4.1",
     "core-js": "3",
     "d3": "^5.9.2",
     "jquery": "^3.4.1",
     "jquery-ui": "^1.12.1",
     "popper.js": "^1.15.0",
     "rails-ujs": "^5.2.3",
+    "selectize": "^0.12.6",
     "smooth-scroll": "^16.1.0",
     "stimulus": "^1.1.1"
   },
   "devDependencies": {
     "nodep-date-input-polyfill": "^5.2.0",
-    "webpack-dev-server": "^3.2.1"
+    "webpack-cli": "^3.3.4",
+    "webpack-dev-server": "^3.7.2"
   },
   "engines": {
-    "node": "12.x",
+    "node": "11.x",
     "yarn": ">= 1.16.0"
   },
   "license": "UNLICENSED",

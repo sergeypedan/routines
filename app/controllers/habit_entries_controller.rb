@@ -24,24 +24,31 @@ class HabitEntriesController < DashboardsController
 	end
 
 	def create
-		@entry = HabitEntry.new(filtered_params.merge(user_id: current_user.id))
 		respond_to do |format|
-			format.html do
-				if @entry.save
-					redirect_to habit_entries_path
-				else
-					render :edit
-				end
-			end
+			format.html do create_from_html end
+			format.js   do create_from_js   end
+		end
+	end
 
-			format.js do
-				if @entry.save
-          @day_habit = DayHabit.new(date: @entry.created_at, habit: @entry.habit)
-					render "update_day_habit_tr" if params[:from] == "day_habit"
-				else
-					render :error
-				end
-			end
+	def create_from_html
+		@entry = HabitEntry.new(filtered_params.merge(user: current_user))
+		if @entry.save
+			redirect_to habit_entries_path
+		else
+			render :edit
+		end
+	end
+
+	def create_from_js
+		habit = Habit.find params.dig(:habit_entry, :habit_id)
+		@entry = HabitEntry.new(filtered_params.merge(created_at: Time.current, user: current_user))
+		@entry.time = habit.duration.in(:seconds) if habit.time_based?
+
+		if @entry.save
+      @day_habit = DayHabit.new(date: @entry.created_at, habit: @entry.habit)
+			render :update_day_habit_tr, locals: { change: :increment }
+		else
+			render :error
 		end
 	end
 
@@ -70,7 +77,7 @@ class HabitEntriesController < DashboardsController
       end
       format.js do
         @day_habit = DayHabit.new(date: date, habit: habit)
-        render "update_day_habit_tr" if params[:from] == "day_habit"
+        render :update_day_habit_tr, locals: { change: :decrement }
       end
     end
 	end

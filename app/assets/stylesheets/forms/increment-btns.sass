@@ -8,12 +8,15 @@
 	text-align: center
 	width: 25px
 
+	&[disabled]
+		cursor: not-allowed
+
 	.fa
 		color: white
 
 
 .increment-btn-2
-	background-color: #e9ecef
+	background-color: hsl(210, 15%, 75%)
 	color: white
 
 	border-radius: 50%
@@ -34,8 +37,12 @@
 
 	&--success
 		&:hover
-			background-color: hsl(150, 44%, 84%)
+			background-color: hsl(150, 71%, 37%)
 
 	&--danger
 		&:hover
-			background-color: hsl(346, 42%, 85%)
+			background-color: hsl(354, 70%, 53%)
+
+	&[disabled]
+		cursor: not-allowed
+		background-color: hsl(210, 15%, 92%)

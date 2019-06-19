@@ -11,6 +11,7 @@ class User < ApplicationRecord
 
 	# Associations
 
+	has_one :habit_entries, dependent: :destroy
 	has_one :setting, dependent: :destroy
 
 

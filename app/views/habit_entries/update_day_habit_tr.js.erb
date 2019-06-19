@@ -3,3 +3,5 @@ var new_tr_html = "<%= j render 'day_habits/tr', day_habit: @day_habit %>"
 
 old_tr_node.insertAdjacentHTML("afterend", new_tr_html)
 old_tr_node.parentElement.removeChild(old_tr_node)
+
+if ("<%= change %>" === "decrement") alert("Pussy!")

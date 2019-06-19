@@ -67,6 +67,7 @@ class DayHabit
 		@habit.duration
 	end
 
-	delegate :time_based?, to: :@habit
+	delegate :rounds_based?, to: :@habit
+	delegate :time_based?,   to: :@habit
 
 end

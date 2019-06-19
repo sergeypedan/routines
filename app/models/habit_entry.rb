@@ -11,6 +11,7 @@ class HabitEntry < ApplicationRecord
 	# Associations
 
 	belongs_to :habit
+	belongs_to :user
 
 
 	# Methods
