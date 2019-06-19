@@ -16,6 +16,8 @@ class HabitEntry < ApplicationRecord
 
 	# Methods
 
+	attr_accessor :date
+
 	delegate :time_unit, to: :habit
 
 	def duration

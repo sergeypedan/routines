@@ -12,16 +12,14 @@ class HabitEntriesController < DashboardsController
 								end
 	end
 
+
 	def new
-		@entry = HabitEntry.new(created_at: Time.current, habit: Habit.find_by(id: params[:habit_id]))
-
-		if /\d{4}-\d{2}-\d{2}/ === params[:date]
-			date = Date.parse(params[:date])
-			@entry.created_at = Time.current.change(day: date.day, month: date.month, year: date.year)
-		end
-
+		@entry            = HabitEntry.new
+		@entry.created_at = update_date_in_datetime(Time.current)
+		@entry.habit      = Habit.find_by(id: params[:habit_id])
 		render :edit
 	end
+
 
 	def create
 		respond_to do |format|
@@ -30,13 +28,11 @@ class HabitEntriesController < DashboardsController
 		end
 	end
 
-	def create_from_html
-		@entry = HabitEntry.new(filtered_params.merge(user: current_user))
 
-		if request.params[:date]
-			date = Date.parse(request.params[:date]) rescue nil
-			@entry.created_at = @entry.created_at.change(year: date.year, month: date.month, day: date.day) if date
-		end
+	def create_from_html
+		@entry            = HabitEntry.new filtered_params
+		@entry.created_at = update_date_in_datetime(@entry.created_at)
+		@entry.user       = current_user
 
 		if @entry.save
 			redirect_to habit_entries_path
@@ -45,10 +41,13 @@ class HabitEntriesController < DashboardsController
 		end
 	end
 
+
 	def create_from_js
-		habit = Habit.find params.dig(:habit_entry, :habit_id)
-		@entry = HabitEntry.new(filtered_params.merge(created_at: Time.current, user: current_user))
-		@entry.time = habit.duration.in(:seconds) if habit.time_based?
+		habit             = Habit.find params.dig(:habit_entry, :habit_id)
+		@entry            = HabitEntry.new filtered_params
+		@entry.created_at = update_date_in_datetime(Time.current)
+		@entry.time       = habit.duration.in(:seconds) if habit.time_based?
+		@entry.user       = current_user
 
 		if @entry.save
       @day_habit = DayHabit.new(date: @entry.created_at, habit: @entry.habit)
@@ -58,17 +57,15 @@ class HabitEntriesController < DashboardsController
 		end
 	end
 
+
 	def edit
 		@entry = HabitEntry.find params[:id]
 	end
 
-	def update
-		@entry = HabitEntry.find params[:id]
 
-		if request.params[:date]
-			date = Date.parse(request.params[:date]) rescue nil
-			@entry.created_at = @entry.created_at.change(year: date.year, month: date.month, day: date.day) if date
-		end
+	def update
+		@entry            = HabitEntry.find params[:id]
+		@entry.created_at = update_date_in_datetime(@entry.created_at)
 
 		if @entry.update(filtered_params)
 			redirect_to habit_entries_path
@@ -77,10 +74,11 @@ class HabitEntriesController < DashboardsController
 		end
 	end
 
+
 	def destroy
 		entry = HabitEntry.find(params[:id])
-    date  = entry.created_at  # for JS action
-    habit = entry.habit       # for JS action
+    date  = entry.created_at  # caching for JS action
+    habit = entry.habit       # caching for JS action
     entry.destroy
 
     respond_to do |format|
@@ -98,7 +96,17 @@ class HabitEntriesController < DashboardsController
 	private
 
 	def filtered_params
-		params.require(:habit_entry).permit(:created_at, :id, :habit_id, :time, :user_id)
+		params.require(:habit_entry).permit(:created_at, :date, :id, :habit_id, :time, :user_id)
+	end
+
+
+	def update_date_in_datetime(datetime)
+		maybe_date = params.dig(:habit_entry, :date).presence
+		return datetime unless maybe_date
+		return datetime unless /\d{4}-\d{2}-\d{2}/ === maybe_date
+		date = Date.parse(maybe_date) rescue nil
+		return datetime unless date
+		return datetime.change(year: date.year, month: date.month, day: date.day)
 	end
 
 end

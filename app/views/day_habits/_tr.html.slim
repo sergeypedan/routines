@@ -18,10 +18,12 @@ tr data-habit-id=habit.id class=("tr-completed-1" if day_habit.completed?)
 	td
 		- if day_habit.entries.any?
 			= form_with model: day_habit.entries.last, method: :delete, html: { style: "display: inline-block;" } do |f|
+				= f.hidden_field :date, value: day_habit.date
 				= f.button "–", class: "increment-btn-2 increment-btn-2--danger", data: { behavior: "ajax-btn-1" }
 		- else
 			button class="increment-btn-2" disabled="disabled" –
 
 		= form_with model: HabitEntry.new, html: { style: "display: inline-block; margin-left: 5px;" } do |f|
 			= f.hidden_field :habit_id, value: habit.id
+			= f.hidden_field :date, value: day_habit.date
 			= f.button "+", class: "increment-btn-2 increment-btn-2--success", data: { behavior: "ajax-btn-1" }
