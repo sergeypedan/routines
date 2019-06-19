@@ -32,6 +32,12 @@ class HabitEntriesController < DashboardsController
 
 	def create_from_html
 		@entry = HabitEntry.new(filtered_params.merge(user: current_user))
+
+		if request.params[:date]
+			date = Date.parse(request.params[:date]) rescue nil
+			@entry.created_at = @entry.created_at.change(year: date.year, month: date.month, day: date.day) if date
+		end
+
 		if @entry.save
 			redirect_to habit_entries_path
 		else
@@ -58,6 +64,12 @@ class HabitEntriesController < DashboardsController
 
 	def update
 		@entry = HabitEntry.find params[:id]
+
+		if request.params[:date]
+			date = Date.parse(request.params[:date]) rescue nil
+			@entry.created_at = @entry.created_at.change(year: date.year, month: date.month, day: date.day) if date
+		end
+
 		if @entry.update(filtered_params)
 			redirect_to habit_entries_path
 		else

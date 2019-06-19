@@ -29,11 +29,7 @@
 			/ 			= b.label class: "form-check-label"
 
 			.col-auto.form-group
-				= f.label      :created_at, nil
-				= f.date_field :created_at, required: true, class: "form-control"
-
-			.col-auto.form-group
-				= f.label      :created_at, nil
-				= f.time_field :created_at, required: true, class: "form-control"
+				= f.label :created_at, nil
+				= date_field_tag :date, @entry.created_at.to_date, required: true, class: "form-control"
 
 		= f.submit nil, class: "btn btn-primary"
