@@ -3,8 +3,6 @@ ruby:
 
 tr data-habit-id=habit.id class=("tr-completed-1" if day_habit.completed?)
 	td = habit.name
-	/ td = day_habit.target_str
-	td = day_habit.target_str
 	td
 		- if day_habit.time_based?
 			=> day_habit.done_time.in(habit.time_unit).to_i
@@ -15,6 +13,12 @@ tr data-habit-id=habit.id class=("tr-completed-1" if day_habit.completed?)
 		- else
 			=> day_habit.done_rounds
 			| rounds
+
+	td
+		.progress
+			.progress-bar class=("bg-success" if day_habit.completed?) style="width: #{day_habit.completed_percent}%"
+
+	td = day_habit.target_str
 
 	td
 		- if day_habit.time_based?
@@ -37,8 +41,3 @@ tr data-habit-id=habit.id class=("tr-completed-1" if day_habit.completed?)
 				= f.hidden_field :user_id,    value: current_user.id
 				= hidden_field_tag :from, "day_habit"
 				= f.button "+", class: "increment-btn-2 increment-btn-2--success", data: { behavior: "ajax-btn-1" }
-
-	td
-		.progress
-			.progress-bar class=("bg-success" if day_habit.completed?) style="width: #{day_habit.completed_percent}%"
-	/ td = day_habit.completed? ? fa_icon("check") : "Not yet"

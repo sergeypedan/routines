@@ -19,11 +19,9 @@
 		thead
 			tr
 				th Name
-				th Day target
 				th Done by now
-				/ th Progress
-				th Increment
 				th Progress
-				/ th Completed?
+				th Day target
+				th Increment
 
 		tbody = render collection: @day_habits, partial: "day_habits/tr", as: :day_habit
