@@ -101,7 +101,7 @@ class HabitEntriesController < DashboardsController
 
 
 	def update_date_in_datetime(time)
-		fail ArgumentError, "time must be a Time, you pass #{time.inspect} (#{time.class})"
+		fail ArgumentError, "time must be a Time, you pass #{time.inspect} (#{time.class})" unless time.is_a? Time
 		maybe_date = params.dig(:habit_entry, :date).presence
 		return time unless maybe_date
 		return time unless /\d{4}-\d{2}-\d{2}/ === maybe_date
