@@ -4,7 +4,7 @@
 		h1 style="margin-bottom: 20px"
 			=> Habit.model_name.human
 			| for
-			=< l @date, format: "%-d %B %Y"
+			=< l @date, format: "%-d %B"
 
 		p.text-muted.small You have #{distance_of_time_in_words(Time.current.end_of_day - Time.current)}
 
