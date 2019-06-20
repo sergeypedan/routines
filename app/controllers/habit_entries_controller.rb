@@ -31,7 +31,7 @@ class HabitEntriesController < DashboardsController
 
 	def create_from_html
 		@entry            = HabitEntry.new filtered_params
-		@entry.created_at = update_date_in_datetime(@entry.created_at)
+		@entry.created_at = update_date_in_datetime(Time.current)
 		@entry.user       = current_user
 
 		if @entry.save
@@ -100,13 +100,14 @@ class HabitEntriesController < DashboardsController
 	end
 
 
-	def update_date_in_datetime(datetime)
+	def update_date_in_datetime(time)
+		fail ArgumentError, "time must be a Time, you pass #{time.inspect} (#{time.class})"
 		maybe_date = params.dig(:habit_entry, :date).presence
-		return datetime unless maybe_date
-		return datetime unless /\d{4}-\d{2}-\d{2}/ === maybe_date
+		return time unless maybe_date
+		return time unless /\d{4}-\d{2}-\d{2}/ === maybe_date
 		date = Date.parse(maybe_date) rescue nil
-		return datetime unless date
-		return datetime.change(year: date.year, month: date.month, day: date.day)
+		return time unless date
+		return time.change(year: date.year, month: date.month, day: date.day)
 	end
 
 end
