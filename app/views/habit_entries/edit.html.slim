@@ -1,8 +1,6 @@
 .container-fluid.section-padding
 	= form_with model: @entry, local: true do |f|
 
-		= render "application/form_errors", record: @entry
-
 		.row
 
 			.col-auto.form-group
@@ -11,11 +9,11 @@
 
 			.col-auto.form-group
 				= f.label :time, nil, class: :required
-				- if @entry.habit
+				- if f.object.habit
 					.input-group
 						= f.number_field :time, class: "form-control"
 						.input-group-append
-							.input-group-text = @entry.habit.time_unit
+							.input-group-text = f.object.habit.time_unit
 				- else
 					= f.number_field :time, min: 0, class: "form-control"
 
@@ -30,6 +28,10 @@
 
 			.col-auto.form-group
 				= f.label      :date, nil, class: :required
-				= f.date_field :date, value: @entry.created_at.to_date, required: true, class: "form-control"
+				= f.date_field :date, value: f.object.created_at.to_date, required: true, class: "form-control"
 
-		= f.submit nil, class: "btn btn-primary"
+		= render "application/form_errors", record: f.object
+
+		.form-actions
+			= f.submit nil, class: "btn btn-primary"
+			= delete_btn f.object, style: "margin-left: 30px" if f.object.persisted?

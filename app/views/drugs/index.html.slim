@@ -1,0 +1,26 @@
+.container-fluid.section-padding
+
+	h1 style="margin-bottom: 15px" = Drug.model_name.human
+
+	= add_record_button Drug
+
+	table.table style="margin-top: 30px"
+		thead
+			tr
+				th Name
+				th Substance
+				th Form
+				th Dosage
+				th
+		tbody
+		- @drugs.each do |drug|
+			tr
+				td = drug.name
+				td = drug.active_substance.name
+				td = drug.form.name_en
+				td
+					=> drug.active_substance.daily_dosage
+					| / day
+ 				td
+					= link_to "Edit", [:edit, drug], class: "btn btn-outline-secondary btn-sm"
+					= link_to "Delete", drug, method: :delete, class: "btn btn-outline-danger btn-sm", style: "margin-left: 10px"

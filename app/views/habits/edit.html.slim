@@ -1,8 +1,6 @@
 .container-fluid.section-padding
 	= form_with model: @habit, local: true do |f|
 
-		= render "application/form_errors", record: @habit
-
 		= f.hidden_field :user_id
 
 		.form-group
@@ -29,13 +27,13 @@
 
 			.col-auto.form-group
 				= f.label  :time_unit, nil, class: :required
-				= f.collection_radio_buttons :time_unit, \
-																		Habit.time_units_for_radios, :first, :last, \
-																		{}, { required: true } do |b|
+				= f.collection_radio_buttons :time_unit, Habit.time_units_for_radios, :first, :last, {}, { required: true } do |b|
 					.form-check
 						= b.radio_button class: "form-check-input"
 						= b.label class: "form-check-label"
 
-		hr
-		= f.submit nil, class: "btn btn-primary"
-		= delete_btn @habit, style: "margin-left: 30px"
+		= render "application/form_errors", record: f.object
+
+		.form-actions
+			= f.submit nil, class: "btn btn-primary"
+			= delete_btn f.object, style: "margin-left: 30px" if f.object.persisted?

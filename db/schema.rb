@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_17_082546) do
+ActiveRecord::Schema.define(version: 2019_06_23_151336) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,31 @@ ActiveRecord::Schema.define(version: 2019_06_17_082546) do
     t.datetime "updated_at", null: false
     t.index ["weight_bundle_id"], name: "index_association_weight_bundle_weights_on_weight_bundle_id"
     t.index ["weight_id"], name: "index_association_weight_bundle_weights_on_weight_id"
+  end
+
+  create_table "drug_active_substances", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "daily_dosage", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "drug_forms", force: :cascade do |t|
+    t.string "name_en", null: false
+    t.string "name_ru", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "drugs", force: :cascade do |t|
+    t.string "form", default: "tablet", null: false
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "drug_active_substance_id"
+    t.bigint "drug_form_id", null: false
+    t.index ["drug_active_substance_id"], name: "index_drugs_on_drug_active_substance_id"
+    t.index ["drug_form_id"], name: "index_drugs_on_drug_form_id"
   end
 
   create_table "excercises", force: :cascade do |t|
@@ -135,6 +160,8 @@ ActiveRecord::Schema.define(version: 2019_06_17_082546) do
 
   add_foreign_key "association_excercise_muscles", "excercises"
   add_foreign_key "association_excercise_muscles", "muscles"
+  add_foreign_key "drugs", "drug_active_substances"
+  add_foreign_key "drugs", "drug_forms"
   add_foreign_key "habit_entries", "habits"
   add_foreign_key "habit_entries", "users"
   add_foreign_key "habits", "excercises"

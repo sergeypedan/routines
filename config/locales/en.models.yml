@@ -4,23 +4,22 @@ en:
   activerecord:
     models:
 
-      # habit: Habits
+      drug: Drug
+
+      drug_active_substance: Substance
+
+      habit: Habit
 
       habit_entry: Habit log
 
       day_habit: Habits today
 
-      # excercise: Excercises
+      excercise: Excercise
 
       excercising: Workout log
 
-      # muscle: Muscles
+      muscle: Muscle
 
-      # setting: Settings
+      setting: Setting
 
-      user:
-        one: Пользователь
-        few: Пользователей
-        many: Пользователей
-        other: Пользователей
-        zero: Пользователей
+      user: User

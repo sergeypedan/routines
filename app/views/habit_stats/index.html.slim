@@ -3,6 +3,81 @@
 	p #{l @time_frame.first, format: "%B, %-d"} to #{l @time_frame.last, format: "%B, %-d of %Y"}
 
 	/ = @habits_stats.to_json(except: ["ar_habit"])
-	= render "habit_stats/habit_stats.json", habits_stats: @habits_stats
+	/ = render "habit_stats/habit_stats.json", habits_stats: @habits_stats
+	ruby:
+		stops = [
+			[0, 0],
+			[20, 120],
+			[200, 100]
+		]
 
-= javascript_tag "https://d3js.org/d3.v5.min.js"
+		svg = { height: 400, width: 800 }
+
+		data = [
+			{
+				date: "2019-01-01",
+				day_habits: [
+					{
+						habit: { id: 5, name: "Отжимания" },
+						completeness: 1.0
+					},
+					{
+						habit: { id: 5, name: "Подтягивания" },
+						completeness: 0.5
+					}
+				]
+			},
+			{
+				date: "2019-01-02",
+				day_habits: [
+					{
+						habit: { id: 5, name: "Отжимания" },
+						completeness: 1.0
+					},
+					{
+						habit: { id: 5, name: "Подтягивания" },
+						completeness: 1.0
+					}
+				]
+			},
+			{
+				date: "2019-01-03",
+				day_habits: [
+					{
+						habit: { id: 5, name: "Отжимания" },
+						completeness: 1.0
+					},
+					{
+						habit: { id: 5, name: "Подтягивания" },
+						completeness: 1.0
+					}
+				]
+			}
+		]
+
+		completeness = [1, 1, 0.2, 0.5, 1, 1.2]
+
+	= tag.svg version: 1.1, \
+						xmlns: "http://www.w3.org/2000/svg", "xml:space": "preserve", "xmlns:xlink": "http://www.w3.org/1999/xlink", \
+						x: "0px", y: "0px", \
+						width: "#{svg[:width]}px", height: "#{svg[:height]}px", \
+						viewBox: "0 0 #{svg[:width]} #{svg[:height]}"
+
+		css:
+			svg {
+				background-color: hsl(0, 0%, 93%);
+			}
+
+			path {
+				fill: none;
+				stroke: hsl(100, 80%, 40%);
+				stroke-width: 2px;
+			}
+
+		/ - data.each do |day|
+		/ 	- day[:habits].each do |habit|
+		/ 		= habit[:completeness]
+
+		path d="m 0,0 l 20,120 l 200,100"
+
+/ = javascript_tag "https://d3js.org/d3.v5.min.js"

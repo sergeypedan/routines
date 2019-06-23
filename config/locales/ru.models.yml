@@ -6,23 +6,20 @@ ru:
 
       day_habit: Привычки сегодня
 
-      habit: Привычки
+      drug: Лекарство
+
+      habit: Привычка
 
       habit_stats: Статистика привычек
 
       habit_entry: Журнал привычек
 
-      excercise: Упражнения
+      excercise: Упражнение
 
       excercising: Журнал упражнений
 
-      muscle: Мышцы
+      muscle: Мышца
 
-      setting: Настройки
+      setting: Настройка
 
-      user:
-        one: Пользователь
-        few: Пользователей
-        many: Пользователей
-        other: Пользователей
-        zero: Пользователей
+      user: Пользователь

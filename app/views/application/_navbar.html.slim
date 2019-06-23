@@ -24,10 +24,12 @@ nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #22a820
 
 			ruby:
 				pages = [
-									{ name: Habit.model_name.human,     href: habits_path },
-									{ name: Excercise.model_name.human, href: excercises_path },
-									{ name: Muscle.model_name.human,    href: muscles_path },
-									{ name: Setting.model_name.human,   href: settings_path }
+									{ name: Habit.model_name.human,               href: habits_path },
+									{ name: Excercise.model_name.human,           href: excercises_path },
+									{ name: Muscle.model_name.human,              href: muscles_path },
+									{ name: Drug.model_name.human,                href: drugs_path },
+									{ name: DrugActiveSubstance.model_name.human, href: drug_active_substances_path },
+									{ name: Setting.model_name.human,             href: settings_path }
 								]
 
 			- pages.each do |page|

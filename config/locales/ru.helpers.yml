@@ -8,6 +8,7 @@ ru:
       submit: Сохранить
       update: Сохранить
     remove:
+      button: Удалить
       delete: Точно?
 
   support:

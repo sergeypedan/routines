@@ -41,7 +41,7 @@ const context = require.context("../controllers", true, /\.js$/)
 application.load(definitionsFromContext(context))
 
 
-// import * as d3 from "d3"
+import "modules/habit-stats"
 
 
 // SmoothScroll

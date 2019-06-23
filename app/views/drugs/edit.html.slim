@@ -1,0 +1,21 @@
+.container.section-padding
+
+	= form_with model: @drug, local: true do |f|
+
+		.form-group
+			= f.label      :name, nil, class: "required"
+			= f.text_field :name, required: true, placeholder: "Aspirin", class: "form-control"
+
+		.form-group
+			= f.label             :drug_active_substance_id, nil, class: "required"
+			= f.collection_select :drug_active_substance_id, DrugActiveSubstance.all, :id, :name, { prompt: true }, required: true, class: "form-control"
+
+		.form-group
+			= f.label             :drug_form_id, nil, class: "required"
+			= f.collection_select :drug_form_id, DrugForm.all, :id, :name_en, { prompt: true }, required: true, class: "form-control"
+
+		= render "application/form_errors", record: f.object
+
+		.form-actions
+			= f.submit nil, class: "btn btn-primary"
+			= delete_btn f.object, style: "margin-left: 30px" if f.object.persisted?

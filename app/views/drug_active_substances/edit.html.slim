@@ -1,0 +1,17 @@
+.container.section-padding
+
+	= form_with model: @substance, local: true do |f|
+
+		.form-group
+			= f.label      :name, nil, class: "required"
+			= f.text_field :name, required: true, placeholder: "Amoxicillin", class: "form-control"
+
+		.form-group
+			= f.label      :daily_dosage, nil, class: "required"
+			= f.text_field :daily_dosage, required: true, placeholder: "100 mg", class: "form-control"
+
+		= render "application/form_errors", record: f.object
+
+		.form-actions
+			= f.submit nil, class: "btn btn-primary"
+			= delete_btn f.object, style: "margin-left: 30px" if f.object.persisted?

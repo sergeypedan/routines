@@ -14,9 +14,9 @@
 			= f.label             :excercise_id
 			= f.collection_select :excercise_id, Excercise.all, :id, :name, {}, required: true, class: "form-control"
 
-		- if @excercising.persisted?
+		- if f.object.persisted?.persisted?
 			.form-group
-				- if @excercising.excercise.repetition_based?
+				- if f.object.persisted?.excercise.repetition_based?
 					= f.label        :repetitions_count, nil, class: "control-label"
 					= f.number_field :repetitions_count, required: true, class: "form-control"
 				- else
@@ -32,6 +32,8 @@
 				= f.label        :resistance_duration, nil, class: "control-label"
 				= f.number_field :resistance_duration, class: "form-control"
 
-		= render "application/form_errors", record: @excercising
+		= render "application/form_errors", record: f.object
 
-		= f.submit nil, class: "btn btn-primary"
+		.form-actions
+			= f.submit nil, class: "btn btn-primary"
+			= delete_btn f.object, style: "margin-left: 30px" if f.object.persisted?
