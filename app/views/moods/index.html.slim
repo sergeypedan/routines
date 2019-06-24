@@ -1,0 +1,21 @@
+.container-fluid.section-padding
+
+	h1 style="margin-bottom: 15px" = Mood.model_name.human
+
+	= add_record_button Mood
+
+	table.table style="margin-top: 30px"
+		thead
+			tr
+				th Name en
+				th Name ru
+				th
+
+		tbody
+			- @moods.each_with_index do |mood|
+				tr
+					td = mood.name_en
+					td = mood.name_ru
+					td
+						= link_to "Edit", [:edit, mood], class: "btn btn-outline-secondary btn-sm"
+						= link_to "Delete", mood, method: :delete, class: "btn btn-outline-danger btn-sm", style: "margin-left: 10px"

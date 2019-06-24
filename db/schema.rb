@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_23_151336) do
+ActiveRecord::Schema.define(version: 2019_06_24_094927) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -111,6 +111,26 @@ ActiveRecord::Schema.define(version: 2019_06_23_151336) do
     t.index ["user_id"], name: "index_habits_on_user_id"
   end
 
+  create_table "mood_entries", force: :cascade do |t|
+    t.bigint "mood_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["mood_id"], name: "index_mood_entries_on_mood_id"
+    t.index ["user_id"], name: "index_mood_entries_on_user_id"
+  end
+
+  create_table "moods", force: :cascade do |t|
+    t.string "name_en", null: false
+    t.string "name_ru", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "energy", default: 50
+    t.integer "positivity", default: 50
+    t.index ["name_en"], name: "index_moods_on_name_en", unique: true
+    t.index ["name_ru"], name: "index_moods_on_name_ru", unique: true
+  end
+
   create_table "muscles", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
@@ -166,5 +186,7 @@ ActiveRecord::Schema.define(version: 2019_06_23_151336) do
   add_foreign_key "habit_entries", "users"
   add_foreign_key "habits", "excercises"
   add_foreign_key "habits", "users"
+  add_foreign_key "mood_entries", "moods"
+  add_foreign_key "mood_entries", "users"
   add_foreign_key "settings", "users"
 end

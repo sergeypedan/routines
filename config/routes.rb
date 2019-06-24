@@ -15,6 +15,8 @@ Rails.application.routes.draw do
 	resources :habits do
 		post :move, on: :member
 	end
+	resources :moods
+	resources :mood_entries
 	resources :muscles
 	resources :settings, only: [:index, :edit, :update]
 
