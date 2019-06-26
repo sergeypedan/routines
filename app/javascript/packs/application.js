@@ -1,9 +1,6 @@
 "use strict"
 
 
-// import "jquery"
-
-
 // Rails UJS
 import Rails from 'rails-ujs'
 Rails.start()
@@ -18,21 +15,18 @@ Rails.start()
 // import "bootstrap/js/dist/collapse.js"
 
 
-// import { stub_datetime_inputs } from "../modules/modernizer-datetime.js"
-// import 'nodep-date-input-polyfill'
+// App modules
 
-import { register_toggle_reps_based_controls } from "../modules/reps-based-toggle"
-
-// document.addEventListener("DOMContentLoaded", function() {
-// 	stub_datetime_inputs()
-// })
-
-import "../modules/ajax-buttons-1"
-// import "../modules/ajax-form-helper"
-// import "../modules/sortable-init"
+import "modules/reps-based-toggle"
+import "modules/ajax-buttons-1"
+import "modules/ajax-form-helper"
+// import "modules/sortable-init"
+import "modules/habit-stats"
+import "modules/sortable-init"
 
 
-// stimulus
+// Stimulus
+
 import { Application } from "stimulus"
 import { definitionsFromContext } from "stimulus/webpack-helpers"
 
@@ -41,7 +35,6 @@ const context = require.context("../controllers", true, /\.js$/)
 application.load(definitionsFromContext(context))
 
 
-import "modules/habit-stats"
 
 
 // SmoothScroll
@@ -54,6 +47,9 @@ import "modules/habit-stats"
 
 // import "vendor/modernizr-3.7.1"
 
+// import { stub_datetime_inputs } from "../modules/modernizer-datetime.js"
+// import 'nodep-date-input-polyfill'
 
-// import "jquery-ui/ui/core"
-// import "jquery-ui/ui/widgets/sortable"
+// document.addEventListener("DOMContentLoaded", function() {
+// 	stub_datetime_inputs()
+// })

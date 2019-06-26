@@ -1,5 +1,6 @@
 "use strict";
 
+import "jquery"
 
 $(document).on("click", '[data-behavior="ajax-btn-1"]', function() {
 	// this.disabled  = true // тогда не срабатывает UJS

@@ -1,4 +1,6 @@
-jQuery ->
+import "jquery"
+
+document.addEventListener "DOMContentLoaded", () ->
 
 	random_record_uid = () ->
 		new Date().getTime()
