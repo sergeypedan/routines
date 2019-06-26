@@ -9,9 +9,10 @@ Rails.start()
 // Bootstrap
 
 // import "bootstrap/dist/js/bootstrap.js"
+//
 // import "bootstrap/js/dist/util.js"
 // import "bootstrap/js/dist/alert.js"
-// import "bootstrap/js/dist/button.js"
+import "bootstrap/js/dist/button.js"
 // import "bootstrap/js/dist/collapse.js"
 
 

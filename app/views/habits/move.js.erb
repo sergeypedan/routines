@@ -1,3 +1,3 @@
-var selector = '[data-habit-id="<%= @habit.id %>"]'
-var new_html = '<%= j render "habits/tr", habit: @habit, counter: "✓" %>'
-$(selector).replaceWith(new_html).effect('highlight', 1000)
+var tr = document.querySelector('[data-habit-id="<%= @habit.id %>"]')
+tr.insertAdjacentHTML("afterend", '<%= j render "habits/tr", habit: @habit, counter: "✓" %>')
+tr.parentElement.removeChild(tr)
