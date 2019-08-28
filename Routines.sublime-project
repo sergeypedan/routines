@@ -1,12 +1,8 @@
 {
-  "settings": {
-    "translate_tabs_to_spaces": false,
-    "tab_size": 2
-  },
-  "folders":
-  [
-    {
-      "path": "."
-    }
-  ]
+	"folders":
+	[
+		{
+			"path": "."
+		}
+	]
 }

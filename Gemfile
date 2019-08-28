@@ -1,8 +1,6 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "2.6.2"
-
 gem "autoprefixer-rails"
 gem "activerecord-sortable"
 gem "bootsnap", ">= 1.1.0", require: false
@@ -13,9 +11,10 @@ gem "font-awesome-rails"
 gem "jbuilder"
 gem "jquery-rails"
 gem "jquery-ui-rails"
+gem "integral-corrector", github: "sergeypedan/integral-corrector"
 gem "pg", ">= 0.18", "< 2.0" # must appear before [puma, rails, russian]
 gem "puma"
-gem "rails"
+gem "rails", "~> 5"
 gem "sass-rails"
 gem "slim-rails"
 gem "uglifier"

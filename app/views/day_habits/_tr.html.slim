@@ -1,7 +1,7 @@
 - habit = day_habit.habit
 
 tr data-habit-id=habit.id class=("tr-completed-1" if day_habit.completed?)
-	td = habit.name
+	td = proofread habit.name
 	td.day-habits__td-done
 		- if day_habit.time_based?
 			=> day_habit.done_time.in(habit.time_unit).to_i
@@ -13,7 +13,7 @@ tr data-habit-id=habit.id class=("tr-completed-1" if day_habit.completed?)
 		.progress
 			.progress-bar class=("bg-success" if day_habit.completed?) style="width: #{day_habit.completed_percent}%"
 
-	td = day_habit.target_str
+	td.nobr = day_habit.target_str
 
 	td
 		- if day_habit.entries.any?
