@@ -10,7 +10,8 @@ end
 #
 # Table name: drug_active_substances
 #
-#  daily_dosage :string           not null
-#  id           :bigint           not null, primary key
-#  name         :string           not null
+#  daily_dosage  :string           not null
+#  id            :bigint           not null, primary key
+#  main_function :string           not null
+#  name          :string           not null
 #

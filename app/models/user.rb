@@ -11,8 +11,11 @@ class User < ApplicationRecord
 
 	# Associations
 
-	has_one :habit_entries, dependent: :destroy
-	has_one :setting, dependent: :destroy
+	has_one  :habits,        dependent: :destroy
+	has_one  :habit_entries, dependent: :destroy
+	has_many :measurements,  dependent: :destroy
+	has_many :mood_entries,  dependent: :destroy
+	has_one  :setting,       dependent: :destroy
 
 
 	# Macros
