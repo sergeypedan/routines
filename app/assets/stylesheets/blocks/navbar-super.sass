@@ -1,0 +1,34 @@
+.super-navbar
+	background-color: hsl(119.12, 68%, 37%)
+	color: $navbar-dark-color
+	font-size: 13px
+
+	.container-fluid
+		display: flex
+
+	&__areas
+		list-style-type: none
+		padding-left: 0
+		margin-bottom: 0
+
+		&__title
+			padding: 3px 5px 3px 0
+
+	&__area
+		display: inline-block
+		vertical-align: top
+
+		&__a
+			display: block
+			padding: 3px 5px
+			color: $navbar-dark-color
+
+			&.active, &:hover, &:focus
+				color: $navbar-dark-active-color
+
+			&:hover, &:focus
+				text-decoration: none
+
+
+.navbar-dark
+	background-color: #22a820

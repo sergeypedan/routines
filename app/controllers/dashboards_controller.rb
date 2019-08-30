@@ -6,6 +6,9 @@ class DashboardsController < ApplicationController
 	before_action :set_user_time_zone
 	before_action :set_user_language
 
+	def spirit
+
+	end
 
 	private def set_user_time_zone
 		Time.zone = ActiveSupport::TimeZone.new(current_user.setting.time_zone)

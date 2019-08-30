@@ -1,0 +1,32 @@
+-
+  name_en: Habits
+  name_ru: Привычки
+  path: habits
+  controllers:
+    - day_habits
+    - habit_entries
+    - habit_stats
+    - habits
+-
+  name_en: Workout
+  name_ru: Спорт
+  path: workout
+  controllers:
+    - excercises
+    - excercisings
+    - muscles
+-
+  name_en: Spirit
+  name_ru: Дух
+  path: spirit
+  controllers:
+    - mood_entries
+    - moods
+-
+  name_en: Medicine
+  name_ru: Здоровье
+  path: medicine
+  controllers:
+    - drug_active_substances
+    - drug_forms
+    - drugs

@@ -1,0 +1,6 @@
+nav class="super-navbar"
+	.container-fluid
+		.super-navbar__areas__title Areas:
+		ul.super-navbar__areas
+			- @areas.each do |area|
+				li.super-navbar__area = link_to area.name_en, area.path, class: super_navbar_a_classes(area)

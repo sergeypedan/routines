@@ -2,6 +2,10 @@ Rails.application.routes.draw do
 
 	root to: "day_habits#index"
 
+	["habits", "medicine", "spirit", "workout"].each do |area|
+		get "/#{area}", controller: "dashboards", action: area
+	end
+
 	get "/day_habits/:date", to: "day_habits#show",  as: :day_habit
 	get "/day_habits",       to: "day_habits#index", as: :day_habits
 
