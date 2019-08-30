@@ -12,26 +12,32 @@ nav class="navbar navbar-expand-lg navbar-dark"
 				pages = case current_area&.name_en
 								when "Habits"
 									[
-										{ name: Habit.model_name.human,               href: habits_path },
-										{ name: t("activerecord.models.habit_stats"), href: habit_stats_path },
 										{ name: t("activerecord.models.day_habit"),   href: day_habits_path },
-										{ name: HabitEntry.model_name.human,          href: habit_entries_path }
+										{ name: t("activerecord.models.habit_stats"), href: habit_stats_path },
+										{ name: HabitEntry.model_name.human,          href: habit_entries_path },
+										{ name: Habit.model_name.human,               href: habits_path }
 									]
 								when "Medicine"
 									[
 										{ name: Drug.model_name.human,                href: drugs_path },
-										{ name: DrugActiveSubstance.model_name.human, href: drug_active_substances_path }
+										{ name: DrugActiveSubstance.model_name.human, href: drug_active_substances_path },
+										{ name: DrugForm.model_name.human,            href: root_path },
+										{ name: Lab.model_name.human,                 href: root_path },
+										{ name: Measurement.model_name.human,         href: root_path },
+										{ name: HealthStateMarker.model_name.human,   href: root_path }
 									]
 								when "Spirit"
 									[
-										{ name: Mood.model_name.human,                href: moods_path },
-										{ name: MoodEntry.model_name.human,           href: mood_entries_path }
+										{ name: MoodEntry.model_name.human,           href: mood_entries_path },
+										{ name: Mood.model_name.human,                href: moods_path }
 									]
 								when "Workout"
 									[
+										{ name: Excercising.model_name.human,         href: excercisings_path },
 										{ name: Excercise.model_name.human,           href: excercises_path },
 										{ name: Muscle.model_name.human,              href: muscles_path },
-										{ name: Excercising.model_name.human,         href: excercisings_path }
+										{ name: Weight.model_name.human,              href: root_path },
+										{ name: WeightBundle.model_name.human,        href: root_path }
 									]
 								else []
 								end
@@ -41,10 +47,9 @@ nav class="navbar navbar-expand-lg navbar-dark"
 					= link_to( page[:name], page[:href], class: "nav-link")
 
 		.navbar-nav.ml-auto
-
 			ruby:
 				pages = [
-									{ name: Setting.model_name.human,             href: settings_path }
+									{ name: Setting.model_name.human, href: settings_path }
 								]
 
 			- pages.each do |page|
@@ -52,14 +57,7 @@ nav class="navbar navbar-expand-lg navbar-dark"
 					= link_to( page[:name], page[:href], class: "nav-link")
 
 			li
-				- if current_user
-					/ - href = user_root_path
-					/ - is_active = current_page?(href)
-					/ = tag.li class: li_classes(is_active)
-					/ 	= link_to href, class: a_classes(is_active)
-					/ 		= image_tag "placeholders/user/universal.svg", class: "header__userpic", alt: "Аватар"
-					/ 		= current_user.first_name
-				- else
+				- unless current_user
 					- if current_page?(user_session_path)
 						= tag.li class: "header__menu__li"
 							= link_to fa_icon("user-plus", text: t("authentication.sign_up")), new_registration_path(:user), class: "nav-link"
