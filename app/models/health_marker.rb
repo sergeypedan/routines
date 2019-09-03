@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class HealthStateMarker < ApplicationRecord
+class HealthMarker < ApplicationRecord
 
 	# Associations
 
@@ -18,7 +18,7 @@ end
 
 # == Schema Information
 #
-# Table name: health_state_markers
+# Table name: health_markers
 #
 #  healthy_value_max         :float            not null
 #  healthy_value_min         :float            not null

@@ -4,8 +4,8 @@
 
 		.form-group
 			= f.label             :marker_id, nil, class: :required
-			= f.collection_select :marker_id, HealthStateMarker.all, :id, :name_en, { prompt: true }, required: true, class: "form-control"
-			= tag.small link_to("Create a #{f.object.class.model_name.human.downcase}", new_health_state_marker_path, target: "_blank"), class: "form-text text-muted" if HealthStateMarker.count.zero?
+			= f.collection_select :marker_id, HealthMarker.all, :id, :name_en, { prompt: true }, required: true, class: "form-control"
+			= tag.small link_to("Create a #{f.object.class.model_name.human.downcase}", new_health_marker_path, target: "_blank"), class: "form-text text-muted" if HealthMarker.count.zero?
 
 		.form-group
 			= f.label        :value, nil, class: :required

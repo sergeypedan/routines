@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 	resources :habits do
 		post :move, on: :member
 	end
-	resources :health_state_markers
+	resources :health_markers
 	resources :labs
 	resources :measurements
 	resources :moods

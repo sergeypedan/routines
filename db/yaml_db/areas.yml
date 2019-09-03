@@ -30,10 +30,10 @@
     - drug_active_substances#index
     - drug_forms#index
     - drugs#index
-    - health_state_markers#create
-    - health_state_markers#edit
-    - health_state_markers#index
-    - health_state_markers#new
+    - health_markers#create
+    - health_markers#edit
+    - health_markers#index
+    - health_markers#new
     - labs#index
     - labs#edit
     - labs#create

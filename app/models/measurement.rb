@@ -11,7 +11,7 @@ class Measurement < ApplicationRecord
 
 	# Associations
 
-	belongs_to :marker, class_name: "HealthStateMarker"
+	belongs_to :marker, class_name: "HealthMarker"
 	belongs_to :lab
 	belongs_to :user
 

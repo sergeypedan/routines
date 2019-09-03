@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_03_150209) do
+ActiveRecord::Schema.define(version: 2019_09_03_213603) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -127,7 +127,7 @@ ActiveRecord::Schema.define(version: 2019_09_03_150209) do
     t.index ["user_id"], name: "index_habits_on_user_id"
   end
 
-  create_table "health_state_markers", force: :cascade do |t|
+  create_table "health_markers", force: :cascade do |t|
     t.string "name_en", null: false
     t.string "name_ru", null: false
     t.string "unit", null: false
@@ -237,7 +237,7 @@ ActiveRecord::Schema.define(version: 2019_09_03_150209) do
   add_foreign_key "habits", "excercises"
   add_foreign_key "habits", "users"
   add_foreign_key "labs", "cities"
-  add_foreign_key "measurements", "health_state_markers", column: "marker_id"
+  add_foreign_key "measurements", "health_markers", column: "marker_id"
   add_foreign_key "measurements", "labs"
   add_foreign_key "measurements", "users"
   add_foreign_key "mood_entries", "moods"

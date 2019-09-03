@@ -18,5 +18,6 @@
 					td = city.id
 					td = city.name_en
 					td = city.name_ru
-					td = link_to "Edit", [:edit, city], class: "btn btn-secondary"
-					td = delete_btn city
+					td
+						= edit_btn city
+						= delete_btn city, style: "margin-left: 10px"

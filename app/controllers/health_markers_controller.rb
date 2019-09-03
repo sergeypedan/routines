@@ -1,20 +1,20 @@
 # frozen_string_literal: true
 
-class HealthStateMarkersController < DashboardsController
+class HealthMarkersController < DashboardsController
 
 	def index
-		@markers = HealthStateMarker.all
+		@markers = HealthMarker.all
 	end
 
 	def new
-		@marker = HealthStateMarker.new
+		@marker = HealthMarker.new
 		render :edit
 	end
 
 	def create
-		@marker = HealthStateMarker.new(filtered_params)
+		@marker = HealthMarker.new(filtered_params)
 		if @marker.save
-			redirect_to health_state_markers_path
+			redirect_to health_markers_path
 		else
 			render :edit
 		end
@@ -27,7 +27,7 @@ class HealthStateMarkersController < DashboardsController
 	def update
 		set_marker
 		if @marker.update(filtered_params)
-			redirect_to health_state_markers_path
+			redirect_to health_markers_path
 		else
 			render :edit
 		end
@@ -36,14 +36,14 @@ class HealthStateMarkersController < DashboardsController
 	def destroy
 		set_marker
 		@marker.destroy
-		redirect_to health_state_markers_path
+		redirect_to health_markers_path
 	end
 
 
 	private
 
 	def filtered_params
-		params.require(:health_state_marker)
+		params.require(:health_marker)
 					.permit(:healthy_value_max,
 									:healthy_value_min,
 									:healthy_value_source_name,
@@ -54,7 +54,7 @@ class HealthStateMarkersController < DashboardsController
 	end
 
 	def set_marker
-		@marker = HealthStateMarker.find params[:id]
+		@marker = HealthMarker.find params[:id]
 	end
 
 end

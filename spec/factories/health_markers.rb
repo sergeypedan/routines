@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :health_state_marker do
+  factory :health_marker do
     name_en { "MyString" }
     name_ru { "MyString" }
     unit { "MyString" }
