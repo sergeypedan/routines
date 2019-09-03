@@ -1,0 +1,14 @@
+.container.section-padding
+	= form_for @city do |f|
+
+		.form-group
+			= f.label      :name_en, nil, class: :required
+			= f.text_field :name_en, required: true, class: "form-control"
+
+		.form-group
+			= f.label      :name_ru, nil, class: :required
+			= f.text_field :name_ru, required: true, class: "form-control"
+
+		= render "application/form_errors", record: f.object
+
+		.form-actions = f.button fa_icon("cloud-upload", text: "Save"), class: "btn btn-success"

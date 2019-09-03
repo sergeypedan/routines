@@ -1,0 +1,22 @@
+.container-fluid.section-padding
+
+	h1 = City.model_name.human.pluralize
+	= add_record_button City
+
+	table.table style="margin-top: 30px"
+		thead
+			tr
+				th ID
+				th Name en
+				th Name ru
+				th
+				th
+
+		tbody
+			- @cities.each do |city|
+				tr
+					td = city.id
+					td = city.name_en
+					td = city.name_ru
+					td
+					td

@@ -8,13 +8,18 @@ module NavbarHelper
 	end
 
 	def is_active_area?(area)
-		return true if area.controllers.include? controller_name
-		return true if area.path == action_name && controller_name == "dashboards"
+		return true if area.controllers.any? do |ctr_act|
+																			controller, action = ctr_act.split("#")
+																			controller == controller_name && action == action_name
+																		end
+		return true if controller_name == "areas" && area.dashboard_action == action_name
 		return false
 	end
 
 	def current_area
-		Area.all.find { |area| is_active_area?(area) }
+		@ca ||= Area.all.find { |area| is_active_area?(area) }
+		fail "No `current_area`. `controller_name`: #{controller_name}. `action_name`: #{action_name}" unless @ca
+		@ca
 	end
 
 end

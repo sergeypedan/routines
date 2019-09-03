@@ -1,32 +1,43 @@
 -
+  controllers:
+    - day_habits#index
+    - habit_entries#index
+    - habit_stats#index
+    - habits#index
+  dashboard_action: habits
   name_en: Habits
   name_ru: Привычки
-  path: habits
-  controllers:
-    - day_habits
-    - habit_entries
-    - habit_stats
-    - habits
+  path: habts
 -
+  controllers:
+    - excercises#index
+    - excercisings#index
+    - muscles#index
+  dashboard_action: workout
   name_en: Workout
   name_ru: Спорт
   path: workout
-  controllers:
-    - excercises
-    - excercisings
-    - muscles
 -
+  controllers:
+    - mood_entries#index
+    - moods#index
+  dashboard_action: spirit
   name_en: Spirit
   name_ru: Дух
   path: spirit
-  controllers:
-    - mood_entries
-    - moods
 -
+  controllers:
+    - drug_active_substances#index
+    - drug_forms#index
+    - drugs#index
+  dashboard_action: medicine
   name_en: Medicine
   name_ru: Здоровье
   path: medicine
+-
   controllers:
-    - drug_active_substances
-    - drug_forms
-    - drugs
+    - config
+  dashboard_action: settings
+  name_en: Settings
+  name_ru: Настройки
+  path: setting
