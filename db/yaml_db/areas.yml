@@ -53,6 +53,7 @@
     - cities#index
     - cities#new
     - config
+    - settings#index
   dashboard_action: settings
   name_en: Settings
   name_ru: Настройки

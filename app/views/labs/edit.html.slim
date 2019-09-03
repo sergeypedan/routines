@@ -8,6 +8,7 @@
 		.form-group
 			= f.label             :city_id, nil, class: :required
 			= f.collection_select :city_id, City.all, :id, :name_en, { prompt: true }, { required: :true, class: "form-control" }
+			= tag.small link_to("Create a #{f.object.class.model_name.human.downcase}", new_city_path, target: "_blank"), class: "form-text text-muted" if City.count.zero?
 
 		.form-group
 			= f.label      :street_address, nil, class: :required
