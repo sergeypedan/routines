@@ -33,7 +33,4 @@
 						= b.label class: "form-check-label"
 
 		= render "application/form_errors", record: f.object
-
-		.form-actions
-			= f.submit nil, class: "btn btn-primary"
-			= delete_btn f.object, style: "margin-left: 30px" if f.object.persisted?
+		.form-actions = save_btn(f)

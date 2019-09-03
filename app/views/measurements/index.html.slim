@@ -1,0 +1,30 @@
+.container-fluid.masthead-1
+	h1 = Measurement.model_name.human.pluralize
+	= add_record_button Measurement
+
+.container-fluid.section-padding
+	table.table
+		thead
+			tr
+				th Date
+				th Marker
+				th Value
+				th Healthy value
+				th Lab
+				th City
+				th Actions
+		tbody
+			- @measurements.each do |measurement|
+				tr
+					td = measurement.created_at
+					td = measurement.marker.name_en
+					td = measurement.value
+					td
+						=> measurement.marker.healthy_value_min
+						| —
+						=< measurement.marker.healthy_value_max
+					td = measurement.lab.name
+					td = measurement.city.name_en
+	 				td
+						= edit_btn measurement
+						= delete_btn measurement, { style: "margin-left: 10px" }

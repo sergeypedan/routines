@@ -1,14 +1,14 @@
-.container-fluid.section-padding
-
-	h1 style="margin-bottom: 10px"
-		=> HabitEntry.model_name.human
+.container-fluid.masthead-1
+	h1
+		=> HabitEntry.model_name.human.pluralize
 		- if @date
 			|  for
 			=< l @date, format: "%-d %B %Y"
 
-	= link_to "New entry", [:new, :habit_entry], class: "btn btn-primary"
+	= add_record_button HabitEntry
 
-	table.table style="margin-top: 40px"
+.container-fluid.section-padding
+	table.table
 		thead
 			tr
 				th Created at
@@ -33,4 +33,3 @@
 						td
 							= link_to "Edit", [:edit, entry], class: "btn btn-outline-secondary btn-sm"
 							= link_to "Delete", entry, method: :delete, class: "btn btn-outline-danger btn-sm", style: "margin-left: 15px"
-

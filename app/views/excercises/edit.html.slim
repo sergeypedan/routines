@@ -32,7 +32,4 @@
 				.form-text Missing a muscle? #{link_to "Create one!", [:new, :muscle], target: "_blank"}
 
 		= render "application/form_errors", record: f.object
-
-		.form-actions
-			= f.submit nil, class: "btn btn-primary"
-			= delete_btn f.object, style: "margin-left: 30px" if f.object.persisted?
+		.form-actions = save_btn(f)

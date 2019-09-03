@@ -2,7 +2,17 @@
 
 class HealthStateMarker < ApplicationRecord
 
+	# Associations
+
 	has_many :measurements
+
+
+	# Validations
+
+	validates :healthy_value_max, presence: true, numericality: true
+	validates :healthy_value_max, presence: true, numericality: true
+	validates :name_en, presence: true
+	validates :name_ru, presence: true
 
 end
 

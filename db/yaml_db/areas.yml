@@ -30,12 +30,28 @@
     - drug_active_substances#index
     - drug_forms#index
     - drugs#index
+    - health_state_markers#create
+    - health_state_markers#edit
+    - health_state_markers#index
+    - health_state_markers#new
+    - labs#index
+    - labs#edit
+    - labs#create
+    - labs#new
+    - measurements#create
+    - measurements#edit
+    - measurements#index
+    - measurements#new
   dashboard_action: medicine
   name_en: Medicine
   name_ru: Здоровье
   path: medicine
 -
   controllers:
+    - cities#create
+    - cities#edit
+    - cities#index
+    - cities#new
     - config
   dashboard_action: settings
   name_en: Settings

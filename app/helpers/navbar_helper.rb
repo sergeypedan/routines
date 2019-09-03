@@ -18,7 +18,7 @@ module NavbarHelper
 
 	def current_area
 		@ca ||= Area.all.find { |area| is_active_area?(area) }
-		fail "No `current_area`. `controller_name`: #{controller_name}. `action_name`: #{action_name}" unless @ca
+		fail "No `current_area` for #{controller_name}##{action_name}" unless @ca
 		@ca
 	end
 

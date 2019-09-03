@@ -1,0 +1,24 @@
+.container-fluid.masthead-1
+	h1 = Lab.model_name.human.pluralize
+	= add_record_button Lab
+
+.container-fluid.section-padding
+	table.table
+		thead
+			tr
+				th Name
+				th City
+				th Address
+				th Measurements count
+				th Actions
+		tbody
+			- @labs.each do |lab|
+				tr
+					td = lab.name
+					td = lab.city.name_en
+					td = lab.street_address
+					td not implemented
+					/ td = lab.measurements_count
+	 				td
+						= edit_btn lab
+						= delete_btn lab, { style: "margin-left: 10px" }

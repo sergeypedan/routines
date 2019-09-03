@@ -1,0 +1,39 @@
+.container.section-padding
+
+	= form_for @marker do |f|
+
+		fieldset
+			legend Name
+			.form-group
+				= f.label      :name_en, nil, class: :required
+				= f.text_field :name_en, required: true, class: "form-control"
+
+			.form-group
+				= f.label      :name_ru, nil, class: :required
+				= f.text_field :name_ru, required: true, class: "form-control"
+
+		fieldset
+			legend Healthy value
+			.row
+				.form-group.col-auto
+					= f.label        :healthy_value_min, nil, class: :required
+					= f.number_field :healthy_value_min, required: true, class: "form-control"
+
+				.form-group.col-auto
+					= f.label        :healthy_value_max, nil, class: :required
+					= f.number_field :healthy_value_max, required: true, class: "form-control"
+
+				.form-group.col-auto
+					= f.label      :unit, nil, class: :required
+					= f.text_field :unit, required: true, class: "form-control"
+
+			.form-group
+				= f.label :healthy_value_source_name
+				= f.text_field :healthy_value_source_name, class: "form-control"
+
+			.form-group
+				= f.label :healthy_value_source_url
+				= f.url_field :healthy_value_source_url, class: "form-control"
+
+		= render "application/form_errors", record: f.object
+		.form-actions = save_btn(f)

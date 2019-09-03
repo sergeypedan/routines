@@ -1,10 +1,9 @@
-.container-fluid.section-padding
-
-	h1 style="margin-bottom: 15px" = Mood.model_name.human
-
+.container-fluid.masthead-1
+	h1 = Mood.model_name.human.pluralize
 	= add_record_button Mood
 
-	table.table style="margin-top: 30px"
+.container-fluid.section-padding
+	table.table
 		thead
 			tr
 				th Name en

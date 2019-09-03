@@ -20,11 +20,11 @@ nav class="navbar navbar-expand-lg navbar-dark"
 								when "Medicine"
 									[
 										{ name:                Drug.model_name.human.pluralize, href: drugs_path },
+										{ name:            DrugForm.model_name.human.pluralize, href: drug_forms_path },
 										{ name: DrugActiveSubstance.model_name.human.pluralize, href: drug_active_substances_path },
-										{ name:            DrugForm.model_name.human.pluralize, href: root_path },
-										{ name:                 Lab.model_name.human.pluralize, href: root_path },
-										{ name:         Measurement.model_name.human.pluralize, href: root_path },
-										{ name:   HealthStateMarker.model_name.human.pluralize, href: root_path }
+										{ name:                 Lab.model_name.human.pluralize, href: labs_path },
+										{ name:         Measurement.model_name.human.pluralize, href: measurements_path },
+										{ name:   HealthStateMarker.model_name.human.pluralize, href: health_state_markers_path }
 									]
 								when "Spirit"
 									[

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_29_231117) do
+ActiveRecord::Schema.define(version: 2019_09_03_150209) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -154,7 +154,9 @@ ActiveRecord::Schema.define(version: 2019_08_29_231117) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "marker_id"
     t.index ["lab_id"], name: "index_measurements_on_lab_id"
+    t.index ["marker_id"], name: "index_measurements_on_marker_id"
     t.index ["user_id"], name: "index_measurements_on_user_id"
   end
 
@@ -235,6 +237,7 @@ ActiveRecord::Schema.define(version: 2019_08_29_231117) do
   add_foreign_key "habits", "excercises"
   add_foreign_key "habits", "users"
   add_foreign_key "labs", "cities"
+  add_foreign_key "measurements", "health_state_markers", column: "marker_id"
   add_foreign_key "measurements", "labs"
   add_foreign_key "measurements", "users"
   add_foreign_key "mood_entries", "moods"

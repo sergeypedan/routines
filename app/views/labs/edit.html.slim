@@ -1,0 +1,17 @@
+.container.section-padding
+	= form_for @lab do |f|
+
+		.form-group
+			= f.label      :name, nil, class: :required
+			= f.text_field :name, required: :true, class: "form-control"
+
+		.form-group
+			= f.label             :city_id, nil, class: :required
+			= f.collection_select :city_id, City.all, :id, :name_en, { prompt: true }, { required: :true, class: "form-control" }
+
+		.form-group
+			= f.label      :street_address, nil, class: :required
+			= f.text_field :street_address, required: :true, class: "form-control"
+
+		= render "application/form_errors", record: f.object
+		.form-actions = save_btn(f)

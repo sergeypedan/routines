@@ -1,0 +1,18 @@
+.container.section-padding
+
+	= form_for @measurement do |f|
+
+		.form-group
+			= f.label             :marker_id, nil, class: :required
+			= f.collection_select :marker_id, HealthStateMarker.all, :id, :name_en, { prompt: true }, required: true, class: "form-control"
+
+		.form-group
+			= f.label        :value, nil, class: :required
+			= f.number_field :value, required: true, class: "form-control"
+
+		.form-group
+			= f.label             :lab_id, nil, class: :required
+			= f.collection_select :lab_id, Lab.all, :id, :name, { prompt: true }, required: true, class: "form-control"
+
+		= render "application/form_errors", record: f.object
+		.form-actions = save_btn(f)

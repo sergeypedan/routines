@@ -1,0 +1,25 @@
+.container-fluid.masthead-1
+	h1 = HealthStateMarker.model_name.human.pluralize
+	= add_record_button HealthStateMarker
+
+.container-fluid.section-padding
+	table.table
+		thead
+			tr
+				th Name en
+				th Name ru
+				th Healthy range
+				th Actions
+		tbody
+			- @markers.each do |marker|
+				tr
+					td = marker.name_en
+					td = marker.name_ru
+					td
+						=> marker.healthy_value_min
+						| —
+						=< marker.healthy_value_max
+						=< marker.unit
+	 				td
+						= edit_btn marker
+						= delete_btn marker, { style: "margin-left: 10px" }

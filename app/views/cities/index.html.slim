@@ -1,9 +1,9 @@
-.container-fluid.section-padding
-
+.container-fluid.masthead-1
 	h1 = City.model_name.human.pluralize
 	= add_record_button City
 
-	table.table style="margin-top: 30px"
+.container-fluid.section-padding
+	table.table
 		thead
 			tr
 				th ID
@@ -18,5 +18,5 @@
 					td = city.id
 					td = city.name_en
 					td = city.name_ru
-					td
-					td
+					td = link_to "Edit", [:edit, city], class: "btn btn-secondary"
+					td = delete_btn city

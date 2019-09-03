@@ -1,7 +1,8 @@
-.container-fluid.section-padding
+.container-fluid.masthead-1
 	h1 Multiple habits stats
 	p #{l @time_frame.first, format: "%B, %-d"} to #{l @time_frame.last, format: "%B, %-d of %Y"}
 
+.container-fluid.section-padding
 	/ = @habits_stats.to_json(except: ["ar_habit"])
 	/ = render "habit_stats/habit_stats.json", habits_stats: @habits_stats
 	ruby:
