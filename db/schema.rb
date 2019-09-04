@@ -137,7 +137,7 @@ ActiveRecord::Schema.define(version: 2019_09_04_183148) do
     t.string "healthy_value_source_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "measurements_group_id", null: false
+    t.bigint "measurements_group_id"
     t.string "abbr_en", limit: 10
     t.string "abbr_ru", limit: 10
     t.bigint "measurement_object_id", null: false

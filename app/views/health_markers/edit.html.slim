@@ -30,7 +30,7 @@
 
 			.form-group
 				= f.label             :measurements_group_id, nil
-				= f.collection_select :measurements_group_id, MeasurementsGroup.all, :id, :name_en, { prompt: true }, { class: "form-control" }
+				= f.collection_select :measurements_group_id, MeasurementsGroup.all, :id, :name_en, { include_blank: true }, { class: "form-control" }
 
 		fieldset
 			legend Units of measurement
