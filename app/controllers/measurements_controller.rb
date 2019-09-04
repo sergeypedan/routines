@@ -43,7 +43,7 @@ class MeasurementsController < DashboardsController
 	private
 
 	def filtered_params
-		params.require(:measurement).permit(:lab_id, :value, :marker_id)
+		params.require(:measurement).permit(:created_at, :lab_id, :value, :marker_id)
 	end
 
 	def set_measurement

@@ -22,7 +22,7 @@
   },
   "engines": {
     "node": "11.x",
-    "yarn": ">= 1.16.0"
+    "yarn": ">= 1.17.3"
   },
   "license": "UNLICENSED",
   "main": "webpack.config.js",

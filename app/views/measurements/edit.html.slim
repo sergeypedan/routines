@@ -3,6 +3,10 @@
 	= form_for @measurement do |f|
 
 		.form-group
+			= f.label       :created_at, nil, class: :required
+			= f.date_select :created_at, required: :true, class: "form-control"
+
+		.form-group
 			= f.label             :marker_id, nil, class: :required
 			= f.collection_select :marker_id, HealthMarker.all, :id, :name_en, { prompt: true }, required: true, class: "form-control"
 			= tag.small link_to("Create a #{f.object.class.model_name.human.downcase}", new_health_marker_path, target: "_blank"), class: "form-text text-muted" if HealthMarker.count.zero?
