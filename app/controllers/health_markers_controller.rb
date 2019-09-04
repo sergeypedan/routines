@@ -58,6 +58,7 @@ class HealthMarkersController < DashboardsController
 									:healthy_value_source_name,
 									:healthy_value_source_url,
 									:measurements_group_id,
+									:measurement_object_id,
 									:name_en,
 									:name_ru,
 									:unit)
