@@ -28,7 +28,10 @@
 -
   controllers:
     - drug_active_substances#index
+    - drug_forms#create
+    - drug_forms#edit
     - drug_forms#index
+    - drug_forms#new
     - drugs#index
     - health_markers#create
     - health_markers#edit
