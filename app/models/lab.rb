@@ -4,7 +4,7 @@ class Lab < ApplicationRecord
 
 	belongs_to :city
 
-	has_many :measurments, dependent: :restrict_with_error
+	has_many :measurements, dependent: :restrict_with_error
 
 end
 

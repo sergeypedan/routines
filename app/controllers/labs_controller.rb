@@ -2,17 +2,24 @@
 
 class LabsController < DashboardsController
 
+	before_action :set_lab, only: %i[destroy edit update]
+
+	KLASS = Lab
+
+
 	def index
-		@labs = Lab.includes(:city)
+		@labs = KLASS.includes(:city)
 	end
 
+
 	def new
-		@lab = Lab.new
+		@lab = KLASS.new
 		render :edit
 	end
 
+
 	def create
-		@lab = Lab.new(filtered_params)
+		@lab = KLASS.new(filtered_params)
 		if @lab.save
 			redirect_to labs_path
 		else
@@ -20,12 +27,12 @@ class LabsController < DashboardsController
 		end
 	end
 
+
 	def edit
-		set_lab
 	end
 
+
 	def update
-		set_lab
 		if @lab.update(filtered_params)
 			redirect_to labs_path
 		else
@@ -33,8 +40,8 @@ class LabsController < DashboardsController
 		end
 	end
 
+
 	def destroy
-		set_lab
 		@lab.destroy
 		redirect_to labs_path
 	end
@@ -46,8 +53,9 @@ class LabsController < DashboardsController
 		params.require(:lab).permit(:city_id, :id, :name, :street_address)
 	end
 
+
 	def set_lab
-		@lab = Lab.find params[:id]
+		@lab = KLASS.find params[:id]
 	end
 
 end
