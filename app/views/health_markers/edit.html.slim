@@ -23,11 +23,11 @@
 			.row
 				.form-group.col-auto
 					= f.label        :healthy_value_min, nil, class: :required
-					= f.number_field :healthy_value_min, required: true, class: "form-control"
+					= f.number_field :healthy_value_min, step: 0.01, required: true, class: "form-control"
 
 				.form-group.col-auto
 					= f.label        :healthy_value_max, nil, class: :required
-					= f.number_field :healthy_value_max, required: true, class: "form-control"
+					= f.number_field :healthy_value_max, step: 0.01, required: true, class: "form-control"
 
 				.form-group.col-auto
 					= f.label      :unit, nil, class: :required

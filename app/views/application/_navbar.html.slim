@@ -7,7 +7,7 @@ nav class="navbar navbar-expand-lg navbar-dark"
 	div class="collapse navbar-collapse" id="navbarNav"
 		ul.navbar-nav
 			- navbar_pages(current_area.name_en).each do |page|
-				= tag.li class: ["nav-item", ("active" if current_page?(page[:href]) )]
+				= tag.li class: ["nav-item", (:active if current_page? page[:href])]
 					= link_to( page[:name], page[:href], class: "nav-link")
 
 		.navbar-nav.ml-auto
