@@ -22,6 +22,8 @@ end
 #
 # Table name: health_markers
 #
+#  abbr_en                   :string(10)
+#  abbr_ru                   :string(10)
 #  healthy_value_max         :float            not null
 #  healthy_value_min         :float            not null
 #  healthy_value_source_name :string

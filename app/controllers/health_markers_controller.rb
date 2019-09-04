@@ -51,7 +51,9 @@ class HealthMarkersController < DashboardsController
 
 	def filtered_params
 		params.require(:health_marker)
-					.permit(:healthy_value_max,
+					.permit(:abbr_en,
+									:abbr_ru,
+									:healthy_value_max,
 									:healthy_value_min,
 									:healthy_value_source_name,
 									:healthy_value_source_url,
