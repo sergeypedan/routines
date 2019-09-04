@@ -3,7 +3,7 @@
 class MeasurementsController < DashboardsController
 
 	def index
-		@measurements = Measurement.all
+		@measurements = Measurement.order(:created_at)
 	end
 
 	def new
