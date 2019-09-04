@@ -23,10 +23,21 @@
 					= f.text_field :abbr_ru, class: "form-control"
 
 		fieldset
-			legend Healthy value
+			legend Groupping
+			.form-group
+				= f.label             :measurement_object_id, nil, class: :required
+				= f.collection_select :measurement_object_id, MeasurementObject.all, :id, :name_en, { prompt: true }, { required: true, class: "form-control" }
+
 			.form-group
 				= f.label             :measurements_group_id, nil, class: :required
 				= f.collection_select :measurements_group_id, MeasurementsGroup.all, :id, :name_en, { prompt: true }, { required: true, class: "form-control" }
+
+		fieldset
+			legend Units of measurement
+			.row
+				.form-group.col-auto
+					= f.label      :unit, nil, class: :required
+					= f.text_field :unit, required: true, class: "form-control"
 
 		fieldset
 			legend Healthy value
@@ -38,10 +49,6 @@
 				.form-group.col-auto
 					= f.label        :healthy_value_max, nil, class: :required
 					= f.number_field :healthy_value_max, step: 0.001, required: true, class: "form-control"
-
-				.form-group.col-auto
-					= f.label      :unit, nil, class: :required
-					= f.text_field :unit, required: true, class: "form-control"
 
 			.form-group
 				= f.label :healthy_value_source_name

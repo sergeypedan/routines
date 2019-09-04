@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_04_022015) do
+ActiveRecord::Schema.define(version: 2019_09_04_122622) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -140,6 +140,8 @@ ActiveRecord::Schema.define(version: 2019_09_04_022015) do
     t.bigint "measurements_group_id", null: false
     t.string "abbr_en", limit: 10
     t.string "abbr_ru", limit: 10
+    t.bigint "measurement_object_id", null: false
+    t.index ["measurement_object_id"], name: "index_health_markers_on_measurement_object_id"
     t.index ["measurements_group_id"], name: "index_health_markers_on_measurements_group_id"
   end
 
@@ -150,6 +152,13 @@ ActiveRecord::Schema.define(version: 2019_09_04_022015) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["city_id"], name: "index_labs_on_city_id"
+  end
+
+  create_table "measurement_objects", force: :cascade do |t|
+    t.string "name_en", null: false
+    t.string "name_ru", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "measurements", force: :cascade do |t|
@@ -247,6 +256,7 @@ ActiveRecord::Schema.define(version: 2019_09_04_022015) do
   add_foreign_key "habit_entries", "users"
   add_foreign_key "habits", "excercises"
   add_foreign_key "habits", "users"
+  add_foreign_key "health_markers", "measurement_objects"
   add_foreign_key "health_markers", "measurements_groups"
   add_foreign_key "labs", "cities"
   add_foreign_key "measurements", "health_markers", column: "marker_id"

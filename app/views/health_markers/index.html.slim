@@ -6,6 +6,7 @@
 	table.table
 		thead
 			tr
+				th Object
 				th
 				th Name en
 				th
@@ -16,6 +17,7 @@
 		tbody
 			- @markers.each do |marker|
 				tr
+					td = marker.measurement_object.name_en
 					td = marker.abbr_en
 					td = marker.name_en
 					td = marker.abbr_ru
