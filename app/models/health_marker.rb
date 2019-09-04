@@ -15,6 +15,8 @@ class HealthMarker < ApplicationRecord
 	validates :measurements_group_id, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 1 }
 	validates :name_en, presence: true
 	validates :name_ru, presence: true
+	validates :abbr_en, length: { maximum: 10 }
+	validates :abbr_ru, length: { maximum: 10 }
 
 end
 
