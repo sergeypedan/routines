@@ -16,7 +16,7 @@
 		tbody
 			- @measurements.each do |measurement|
 				tr
-					td = l measurement.created_at, format: "%-d %B %Y"
+					td = l measurement.created_at, format: "%Y %B, %-d"
 					td = measurement.marker.name_en
 					td = measurement.value
 					td

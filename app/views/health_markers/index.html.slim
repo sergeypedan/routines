@@ -7,26 +7,26 @@
 		thead
 			tr
 				th Object
-				th
-				th Name en
-				th
-				th Name ru
 				th Group
+				th Name en
+				th Name ru
 				th Healthy range
 				th Actions
 		tbody
 			- @markers.each do |marker|
 				tr
 					td = marker.measurement_object.name_en
-					td = marker.abbr_en
-					td = marker.name_en
-					td = marker.abbr_ru
-					td = marker.name_ru
 					td = marker.measurements_group&.name_en
 					td
-						=> marker.healthy_value_min
+						= marker.name_en
+						=< "(#{marker.abbr_en})" if marker.abbr_en.present?
+					td
+						= marker.name_ru
+						=< "(#{marker.abbr_ru})" if marker.abbr_ru.present?
+					td
+						=> number_with_precision marker.healthy_value_min, strip_insignificant_zeros: true
 						| —
-						=< marker.healthy_value_max
+						=< number_with_precision marker.healthy_value_max, strip_insignificant_zeros: true
 						=< marker.unit
 	 				td
 						= edit_btn marker
