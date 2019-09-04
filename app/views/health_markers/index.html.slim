@@ -22,7 +22,7 @@
 					td = marker.name_en
 					td = marker.abbr_ru
 					td = marker.name_ru
-					td = marker.measurements_group.name_en
+					td = marker.measurements_group&.name_en
 					td
 						=> marker.healthy_value_min
 						| —
