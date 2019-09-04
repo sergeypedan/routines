@@ -2,17 +2,24 @@
 
 class HealthMarkersController < DashboardsController
 
+	KLASS = HealthMarker
+
+	before_action :set_marker, only: %i[destroy edit update]
+
+
 	def index
-		@markers = HealthMarker.all
+		@markers = KLASS.all
 	end
 
+
 	def new
-		@marker = HealthMarker.new
+		@marker = KLASS.new
 		render :edit
 	end
 
+
 	def create
-		@marker = HealthMarker.new(filtered_params)
+		@marker = KLASS.new(filtered_params)
 		if @marker.save
 			redirect_to health_markers_path
 		else
@@ -20,12 +27,12 @@ class HealthMarkersController < DashboardsController
 		end
 	end
 
+
 	def edit
-		set_marker
 	end
 
+
 	def update
-		set_marker
 		if @marker.update(filtered_params)
 			redirect_to health_markers_path
 		else
@@ -33,8 +40,8 @@ class HealthMarkersController < DashboardsController
 		end
 	end
 
+
 	def destroy
-		set_marker
 		@marker.destroy
 		redirect_to health_markers_path
 	end
@@ -48,13 +55,15 @@ class HealthMarkersController < DashboardsController
 									:healthy_value_min,
 									:healthy_value_source_name,
 									:healthy_value_source_url,
+									:measurements_group_id,
 									:name_en,
 									:name_ru,
 									:unit)
 	end
 
+
 	def set_marker
-		@marker = HealthMarker.find params[:id]
+		@marker = KLASS.find params[:id]
 	end
 
 end

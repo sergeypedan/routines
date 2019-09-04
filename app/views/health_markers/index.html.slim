@@ -8,6 +8,7 @@
 			tr
 				th Name en
 				th Name ru
+				th Group
 				th Healthy range
 				th Actions
 		tbody
@@ -15,6 +16,7 @@
 				tr
 					td = marker.name_en
 					td = marker.name_ru
+					td = marker.measurements_group.name_en
 					td
 						=> marker.healthy_value_min
 						| —

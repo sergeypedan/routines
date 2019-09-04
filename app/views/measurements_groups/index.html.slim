@@ -1,0 +1,19 @@
+.container-fluid.masthead-1
+	h1 = MeasurementsGroup.model_name.human.pluralize
+	= add_record_button MeasurementsGroup
+
+.container-fluid.section-padding
+	table.table
+		thead
+			tr
+				th Name en
+				th Name ru
+				th Actions
+		tbody
+			- @measurements_groups.each do |measurements_group|
+				tr
+					td = measurements_group.name_en
+					td = measurements_group.name_ru
+	 				td
+						= edit_btn measurements_group
+						= delete_btn measurements_group, { style: "margin-left: 10px" }

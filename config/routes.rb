@@ -23,6 +23,7 @@ Rails.application.routes.draw do
 	resources :health_markers
 	resources :labs
 	resources :measurements
+	resources :measurements_groups
 	resources :moods
 	resources :mood_entries
 	resources :muscles

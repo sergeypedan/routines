@@ -14,6 +14,12 @@
 
 		fieldset
 			legend Healthy value
+			.form-group
+				= f.label             :measurements_group_id, nil, class: :required
+				= f.collection_select :measurements_group_id, MeasurementsGroup.all, :id, :name_en, { prompt: true }, { required: true, class: "form-control" }
+
+		fieldset
+			legend Healthy value
 			.row
 				.form-group.col-auto
 					= f.label        :healthy_value_min, nil, class: :required

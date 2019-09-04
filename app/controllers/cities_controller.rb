@@ -2,19 +2,21 @@
 
 class CitiesController < DashboardsController
 
+	KLASS = City
+
 	def index
-		@cities = City.all
+		@cities = KLASS.all
 	end
 
 
 	def new
-		@city = City.new
+		@city = KLASS.new
 		render :edit
 	end
 
 
 	def create
-		@city = City.new(filtered_params)
+		@city = KLASS.new(filtered_params)
 		if @city.save
 			redirect_to cities_path
 		else
@@ -48,7 +50,7 @@ class CitiesController < DashboardsController
 	private
 
 	def set_city
-		@city = City.find params[:id]
+		@city = KLASS.find params[:id]
 	end
 
 	def filtered_params

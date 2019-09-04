@@ -1,5 +1,4 @@
 nav class="navbar navbar-expand-lg navbar-dark"
-
 	= link_to fa_icon("cog", text: "Routines"), day_habits_path, class: "navbar-brand"
 
 	button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"
@@ -7,59 +6,14 @@ nav class="navbar navbar-expand-lg navbar-dark"
 
 	div class="collapse navbar-collapse" id="navbarNav"
 		ul.navbar-nav
-
-			ruby:
-				pages = case current_area.name_en
-								when "Habits"
-									[
-										{ name:             t("activerecord.models.day_habit"), href: day_habits_path },
-										{ name:           t("activerecord.models.habit_stats"), href: habit_stats_path },
-										{ name:          HabitEntry.model_name.human.pluralize, href: habit_entries_path },
-										{ name:               Habit.model_name.human.pluralize, href: habits_path }
-									]
-								when "Medicine"
-									[
-										{ name:                Drug.model_name.human.pluralize, href: drugs_path },
-										{ name:            DrugForm.model_name.human.pluralize, href: drug_forms_path },
-										{ name: DrugActiveSubstance.model_name.human.pluralize, href: drug_active_substances_path },
-										{ name:                 Lab.model_name.human.pluralize, href: labs_path },
-										{ name:         Measurement.model_name.human.pluralize, href: measurements_path },
-										{ name:        HealthMarker.model_name.human.pluralize, href: health_markers_path }
-									]
-								when "Spirit"
-									[
-										{ name:           MoodEntry.model_name.human.pluralize, href: mood_entries_path },
-										{ name:                Mood.model_name.human.pluralize, href: moods_path }
-									]
-								when "Workout"
-									[
-										{ name:         Excercising.model_name.human.pluralize, href: excercisings_path },
-										{ name:           Excercise.model_name.human.pluralize, href: excercises_path },
-										{ name:              Muscle.model_name.human.pluralize, href: muscles_path },
-										{ name:              Weight.model_name.human.pluralize, href: root_path },
-										{ name:        WeightBundle.model_name.human.pluralize, href: root_path }
-									]
-								when "Settings"
-									[
-										{ name: City.model_name.human.pluralize, href: cities_path }
-									]
-								else []
-								end
-
-			- pages.each do |page|
+			- navbar_pages(current_area.name_en).each do |page|
 				= tag.li class: ["nav-item", ("active" if current_page?(page[:href]) )]
 					= link_to( page[:name], page[:href], class: "nav-link")
 
 		.navbar-nav.ml-auto
-			ruby:
-				pages = [
-									{ name: Setting.model_name.human.pluralize, href: settings_path }
-								]
-
-			- pages.each do |page|
-				= tag.li class: ["nav-item", (:active if current_page?(page[:href]) )]
-					= link_to( page[:name], page[:href], class: "nav-link")
-
+			/ - pages.each do |page|
+			/ 	= tag.li class: ["nav-item", (:active if current_page?(page[:href]) )]
+			/ 		= link_to( page[:name], page[:href], class: "nav-link")
 			li
 				- unless current_user
 					- if current_page?(user_session_path)

@@ -1,0 +1,14 @@
+.container.section-padding
+
+	= form_for @measurements_group do |f|
+
+		.form-group
+			= f.label      :name_en, nil, class: :required
+			= f.text_field :name_en, required: true, class: "form-control"
+
+		.form-group
+			= f.label      :name_ru, nil, class: :required
+			= f.text_field :name_ru, required: true, class: "form-control"
+
+		= render "application/form_errors", record: f.object
+		.form-actions = save_btn(f)

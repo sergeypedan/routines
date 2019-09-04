@@ -22,4 +22,45 @@ module NavbarHelper
 		@ca
 	end
 
+	def navbar_pages(area_name)
+		case area_name
+		when "Habits"
+			[
+				{ name:             t("activerecord.models.day_habit"), href: day_habits_path },
+				{ name:           t("activerecord.models.habit_stats"), href: habit_stats_path },
+				{ name:          HabitEntry.model_name.human.pluralize, href: habit_entries_path },
+				{ name:               Habit.model_name.human.pluralize, href: habits_path }
+			]
+		when "Medicine"
+			[
+				{ name:                Drug.model_name.human.pluralize, href: drugs_path },
+				{ name:            DrugForm.model_name.human.pluralize, href: drug_forms_path },
+				{ name: DrugActiveSubstance.model_name.human.pluralize, href: drug_active_substances_path },
+				{ name:                 Lab.model_name.human.pluralize, href: labs_path },
+				{ name:         Measurement.model_name.human.pluralize, href: measurements_path },
+				{ name:   MeasurementsGroup.model_name.human.pluralize, href: measurements_groups_path },
+				{ name:        HealthMarker.model_name.human.pluralize, href: health_markers_path }
+			]
+		when "Spirit"
+			[
+				{ name:           MoodEntry.model_name.human.pluralize, href: mood_entries_path },
+				{ name:                Mood.model_name.human.pluralize, href: moods_path }
+			]
+		when "Workout"
+			[
+				{ name:         Excercising.model_name.human.pluralize, href: excercisings_path },
+				{ name:           Excercise.model_name.human.pluralize, href: excercises_path },
+				{ name:              Muscle.model_name.human.pluralize, href: muscles_path },
+				{ name:              Weight.model_name.human.pluralize, href: root_path },
+				{ name:        WeightBundle.model_name.human.pluralize, href: root_path }
+			]
+		when "Settings"
+			[
+				{ name:                City.model_name.human.pluralize, href: cities_path },
+				{ name:             Setting.model_name.human.pluralize, href: settings_path }
+			]
+		else []
+		end
+	end
+
 end
