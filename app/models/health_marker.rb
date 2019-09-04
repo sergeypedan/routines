@@ -5,7 +5,7 @@ class HealthMarker < ApplicationRecord
 	# Associations
 
 	has_many   :measurements
-	belongs_to :measurements_group
+	belongs_to :measurements_group, optional: true
 	belongs_to :measurement_object
 
 
@@ -13,7 +13,7 @@ class HealthMarker < ApplicationRecord
 
 	validates :healthy_value_max, presence: true, numericality: true
 	validates :healthy_value_max, presence: true, numericality: true
-	validates :measurements_group_id,  presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 1 }
+	validates :measurements_group_id, numericality: { allow_nil: true, only_integer: true, greater_than_or_equal_to: 1 }
 	validates :measurement_object_id, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 1 }
 	validates :name_en, presence: true
 	validates :name_ru, presence: true

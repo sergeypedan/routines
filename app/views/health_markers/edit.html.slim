@@ -29,8 +29,8 @@
 				= f.collection_select :measurement_object_id, MeasurementObject.all, :id, :name_en, { prompt: true }, { required: true, class: "form-control" }
 
 			.form-group
-				= f.label             :measurements_group_id, nil, class: :required
-				= f.collection_select :measurements_group_id, MeasurementsGroup.all, :id, :name_en, { prompt: true }, { required: true, class: "form-control" }
+				= f.label             :measurements_group_id, nil
+				= f.collection_select :measurements_group_id, MeasurementsGroup.all, :id, :name_en, { prompt: true }, { class: "form-control" }
 
 		fieldset
 			legend Units of measurement
