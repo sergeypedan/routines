@@ -8,7 +8,7 @@ class HealthMarkersController < DashboardsController
 
 
 	def index
-		@markers = KLASS.all
+		@markers = KLASS.includes(:measurements_group, :measurement_object)
 	end
 
 
