@@ -32,7 +32,10 @@
     - drug_forms#edit
     - drug_forms#index
     - drug_forms#new
+    - drugs#create
+    - drugs#edit
     - drugs#index
+    - drugs#new
     - health_markers#create
     - health_markers#edit
     - health_markers#index
