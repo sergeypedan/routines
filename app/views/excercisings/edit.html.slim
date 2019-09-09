@@ -7,12 +7,15 @@
 			= f.date_field :date, required: true, class: "form-control"
 
 		.form-group
-			= f.label             :excercise_id
-			= f.collection_select :excercise_id, Excercise.all, :id, :name, { prompt: true, selected: Excercising.order(:created_at).last.id }, required: true, class: "form-control"
+			= f.label :excercise_id
+			- if f.object.persisted?
+				= f.collection_select :excercise_id, Excercise.all, :id, :name, { prompt: true }, required: true, class: "form-control"
+			- else
+				= f.collection_select :excercise_id, Excercise.all, :id, :name, { prompt: true, selected: Excercising.order(:created_at).last.id }, required: true, class: "form-control"
 
 		- if f.object.persisted?
 			.form-group
-				- if f.object.persisted?.excercise.repetition_based?
+				- if @excercising.excercise.repetition_based?
 					= f.label        :repetitions_count, nil, class: "control-label"
 					= f.number_field :repetitions_count, required: true, class: "form-control"
 				- else
