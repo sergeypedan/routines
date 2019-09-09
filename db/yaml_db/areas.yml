@@ -1,21 +1,33 @@
 -
   controllers:
     - day_habits#index
+    - habit_entries#create
+    - habit_entries#edit
     - habit_entries#index
+    - habit_entries#new
     - habit_stats#index
+    - habits#create
+    - habits#edit
     - habits#index
+    - habits#new
   dashboard_action: habits
   name_en: Habits
   name_ru: Привычки
   path: habts
 -
   controllers:
+    - excercises#create
+    - excercises#edit
     - excercises#index
+    - excercises#new
     - excercisings#create
     - excercisings#edit
     - excercisings#index
     - excercisings#new
+    - muscles#create
+    - muscles#edit
     - muscles#index
+    - muscles#new
   dashboard_action: workout
   name_en: Workout
   name_ru: Спорт
