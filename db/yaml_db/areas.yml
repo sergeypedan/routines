@@ -11,7 +11,10 @@
 -
   controllers:
     - excercises#index
+    - excercisings#create
+    - excercisings#edit
     - excercisings#index
+    - excercisings#new
     - muscles#index
   dashboard_action: workout
   name_en: Workout

@@ -14,7 +14,7 @@
 			= f.label             :excercise_id
 			= f.collection_select :excercise_id, Excercise.all, :id, :name, {}, required: true, class: "form-control"
 
-		- if f.object.persisted?.persisted?
+		- if f.object.persisted?
 			.form-group
 				- if f.object.persisted?.excercise.repetition_based?
 					= f.label        :repetitions_count, nil, class: "control-label"
