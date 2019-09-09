@@ -2,17 +2,13 @@
 
 	= form_with model: @excercising, local: true do |f|
 
-		/ .form-group
-		/ 	= f.label          :datetime, nil, class: "control-label"
-		/ 	= f.datetime_field :datetime, required: true, class: "form-control"
-
 		.form-group
 			= f.label      :date, nil, class: "control-label"
 			= f.date_field :date, required: true, class: "form-control"
 
 		.form-group
 			= f.label             :excercise_id
-			= f.collection_select :excercise_id, Excercise.all, :id, :name, {}, required: true, class: "form-control"
+			= f.collection_select :excercise_id, Excercise.all, :id, :name, { prompt: true, selected: Excercising.order(:created_at).last.id }, required: true, class: "form-control"
 
 		- if f.object.persisted?
 			.form-group
