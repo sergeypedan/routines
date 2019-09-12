@@ -2,23 +2,16 @@
 
 class Excercising < ApplicationRecord
 
-  # Associations
+	# Associations
 
-  belongs_to :excercise
-
-
-  # Validations
-
-  validates :date, presence: true
-  validates :excercise_id, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 1 }
-  validates :repetitions_count, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 1 }
+	belongs_to :excercise
 
 
-  # Callbacks
+	# Validations
 
-  after_initialize do |record|
-  	record.date = Date.today unless record.persisted?
-  end
+	validates :date, presence: true
+	validates :excercise_id, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 1 }
+	validates :repetitions_count, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 1 }
 
 end
 

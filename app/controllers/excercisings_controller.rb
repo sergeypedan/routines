@@ -3,12 +3,12 @@
 class ExcercisingsController < DashboardsController
 
 	def index
-		@excercisings = Excercising.includes(excercise: :muscles).order(:created_at)
+		@excercisings = Excercising.includes(excercise: :muscles).order(:date)
 	end
 
 
 	def new
-		@excercising = Excercising.new
+		@excercising = Excercising.new(date: Date.today)
 		render :edit
 	end
 
@@ -47,8 +47,14 @@ class ExcercisingsController < DashboardsController
 
 
 	def filtered_params
-		params.require(:excercising)
-					.permit(:date, :excercise_id, :repetitions_count, :resistance_duration)
+		params
+			.require(:excercising)
+			.permit(
+				:date,
+				:excercise_id,
+				:repetitions_count,
+				:resistance_duration
+			)
 	end
 
 end
