@@ -2,7 +2,7 @@
 
 class SettingsController < DashboardsController
 
-	before_action :find_and_assign_setting
+	before_action :assign_setting, only: [:index, :edit, :update]
 
 
 	def index
@@ -14,7 +14,7 @@ class SettingsController < DashboardsController
 
 
 	def update
-		if @settings.update(filtered_params)
+		if @setting.update(filtered_params)
 			redirect_to settings_path
 		else
 			render :edit
@@ -28,8 +28,8 @@ class SettingsController < DashboardsController
 		params.require(:setting).permit(:time_zone, :language)
 	end
 
-	def find_and_assign_setting
-		@settings = current_user.setting
+	def assign_setting
+		@setting = current_user.setting
 	end
 
 end

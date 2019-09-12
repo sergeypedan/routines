@@ -11,13 +11,13 @@
 
 			tr
 				th = Setting.human_attribute_name :language
-				td = @settings.language_to_s
-				td = link_to "Edit", [:edit, @settings], class: "btn btn-outline-secondary btn-sm"
+				td = @setting.language_to_s
+				td = link_to "Edit", [:edit, @setting], class: "btn btn-outline-secondary btn-sm"
 
 			tr
 				th Time zone in settings
-				td = @settings.time_zone
-				td = link_to "Edit", [:edit, @settings], class: "btn btn-outline-secondary btn-sm"
+				td = @setting.time_zone
+				td = link_to "Edit", [:edit, @setting], class: "btn btn-outline-secondary btn-sm"
 
 			tr
 				th Time zone effective

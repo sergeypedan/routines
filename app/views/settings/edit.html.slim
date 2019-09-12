@@ -1,5 +1,6 @@
 .container.section-padding
-	= form_with model: @settings, local: true do |f|
+	/ = form_with model: @setting, local: true do |f|
+	= form_for @setting, url: "/settings/#{@setting.id}", local: true, html: { id: nil, class: nil } do |f|
 
 		.form-group
 			= f.label                    :language, nil, class: :required
