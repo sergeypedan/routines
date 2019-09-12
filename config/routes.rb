@@ -2,9 +2,9 @@ Rails.application.routes.draw do
 
 	root to: "day_habits#index"
 
-	Area.all.each do |area|
-		get "/#{area.path}", controller: "areas", action: area.dashboard_action
-	end
+	# Area.all.each do |area|
+	# 	get "/#{area.path}", controller: "areas", action: area.dashboard_action
+	# end
 
 	get "/day_habits/:date", to: "day_habits#show",  as: :day_habit
 	get "/day_habits",       to: "day_habits#index", as: :day_habits
