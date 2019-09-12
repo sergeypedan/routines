@@ -38,6 +38,12 @@ class ExcercisingsController < DashboardsController
 	end
 
 
+	def destroy
+		find_excercising.destroy
+		redirect_to excercisings_path, notice: "OK"
+	end
+
+
 	private
 
 
