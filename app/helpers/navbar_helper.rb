@@ -8,10 +8,7 @@ module NavbarHelper
 	end
 
 	def is_active_area?(area)
-		return true if area.controllers.any? do |ctr_act|
-																			controller, action = ctr_act.split("#")
-																			controller == controller_name && action == action_name
-																		end
+		return true if area.controllers.any? { |ctrlr_name| ctrlr_name == controller_name }
 		return true if controller_name == "areas" && area.dashboard_action == action_name
 		return false
 	end

@@ -1,87 +1,48 @@
 -
   controllers:
-    - day_habits#index
-    - habit_entries#create
-    - habit_entries#edit
-    - habit_entries#index
-    - habit_entries#new
-    - habit_stats#index
-    - habits#create
-    - habits#edit
-    - habits#index
-    - habits#new
+    - day_habits
+    - habit_entries
+    - habit_stats
+    - habits
   dashboard_action: habits
   name_en: Habits
   name_ru: Привычки
   path: day_habits
 -
   controllers:
-    - excercises#create
-    - excercises#edit
-    - excercises#index
-    - excercises#new
-    - excercisings#create
-    - excercisings#edit
-    - excercisings#index
-    - excercisings#new
-    - muscles#create
-    - muscles#edit
-    - muscles#index
-    - muscles#new
+    - excercises
+    - excercisings
+    - muscles
   dashboard_action: workout
   name_en: Workout
   name_ru: Спорт
   path: excercisings
 -
   controllers:
-    - mood_entries#index
-    - moods#index
+    - mood_entries
+    - moods
   dashboard_action: spirit
   name_en: Spirit
   name_ru: Дух
   path: mood_entries
 -
   controllers:
-    - drug_active_substances#index
-    - drug_forms#create
-    - drug_forms#edit
-    - drug_forms#index
-    - drug_forms#new
-    - drugs#create
-    - drugs#edit
-    - drugs#index
-    - drugs#new
-    - health_markers#create
-    - health_markers#edit
-    - health_markers#index
-    - health_markers#new
-    - labs#index
-    - labs#edit
-    - labs#create
-    - labs#new
-    - measurements#create
-    - measurements#edit
-    - measurements#index
-    - measurements#new
-    - measurements_groups#create
-    - measurements_groups#edit
-    - measurements_groups#index
-    - measurements_groups#new
+    - drug_active_substances
+    - drug_forms
+    - drugs
+    - health_markers
+    - labs
+    - measurements
+    - measurements_groups
   dashboard_action: medicine
   name_en: Medicine
   name_ru: Здоровье
   path: measurements
 -
   controllers:
-    - cities#create
-    - cities#edit
-    - cities#index
-    - cities#new
+    - cities
     - config
-    - settings#create
-    - settings#edit
-    - settings#index
-    - settings#new
+    - settings
   dashboard_action: settings
   name_en: Settings
   name_ru: Настройки

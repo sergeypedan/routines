@@ -12,7 +12,12 @@ class Area
 		AREAS.map { |hash| self.new(hash) }
 	end
 
-	[:dashboard_action, :controllers, :name_en, :name_ru, :path].each do |mname|
+	[:dashboard_action,
+		:controllers,
+		:name_en,
+		:name_ru,
+		:path
+	].each do |mname|
 		define_method(mname) do @hash[mname] end
 	end
 
