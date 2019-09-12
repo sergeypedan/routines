@@ -53,7 +53,8 @@ class ExcercisingsController < DashboardsController
 				:date,
 				:excercise_id,
 				:repetitions_count,
-				:resistance_duration
+				:resistance_duration,
+				:weight
 			)
 	end
 

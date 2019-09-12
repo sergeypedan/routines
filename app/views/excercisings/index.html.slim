@@ -11,6 +11,7 @@
 					th Excercise
 					th Muscles
 					th Repetitions
+					th Weight
 					th
 
 			tbody
@@ -27,4 +28,5 @@
 						td
 							=> excercising.repetitions_count
 							| reps
+						td = number_to_human excercising.weight, units: { unit: "kg" }
 						td = link_to "Edit", [:edit, excercising], class: "btn btn-outline-secondary btn-sm"

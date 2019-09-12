@@ -21,7 +21,6 @@
 				- else
 					= f.label        :resistance_duration, nil, class: "control-label"
 					= f.number_field :resistance_duration, required: true, class: "form-control"
-
 		- else
 			.form-group
 				= f.label        :repetitions_count, nil, class: "control-label"
@@ -30,6 +29,10 @@
 			.form-group
 				= f.label        :resistance_duration, nil, class: "control-label"
 				= f.number_field :resistance_duration, class: "form-control"
+
+		.form-group
+			= f.label        :weight, nil, class: "control-label"
+			= f.number_field :weight, required: true, min: 0, step: 0.5, class: "form-control"
 
 		= render "application/form_errors", record: f.object
 		.form-actions = save_btn(f)

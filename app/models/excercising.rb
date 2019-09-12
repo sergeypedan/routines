@@ -24,4 +24,5 @@ end
 #  id                  :bigint           not null, primary key
 #  repetitions_count   :integer          default(1), not null
 #  resistance_duration :integer
+#  weight              :float            default(0.0), not null
 #
