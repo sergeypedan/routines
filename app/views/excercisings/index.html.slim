@@ -9,8 +9,7 @@
 				tr
 					th Excercise
 					th Muscles
-					th Repetitions
-					th Duration
+					th Reps / dur
 					th Weight
 					th
 
@@ -29,7 +28,10 @@
 									ul.tags-1.small
 										- excercise.muscles.each do |muscle|
 											li.tags-1__li = link_to muscle.name, muscle
-							td = "#{excercising.repetitions_count} reps" if excercising.repetitions_count && !(excercising.repetitions_count == 1 && excercising.resistance_duration)
-							td = "#{excercising.resistance_duration} min" if excercising.resistance_duration
+							td
+								- if excercising.resistance_duration
+									= "#{excercising.resistance_duration} min"
+								- else
+									= "#{excercising.repetitions_count} reps" if excercising.repetitions_count && !excercising.repetitions_count != 1
 							td = number_to_human excercising.weight, units: { unit: "kg" }
 							td = link_to "Edit", [:edit, excercising], class: "btn btn-outline-secondary btn-sm"

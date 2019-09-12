@@ -1,11 +1,11 @@
 .container-fluid.section-padding
 
-	.page-header style="text-align: center"
-		h1 style="margin-bottom: 20px" = l @date, format: "%-d %B"
+	.page-header
+		h1 style="margin-bottom: 0px" = l @date, format: "%-d %B"
 
 		p.text-muted.small You have #{distance_of_time_in_words(Time.current.end_of_day - Time.current)}
 
-		.day-habits__select-day style="margin-bottom: 40px"
+		.day-habits__select-day style="margin-bottom: 40px; margin-top: 30px"
 			- previous_day = @date.advance(days: -1)
 			- next_day     = @date.advance(days: 1)
 

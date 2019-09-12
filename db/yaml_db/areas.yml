@@ -78,7 +78,10 @@
     - cities#index
     - cities#new
     - config
+    - settings#create
+    - settings#edit
     - settings#index
+    - settings#new
   dashboard_action: settings
   name_en: Settings
   name_ru: Настройки
