@@ -1,24 +1,25 @@
-nav class="navbar navbar-expand-lg navbar-dark"
-	= link_to fa_icon("cog", text: "Routines"), day_habits_path, class: "navbar-brand"
+- if @areas&.any?
+	nav class="navbar navbar-expand-lg navbar-dark"
+		= link_to fa_icon("cog", text: "Routines"), day_habits_path, class: "navbar-brand"
 
-	button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"
-		span class="navbar-toggler-icon"
+		button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"
+			span class="navbar-toggler-icon"
 
-	div class="collapse navbar-collapse" id="navbarNav"
-		ul.navbar-nav
-			- navbar_pages(current_area.name_en).each do |page|
-				= tag.li class: ["nav-item", (:active if current_page? page[:href])]
-					= link_to( page[:name], page[:href], class: "nav-link")
+		div class="collapse navbar-collapse" id="navbarNav"
+			ul.navbar-nav
+				- navbar_pages(current_area.name_en).each do |page|
+					= tag.li class: ["nav-item", (:active if current_page? page[:href])]
+						= link_to( page[:name], page[:href], class: "nav-link")
 
-		.navbar-nav.ml-auto
-			/ - pages.each do |page|
-			/ 	= tag.li class: ["nav-item", (:active if current_page?(page[:href]) )]
-			/ 		= link_to( page[:name], page[:href], class: "nav-link")
-			li
-				- unless current_user
-					- if current_page?(user_session_path)
-						= tag.li class: "header__menu__li"
-							= link_to fa_icon("user-plus", text: t("authentication.sign_up")), new_registration_path(:user), class: "nav-link"
-					- else
-						= tag.li class: "header__menu__li"
-							= link_to fa_icon("unlock-alt", text: t("authentication.sign_in")), new_user_session_path, class: "nav-link"
+			.navbar-nav.ml-auto
+				/ - pages.each do |page|
+				/ 	= tag.li class: ["nav-item", (:active if current_page?(page[:href]) )]
+				/ 		= link_to( page[:name], page[:href], class: "nav-link")
+				li
+					- unless current_user
+						- if current_page?(user_session_path)
+							= tag.li class: "header__menu__li"
+								= link_to fa_icon("user-plus", text: t("authentication.sign_up")), new_registration_path(:user), class: "nav-link"
+						- else
+							= tag.li class: "header__menu__li"
+								= link_to fa_icon("unlock-alt", text: t("authentication.sign_in")), new_user_session_path, class: "nav-link"
