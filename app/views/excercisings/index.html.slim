@@ -11,6 +11,7 @@
 					th Excercise
 					th Muscles
 					th Repetitions
+					th Duration
 					th Weight
 					th
 
@@ -28,5 +29,8 @@
 						td
 							=> excercising.repetitions_count
 							| reps
+						td
+							=> excercising.resistance_duration
+							| min
 						td = number_to_human excercising.weight, units: { unit: "kg" }
 						td = link_to "Edit", [:edit, excercising], class: "btn btn-outline-secondary btn-sm"
