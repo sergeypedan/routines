@@ -13,7 +13,7 @@
   dashboard_action: habits
   name_en: Habits
   name_ru: Привычки
-  path: habts
+  path: day_habits
 -
   controllers:
     - excercises#create
@@ -31,7 +31,7 @@
   dashboard_action: workout
   name_en: Workout
   name_ru: Спорт
-  path: workout
+  path: excercisings
 -
   controllers:
     - mood_entries#index
@@ -39,7 +39,7 @@
   dashboard_action: spirit
   name_en: Spirit
   name_ru: Дух
-  path: spirit
+  path: mood_entries
 -
   controllers:
     - drug_active_substances#index
@@ -70,7 +70,7 @@
   dashboard_action: medicine
   name_en: Medicine
   name_ru: Здоровье
-  path: medicine
+  path: measurements
 -
   controllers:
     - cities#create
@@ -85,4 +85,4 @@
   dashboard_action: settings
   name_en: Settings
   name_ru: Настройки
-  path: setting
+  path: settings
