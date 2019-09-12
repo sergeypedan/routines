@@ -3,7 +3,7 @@
 class ExcercisingsController < DashboardsController
 
 	def index
-		@excercisings = Excercising.includes(excercise: :muscles)
+		@excercisings = Excercising.includes(excercise: :muscles).order(:created_at)
 	end
 
 
@@ -31,7 +31,7 @@ class ExcercisingsController < DashboardsController
 	def update
 		@excercising = find_excercising
 		if @excercising.update(filtered_params)
-			redirect_to root_path, notice: "OK"
+			redirect_to excercisings_path, notice: "OK"
 		else
 			render :edit
 		end
