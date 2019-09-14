@@ -24,6 +24,7 @@ module Routines
 		# config.time_zone = "Moscow"
 		config.time_zone = "UTC"
 		config.active_record.default_timezone = :utc
+		config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
 
 		# API: http://edgeguides.rubyonrails.org/configuring.html#configuring-generators
 		# Разъяснение http://rusrails.ru/configuring-rails-applications

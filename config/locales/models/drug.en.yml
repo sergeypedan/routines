@@ -1,0 +1,11 @@
+---
+en:
+
+  activerecord:
+    models:
+      drug:
+        one:   Лекарство
+        few:   Лекарства
+        many:  Лекарства
+        other: Лекарства
+        zero:  Лекарств

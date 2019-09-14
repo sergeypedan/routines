@@ -3,7 +3,8 @@
 class ExcercisingsController < DashboardsController
 
 	def index
-		@excercisings = Excercising.includes(excercise: :muscles).order({ date: :desc, created_at: :desc })
+		@excercisings = Excercising.includes(excercise: :muscles)
+																.order({ date: :desc, created_at: :desc })
 	end
 
 
@@ -21,7 +22,7 @@ class ExcercisingsController < DashboardsController
 	def create
 		@excercising = Excercising.new(filtered_params)
 		if @excercising.save
-			redirect_to excercisings_path, notice: "OK"
+			redirect_to excercisings_path, notice: "Created"
 		else
 			render :edit
 		end
@@ -31,7 +32,7 @@ class ExcercisingsController < DashboardsController
 	def update
 		@excercising = find_excercising
 		if @excercising.update(filtered_params)
-			redirect_to excercisings_path, notice: "OK"
+			redirect_to excercisings_path, notice: "Updated"
 		else
 			render :edit
 		end
@@ -40,7 +41,16 @@ class ExcercisingsController < DashboardsController
 
 	def destroy
 		find_excercising.destroy
-		redirect_to excercisings_path, notice: "OK"
+		redirect_to excercisings_path, notice: "Deleted"
+	end
+
+
+	def duplicate
+		source_record = Excercising.find params[:id]
+		attributes    = source_record.attributes.except("id", "created_at", "updated_at")
+		new_record    = Excercising.new(attributes)
+		new_record.save
+		redirect_to excercisings_path, notice: "Duplicated!"
 	end
 
 
@@ -48,7 +58,7 @@ class ExcercisingsController < DashboardsController
 
 
 	def find_excercising
-		Excercising.find(params[:id])
+		Excercising.find params[:id]
 	end
 
 

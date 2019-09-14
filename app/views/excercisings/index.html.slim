@@ -1,5 +1,5 @@
 .container-fluid.masthead-1
-		h1 = Excercising.model_name.human.pluralize
+		h1 = Excercising.model_name.human
 		= add_record_button Excercising
 
 .container-fluid.section-padding
@@ -11,6 +11,7 @@
 					th Muscles
 					th Reps / dur
 					th Weight
+					th
 					th
 
 			tbody
@@ -35,5 +36,9 @@
 									= "#{excercising.repetitions_count} reps" if excercising.repetitions_count && !excercising.repetitions_count != 1
 							td = number_to_human excercising.weight, units: { unit: "kg" } unless excercising.weight.zero?
 							td
+								= button_to [:duplicate, excercising], { class: "btn btn-outline-primary btn-sm", form: { class: "" }, remote: false }
+									= fa_icon "copy", text: "Clone"
+							td
 								= edit_btn(excercising)
 								= delete_btn(excercising, { style: "margin-left: 10px "})
+

@@ -1,0 +1,13 @@
+---
+en:
+
+  activerecord:
+    models:
+      excercise: Excercise
+
+    attributes:
+      excercises:
+        default_repetitions_count: Default repetitions
+        default_time: Default duration
+        muscle_ids: Muscles
+        name: Name

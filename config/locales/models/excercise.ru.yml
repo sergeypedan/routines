@@ -1,0 +1,19 @@
+---
+ru:
+
+  activerecord:
+    models:
+      excercise:
+        one:   Упражнение
+        few:   Упражнения
+        many:  Упражнений
+        other: Упражнения
+        zero:  Упражнений
+
+
+    attributes:
+      excercise:
+        default_repetitions_count: Обычно повторений
+        default_time: Обычная продолжительность нагрузки
+        muscle_ids: Мыщцы
+        name: Название

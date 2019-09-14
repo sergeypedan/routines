@@ -1,0 +1,7 @@
+---
+en:
+
+  activerecord:
+    models:
+
+      habit_entry: Habit log

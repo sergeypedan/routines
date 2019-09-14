@@ -1,0 +1,7 @@
+---
+ru:
+
+  activerecord:
+    models:
+
+      habit_entry: Журнал привычек

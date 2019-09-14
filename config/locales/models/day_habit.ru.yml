@@ -1,0 +1,7 @@
+---
+ru:
+
+  activerecord:
+    models:
+
+      day_habit: Привычки сегодня

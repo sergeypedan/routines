@@ -14,7 +14,9 @@ Rails.application.routes.draw do
 	resources :drug_active_substances
 	resources :drug_forms
 	resources :excercises
-	resources :excercisings
+	resources :excercisings do
+		post :duplicate, on: :member
+	end
 	resources :habit_entries
 	resources :habit_stats
 	resources :habits do
