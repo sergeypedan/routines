@@ -3,5 +3,9 @@ ru:
 
   activerecord:
     models:
-
-      muscle: Мышца
+      muscle:
+        one:   Мышца
+        few:   Мышц
+        many:  Мышц
+        other: Мышцы
+        zero:  Мышц

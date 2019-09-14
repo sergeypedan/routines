@@ -4,4 +4,9 @@ ru:
   activerecord:
     models:
 
-      user: Пользователь
+      user:
+        one:   Пользователь
+        few:   Пользователя
+        many:  Пользователей
+        other: Пользователи
+        zero:  Пользователей

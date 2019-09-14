@@ -1,5 +1,5 @@
 .container-fluid.masthead-1
-	h1 = MeasurementsGroup.model_name.human.pluralize
+	h1 = MeasurementsGroup.model_name.human(count: :many)
 	= add_record_button MeasurementsGroup
 
 .container-fluid.section-padding

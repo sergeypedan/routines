@@ -1,6 +1,6 @@
 .container.section-padding
 
-	h1 style="margin-bottom: 40px" = Setting.model_name.human.pluralize
+	h1 style="margin-bottom: 40px" = Setting.model_name.human(count: :many)
 
 	table.table
 		tbody

@@ -4,4 +4,9 @@ ru:
   activerecord:
     models:
 
-      excercising: Журнал упражнений
+      excercising:
+        one:   Подход
+        few:   Подхода
+        many:  Подходов
+        other: Подходы
+        zero:  Подходов

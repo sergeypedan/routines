@@ -1,7 +1,5 @@
 ---
 ru:
-
   activerecord:
     models:
-
       habit_stat: Статистика привычек

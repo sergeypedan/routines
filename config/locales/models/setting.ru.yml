@@ -4,4 +4,9 @@ ru:
   activerecord:
     models:
 
-      setting: Настройка
+      setting:
+        one:   Настройка
+        few:   Настройки
+        many:  Настроек
+        other: Настройки
+        zero:  Настроек

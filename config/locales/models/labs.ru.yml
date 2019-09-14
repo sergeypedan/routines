@@ -1,0 +1,10 @@
+---
+ru:
+  activerecord:
+    models:
+      lab:
+        one:   Лаборатория
+        few:   Лаборатории
+        meny:  Лабораторий
+        other: Лаборатории
+        zero:  Лабораторий

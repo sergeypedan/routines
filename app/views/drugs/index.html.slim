@@ -1,5 +1,5 @@
 .container-fluid.masthead-1
-	h1 = Drug.model_name.human.pluralize
+	h1 = Drug.model_name.human(count: :many)
 	= add_record_button Drug
 
 .container-fluid.section-padding

@@ -1,0 +1,10 @@
+---
+ru:
+  activerecord:
+    models:
+      measurement:
+        one:   Измерение
+        few:   Измерения
+        meny:  Измерений
+        other: Измерения
+        zero:  Измерений

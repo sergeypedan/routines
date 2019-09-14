@@ -1,6 +1,6 @@
 .container-fluid.masthead-1
 	h1
-		=> HabitEntry.model_name.human.pluralize
+		=> HabitEntry.model_name.human(count: :many)
 		- if @date
 			|  for
 			=< l @date, format: "%-d %B %Y"
