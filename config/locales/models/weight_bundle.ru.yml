@@ -1,0 +1,10 @@
+---
+ru:
+  activerecord:
+    models:
+      weight_bundle:
+        one:   Набор весов
+        few:   Наборов весов
+        many:  Наборов весов
+        other: Наборы весов
+        zero:  Наборов весов

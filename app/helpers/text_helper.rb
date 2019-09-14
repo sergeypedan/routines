@@ -2,8 +2,8 @@
 
 module TextHelper
 
-  def proofread(text)
-    Integral::Corrector.proofread(text)
-  end
+	def proofread(text)
+		Integral::Corrector.proofread(text)
+	end
 
 end

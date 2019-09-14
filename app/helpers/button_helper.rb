@@ -12,14 +12,14 @@ module ButtonHelper
 	# Save
 
 	def save_btn(f)
-		f.button fa_icon("cloud-upload", text: "Save"), class: "btn btn-success"
+		f.button fa_icon("cloud-upload", text: t("helpers.submit.save")), class: "btn btn-success"
 	end
 
 
 	# Edit
 
 	def edit_btn(record, **options)
-		link_to "Edit",
+		link_to t("helpers.edit"),
 						[:edit, record],
 						class: ["btn", "btn-outline-secondary", "btn-sm"] + (options[:class] || []),
 						style: options[:style]

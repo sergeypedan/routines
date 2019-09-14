@@ -1,0 +1,10 @@
+---
+ru:
+  activerecord:
+    models:
+      weight:
+        one:   Вес
+        few:   Веса
+        many:  Весов
+        other: Веса
+        zero:  Весов

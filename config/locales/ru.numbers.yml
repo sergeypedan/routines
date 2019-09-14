@@ -71,6 +71,11 @@ ru:
           mb: МБ
           tb: ТБ
 
+      weight:
+        format: "%n %u"
+        kg: кг
+        g: г
+
     percentage:
       format:
         delimiter: ''
@@ -78,4 +83,4 @@ ru:
 
     precision:
       format:
-        delimiter: ''
+        delimiter: ','

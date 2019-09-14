@@ -34,10 +34,10 @@
 									= "#{excercising.resistance_duration} min"
 								- else
 									= "#{excercising.repetitions_count} reps" if excercising.repetitions_count && !excercising.repetitions_count != 1
-							td = number_to_human excercising.weight, units: { unit: "kg" } unless excercising.weight.zero?
+							td = number_to_human excercising.weight, units: { unit: t("weight.kg") } unless excercising.weight.zero?
 							td
 								= button_to [:duplicate, excercising], { class: "btn btn-outline-primary btn-sm", form: { class: "" }, remote: false }
-									= fa_icon "copy", text: "Clone"
+									= fa_icon "copy", text: t("helpers.clone")
 							td
 								= edit_btn(excercising)
 								= delete_btn(excercising, { style: "margin-left: 10px "})

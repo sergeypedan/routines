@@ -5,11 +5,13 @@ ru:
       prompt: 'Выберите: '
     submit:
       create: Создать %{model}
-      submit: Сохранить
+      save: Сохранить
       update: Сохранить
     remove:
       button: Удалить
       delete: Точно?
+    clone: Дублировать
+    edit: Редактировать
 
   support:
     array:
