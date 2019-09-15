@@ -8,3 +8,15 @@ ru:
         meny:  Измерений
         other: Измерения
         zero:  Измерений
+
+    attributes:
+      measurement:
+        city: Город
+        created_at: Дата
+        lab: Лаборатория
+        lab_id: ID лаборатории
+        marker: Маркер
+        marker_id: ID маркера
+        user: Пользователь
+        user_id: ID пользователя
+        value: Значение

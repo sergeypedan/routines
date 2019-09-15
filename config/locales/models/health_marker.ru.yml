@@ -1,0 +1,19 @@
+---
+ru:
+  activerecord:
+    models:
+      health_marker:
+    attributes:
+      health_marker:
+        abbr_en: Аббревиатура по-английски
+        abbr_ru: Аббревиатура по-русски
+        healthy_value: Норма
+        healthy_value_max: Максимальная граница нормы
+        healthy_value_min: Минимальная граница нормы
+        healthy_value_source_name: Источник информации о том, что является нормой
+        healthy_value_source_url: URL источника информации о том, что является нормой
+        # measurement_object_id:
+        # measurements_group_id:
+        name_en: Название по-русски
+        name_ru: Название по-английски
+        unit: Единица измерения

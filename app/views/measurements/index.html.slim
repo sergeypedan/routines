@@ -6,17 +6,17 @@
 	table.table
 		thead
 			tr
-				th Date
-				th Marker
-				th Value
-				th Healthy value
-				th Lab
-				th City
-				th Actions
+				th = Measurement.human_attribute_name :created_at
+				th = Measurement.human_attribute_name :marker
+				th = Measurement.human_attribute_name :value
+				th = HealthMarker.human_attribute_name :healthy_value
+				th = Measurement.human_attribute_name :lab
+				th = Measurement.human_attribute_name :city
+				th
 		tbody
 			- @measurements.each do |measurement|
 				tr
-					td = l measurement.created_at, format: "%Y %B, %-d"
+					td.text-right = l measurement.created_at, format: "%-d %B %Y"
 					td = measurement.marker.name_en
 					td = measurement.value
 					td
@@ -24,7 +24,7 @@
 						| —
 						=< measurement.marker.healthy_value_max
 					td = measurement.lab.name
-					td = measurement.city.name_en
+					td = measurement.city.public_send("name_#{I18n.locale}".to_sym)
 	 				td
 						= edit_btn measurement
 						= delete_btn measurement, { style: "margin-left: 10px" }
