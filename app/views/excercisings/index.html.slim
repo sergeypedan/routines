@@ -8,9 +8,9 @@
 			thead
 				tr
 					th Excercise
-					th Muscles
 					th Reps / dur
 					th Weight
+					th Muscles
 					th
 					th
 
@@ -25,16 +25,16 @@
 						tr
 							td = link_to excercise.name, excercise
 							td
-								- if excercise.muscles.any?
-									ul.tags-1.small
-										- excercise.muscles.each do |muscle|
-											li.tags-1__li = link_to muscle.name, muscle, class: "a-hidden-affordance"
-							td
 								- if excercising.resistance_duration
 									= "#{excercising.resistance_duration} min"
 								- else
 									= "#{excercising.repetitions_count} reps" if excercising.repetitions_count && !excercising.repetitions_count != 1
 							td = number_to_human excercising.weight, units: { unit: t("weight.kg") } unless excercising.weight.zero?
+							td
+								- if excercise.muscles.any?
+									ul.tags-1.small
+										- excercise.muscles.each do |muscle|
+											li.tags-1__li = link_to muscle.name, muscle, class: "a-hidden-affordance"
 							td
 								= button_to [:duplicate, excercising], { class: "btn btn-outline-primary btn-sm", form: { class: "" }, remote: false }
 									= fa_icon "copy", text: t("helpers.clone")
