@@ -47,8 +47,7 @@ class ExcercisingsController < DashboardsController
 
 	def duplicate
 		source_record   = Excercising.find params[:id]
-		attributes      = source_record.attributes.except("id", "created_at", "updated_at")
-		attributes.date = Time.current.to_date
+		attributes      = source_record.attributes.except("id", "created_at", "updated_at").merge({ date: Date.today })
 		new_record      = Excercising.new(attributes)
 		new_record.save
 		redirect_to excercisings_path, notice: "Duplicated!"
