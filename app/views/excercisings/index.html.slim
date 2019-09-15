@@ -28,7 +28,7 @@
 								- if excercise.muscles.any?
 									ul.tags-1.small
 										- excercise.muscles.each do |muscle|
-											li.tags-1__li = link_to muscle.name, muscle
+											li.tags-1__li = link_to muscle.name, muscle, class: "a-hidden-affordance"
 							td
 								- if excercising.resistance_duration
 									= "#{excercising.resistance_duration} min"
