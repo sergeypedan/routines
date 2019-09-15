@@ -6,12 +6,12 @@
 	table.table
 		thead
 			tr
-				th Object
-				th Group
-				th Name en
-				th Name ru
-				th Healthy range
-				th Actions
+				th = HealthMarker.human_attribute_name :object
+				th = HealthMarker.human_attribute_name :group
+				th = HealthMarker.human_attribute_name :name_en
+				th = HealthMarker.human_attribute_name :name_ru
+				th = HealthMarker.human_attribute_name :healthy_range
+				th
 		tbody
 			- @markers.each do |marker|
 				tr

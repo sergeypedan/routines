@@ -17,12 +17,15 @@
 			- @measurements.each do |measurement|
 				tr
 					td.text-right = l measurement.created_at, format: "%-d %B %Y"
-					td = measurement.marker.name_en
-					td = measurement.value
+					td = measurement.marker.public_send("name_#{I18n.locale}".to_sym)
+					td
+						= measurement.value
+						=< measurement.marker.unit
 					td
 						=> measurement.marker.healthy_value_min
 						| —
 						=< measurement.marker.healthy_value_max
+						=< measurement.marker.unit
 					td = measurement.lab.name
 					td = measurement.city.public_send("name_#{I18n.locale}".to_sym)
 	 				td
