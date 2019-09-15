@@ -8,3 +8,11 @@ ru:
         many:  Тренировок
         other: Тренировки
         zero:  Тренировок
+    attributes:
+      excercising:
+        date: Дата
+        excercise: Упражнение
+        excercise_id: Упражнение
+        repetitions_count: Повторений
+        resistance_duration: Время нагрузки
+        weight: Отягощение
