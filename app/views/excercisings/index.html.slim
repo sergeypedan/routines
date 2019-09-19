@@ -13,17 +13,18 @@
 					th Muscles
 					th
 					th
+					th
 
 			tbody
 				- @excercisings.group_by { |excercising| excercising.date }.each do |date, excercisings|
 
 					tr
-						th colspan="6" style="padding-top: 30px; font-size: 13px" = l date, format: "%-d %B %Y"
+						th colspan="7" style="padding-top: 30px; font-size: 13px" = l date, format: "%-d %B %Y"
 
 					- excercisings.each do |excercising|
 						- excercise = excercising.excercise
 						tr
-							td = link_to excercise.name, excercise
+							td = link_to excercise.name, excercise, class: "a-hidden-affordance"
 							td
 								- if excercising.resistance_duration
 									= "#{excercising.resistance_duration} min"
@@ -37,7 +38,14 @@
 											li.tags-1__li = link_to muscle.name, muscle, class: "a-hidden-affordance"
 							td
 								= button_to [:duplicate, excercising], { class: "btn btn-outline-primary btn-sm", form: { class: "" }, remote: false }
-									= fa_icon "copy", text: t("helpers.clone")
+									/ = fa_icon "copy", text: t("helpers.clone")
+									= fa_icon "copy"
+							td
+								- if excercising.date.today?
+									= button_to [:yesterday, excercising], { class: "btn btn-outline-secondary btn-sm", form: { class: "" }, remote: false }
+										/ = fa_icon "calendar-o", text: t("helpers.clone")
+										= fa_icon "calendar"
+
 							td
 								= edit_btn(excercising)
 								= delete_btn(excercising, { style: "margin-left: 10px "})

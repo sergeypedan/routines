@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 	resources :excercises
 	resources :excercisings do
 		post :duplicate, on: :member
+		post :yesterday, on: :member
 	end
 	resources :habit_entries
 	resources :habit_stats
