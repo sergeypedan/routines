@@ -2,7 +2,7 @@
 
 class ExcercisingsController < DashboardsController
 
-	before_action :find_excercising, only: [:destroy, :duplicate, :edit, :udpate, :yesterday]
+	before_action :find_excercising, only: [:destroy, :duplicate, :edit, :update, :yesterday]
 
 
 	def index
