@@ -7,7 +7,7 @@ class MeasurementsController < DashboardsController
 	end
 
 	def new
-		@measurement = Measurement.new
+		@measurement = Measurement.new(created_at: Time.current)
 		render :edit
 	end
 
