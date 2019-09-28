@@ -6,7 +6,7 @@ class ExcercisingsController < DashboardsController
 
 
 	def index
-		@excercisings = Excercising.includes(excercise: :muscles).order({ date: :desc, excercise_id: :desc })
+		@excercisings = Excercising.includes(excercise: :muscles).order({ date: :desc })
 	end
 
 

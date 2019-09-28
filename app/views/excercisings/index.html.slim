@@ -22,7 +22,7 @@
 					tr
 						th colspan="8" style="padding-top: 30px; font-size: 13px" = l date, format: "%-d %B %Y"
 
-					- excercisings.each_with_index do |excercising, index|
+					- excercisings.sort_by(&:excercise).each_with_index do |excercising, index|
 						- excercise = excercising.excercise
 						tr
 							td style="color: hsl(0, 0%, 80%)" = index + 1
