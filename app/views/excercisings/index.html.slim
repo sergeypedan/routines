@@ -38,13 +38,11 @@
 											li.tags-1__li = link_to muscle.name, muscle, class: "a-hidden-affordance"
 							td
 								= button_to [:duplicate, excercising], { class: "btn btn-outline-primary btn-sm", form: { class: "" }, remote: false }
-									/ = fa_icon "copy", text: t("helpers.clone")
 									= fa_icon "copy"
 							td
 								- if excercising.date.today?
 									= button_to [:yesterday, excercising], { class: "btn btn-outline-secondary btn-sm", form: { class: "" }, remote: false }
-										/ = fa_icon "calendar-o", text: t("helpers.clone")
-										= fa_icon "calendar"
+										= fa_icon "arrow-down"
 
 							td
 								= edit_btn(excercising)
