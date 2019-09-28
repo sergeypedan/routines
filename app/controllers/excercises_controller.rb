@@ -3,7 +3,7 @@
 class ExcercisesController < DashboardsController
 
 	def index
-		@excercises = Excercise.all.includes(:muscles)
+		@excercises = Excercise.includes(:muscles).order(:name)
 	end
 
 
