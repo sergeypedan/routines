@@ -3,7 +3,7 @@
 class ExcercisesController < DashboardsController
 
 	def index
-		@excercises = Excercise.includes(:muscles).order(:name)
+		@excercises = Excercise.includes(:main_muscle, :muscles).order(:name)
 	end
 
 
@@ -58,6 +58,7 @@ class ExcercisesController < DashboardsController
 						:name,
 						:default_repetitions_count,
 						:default_time,
+						:main_muscle_id,
 						:repetition_based,
 						{ muscle_ids: [] }
 					)

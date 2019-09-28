@@ -27,9 +27,14 @@
 							.input-group-text seconds
 
 			.col-md-8
-				= f.label             :muscle_ids, nil, class: "control-label"
-				= f.collection_select :muscle_ids, Muscle.all, :id, :name, { prompt: false }, multiple: true, class: "form-control"
-				.form-text Missing a muscle? #{link_to "Create one!", [:new, :muscle], target: "_blank"}
+				.form-group
+					= f.label             :main_muscle_id, nil, class: "control-label required"
+					= f.collection_select :main_muscle_id, Muscle.order(:name), :id, :name, { prompt: true }, required: true, class: "form-control"
+
+				.form-group
+					= f.label             :muscle_ids, nil, class: "control-label"
+					= f.collection_select :muscle_ids, Muscle.all, :id, :name, { prompt: false }, multiple: true, class: "form-control"
+					.form-text Missing a muscle? #{link_to "Create one!", [:new, :muscle], target: "_blank"}
 
 		= render "application/form_errors", record: f.object
 		.form-actions = save_btn(f)

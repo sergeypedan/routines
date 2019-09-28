@@ -15,5 +15,8 @@ ru:
       excercise:
         default_repetitions_count: Обычно повторений
         default_time: Обычная продолжительность нагрузки
-        muscle_ids: Мыщцы
+        main_muscle: Основная мыщца
+        main_muscle_id: Основная мыщца
+        muscles: Сопутствующие мыщцы
+        muscle_ids: Сопутствующие мыщцы
         name: Название

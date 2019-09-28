@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_12_123212) do
+ActiveRecord::Schema.define(version: 2019_09_28_220541) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -90,6 +90,8 @@ ActiveRecord::Schema.define(version: 2019_09_12_123212) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "repetition_based", default: true
+    t.bigint "main_muscle_id", null: false
+    t.index ["main_muscle_id"], name: "index_excercises_on_main_muscle_id"
   end
 
   create_table "excercisings", force: :cascade do |t|
@@ -253,6 +255,7 @@ ActiveRecord::Schema.define(version: 2019_09_12_123212) do
   add_foreign_key "drug_administrations", "drugs"
   add_foreign_key "drugs", "drug_active_substances"
   add_foreign_key "drugs", "drug_forms"
+  add_foreign_key "excercises", "muscles", column: "main_muscle_id"
   add_foreign_key "habit_entries", "habits"
   add_foreign_key "habit_entries", "users"
   add_foreign_key "habits", "excercises"

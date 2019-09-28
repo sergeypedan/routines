@@ -7,6 +7,7 @@
 		thead
 			tr
 				th = Excercise.human_attribute_name :name
+				th = Excercise.human_attribute_name :main_muscle
 				th = Excercise.human_attribute_name :muscles
 				th = Excercise.human_attribute_name :default_repetitions_count
 				th = Excercise.human_attribute_name :default_time
@@ -16,6 +17,7 @@
 			- @excercises.each do |excercise|
 				tr
 					td = excercise.name
+					td = excercise.main_muscle.name
 					td
 						- if excercise.muscles.any?
 							ul.tags-1.small
