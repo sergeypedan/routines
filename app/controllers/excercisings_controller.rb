@@ -12,11 +12,13 @@ class ExcercisingsController < DashboardsController
 
 	def new
 		@excercising = Excercising.new(date: Date.today)
+		@muscles     = Muscle.includes(:excercises)
 		render :edit
 	end
 
 
 	def edit
+		@muscles = Muscle.includes(:excercises)
 	end
 
 

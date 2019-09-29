@@ -12,7 +12,7 @@ class Muscle < ApplicationRecord
 	has_many :association_excercise_muscles
 	has_many :excercises, through: :association_excercise_muscles
 
-	belongs_to :excercises
+	has_one :excercise
 
 end
 

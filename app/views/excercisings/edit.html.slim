@@ -7,16 +7,15 @@
 			= f.date_field :date, required: true, class: "form-control"
 
 		.form-group
-			ruby:
-				options = { prompt: true }
-				options.merge!({ selected: Excercising.order(:created_at).last.id }) if f.object.new_record?
-
-			= f.label             :excercise_id
-			= f.collection_select :excercise_id, Excercise.all, :id, :name, options, required: true, class: "form-control"
-
-			/ = f.grouped_collection_select :excercise_id, Excercise.all, :id, \
-			/ 												:excercise_id, :id, :name, \
-			/ 												options, { required: true, class: "form-control" }
+			= f.label :excercise_id
+			= f.grouped_collection_select :excercise_id,   # attribute on form object \
+																			@muscles,      # collection \
+																			:excercises,   # group_method \
+																			:name,         # group_label_method \
+																			:id,           # option_key_method \
+																			:name,         # option_value_method \
+																			{ prompt: true }, \
+																			{ required: true, class: "form-control" }
 
 		- if f.object.persisted?
 			.form-group
