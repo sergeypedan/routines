@@ -4,10 +4,9 @@ class Excercise < ApplicationRecord
 
 	# Associaitons
 
-	has_many :excercisings, dependent: :destroy
-
-	has_many :association_excercise_muscles, dependent: :destroy
-	has_many :muscles, through: :association_excercise_muscles
+	has_many   :excercisings, dependent: :destroy
+	has_many   :association_excercise_muscles, dependent: :destroy
+	has_many   :muscles, through: :association_excercise_muscles
 	belongs_to :main_muscle, class_name: "Muscle", foreign_key: "main_muscle_id"
 
 
