@@ -8,15 +8,15 @@
 
 		.form-group
 			= f.label :excercise_id
-			= f.collection_select :excercise_id, Excercise.all, :id, :name, { prompt: true }, { required: true, class: "form-control" }
-			/ = f.grouped_collection_select :excercise_id,   # attribute on form object \
-			/ 																@muscles,      # collection \
-			/ 																:excercises,   # group_method \
-			/ 																:name,         # group_label_method \
-			/ 																:id,           # option_key_method \
-			/ 																:name,         # option_value_method \
-			/ 																{ prompt: true }, \
-			/ 																{ required: true, class: "form-control" }
+			/ = f.collection_select :excercise_id, Excercise.all, :id, :name, { prompt: true }, { required: true, class: "form-control" }
+			= f.grouped_collection_select :excercise_id,   # attribute on form object \
+																			@muscles,      # collection \
+																			:excercises,   # group_method \
+																			:name,         # group_label_method \
+																			:id,           # option_key_method \
+																			:name,         # option_value_method \
+																			{ prompt: true }, \
+																			{ required: true, class: "form-control" }
 
 		- if f.object.persisted?
 			.form-group
