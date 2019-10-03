@@ -3,6 +3,7 @@
 class ExcercisingsController < DashboardsController
 
 	before_action :find_excercising, only: [:destroy, :duplicate, :edit, :update, :yesterday]
+  before_action :load_muscles, only: [:new, :edit]
 
 
 	def index
@@ -12,13 +13,11 @@ class ExcercisingsController < DashboardsController
 
 	def new
 		@excercising = Excercising.new(date: Date.today)
-		@muscles     = Muscle.includes(:excercises)
 		render :edit
 	end
 
 
 	def edit
-		@muscles = Muscle.includes(:excercises)
 	end
 
 
@@ -78,5 +77,9 @@ class ExcercisingsController < DashboardsController
 				:weight
 			)
 	end
+
+  def load_muscles
+    @muscles = Muscle.includes(:targeted_excercises)
+  end
 
 end

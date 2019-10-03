@@ -12,7 +12,7 @@ class Muscle < ApplicationRecord
 	has_many :association_excercise_muscles
 	has_many :excercises, through: :association_excercise_muscles
 
-	has_one :excercise
+	has_many :targeted_excercises, class_name: "Excercise", foreign_key: "main_muscle_id"
 
 end
 
