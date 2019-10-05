@@ -15,20 +15,20 @@
 																			:id,           # option_key_method \
 																			:name,         # option_value_method \
 																			{ prompt: true }, \
-																			{ required: true, class: "form-control" }
+																			{ required: true, autofocus: f.object.new_record?, class: "form-control" }
 
 		- if f.object.persisted?
 			.form-group
 				- if @excercising.excercise.repetition_based?
 					= f.label :repetitions_count, nil, class: "control-label"
 					.input-group
-						= f.number_field :repetitions_count, required: true, class: "form-control"
+						= f.number_field :repetitions_count, required: true, autofocus: true, class: "form-control"
 						.input-group-append
 							.input-group-text reps
 				- else
 					= f.label :resistance_duration, nil, class: "control-label"
 					.input-group
-						= f.number_field :resistance_duration, required: true, class: "form-control"
+						= f.number_field :resistance_duration, required: true, autofocus: true, class: "form-control"
 						.input-group-append
 							.input-group-text min
 		- else
