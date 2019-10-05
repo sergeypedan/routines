@@ -33,7 +33,7 @@
 
 				.form-group
 					= f.label             :muscle_ids, nil, class: "control-label"
-					= f.collection_select :muscle_ids, Muscle.all, :id, :name, { prompt: false }, multiple: true, class: "form-control"
+					= f.collection_select :muscle_ids, Muscle.all, :id, :name, { prompt: false }, multiple: true, size: 20, class: "form-control"
 					.form-text Missing a muscle? #{link_to "Create one!", [:new, :muscle], target: "_blank"}
 
 		= render "application/form_errors", record: f.object
