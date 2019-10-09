@@ -58,6 +58,7 @@ class ExcercisesController < DashboardsController
 						:name,
 						:default_repetitions_count,
 						:default_time,
+            :default_weight,
 						:main_muscle_id,
 						:repetition_based,
 						{ muscle_ids: [] }

@@ -13,6 +13,7 @@ class Excercise < ApplicationRecord
 	# Validations
 
 	validates :default_repetitions_count, numericality: { only_integer: true, greater_than: 0 }
+  validates :default_weight, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 	validates :name, presence: true
 
 
@@ -30,6 +31,7 @@ end
 #
 #  default_repetitions_count :integer          default(15), not null
 #  default_time              :integer          default(60), not null
+#  default_weight            :float            default(0.0), not null
 #  id                        :bigint           not null, primary key
 #  main_muscle_id            :bigint           not null
 #  name                      :string           not null
