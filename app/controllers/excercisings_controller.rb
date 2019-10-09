@@ -3,7 +3,7 @@
 class ExcercisingsController < DashboardsController
 
 	before_action :find_excercising, only: [:destroy, :duplicate, :edit, :update, :yesterday]
-  before_action :load_muscles, only: [:new, :edit]
+	before_action :load_muscles, only: [:new, :edit]
 
 
 	def index
@@ -47,7 +47,7 @@ class ExcercisingsController < DashboardsController
 
 
 	def duplicate
-		Excercising.create(@excercising.attributes.except("id", "created_at", "updated_at").merge({ date: Date.today }))
+		Excercising.create(@excercising.attributes.except("id", "created_at", "date", "updated_at").merge({ date: Time.current.to_date }))
 		redirect_to excercisings_path
 	end
 
@@ -78,8 +78,8 @@ class ExcercisingsController < DashboardsController
 			)
 	end
 
-  def load_muscles
-    @muscles = Muscle.includes(:targeted_excercises)
-  end
+	def load_muscles
+		@muscles = Muscle.includes(:targeted_excercises)
+	end
 
 end
