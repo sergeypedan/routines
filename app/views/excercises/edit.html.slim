@@ -4,10 +4,10 @@
 
 		.form-group
 			= f.label      :name, nil, class: :required
-			= f.text_field :name, required: true, placeholder: "Squats"
+			= f.text_field :name, required: true, placeholder: "Squats", class: "form-control"
 
 		.row
-			.col-md-3
+			.col style="max-width: 300px"
 				.form-group.form-check
 					= f.check_box :repetition_based?, class: "form-check-input"
 					= f.label     :repetition_based?, class: "form-check-label"
@@ -15,32 +15,32 @@
 				.form-group id="reps-controls"
 					= f.label :default_repetitions_count, nil
 					.input-group
-						= f.number_field :default_repetitions_count, min: 1
+						= f.number_field :default_repetitions_count, min: 1, class: "form-control"
 						.input-group-append
 							.input-group-text repetitions
 
 				.form-group id="time-controls" hidden="hidden"
 					= f.label :default_time, nil
 					.input-group
-						= f.number_field :default_time
+						= f.number_field :default_time, class: "form-control"
 						.input-group-append
 							.input-group-text seconds
 
 				.form-group
 					= f.label :default_weight, nil, class: :required
 					.input-group
-						= f.number_field :default_weight, required: true, min: 0, step: 0.5
+						= f.number_field :default_weight, required: true, min: 0, step: 0.5, class: "form-control"
 						.input-group-append
 							.input-group-text Kg
 
-			.col-md-8
+			.col style="max-width: 300px"
 				.form-group
 					= f.label             :main_muscle_id, nil, class: :required
-					= f.collection_select :main_muscle_id, Muscle.order(:name), :id, :name, { prompt: true }, required: true
+					= f.collection_select :main_muscle_id, Muscle.order(:name), :id, :name, { prompt: true }, required: true, class: "form-control"
 
 				.form-group
 					= f.label             :muscle_ids, nil, style: "display: block"
-					= f.collection_select :muscle_ids, Muscle.all, :id, :name, { prompt: false }, multiple: true, size: 20
+					= f.collection_select :muscle_ids, Muscle.all, :id, :name, { prompt: false }, multiple: true, size: 20, class: "form-control"
 					.form-text Missing a muscle? #{link_to "Create one!", [:new, :muscle], target: "_blank"}
 
 		= render "application/form_errors", record: f.object
