@@ -13,7 +13,7 @@ class Excercise < ApplicationRecord
 	# Validations
 
 	validates :default_repetitions_count, numericality: { only_integer: true, greater_than: 0 }
-  validates :default_weight, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  validates :default_weight, numericality: { greater_than_or_equal_to: 0 }
 	validates :name, presence: true
 
 
