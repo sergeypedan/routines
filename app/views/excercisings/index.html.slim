@@ -34,7 +34,7 @@
 								- if excercising.resistance_duration
 									= "#{excercising.resistance_duration} min"
 								- else
-									= "#{excercising.repetitions_count} reps" if excercising.repetitions_count && !excercising.repetitions_count != 1
+									= "× #{excercising.repetitions_count}" if excercising.repetitions_count && !excercising.repetitions_count != 1
 							td = number_to_human excercising.weight, units: { unit: t("weight.kg") } unless excercising.weight.zero?
 							td.small
 								= link_to excercising.excercise.main_muscle.name, excercising.excercise.main_muscle, class: "a-hidden-affordance"
