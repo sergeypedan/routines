@@ -39,7 +39,7 @@
 					= f.collection_select :main_muscle_id, Muscle.order(:name), :id, :name, { prompt: true }, required: true
 
 				.form-group
-					= f.label             :muscle_ids, nil
+					= f.label             :muscle_ids, nil, style: "display: block"
 					= f.collection_select :muscle_ids, Muscle.all, :id, :name, { prompt: false }, multiple: true, size: 20
 					.form-text Missing a muscle? #{link_to "Create one!", [:new, :muscle], target: "_blank"}
 
