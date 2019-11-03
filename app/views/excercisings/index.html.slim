@@ -9,8 +9,8 @@
 				tr
 					th
 					th = Excercising.human_attribute_name :excercise
-					th Reps / dur
 					th = Excercising.human_attribute_name :weight
+					th Reps / dur
 					th
 						= Excercise.human_attribute_name :main_muscle
 						br
@@ -30,12 +30,12 @@
 						tr
 							td style="color: hsl(0, 0%, 80%)" = index + 1
 							td = link_to excercise.name, excercise, class: "a-hidden-affordance"
+							td = number_to_human excercising.weight, units: { unit: t("weight.kg") } unless excercising.weight.zero?
 							td
 								- if excercising.resistance_duration
 									= "#{excercising.resistance_duration} min"
 								- else
 									= "× #{excercising.repetitions_count}" if excercising.repetitions_count && !excercising.repetitions_count != 1
-							td = number_to_human excercising.weight, units: { unit: t("weight.kg") } unless excercising.weight.zero?
 							td.small
 								= link_to excercising.excercise.main_muscle.name, excercising.excercise.main_muscle, class: "a-hidden-affordance"
 								br
