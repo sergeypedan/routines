@@ -2,13 +2,15 @@
 
 class ExcercisesController < DashboardsController
 
+	before_action :set_excercise, only: [:edit, :destroy, :show, :update]
+
+
 	def index
 		@excercises = Excercise.includes(:main_muscle, :muscles).order(:name)
 	end
 
 
 	def show
-		@excercise = Excercise.find params[:id]
 	end
 
 
@@ -20,7 +22,6 @@ class ExcercisesController < DashboardsController
 
 
 	def edit
-		@excercise = find_excercise
 	end
 
 
@@ -35,7 +36,6 @@ class ExcercisesController < DashboardsController
 
 
 	def update
-		@excercise = find_excercise
 		if @excercise.update(filtered_params)
 			redirect_to excercises_path, notice: "OK"
 		else
@@ -44,10 +44,16 @@ class ExcercisesController < DashboardsController
 	end
 
 
+	def destroy
+		@excercise.destroy
+		redirect_to excercises_path, notice: "OK"
+	end
+
+
 	private
 
 
-	def find_excercise
+	def set_excercise
 		Excercise.find params[:id]
 	end
 
@@ -58,7 +64,7 @@ class ExcercisesController < DashboardsController
 						:name,
 						:default_repetitions_count,
 						:default_time,
-            :default_weight,
+						:default_weight,
 						:main_muscle_id,
 						:repetition_based,
 						{ muscle_ids: [] }
