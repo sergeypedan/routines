@@ -3,11 +3,15 @@
 	= form_with model: @substance, local: true do |f|
 
 		.form-group
-			= f.label      :name, nil, class: "required"
+			= f.label      :name, nil, class: :required
 			= f.text_field :name, required: true, placeholder: "Amoxicillin", class: "form-control"
 
 		.form-group
-			= f.label      :daily_dosage, nil, class: "required"
+			= f.label      :main_function, nil, class: :required
+			= f.text_field :main_function, required: true, placeholder: "Антибиотик", class: "form-control"
+
+		.form-group
+			= f.label      :daily_dosage, nil, class: :required
 			= f.text_field :daily_dosage, required: true, placeholder: "100 mg", class: "form-control"
 
 		= render "application/form_errors", record: f.object

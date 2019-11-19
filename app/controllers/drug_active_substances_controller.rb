@@ -58,6 +58,7 @@ class DrugActiveSubstancesController < DashboardsController
 			.require(:drug_active_substance)
 			.permit(
 				:daily_dosage,
+				:main_function,
 				:name
 			)
 	end

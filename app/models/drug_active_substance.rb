@@ -2,7 +2,16 @@
 
 class DrugActiveSubstance < ApplicationRecord
 
+	# Associations
+
 	has_many :drugs
+
+
+	# Validations
+
+	validates :daily_dosage,  presence: true
+	validates :main_function, presence: true
+	validates :name,          presence: true
 
 end
 
