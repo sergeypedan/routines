@@ -1,0 +1,23 @@
+.container-fluid.masthead-1
+	h1 = DrugIntake.model_name.human(count: :many)
+	= add_record_button DrugIntake
+
+.container-fluid.section-padding
+	table.table
+		thead
+			tr
+				th #
+				th Drug
+				th Dosage
+				th
+
+		tbody
+			- @drug_intakes.each do |intake|
+				tr
+					td = l intake.created_at, format: "%Y, %-d %B, %H:%M %Z"
+					td = intake.drug.name
+					td = intake.dosage
+					td
+						= link_to "Edit", [:edit, intake], class: "btn btn-outline-secondary btn-sm"
+						= link_to "Delete", intake, method: :delete, class: "btn btn-outline-danger btn-sm", style: "margin-left: 10px"
+

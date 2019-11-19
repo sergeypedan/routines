@@ -19,6 +19,8 @@ class Drug < ApplicationRecord
 							class_name: "DrugForm",
 							foreign_key: "drug_form_id"
 
+	has_many :drug_intakes, dependent: :destroy
+
 end
 
 # == Schema Information

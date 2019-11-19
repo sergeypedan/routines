@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 	resources :drugs
 	resources :drug_active_substances
 	resources :drug_forms
+	resources :drug_intakes
 	resources :excercises
 	resources :excercisings do
 		post :duplicate, on: :member

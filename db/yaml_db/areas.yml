@@ -29,6 +29,7 @@
   controllers:
     - drug_active_substances
     - drug_forms
+    - drug_intakes
     - drugs
     - health_markers
     - labs
