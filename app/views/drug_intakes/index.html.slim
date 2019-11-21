@@ -10,6 +10,7 @@
 				th Drug
 				th Dosage
 				th
+				th
 
 		tbody
 			- @drug_intakes.each do |intake|
@@ -18,6 +19,8 @@
 					td = intake.drug.name
 					td = intake.dosage
 					td
+						= button_to [:duplicate, intake], { class: "btn btn-outline-primary btn-sm", form: { class: "" }, remote: false }
+							= fa_icon "copy"
+					td
 						= link_to "Edit", [:edit, intake], class: "btn btn-outline-secondary btn-sm"
 						= link_to "Delete", intake, method: :delete, class: "btn btn-outline-danger btn-sm", style: "margin-left: 10px"
-

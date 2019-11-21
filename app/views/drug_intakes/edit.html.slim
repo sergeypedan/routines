@@ -8,7 +8,7 @@
 
 		.form-group
 			= f.label                :created_at, nil, class: :required
-			= f.datetime_local_field :created_at, required: true, class: "form-control"
+			= f.datetime_local_field :created_at, required: true, class: "form-control", autofocus: f.object.persisted?
 
 		.form-group
 			= f.label      :dosage, nil, class: :required
