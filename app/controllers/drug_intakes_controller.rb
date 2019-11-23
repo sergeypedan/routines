@@ -6,7 +6,7 @@ class DrugIntakesController < DashboardsController
 
 
 	def index
-		@drug_intakes = DrugIntake.includes(:drug).order(:created_at)
+		@drug_intakes = DrugIntake.includes(:drug).order(created_at: :desc)
 	end
 
 
