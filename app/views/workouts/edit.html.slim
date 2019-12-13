@@ -1,6 +1,6 @@
 .container.section-padding
 
-	= form_with model: @excercising, local: true do |f|
+	= form_with model: @workout, local: true do |f|
 
 		.form-group
 			= f.label      :date, nil, class: "control-label"
@@ -19,7 +19,7 @@
 
 		- if f.object.persisted?
 			.form-group
-				- if @excercising.excercise.repetition_based?
+				- if @workout.excercise.repetition_based?
 					= f.label :repetitions_count, nil, class: "control-label"
 					.input-group
 						= f.number_field :repetitions_count, required: true, autofocus: true, class: "form-control"

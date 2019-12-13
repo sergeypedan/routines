@@ -46,7 +46,7 @@ module NavbarHelper
 			]
 		when "Workout"
 			[
-				{ name:         Excercising.model_name.human(count: :many), href: excercisings_path },
+				{ name:             Workout.model_name.human(count: :many), href: workouts_path },
 				{ name:           Excercise.model_name.human(count: :many), href: excercises_path },
 				{ name:              Muscle.model_name.human(count: :many), href: muscles_path },
 				{ name:              Weight.model_name.human(count: :many), href: root_path },

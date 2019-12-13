@@ -8,7 +8,7 @@ namespace :import do
 		resources = [
 			"muscles",
 			"excercises",
-			"excercisings",
+			"workouts",
 			"habits",
 			"habit_entries",
 			"association_excercise_muscles"

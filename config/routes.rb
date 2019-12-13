@@ -17,10 +17,6 @@ Rails.application.routes.draw do
 		post :duplicate, on: :member
 	end
 	resources :excercises
-	resources :excercisings do
-		post :duplicate, on: :member
-		post :yesterday, on: :member
-	end
 	resources :habit_entries
 	resources :habit_stats
 	resources :habits do
@@ -34,6 +30,10 @@ Rails.application.routes.draw do
 	resources :mood_entries
 	resources :muscles
 	resources :settings, only: [:index, :edit, :update]
+	resources :workouts do
+		post :duplicate, on: :member
+		post :yesterday, on: :member
+	end
 
 
 	# Devise

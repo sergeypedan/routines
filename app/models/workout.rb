@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Excercising < ApplicationRecord
+class Workout < ApplicationRecord
 
 	# Associations
 
@@ -17,7 +17,7 @@ end
 
 # == Schema Information
 #
-# Table name: excercisings
+# Table name: workouts
 #
 #  date                :date             not null
 #  excercise_id        :integer          not null

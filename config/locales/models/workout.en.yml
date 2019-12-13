@@ -2,4 +2,4 @@
 en:
   activerecord:
     models:
-      excercising: Workout log
+      workout: Workout log

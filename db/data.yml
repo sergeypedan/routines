@@ -183,7 +183,7 @@ excercises:
     - true
 
 ---
-excercisings:
+workouts:
   columns:
   - id
   - excercise_id

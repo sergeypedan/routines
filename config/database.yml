@@ -1,7 +1,6 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  # host: localhost # Heroku
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   port: 5432
   # reaping_frequency: nil
@@ -11,6 +10,10 @@ default: &default
 development:
   <<: *default
   database: routines_development
+  # host: localhost # Heroku
+  host:     "/tmp/"              # works
+  # socket: "/tmp/.s.PGSQL.5432" # does not work
+  # socket: "/tmp/"              # does not work
 
 test:
   <<: *default

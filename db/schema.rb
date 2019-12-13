@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_19_230348) do
+ActiveRecord::Schema.define(version: 2019_12_13_062927) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -101,17 +101,6 @@ ActiveRecord::Schema.define(version: 2019_11_19_230348) do
     t.bigint "main_muscle_id", null: false
     t.float "default_weight", default: 0.0, null: false
     t.index ["main_muscle_id"], name: "index_excercises_on_main_muscle_id"
-  end
-
-  create_table "excercisings", force: :cascade do |t|
-    t.integer "excercise_id", null: false
-    t.integer "repetitions_count", default: 1, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "resistance_duration"
-    t.date "date", default: -> { "CURRENT_DATE" }, null: false
-    t.float "weight", default: 0.0, null: false
-    t.index ["excercise_id"], name: "index_excercisings_on_excercise_id"
   end
 
   create_table "habit_entries", force: :cascade do |t|
@@ -257,6 +246,17 @@ ActiveRecord::Schema.define(version: 2019_11_19_230348) do
     t.string "type", default: "Блин", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "workouts", force: :cascade do |t|
+    t.integer "excercise_id", null: false
+    t.integer "repetitions_count", default: 1, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "resistance_duration"
+    t.date "date", default: -> { "CURRENT_DATE" }, null: false
+    t.float "weight", default: 0.0, null: false
+    t.index ["excercise_id"], name: "index_workouts_on_excercise_id"
   end
 
   add_foreign_key "association_excercise_muscles", "excercises"

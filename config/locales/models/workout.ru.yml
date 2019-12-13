@@ -2,14 +2,14 @@
 ru:
   activerecord:
     models:
-      excercising:
+      workout:
         one:   Тренировка
         few:   Тренировок
         many:  Тренировок
         other: Тренировки
         zero:  Тренировок
     attributes:
-      excercising:
+      workout:
         date: Дата
         excercise: Упражнение
         excercise_id: Упражнение

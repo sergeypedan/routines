@@ -11,12 +11,12 @@
 -
   controllers:
     - excercises
-    - excercisings
+    - workouts
     - muscles
   dashboard_action: workout
   name_en: Workout
   name_ru: Спорт
-  path: excercisings
+  path: workouts
 -
   controllers:
     - mood_entries
