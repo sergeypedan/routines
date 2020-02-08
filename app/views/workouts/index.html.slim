@@ -18,6 +18,7 @@
 					th
 					th
 					th
+          th
 
 			tbody
 				- @workouts.group_by { |workout| workout.date }.each do |date, workouts|
@@ -33,9 +34,9 @@
 							td = number_to_human workout.weight, units: { unit: t("weight.kg") } unless workout.weight.zero?
 							td
 								- if workout.resistance_duration
-									= "#{workout.resistance_duration} min"
+									= "#{workout.resistance_duration} min"
 								- else
-									= "× #{workout.repetitions_count}" if workout.repetitions_count && !workout.repetitions_count != 1
+									= "× #{workout.repetitions_count}" if workout.repetitions_count && !workout.repetitions_count != 1
 							td.small
 								= link_to workout.excercise.main_muscle.name, workout.excercise.main_muscle, class: "a-hidden-affordance"
 								br
@@ -51,7 +52,6 @@
 									= button_to [:yesterday, workout], { class: "btn btn-outline-secondary btn-sm", form: { class: "" }, remote: false }
 										= fa_icon "arrow-down"
 
-							td
-								= edit_btn(workout)
-								= delete_btn(workout, { style: "margin-left: 10px "})
+							td = edit_btn(workout)
+              td = delete_btn(workout, { style: "margin-left: 10px "})
 
