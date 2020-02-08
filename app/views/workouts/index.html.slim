@@ -18,13 +18,13 @@
 					th
 					th
 					th
-          th
+					th
 
 			tbody
 				- @workouts.group_by { |workout| workout.date }.each do |date, workouts|
 
 					tr
-						th colspan="8" style="padding-top: 30px; font-size: 13px" = l date, format: "%-d %B %Y"
+						th colspan="9" style="padding-top: 30px; font-size: 13px" = l date, format: "%-d %B %Y"
 
 					- workouts.sort_by(&:excercise).each_with_index do |workout, index|
 						- excercise = workout.excercise
@@ -52,6 +52,5 @@
 									= button_to [:yesterday, workout], { class: "btn btn-outline-secondary btn-sm", form: { class: "" }, remote: false }
 										= fa_icon "arrow-down"
 
-							td = edit_btn(workout)
-              td = delete_btn(workout, { style: "margin-left: 10px "})
-
+							td = edit_btn(workout, text: fa_icon("pencil"))
+							td = delete_btn(workout, { style: "margin-left: 10px", text: fa_icon("trash") })
