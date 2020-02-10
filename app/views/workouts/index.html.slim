@@ -46,10 +46,11 @@
 						td
 							= button_to [:duplicate, workout], { class: "btn btn-outline-primary btn-sm", form: { class: "" }, remote: false }
 								= fa_icon "copy"
+
 						td
-							- if workout.date.today?
+						- if workout.date.today?
 								= button_to [:yesterday, workout], { class: "btn btn-outline-secondary btn-sm", form: { class: "" }, remote: false }
 									= fa_icon "arrow-down"
 
 						td = edit_btn(workout, text: fa_icon("pencil"))
-						td = delete_btn(workout, { style: "margin-left: 10px", text: fa_icon("trash") })
+						td = delete_btn(workout, { text: fa_icon("trash") })
