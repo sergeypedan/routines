@@ -31,13 +31,14 @@
 							- if workout.resistance_duration
 								span.duration = fa_icon "clock-o", text: "#{workout.resistance_duration} min"
 							- elsif workout.repetitions_count&.positive?
-								span.reps = "× #{workout.repetitions_count}"
+								span.reps
+									| × 
+									= t :reps, count: workout.repetitions_count
 
 					.workout-mobile__excercise__menu
-						.workout-mobile__action
-							= button_to [:duplicate, workout], { class: "btn btn-outline-secondary btn-sm", form: { class: "", style: "margin-bottom: 10px" }, remote: false }
-								/ = fa_icon "copy"
-								| Дублировать
+						= button_to [:duplicate, workout], { class: "btn btn-outline-secondary btn-sm", form: { class: "", style: "margin-bottom: 10px" }, remote: false }
+							| Дублировать
+
 						- if workout.date.today?
 							= button_to [:yesterday, workout], { class: "btn btn-outline-secondary btn-sm", form: { class: "" }, remote: false }
 								= fa_icon "arrow-down"

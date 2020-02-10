@@ -7,3 +7,10 @@ en:
     few:   "%{count} rounds"
     many:  "%{count} rounds"
     other: "%{count} rounds"
+
+  reps:
+    zero:  "%{count} reps"
+    one:   "%{count} rep"
+    few:   "%{count} reps"
+    many:  "%{count} reps"
+    other: "%{count} reps"
