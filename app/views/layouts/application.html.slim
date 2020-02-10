@@ -10,6 +10,8 @@ html lang=I18n.locale
 		= stylesheet_link_tag "bootstrap-customized"
 		= stylesheet_link_tag "application"
 
+    = render "application/favicon"
+
 	= tag.body class: ["#{controller_name}-#{action_name}", "has-sticky-footer"]
 		= render "application/super_navbar"
 		= render "application/navbar"
