@@ -12,34 +12,34 @@
 				- excercise = workout.excercise
 
 				.workout-mobile__excercise
-					span.workout-mobile__counter
-						= index + 1
-						| .
-					=< link_to excercise.name, excercise
+					.workout-mobile__excercise__content
+						span.workout-mobile__counter
+							= index + 1
+							| .
+						h5.workout-mobile__excercise__title = link_to excercise.name, excercise, class: "a-hidden-affordance"
 
-					.workout-mobile__WRT
-						- if workout.weight.positive?
-							span.workout-mobile__weight = number_to_human workout.weight, units: { unit: t("weight.kg") }
-
-						- if workout.resistance_duration
-							span.duration = "#{workout.resistance_duration} min"
-						- elsif workout.repetitions_count&.positive?
-							span.reps = "× #{workout.repetitions_count}"
-
-					.workout-mobile__muscles
-						=< link_to workout.excercise.main_muscle.name, workout.excercise.main_muscle
-						- if excercise.muscles.any?
-							ul.tags-1.small
+						.workout-mobile__muscles
+							ul.workout-mobile__muscles__ul
+								li = link_to workout.excercise.main_muscle.name, workout.excercise.main_muscle, class: "a-hidden-affordance"
 								- excercise.muscles.each do |muscle|
-									li.tags-1__li = link_to muscle.name, muscle, class: "a-hidden-affordance"
+									li = link_to muscle.name, muscle, class: "a-hidden-affordance"
 
-					.workout-mobile__actions
+						.workout-mobile__WRT
+							- if workout.weight.positive?
+								span.workout-mobile__weight = fa_icon "balance-scale", text: number_to_human(workout.weight, units: { unit: t("weight.kg") })
+
+							- if workout.resistance_duration
+								span.duration = fa_icon "clock-o", text: "#{workout.resistance_duration} min"
+							- elsif workout.repetitions_count&.positive?
+								span.reps = "× #{workout.repetitions_count}"
+
+					.workout-mobile__excercise__menu
 						.workout-mobile__action
-							= button_to [:duplicate, workout], { class: "btn btn-outline-primary btn-sm", form: { class: "" }, remote: false }
-								= fa_icon "copy"
+							= button_to [:duplicate, workout], { class: "btn btn-outline-secondary btn-sm", form: { class: "", style: "margin-bottom: 10px" }, remote: false }
+								/ = fa_icon "copy"
+								| Дублировать
 						- if workout.date.today?
-							.workout-mobile__action
-								= button_to [:yesterday, workout], { class: "btn btn-outline-secondary btn-sm", form: { class: "" }, remote: false }
-									= fa_icon "arrow-down"
-						.workout-mobile__action = edit_btn(workout, text: fa_icon("pencil"))
-						.workout-mobile__action = delete_btn(workout, { text: fa_icon("trash") })
+							= button_to [:yesterday, workout], { class: "btn btn-outline-secondary btn-sm", form: { class: "" }, remote: false }
+								= fa_icon "arrow-down"
+						= edit_btn(workout, text: fa_icon("pencil"))
+						= delete_btn(workout, { text: fa_icon("trash"), style: "margin-left: 10px" })

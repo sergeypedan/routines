@@ -1,34 +1,61 @@
 .workout-mobile
-	border-top: solid 1px hsl(0, 0%, 90%)
-	padding-top: 10px
-	padding-bottom: 15px
+	padding-bottom: 5px
+
 
 	&__title
+		background-color: hsl(119, 68%, 39%)
+		color: white
 		font-size: 12px
 		font-weight: normal
-		margin: 0 0 3px
+		line-height: 1em
+		margin: 0 -15px
+		padding: 6px 15px 4px
 
 	&__excercise
-		padding-top: 12px
-		padding-bottom: 10px
+		border-top: solid 1px hsl(0, 0%, 90%)
+		padding-top: 11px
+		padding-bottom: 15px
+		position: relative
+		margin-left: 17px
+		display: flex
+
+		&:first-of-type
+			border-top: none
+
+		&__title
+			margin-bottom: 7px
+
+		&__content
+			flex-grow: 1
+
+		&__menu
+			flex-grow: 0
+			text-align: right
 
 	&__counter
 		color: gray
 		font-size: 12px
+		position: absolute
+		left: -15px
+		margin-top: 2px
 
 	&__muscles
-		padding-left: 13px
 
-	&__actions
-		display: flex
-		margin-top: 5px
-		padding-left: 13px
+		&__ul
+			list-style-type: none
+			padding-left: 0
+			margin-bottom: 0
+			margin-left: -3px
+			font-size: 12px
 
-		> * + *
-			margin-left: 10px
+			li
+				display: inline
+				padding: 3px
+
+				&:first-child
+					font-weight: bold
 
 	&__WRT
-		padding-left: 13px
 
 	&__weight
 		padding-right: 5px
