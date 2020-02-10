@@ -3,54 +3,53 @@
 		= add_record_button Workout
 
 .container-fluid.section-padding
-	.container-fluid
-		table.table
-			thead
+	table.table
+		thead
+			tr
+				th
+				th = Workout.human_attribute_name :excercise
+				th = Workout.human_attribute_name :weight
+				th Reps / dur
+				th
+					= Excercise.human_attribute_name :main_muscle
+					br
+					= Excercise.human_attribute_name :muscles
+				th
+				th
+				th
+				th
+
+		tbody
+			- @workouts.group_by { |workout| workout.date }.each do |date, workouts|
+
 				tr
-					th
-					th = Workout.human_attribute_name :excercise
-					th = Workout.human_attribute_name :weight
-					th Reps / dur
-					th
-						= Excercise.human_attribute_name :main_muscle
-						br
-						= Excercise.human_attribute_name :muscles
-					th
-					th
-					th
-					th
+					th colspan="9" style="padding-top: 30px; font-size: 13px" = l date, format: "%-d %B %Y"
 
-			tbody
-				- @workouts.group_by { |workout| workout.date }.each do |date, workouts|
-
+				- workouts.sort_by(&:excercise).each_with_index do |workout, index|
+					- excercise = workout.excercise
 					tr
-						th colspan="9" style="padding-top: 30px; font-size: 13px" = l date, format: "%-d %B %Y"
+						td style="color: hsl(0, 0%, 80%)" = index + 1
+						td = link_to excercise.name, excercise, class: "a-hidden-affordance"
+						td = number_to_human workout.weight, units: { unit: t("weight.kg") } unless workout.weight.zero?
+						td
+							- if workout.resistance_duration
+								= "#{workout.resistance_duration} min"
+							- else
+								= "× #{workout.repetitions_count}" if workout.repetitions_count && !workout.repetitions_count != 1
+						td.small
+							= link_to workout.excercise.main_muscle.name, workout.excercise.main_muscle, class: "a-hidden-affordance"
+							br
+							- if excercise.muscles.any?
+								ul.tags-1.small
+									- excercise.muscles.each do |muscle|
+										li.tags-1__li = link_to muscle.name, muscle, class: "a-hidden-affordance"
+						td
+							= button_to [:duplicate, workout], { class: "btn btn-outline-primary btn-sm", form: { class: "" }, remote: false }
+								= fa_icon "copy"
+						td
+							- if workout.date.today?
+								= button_to [:yesterday, workout], { class: "btn btn-outline-secondary btn-sm", form: { class: "" }, remote: false }
+									= fa_icon "arrow-down"
 
-					- workouts.sort_by(&:excercise).each_with_index do |workout, index|
-						- excercise = workout.excercise
-						tr
-							td style="color: hsl(0, 0%, 80%)" = index + 1
-							td = link_to excercise.name, excercise, class: "a-hidden-affordance"
-							td = number_to_human workout.weight, units: { unit: t("weight.kg") } unless workout.weight.zero?
-							td
-								- if workout.resistance_duration
-									= "#{workout.resistance_duration} min"
-								- else
-									= "× #{workout.repetitions_count}" if workout.repetitions_count && !workout.repetitions_count != 1
-							td.small
-								= link_to workout.excercise.main_muscle.name, workout.excercise.main_muscle, class: "a-hidden-affordance"
-								br
-								- if excercise.muscles.any?
-									ul.tags-1.small
-										- excercise.muscles.each do |muscle|
-											li.tags-1__li = link_to muscle.name, muscle, class: "a-hidden-affordance"
-							td
-								= button_to [:duplicate, workout], { class: "btn btn-outline-primary btn-sm", form: { class: "" }, remote: false }
-									= fa_icon "copy"
-							td
-								- if workout.date.today?
-									= button_to [:yesterday, workout], { class: "btn btn-outline-secondary btn-sm", form: { class: "" }, remote: false }
-										= fa_icon "arrow-down"
-
-							td = edit_btn(workout, text: fa_icon("pencil"))
-							td = delete_btn(workout, { style: "margin-left: 10px", text: fa_icon("trash") })
+						td = edit_btn(workout, text: fa_icon("pencil"))
+						td = delete_btn(workout, { style: "margin-left: 10px", text: fa_icon("trash") })

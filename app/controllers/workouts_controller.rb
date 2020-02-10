@@ -8,6 +8,7 @@ class WorkoutsController < DashboardsController
 
 	def index
 		@workouts = Workout.includes(excercise: [:main_muscle, :muscles]).order({ date: :desc })
+		render "index_mobile" if at_mobile?
 	end
 
 

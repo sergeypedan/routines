@@ -16,4 +16,10 @@ class ApplicationController < ActionController::Base
 		@areas = Area.all
 	end
 
+	def at_mobile?
+		["iPhone", "Mobile"].any? do |entry|
+			request.env["HTTP_USER_AGENT"].include? entry
+		end
+	end
+
 end
