@@ -6,6 +6,8 @@ ActiveAdmin.register DrugIntake do
 
 	includes :drug
 
+	config.sort_order :created_at_asc
+
 
 	form do |f|
 		f.inputs do
