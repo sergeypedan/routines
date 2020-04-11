@@ -7,13 +7,14 @@
 		thead
 			tr
 				th Name
-				th Daily dosage
+				th colspan="2" Daily dosage
 				th
 		tbody
 			- @substances.each do |substance|
 				tr
 					td = substance.name
-					td = substance.daily_dosage
+					td.text-right = substance.daily_dosage
+					td = substance.dosage_unit
 					td
 						= link_to "Edit", [:edit, substance], class: "btn btn-outline-secondary btn-sm"
 						= link_to "Delete", substance, method: :delete, class: "btn btn-outline-danger btn-sm", style: "margin-left: 10px"
