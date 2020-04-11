@@ -1,0 +1,7 @@
+---
+ru:
+
+  activerecord:
+    models:
+
+      drug_active_substance: Действующее вещество

@@ -1,0 +1,7 @@
+---
+en:
+
+  activerecord:
+    models:
+
+      drug_active_substance: Active substance
