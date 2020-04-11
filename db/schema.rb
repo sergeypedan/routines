@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_11_095333) do
+ActiveRecord::Schema.define(version: 2020_04_11_112838) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -88,7 +88,6 @@ ActiveRecord::Schema.define(version: 2020_04_11_095333) do
     t.bigint "drug_id", null: false
     t.string "dosage", null: false
     t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.index ["drug_id"], name: "index_drug_intakes_on_drug_id"
   end
 
