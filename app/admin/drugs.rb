@@ -2,9 +2,9 @@ ActiveAdmin.register Drug do
 
 	menu parent: "Medicine"
 
-	permit_params :name, :drug_active_substance_id, :drug_form_id
+	permit_params :name, :drug_active_substance_id, :drug_form_id, :brand_id
 
-	includes :active_substance, :form
+	includes :active_substance, :form, :brand
 
 
 	index do
@@ -12,6 +12,7 @@ ActiveAdmin.register Drug do
 		id_column
 
 		column :name
+		column :brand
 		column :form
 		column :active_substance
 
@@ -22,6 +23,7 @@ ActiveAdmin.register Drug do
 	form do |f|
 		f.inputs do
 			f.input :name
+			f.input :brand
 			f.input :drug_form_id, as: :radio, collection: DrugForm.pluck(:name_ru, :id)
 			f.input :drug_active_substance_id
 		end

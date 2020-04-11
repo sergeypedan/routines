@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_11_112838) do
+ActiveRecord::Schema.define(version: 2020_04_11_135540) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,10 @@ ActiveRecord::Schema.define(version: 2020_04_11_112838) do
     t.index ["weight_id"], name: "index_association_weight_bundle_weights_on_weight_id"
   end
 
+  create_table "brands", force: :cascade do |t|
+    t.string "name", null: false
+  end
+
   create_table "cities", force: :cascade do |t|
     t.string "name_en", null: false
     t.string "name_ru", null: false
@@ -104,6 +108,8 @@ ActiveRecord::Schema.define(version: 2020_04_11_112838) do
     t.string "name", null: false
     t.bigint "drug_active_substance_id"
     t.bigint "drug_form_id", null: false
+    t.bigint "brand_id"
+    t.index ["brand_id"], name: "index_drugs_on_brand_id"
     t.index ["drug_active_substance_id"], name: "index_drugs_on_drug_active_substance_id"
     t.index ["drug_form_id"], name: "index_drugs_on_drug_form_id"
   end
@@ -260,6 +266,7 @@ ActiveRecord::Schema.define(version: 2020_04_11_112838) do
   add_foreign_key "drug_intakes", "drugs"
   add_foreign_key "drug_substances", "drug_active_substances", column: "substance_id"
   add_foreign_key "drug_substances", "drugs"
+  add_foreign_key "drugs", "brands"
   add_foreign_key "drugs", "drug_active_substances"
   add_foreign_key "drugs", "drug_forms"
   add_foreign_key "excercises", "muscles", column: "main_muscle_id"

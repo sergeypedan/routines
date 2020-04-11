@@ -15,6 +15,8 @@ class Drug < ApplicationRecord
 							class_name: "DrugActiveSubstance",
 							foreign_key: "drug_active_substance_id"
 
+	belongs_to :brand, optional: true
+
 	belongs_to :form,
 							class_name: "DrugForm",
 							foreign_key: "drug_form_id"
