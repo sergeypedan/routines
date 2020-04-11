@@ -3,7 +3,7 @@
 class DrugsController < DashboardsController
 
 	def index
-		@drugs = Drug.includes(:active_substance).all
+		@drugs = Drug.includes(:active_substance, :form).all
 	end
 
 

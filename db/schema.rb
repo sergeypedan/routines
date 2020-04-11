@@ -10,16 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_11_055454) do
+ActiveRecord::Schema.define(version: 2020_04_11_095333) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "active_admin_comments", force: :cascade do |t|
+    t.string "namespace"
+    t.text "body"
+    t.string "resource_type"
+    t.bigint "resource_id"
+    t.string "author_type"
+    t.bigint "author_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
+    t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
+    t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
+  end
+
+  create_table "admin_users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.datetime "remember_created_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_admin_users_on_email", unique: true
+  end
+
   create_table "association_excercise_muscles", force: :cascade do |t|
     t.bigint "excercise_id"
     t.bigint "muscle_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.index ["excercise_id"], name: "index_association_excercise_muscles_on_excercise_id"
     t.index ["muscle_id"], name: "index_association_excercise_muscles_on_muscle_id"
   end
@@ -27,8 +48,6 @@ ActiveRecord::Schema.define(version: 2020_04_11_055454) do
   create_table "association_excercise_weight_bundles", force: :cascade do |t|
     t.integer "excercise_id"
     t.integer "weight_bundle_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.index ["excercise_id"], name: "index_association_excercise_weight_bundles_on_excercise_id"
     t.index ["weight_bundle_id"], name: "index_association_excercise_weight_bundles_on_weight_bundle_id"
   end
@@ -36,8 +55,6 @@ ActiveRecord::Schema.define(version: 2020_04_11_055454) do
   create_table "association_weight_bundle_weights", force: :cascade do |t|
     t.integer "weight_id"
     t.integer "weight_bundle_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.index ["weight_bundle_id"], name: "index_association_weight_bundle_weights_on_weight_bundle_id"
     t.index ["weight_id"], name: "index_association_weight_bundle_weights_on_weight_id"
   end
@@ -45,15 +62,11 @@ ActiveRecord::Schema.define(version: 2020_04_11_055454) do
   create_table "cities", force: :cascade do |t|
     t.string "name_en", null: false
     t.string "name_ru", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "drug_active_substances", force: :cascade do |t|
     t.string "name", null: false
     t.string "daily_dosage"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.string "main_function", null: false
     t.string "dosage_unit", limit: 20
   end
@@ -69,8 +82,6 @@ ActiveRecord::Schema.define(version: 2020_04_11_055454) do
   create_table "drug_forms", force: :cascade do |t|
     t.string "name_en", null: false
     t.string "name_ru", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "drug_intakes", force: :cascade do |t|
@@ -81,11 +92,17 @@ ActiveRecord::Schema.define(version: 2020_04_11_055454) do
     t.index ["drug_id"], name: "index_drug_intakes_on_drug_id"
   end
 
+  create_table "drug_substances", force: :cascade do |t|
+    t.bigint "drug_id", null: false
+    t.bigint "substance_id", null: false
+    t.decimal "dose", null: false
+    t.string "unit", default: "mg", null: false
+    t.index ["drug_id"], name: "index_drug_substances_on_drug_id"
+    t.index ["substance_id"], name: "index_drug_substances_on_substance_id"
+  end
+
   create_table "drugs", force: :cascade do |t|
-    t.string "form", default: "tablet", null: false
     t.string "name", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.bigint "drug_active_substance_id"
     t.bigint "drug_form_id", null: false
     t.index ["drug_active_substance_id"], name: "index_drugs_on_drug_active_substance_id"
@@ -96,8 +113,6 @@ ActiveRecord::Schema.define(version: 2020_04_11_055454) do
     t.string "name", null: false
     t.integer "default_repetitions_count", default: 15, null: false
     t.integer "default_time", default: 60, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.boolean "repetition_based", default: true
     t.bigint "main_muscle_id", null: false
     t.float "default_weight", default: 0.0, null: false
@@ -119,8 +134,6 @@ ActiveRecord::Schema.define(version: 2020_04_11_055454) do
     t.integer "rounds_per_day", default: 1, null: false
     t.integer "time_per_round", default: 0, null: false
     t.string "time_unit", default: "minutes", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.integer "position", default: 0, null: false
     t.bigint "user_id", null: false
     t.bigint "excercise_id"
@@ -137,8 +150,6 @@ ActiveRecord::Schema.define(version: 2020_04_11_055454) do
     t.float "healthy_value_max", null: false
     t.string "healthy_value_source_name"
     t.string "healthy_value_source_url"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.bigint "measurements_group_id"
     t.string "abbr_en", limit: 10
     t.string "abbr_ru", limit: 10
@@ -151,16 +162,12 @@ ActiveRecord::Schema.define(version: 2020_04_11_055454) do
     t.string "name", null: false
     t.bigint "city_id", null: false
     t.string "street_address"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.index ["city_id"], name: "index_labs_on_city_id"
   end
 
   create_table "measurement_objects", force: :cascade do |t|
     t.string "name_en", null: false
     t.string "name_ru", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "measurements", force: :cascade do |t|
@@ -178,8 +185,6 @@ ActiveRecord::Schema.define(version: 2020_04_11_055454) do
   create_table "measurements_groups", force: :cascade do |t|
     t.string "name_en", null: false
     t.string "name_ru", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "mood_entries", force: :cascade do |t|
@@ -194,8 +199,6 @@ ActiveRecord::Schema.define(version: 2020_04_11_055454) do
   create_table "moods", force: :cascade do |t|
     t.string "name_en", null: false
     t.string "name_ru", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.integer "energy", default: 50
     t.integer "positivity", default: 50
     t.index ["name_en"], name: "index_moods_on_name_en", unique: true
@@ -204,16 +207,12 @@ ActiveRecord::Schema.define(version: 2020_04_11_055454) do
 
   create_table "muscles", force: :cascade do |t|
     t.string "name", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "settings", force: :cascade do |t|
     t.string "language", default: "en", null: false
     t.bigint "user_id", null: false
     t.string "time_zone", default: "Moscow", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_settings_on_user_id"
   end
 
@@ -238,15 +237,11 @@ ActiveRecord::Schema.define(version: 2020_04_11_055454) do
   create_table "weight_bundles", force: :cascade do |t|
     t.string "name", null: false
     t.decimal "weight", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "weights", force: :cascade do |t|
     t.decimal "mass", default: "5000.0", null: false
     t.string "type", default: "Блин", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "workouts", force: :cascade do |t|
@@ -264,6 +259,8 @@ ActiveRecord::Schema.define(version: 2020_04_11_055454) do
   add_foreign_key "association_excercise_muscles", "muscles"
   add_foreign_key "drug_administrations", "drugs"
   add_foreign_key "drug_intakes", "drugs"
+  add_foreign_key "drug_substances", "drug_active_substances", column: "substance_id"
+  add_foreign_key "drug_substances", "drugs"
   add_foreign_key "drugs", "drug_active_substances"
   add_foreign_key "drugs", "drug_forms"
   add_foreign_key "excercises", "muscles", column: "main_muscle_id"
