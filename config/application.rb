@@ -17,7 +17,7 @@ Bundler.require(*Rails.groups)
 
 module Routines
 	class Application < Rails::Application
-		config.load_defaults 5.2
+		config.load_defaults 6.0
 
 		config.i18n.default_locale = :en # не ru_RU
 		# config.i18n.default_locale = :ru # не ru_RU

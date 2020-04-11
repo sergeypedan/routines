@@ -10,9 +10,14 @@
 			= f.label      :main_function, nil, class: :required
 			= f.text_field :main_function, required: true, placeholder: "Антибиотик", class: "form-control"
 
-		.form-group
-			= f.label      :daily_dosage, nil, class: :required
-			= f.text_field :daily_dosage, required: true, placeholder: "100 mg", class: "form-control"
+		.row
+			.form-group.col-md-6 style="max-width: 200px"
+				= f.label      :daily_dosage, nil
+				= f.text_field :daily_dosage, placeholder: "100", class: "form-control"
+
+			.form-group.col-md-6 style="max-width: 200px"
+				= f.label      :dosage_unit, nil
+				= f.text_field :dosage_unit, placeholder: "mg", class: "form-control"
 
 		= render "application/form_errors", record: f.object
 		.form-actions = save_btn(f)
