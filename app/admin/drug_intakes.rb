@@ -6,7 +6,9 @@ ActiveAdmin.register DrugIntake do
 
 	includes :drug
 
-	config.sort_order = :created_at_asc
+	config.sort_order = :created_at_desc
+
+	filter :drug, collection: -> { Drug.select(:name, :id).order(:name) }
 
 
 	form do |f|
