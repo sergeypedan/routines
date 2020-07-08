@@ -16,13 +16,18 @@ class Workout < ApplicationRecord
 end
 
 # == Schema Information
+# Schema version: 20200414044540
 #
 # Table name: workouts
 #
-#  date                :date             not null
-#  excercise_id        :integer          not null
 #  id                  :bigint           not null, primary key
+#  date                :date             not null
 #  repetitions_count   :integer          default(1), not null
 #  resistance_duration :integer
 #  weight              :float            default(0.0), not null
+#  excercise_id        :integer          not null
+#
+# Indexes
+#
+#  index_workouts_on_excercise_id  (excercise_id)
 #

@@ -27,13 +27,19 @@ class HabitEntry < ApplicationRecord
 end
 
 # == Schema Information
+# Schema version: 20200414044540
 #
 # Table name: habit_entries
 #
-#  habit_id         :bigint
-#  id               :bigint           not null, primary key
-#  time(in seconds) :integer          default(0), not null
-#  user_id          :bigint           not null
+#  id       :bigint           not null, primary key
+#  time     :integer          default(0), not null
+#  habit_id :bigint
+#  user_id  :bigint           not null
+#
+# Indexes
+#
+#  index_habit_entries_on_habit_id  (habit_id)
+#  index_habit_entries_on_user_id   (user_id)
 #
 # Foreign Keys
 #

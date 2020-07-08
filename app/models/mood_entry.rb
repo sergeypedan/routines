@@ -16,12 +16,18 @@ class MoodEntry < ApplicationRecord
 end
 
 # == Schema Information
+# Schema version: 20200414044540
 #
 # Table name: mood_entries
 #
-#  id         :bigint           not null, primary key
-#  mood_id    :bigint
-#  user_id    :bigint
+#  id      :bigint           not null, primary key
+#  mood_id :bigint
+#  user_id :bigint
+#
+# Indexes
+#
+#  index_mood_entries_on_mood_id  (mood_id)
+#  index_mood_entries_on_user_id  (user_id)
 #
 # Foreign Keys
 #

@@ -23,21 +23,27 @@ class HealthMarker < ApplicationRecord
 end
 
 # == Schema Information
+# Schema version: 20200414044540
 #
 # Table name: health_markers
 #
+#  id                        :bigint           not null, primary key
 #  abbr_en                   :string(10)
 #  abbr_ru                   :string(10)
 #  healthy_value_max         :float            not null
 #  healthy_value_min         :float            not null
 #  healthy_value_source_name :string
 #  healthy_value_source_url  :string
-#  id                        :bigint           not null, primary key
-#  measurement_object_id     :bigint           not null
-#  measurements_group_id     :bigint
 #  name_en                   :string           not null
 #  name_ru                   :string           not null
 #  unit                      :string           not null
+#  measurement_object_id     :bigint           not null
+#  measurements_group_id     :bigint
+#
+# Indexes
+#
+#  index_health_markers_on_measurement_object_id  (measurement_object_id)
+#  index_health_markers_on_measurements_group_id  (measurements_group_id)
 #
 # Foreign Keys
 #

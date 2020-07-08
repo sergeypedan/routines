@@ -25,13 +25,18 @@ class Setting < ApplicationRecord
 end
 
 # == Schema Information
+# Schema version: 20200414044540
 #
 # Table name: settings
 #
-#  id         :bigint           not null, primary key
-#  language   :string           default("en"), not null
-#  time_zone  :string           default("Moscow"), not null
-#  user_id    :bigint           not null
+#  id        :bigint           not null, primary key
+#  language  :string           default("en"), not null
+#  time_zone :string           default("Moscow"), not null
+#  user_id   :bigint           not null
+#
+# Indexes
+#
+#  index_settings_on_user_id  (user_id)
 #
 # Foreign Keys
 #

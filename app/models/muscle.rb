@@ -17,9 +17,10 @@ class Muscle < ApplicationRecord
 end
 
 # == Schema Information
+# Schema version: 20200414044540
 #
 # Table name: muscles
 #
-#  id         :bigint           not null, primary key
-#  name       :string           not null
+#  id   :bigint           not null, primary key
+#  name :string           not null
 #

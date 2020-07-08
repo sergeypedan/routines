@@ -49,17 +49,24 @@ class User < ApplicationRecord
 end
 
 # == Schema Information
+# Schema version: 20200414044540
 #
 # Table name: users
 #
+#  id                     :bigint           not null, primary key
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
 #  failed_attempts        :integer          default(0), not null
 #  first_name             :string           not null
-#  id                     :bigint           not null, primary key
 #  last_name              :string           not null
 #  locked_at              :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
 #  unlock_token           :string
+#
+# Indexes
+#
+#  index_users_on_email                 (email) UNIQUE
+#  index_users_on_reset_password_token  (reset_password_token) UNIQUE
+#  index_users_on_unlock_token          (unlock_token) UNIQUE
 #

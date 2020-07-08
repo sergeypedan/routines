@@ -13,12 +13,18 @@ class Mood < ApplicationRecord
 end
 
 # == Schema Information
+# Schema version: 20200414044540
 #
 # Table name: moods
 #
-#  energy     :integer          default(50)
 #  id         :bigint           not null, primary key
+#  energy     :integer          default(50)
 #  name_en    :string           not null
 #  name_ru    :string           not null
 #  positivity :integer          default(50)
+#
+# Indexes
+#
+#  index_moods_on_name_en  (name_en) UNIQUE
+#  index_moods_on_name_ru  (name_ru) UNIQUE
 #

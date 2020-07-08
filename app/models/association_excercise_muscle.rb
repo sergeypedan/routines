@@ -8,12 +8,18 @@ class AssociationExcerciseMuscle < ApplicationRecord
 end
 
 # == Schema Information
+# Schema version: 20200414044540
 #
 # Table name: association_excercise_muscles
 #
-#  excercise_id :bigint
 #  id           :bigint           not null, primary key
+#  excercise_id :bigint
 #  muscle_id    :bigint
+#
+# Indexes
+#
+#  index_association_excercise_muscles_on_excercise_id  (excercise_id)
+#  index_association_excercise_muscles_on_muscle_id     (muscle_id)
 #
 # Foreign Keys
 #

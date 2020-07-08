@@ -26,16 +26,21 @@ class Excercise < ApplicationRecord
 end
 
 # == Schema Information
+# Schema version: 20200414044540
 #
 # Table name: excercises
 #
+#  id                        :bigint           not null, primary key
 #  default_repetitions_count :integer          default(15), not null
 #  default_time              :integer          default(60), not null
 #  default_weight            :float            default(0.0), not null
-#  id                        :bigint           not null, primary key
-#  main_muscle_id            :bigint           not null
 #  name                      :string           not null
 #  repetition_based          :boolean          default(TRUE)
+#  main_muscle_id            :bigint           not null
+#
+# Indexes
+#
+#  index_excercises_on_main_muscle_id  (main_muscle_id)
 #
 # Foreign Keys
 #

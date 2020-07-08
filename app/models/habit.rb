@@ -66,17 +66,24 @@ class Habit < ApplicationRecord
 end
 
 # == Schema Information
+# Schema version: 20200414044540
 #
 # Table name: habits
 #
-#  excercise_id   :bigint
 #  id             :bigint           not null, primary key
 #  name           :string           not null
 #  position       :integer          default(0), not null
 #  rounds_per_day :integer          default(1), not null
 #  time_per_round :integer          default(0), not null
 #  time_unit      :string           default("minutes"), not null
+#  excercise_id   :bigint
 #  user_id        :bigint           not null
+#
+# Indexes
+#
+#  index_habits_on_excercise_id  (excercise_id)
+#  index_habits_on_position      (position)
+#  index_habits_on_user_id       (user_id)
 #
 # Foreign Keys
 #

@@ -25,7 +25,11 @@ ActiveAdmin.register Drug do
 			f.input :name
 			f.input :brand
 			f.input :drug_form_id, as: :radio, collection: DrugForm.pluck(:name_ru, :id)
-			f.input :drug_active_substance_id
+			# f.input :drug_active_substance_id
+
+			f.has_many :active_substances, allow_destroy: true do |as|
+				as.input :name
+			end
 		end
 
 		f.semantic_errors

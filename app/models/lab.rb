@@ -9,13 +9,18 @@ class Lab < ApplicationRecord
 end
 
 # == Schema Information
+# Schema version: 20200414044540
 #
 # Table name: labs
 #
-#  city_id        :bigint           not null
 #  id             :bigint           not null, primary key
 #  name           :string           not null
 #  street_address :string
+#  city_id        :bigint           not null
+#
+# Indexes
+#
+#  index_labs_on_city_id  (city_id)
 #
 # Foreign Keys
 #

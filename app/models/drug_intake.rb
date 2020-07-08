@@ -15,12 +15,17 @@ class DrugIntake < ApplicationRecord
 end
 
 # == Schema Information
+# Schema version: 20200414044540
 #
 # Table name: drug_intakes
 #
-#  dosage     :string           not null
-#  drug_id    :bigint           not null
-#  id         :bigint           not null, primary key
+#  id      :bigint           not null, primary key
+#  dosage  :string           not null
+#  drug_id :bigint           not null
+#
+# Indexes
+#
+#  index_drug_intakes_on_drug_id  (drug_id)
 #
 # Foreign Keys
 #
