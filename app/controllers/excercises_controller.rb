@@ -11,6 +11,7 @@ class ExcercisesController < DashboardsController
 
 
 	def show
+		@excercise = Excercise.find(params[:id])
 	end
 
 

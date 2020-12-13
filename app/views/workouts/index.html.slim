@@ -44,13 +44,13 @@
 									- excercise.muscles.each do |muscle|
 										li.tags-1__li = link_to muscle.name, muscle, class: "a-hidden-affordance"
 						td
-							= button_to [:duplicate, workout], { class: "btn btn-outline-primary btn-sm", form: { class: "" }, remote: false }
-								= fa_icon "copy"
+							- if workout.date.today?
+									= button_to [:yesterday, workout], { class: "btn btn-outline-secondary btn-sm", form: { class: "" }, remote: false }
+										= fa_icon "arrow-down"
 
 						td
-						- if workout.date.today?
-								= button_to [:yesterday, workout], { class: "btn btn-outline-secondary btn-sm", form: { class: "" }, remote: false }
-									= fa_icon "arrow-down"
+							= button_to [:duplicate, workout], { class: "btn btn-outline-primary btn-sm", form: { class: "" }, remote: false }
+								= fa_icon "copy"
 
 						td = edit_btn(workout, text: fa_icon("pencil"))
 						td = delete_btn(workout, { text: fa_icon("trash") })
