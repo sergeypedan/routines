@@ -1,0 +1,15 @@
+.container-fluid.section-padding
+	h1 = MoodEntry.model_name.human
+
+	- if Mood.any?
+		= form_for @mood_entry do |f|
+			.form-group
+				= f.label :mood
+				= f.collection_radio_buttons :mood_id, Mood.all, :id, "name_#{I18n.locale}", {}, { required: true } do |b|
+					.form-check
+						= b.radio_button class: "form-check-input"
+						= b.label class: "form-check-label"
+			.actions = f.submit nil, class: "btn btn-primary"
+
+	- else
+		p Нет типов настроения. Сначала создайте их.

@@ -6,14 +6,14 @@
 	table.table
 		thead
 			tr
-				th Time
-				th Mood
+				th = MoodEntry.human_attribute_name :time
+				th = MoodEntry.human_attribute_name :mood
 				th
 
 		tbody
 			- @mood_entries.each do |mood_entry|
 				tr
-					td = l mood_entry.created_at, format: "%-d %B %B, %H:%M"
+					td = l mood_entry.created_at, format: "%-d %B %B, %H:%M %Z"
 					td = mood_entry.mood.name_en
 					td
 						= link_to "Edit", [:edit, mood_entry], class: "btn btn-outline-secondary btn-sm"

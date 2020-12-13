@@ -21,7 +21,7 @@ class MoodEntriesController < DashboardsController
 
 
 	def create
-		@mood_entry = klass.new(filtered_params)
+		@mood_entry = klass.new(filtered_params.merge({ user_id: current_user.id }))
 		if @mood_entry.save
 			redirect_to mood_entries_path
 		else
@@ -50,12 +50,7 @@ class MoodEntriesController < DashboardsController
 
 
 	private def filtered_params
-		params
-			.require(:mood)
-			.permit(
-				:mood_id,
-				:user_id
-			)
+		params.require(:mood_entry).permit(:mood_id, :user_id)
 	end
 
 
