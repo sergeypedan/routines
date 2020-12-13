@@ -13,11 +13,11 @@
     "rails-ujs": "^5.2.3",
     "selectize": "^0.12.6",
     "smooth-scroll": "^16.1.0",
-    "stimulus": "^1.1.1"
+    "stimulus": "^1.1.1",
+    "webpack-cli": "^4.2.0"
   },
   "devDependencies": {
     "nodep-date-input-polyfill": "^5.2.0",
-    "webpack-cli": "^3.3.4",
     "webpack-dev-server": "^3.7.2"
   },
   "engines": {
