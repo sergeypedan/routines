@@ -4,16 +4,17 @@ class Excercise < ApplicationRecord
 
 	# Associaitons
 
-	has_many   :workouts, dependent: :destroy
+	has_many   :excercises, dependent: :destroy
 	has_many   :association_excercise_muscles, dependent: :destroy
-	has_many   :muscles, through: :association_excercise_muscles
 	belongs_to :main_muscle, class_name: "Muscle", foreign_key: "main_muscle_id"
+	has_many   :muscles, through: :association_excercise_muscles
+	has_many   :workouts, dependent: :destroy
 
 
 	# Validations
 
 	validates :default_repetitions_count, numericality: { only_integer: true, greater_than: 0 }
-  validates :default_weight, numericality: { greater_than_or_equal_to: 0 }
+	validates :default_weight, numericality: { greater_than_or_equal_to: 0 }
 	validates :name, presence: true
 
 

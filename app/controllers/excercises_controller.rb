@@ -55,7 +55,7 @@ class ExcercisesController < DashboardsController
 
 
 	def set_excercise
-		Excercise.find params[:id]
+		@excercise = Excercise.find params[:id]
 	end
 
 
