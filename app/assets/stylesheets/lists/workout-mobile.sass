@@ -1,3 +1,7 @@
+.form-as-btn
+	display: inline-block
+
+
 .workout-mobile
 
 	&__title
@@ -14,8 +18,7 @@
 		padding-top: 11px
 		padding-bottom: 15px
 		position: relative
-		margin-left: 17px
-		display: flex
+		margin-left: 22px
 
 		&:first-of-type
 			border-top: none
@@ -23,18 +26,20 @@
 		&__title
 			margin-bottom: 7px
 
-		&__content
-			flex-grow: 1
-
 		&__menu
-			flex-grow: 0
 			text-align: right
+			position: absolute
+			top: 20px
+			right: 0
+
+			& > * + *
+				margin-left: 10px
 
 	&__counter
 		color: gray
 		font-size: 12px
 		position: absolute
-		left: -15px
+		left: -20px
 
 	&__muscles
 
@@ -53,6 +58,7 @@
 					font-weight: bold
 
 	&__WRT
+		font-size: 12px
 
 	&__weight
 		padding-right: 5px
