@@ -11,7 +11,7 @@
 			- workouts.sort_by(&:excercise).each_with_index do |workout, index|
 				- excercise = workout.excercise
 
-				.workout-mobile__excercise
+				.workout-mobile__excercise data-action="show-excercise-menu"
 					.workout-mobile__excercise__content
 						span.workout-mobile__counter
 							= index + 1
@@ -34,7 +34,7 @@
 									| × 
 									= t :reps, count: workout.repetitions_count
 
-					.workout-mobile__excercise__menu
+					.workout-mobile__excercise__menu hidden=""
 						= button_to [:duplicate, workout], { class: "btn btn-primary btn-sm", form: { class: "form-as-btn" }, remote: false }
 							= fa_icon "copy"
 

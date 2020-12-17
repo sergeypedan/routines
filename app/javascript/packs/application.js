@@ -23,6 +23,7 @@ import "modules/ajax-form-helper"
 // import "modules/sortable-init"
 import "modules/habit-stats"
 import "modules/sortable-init"
+import "modules/workouts-excercise"
 
 
 // Stimulus
