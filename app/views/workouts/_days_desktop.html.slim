@@ -1,0 +1,6 @@
+- @workouts.group_by(&:date).each do |date, workouts|
+	tr
+		th colspan="9" style="padding-top: 30px; font-size: 13px" = l date, format: "%-d %B %Y"
+
+	- workouts.sort_by(&:excercise).each_with_index do |workout, index|
+		= render "workouts/workout_desktop", index: index, workout: workout

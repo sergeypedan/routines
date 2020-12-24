@@ -1,0 +1,37 @@
+- excercise = workout.excercise
+
+.workout-mobile__excercise data-action="show-excercise-menu"
+	.workout-mobile__excercise__content
+		span.workout-mobile__counter
+			= index + 1
+			| .
+		h5.workout-mobile__excercise__title = link_to excercise.name, excercise, class: "a-hidden-affordance"
+
+		ul.workout-mobile__muscles__ul
+			li = link_to workout.excercise.main_muscle.name, workout.excercise.main_muscle, class: "a-hidden-affordance"
+			- excercise.muscles.each do |muscle|
+				li = link_to muscle.name, muscle, class: "a-hidden-affordance"
+
+		.workout-mobile__WRT
+			- if workout.weight.positive?
+				span.workout-mobile__weight = fa_icon "balance-scale", text: number_to_human(workout.weight, units: { unit: t("weight.kg") })
+
+			- if workout.resistance_duration
+				span.duration = fa_icon "clock-o", text: "#{workout.resistance_duration} min"
+			- elsif workout.repetitions_count&.positive?
+				span.reps
+					| × 
+					= t :reps, count: workout.repetitions_count
+
+	.workout-mobile__excercise__backdrop data-role="backdrop" hidden=""
+	.workout-mobile__excercise__menu hidden=""
+		= edit_btn(workout, text: fa_icon("pencil"), class: ["btn", "btn-primary"])
+
+		= button_to [:duplicate, workout], { class: "btn btn-primary", form: { class: "form-as-btn" }, remote: false }
+			= fa_icon "copy"
+
+		- if workout.date.today?
+			= button_to [:yesterday, workout], { class: "btn btn-outline-secondary", form: { class: "form-as-btn" }, remote: false }
+				= fa_icon "arrow-down"
+
+		= delete_btn(workout, { text: fa_icon("trash"), class: ["btn", "btn-outline-danger"] })

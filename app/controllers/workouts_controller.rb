@@ -2,13 +2,27 @@
 
 class WorkoutsController < DashboardsController
 
+	DAYS_TO_SHOW_UPFRONT = { desktop: 3, mobile: 3 }
+
 	before_action :set_resource, only: [:destroy, :duplicate, :edit, :update, :yesterday]
 	before_action :load_muscles, only: [:new, :edit]
 
 
+	def upfront_dates
+		dates_count = DAYS_TO_SHOW_UPFRONT.fetch(at_mobile? ? :mobile : :desktop)
+		Workout.select(:date).distinct.order(date: :desc).limit(dates_count).pluck(:date)
+	end
+
+
 	def index
-		@workouts = Workout.includes(excercise: [:main_muscle, :muscles]).order({ date: :desc })
-		render "index_mobile" if at_mobile?
+		scope = Workout.includes(excercise: [:main_muscle, :muscles]).order({ date: :desc })
+    if params[:rest].present?
+  		@workouts = scope.where.not(date: upfront_dates)
+  		render "_days_#{at_mobile? ? "mobile" : "desktop"}", layout: false
+    else
+      @workouts = scope.where(date: upfront_dates)
+      render :index_mobile if at_mobile?
+    end
 	end
 
 

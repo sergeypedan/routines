@@ -1,0 +1,7 @@
+- @workouts.group_by(&:date).each do |date, workouts|
+
+	article.workout-mobile
+		h4.workout-mobile__title = l date, format: "%-d %B %Y"
+
+		- workouts.sort_by(&:excercise).each_with_index do |workout, index|
+			= render "workouts/workout_mobile", index: index, workout: workout
