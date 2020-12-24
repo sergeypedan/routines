@@ -9,3 +9,8 @@ ru:
         many:  Мышц
         other: Мышцы
         zero:  Мышц
+
+    attributes:
+      muscle:
+        excercises: Упражнения
+        name: Название

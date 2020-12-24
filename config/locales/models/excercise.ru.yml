@@ -10,7 +10,6 @@ ru:
         other: Упражнения
         zero:  Упражнений
 
-
     attributes:
       excercise:
         default_repetitions_count: Обычно повторений
@@ -20,4 +19,3 @@ ru:
         main_muscle_id: Основная мыщца
         muscles: Сопутствующие мыщцы
         muscle_ids: Сопутствующие мыщцы
-        name: Название

@@ -3,10 +3,21 @@ ru:
 
   activerecord:
     models:
-
       user:
         one:   Пользователь
         few:   Пользователя
         many:  Пользователей
         other: Пользователи
         zero:  Пользователей
+
+    attributes:
+      user:
+        admin_note: Пометка для админов
+        partner_id: ID партнёра
+        role: Роль
+        site: Сайт
+        userpic: Аватарка
+        vk_email: E-mail Вконтакте
+        vk_id: ID Вконтакте
+        vk_url: URL Вконтакте
+        vk_userpic: Аватарка Вконтакте

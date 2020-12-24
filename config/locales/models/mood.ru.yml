@@ -1,0 +1,13 @@
+---
+ru:
+  activerecord:
+    models:
+      mood:
+        zero:  Настроений
+        one:   Настроение
+        few:   Настроения
+        many:  Настроений
+        other: Настроения
+
+    attributes:
+      mood:

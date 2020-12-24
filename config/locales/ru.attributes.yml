@@ -1,39 +1,16 @@
 ---
 ru:
-
-  activerecord:
-    attributes:
-
-      muscle:
-        excercises: Упражнения
-        name: Название
-
-      excercise:
-        default_repetitions_count: Повторений по умолчанию
-        default_time: Время по умолчанию
-        muscle_ids: Мышцы
-        muscles: Мышцы
-        name: Название
-
-      setting:
-        language: Язык
-        time_zone: Временная зона
-        user_id: Пользователь
-
-      user:
-        admin_note: Пометка для админов
-        created_at: Создан
-        email: E-mail
-        first_name: Имя
-        full_name: Полное имя
-        last_name: Имя
-        partner_id: ID партнёра
-        phone: Телефон
-        role: Роль
-        site: Сайт
-        updated_at: Обновлён
-        userpic: Аватарка
-        vk_email: E-mail Вконтакте
-        vk_id: ID Вконтакте
-        vk_url: URL Вконтакте
-        vk_userpic: Аватарка Вконтакте
+  attributes:
+    name: Название
+    name_en: Название по-английски
+    name_ru: Название по-русски
+    language: Язык
+    time_zone: Временная зона
+    user_id: Пользователь
+    created_at: Создан
+    email: E-mail
+    first_name: Имя
+    full_name: Полное имя
+    last_name: Имя
+    phone: Телефон
+    updated_at: Обновлён
