@@ -6,20 +6,22 @@
 	table.table
 		thead
 			tr
-				th Name
+				th = Drug.human_attribute_name :name
+				th = Drug.human_attribute_name :brand
 				th Substance
-				th Form
-				th Dosage
+				th = Drug.human_attribute_name :form
+				th = Drug.human_attribute_name :dosage
 				th
 		tbody
 			- @drugs.each do |drug|
 				tr
 					td = drug.name
+					td = drug.brand&.name
 					td = drug.active_substance.name
 					td = drug.form.name_en
 					td
 						=> drug.active_substance.daily_dosage
 						| / day
-	 				td
+					td
 						= link_to "Edit", [:edit, drug], class: "btn btn-outline-secondary btn-sm"
 						= link_to "Delete", drug, method: :delete, class: "btn btn-outline-danger btn-sm", style: "margin-left: 10px"

@@ -3,7 +3,7 @@
 class DrugsController < DashboardsController
 
 	def index
-		@drugs = Drug.includes(:active_substance, :form).all
+		@drugs = Drug.includes(:active_substance, :brand, :form).all
 	end
 
 
@@ -52,12 +52,11 @@ class DrugsController < DashboardsController
 		params
 			.require(:drug)
 			.permit(
+				:brand_id,
 				:drug_active_substance_id,
-				     :active_substance_id,
-
+						 :active_substance_id,
 				:drug_form_id,
-				     :form_id,
-
+						 :form_id,
 				:name
 			)
 	end
