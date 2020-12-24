@@ -38,7 +38,7 @@
   dashboard_action: medicine
   name_en: Medicine
   name_ru: Здоровье
-  path: measurements
+  path: drug_intakes
 -
   controllers:
     - cities
