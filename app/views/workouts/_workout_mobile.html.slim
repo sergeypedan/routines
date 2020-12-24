@@ -5,12 +5,13 @@
 		span.workout-mobile__counter
 			= index + 1
 			| .
-		h5.workout-mobile__excercise__title = link_to excercise.name, excercise, class: "a-hidden-affordance"
+		/ h5.workout-mobile__excercise__title = link_to excercise.name, excercise, class: "a-hidden-affordance"
+		h5.workout-mobile__excercise__title = excercise.name
 
 		ul.workout-mobile__muscles__ul
-			li = link_to workout.excercise.main_muscle.name, workout.excercise.main_muscle, class: "a-hidden-affordance"
+			li = workout.excercise.main_muscle.name
 			- excercise.muscles.each do |muscle|
-				li = link_to muscle.name, muscle, class: "a-hidden-affordance"
+				li = muscle.name
 
 		.workout-mobile__WRT
 			- if workout.weight.positive?
