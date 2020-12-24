@@ -23,8 +23,8 @@ class Drug < ApplicationRecord
 
 	has_many :drug_intakes, dependent: :destroy
 
-  has_many :association_drug_substances
-  has_many :active_substances, through: :association_drug_substances
+	has_many :association_drug_substances
+	has_many :active_substances, through: :association_drug_substances
 
 end
 

@@ -11,7 +11,8 @@ Rails.application.routes.draw do
 	get "/day_habits/:date", to: "day_habits#show",  as: :day_habit
 	get "/day_habits",       to: "day_habits#index", as: :day_habits
 
-	resources :cities
+	resources :brands
+  resources :cities
 	resources :drugs
 	resources :drug_active_substances
 	resources :drug_forms

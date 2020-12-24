@@ -1,0 +1,10 @@
+.container.section-padding
+
+	= form_with model: @brand, local: true do |f|
+
+		.form-group
+			= f.label :name, nil, class: :required
+			= f.text_field :name, required: true, class: "form-control"
+
+		= render "application/form_errors", record: f.object
+		.form-actions = save_btn(f)

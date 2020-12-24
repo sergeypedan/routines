@@ -15,7 +15,7 @@ class DrugIntakesController < DashboardsController
 
 
 	def new
-		@drug_intake = DrugIntake.new
+		@drug_intake = DrugIntake.new(created_at: Time.current)
 		render :edit
 	end
 
