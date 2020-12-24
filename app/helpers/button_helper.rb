@@ -21,7 +21,7 @@ module ButtonHelper
 	def edit_btn(record, **options)
 		link_to (options[:text] || t("helpers.edit")),
 						[:edit, record],
-						class: ["btn", "btn-outline-secondary", "btn-sm"] + (options[:class] || []),
+						class: (options[:class].presence || ["btn", "btn-outline-secondary", "btn-sm"]),
 						style: options[:style]
 	end
 
@@ -31,7 +31,7 @@ module ButtonHelper
 		link_to (options[:text] || t("helpers.remove.button")), record,
 						method: :delete,
 						data: { confirm: t("helpers.remove.delete") },
-						class: ["btn", "btn-outline-danger", "btn-sm"] + (options[:class] || []),
+						class: (options[:class].presence || ["btn", "btn-outline-danger", "btn-sm"]),
 						style: options[:style]
 	end
 

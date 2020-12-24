@@ -2,7 +2,7 @@
 		h1 = Workout.model_name.human(count: :many)
 		= add_record_button Workout
 
-.container-fluid.section-padding
+.section-padding
 	- @workouts.group_by { |workout| workout.date }.each do |date, workouts|
 
 		article.workout-mobile
@@ -34,12 +34,15 @@
 									| × 
 									= t :reps, count: workout.repetitions_count
 
+					.workout-mobile__excercise__backdrop data-role="backdrop" hidden=""
 					.workout-mobile__excercise__menu hidden=""
+						= edit_btn(workout, text: fa_icon("pencil"), class: ["btn", "btn-primary"])
+
 						= button_to [:duplicate, workout], { class: "btn btn-primary", form: { class: "form-as-btn" }, remote: false }
 							= fa_icon "copy"
 
 						- if workout.date.today?
-							= button_to [:yesterday, workout], { class: "btn btn-outline-secondary", form: { class: "" }, remote: false }
+							= button_to [:yesterday, workout], { class: "btn btn-outline-secondary", form: { class: "form-as-btn" }, remote: false }
 								= fa_icon "arrow-down"
-						= edit_btn(workout, text: fa_icon("pencil"))
+
 						= delete_btn(workout, { text: fa_icon("trash"), class: ["btn", "btn-outline-danger"] })
