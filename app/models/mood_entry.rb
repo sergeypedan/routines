@@ -2,12 +2,6 @@
 
 class MoodEntry < ApplicationRecord
 
-	# Validations
-
-	validates :mood_id, numericality: { only_integer: true, greater_than: 0 }
-	validates :user_id, numericality: { only_integer: true, greater_than: 0 }
-
-
 	# Associations
 
   belongs_to :mood
@@ -16,11 +10,13 @@ class MoodEntry < ApplicationRecord
 end
 
 # == Schema Information
-# Schema version: 20200414044540
+# Schema version: 20201224111032
 #
 # Table name: mood_entries
 #
 #  id      :bigint           not null, primary key
+#  comment :text
+#  why     :text
 #  mood_id :bigint
 #  user_id :bigint
 #

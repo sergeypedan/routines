@@ -1,0 +1,14 @@
+---
+ru:
+  activerecord:
+    models:
+      mood_entry:
+        zero:  Записей о настроении
+        one:   Запись о настроении
+        few:   Записи о настроении
+        many:  Записей о настроении
+        other: Записи о настроении
+
+    attributes:
+      mood_entry:
+        why: Почему

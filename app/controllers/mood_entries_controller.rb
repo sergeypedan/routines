@@ -6,7 +6,7 @@ class MoodEntriesController < DashboardsController
 
 
 	def index
-		@mood_entries = klass.all
+		@mood_entries = klass.includes(:mood)
 	end
 
 
@@ -50,7 +50,7 @@ class MoodEntriesController < DashboardsController
 
 
 	private def filtered_params
-		params.require(:mood_entry).permit(:mood_id, :user_id)
+		params.require(:mood_entry).permit(:comment, :mood_id, :user_id, :why)
 	end
 
 

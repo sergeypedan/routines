@@ -35,11 +35,11 @@
 									= t :reps, count: workout.repetitions_count
 
 					.workout-mobile__excercise__menu hidden=""
-						= button_to [:duplicate, workout], { class: "btn btn-primary btn-sm", form: { class: "form-as-btn" }, remote: false }
+						= button_to [:duplicate, workout], { class: "btn btn-primary", form: { class: "form-as-btn" }, remote: false }
 							= fa_icon "copy"
 
 						- if workout.date.today?
-							= button_to [:yesterday, workout], { class: "btn btn-outline-secondary btn-sm", form: { class: "" }, remote: false }
+							= button_to [:yesterday, workout], { class: "btn btn-outline-secondary", form: { class: "" }, remote: false }
 								= fa_icon "arrow-down"
 						= edit_btn(workout, text: fa_icon("pencil"))
-						= delete_btn(workout, { text: fa_icon("trash") })
+						= delete_btn(workout, { text: fa_icon("trash"), class: ["btn", "btn-outline-danger"] })
