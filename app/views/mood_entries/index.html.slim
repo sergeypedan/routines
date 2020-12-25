@@ -8,13 +8,18 @@
 			tr
 				th = MoodEntry.human_attribute_name :time
 				th = MoodEntry.human_attribute_name :mood
+				th = MoodEntry.human_attribute_name :why
 				th
 
 		tbody
-			- @mood_entries.each do |mood_entry|
+			- @mood_entries.group_by { |me| me.created_at.to_date }.each do |date, mood_entries|
 				tr
-					td = l mood_entry.created_at, format: "%-d %B %B, %H:%M %Z"
-					td = mood_entry.mood.name_en
-					td
-						= link_to "Edit", [:edit, mood_entry], class: "btn btn-outline-secondary btn-sm"
-						= link_to "Delete", mood_entry, method: :delete, class: "btn btn-outline-danger btn-sm", style: "margin-left: 10px"
+					th colspan=4 style="padding-top: 30px; font-size: 13px" = l date, format: "%-d %B %Y"
+				- mood_entries.each do |mood_entry|
+					tr
+						td = l mood_entry.created_at, format: "%H:%M %Z"
+						td = mood_entry.mood.public_send("name_#{I18n.locale}")
+						td = mood_entry.why
+						td
+							= link_to "Edit", [:edit, mood_entry], class: "btn btn-outline-secondary btn-sm"
+							= link_to "Delete", mood_entry, method: :delete, class: "btn btn-outline-danger btn-sm", style: "margin-left: 10px"
