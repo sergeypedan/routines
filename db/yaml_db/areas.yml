@@ -14,7 +14,7 @@
     - workouts
     - muscles
   dashboard_action: workout
-  name_en: Workout
+  name_en: Sport
   name_ru: Спорт
   path: workouts
 -
