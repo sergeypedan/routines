@@ -4,8 +4,13 @@ function remove_btn() {
   document.querySelector(btn_selector).remove()
 }
 
-function spin_button() {
-  document.querySelector(btn_selector).querySelector('.fa').classList.add('fa-spin')
+function disable_button(button) {
+  button.disabled = true
+  button.classList.add("disabled")
+}
+
+function spin_button(button) {
+  button.querySelector('.fa').classList.add('fa-spin')
 }
 
 function container() {
@@ -32,9 +37,9 @@ function build_request_object() {
 }
 
 $(btn_selector).click(function() {
-  spin_button()
+  spin_button(this)
   fetch(build_request_object())
     .then(res => res.text())
-    .then(html => { remove_btn(), insert_response_into_page(html) })
+    .then(html => { remove_btn(this), insert_response_into_page(html) })
     .catch(err => console.error(err))
 })

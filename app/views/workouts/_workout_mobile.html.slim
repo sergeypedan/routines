@@ -15,7 +15,7 @@
 
 		.workout-mobile__WRT
 			- if workout.weight.positive?
-				span.workout-mobile__weight = fa_icon "balance-scale", text: number_to_human(workout.weight, units: { unit: t("weight.kg") })
+				span.workout-mobile__weight = number_to_human(workout.weight, units: { unit: t("weight.kg") })
 
 			- if workout.resistance_duration
 				span.duration = fa_icon "clock-o", text: "#{workout.resistance_duration} min"
