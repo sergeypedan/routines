@@ -1,24 +1,9 @@
-let btn_selector = '[data-action="load-more-workouts"]'
+"use strict"
 
-function remove_btn() {
-  document.querySelector(btn_selector).remove()
-}
-
-function disable_button(button) {
-  button.disabled = true
-  button.classList.add("disabled")
-}
-
-function spin_button(button) {
-  button.querySelector('.fa').classList.add('fa-spin')
-}
+import { disable_button, spin_button } from './interface-commons.js'
 
 function container() {
   return document.querySelector('[data-container="workouts"]')
-}
-
-function insert_response_into_page(response) {
-  container().insertAdjacentHTML('beforeend', response)
 }
 
 function build_url() {
@@ -36,10 +21,11 @@ function build_request_object() {
   })
 }
 
-$(btn_selector).click(function() {
+$('[data-action="load-more-workouts"]').click(function() {
+  disable_button(this)
   spin_button(this)
   fetch(build_request_object())
     .then(res => res.text())
-    .then(html => { remove_btn(this), insert_response_into_page(html) })
+    .then(html => { this.remove(), container().insertAdjacentHTML('beforeend', html) })
     .catch(err => console.error(err))
 })
