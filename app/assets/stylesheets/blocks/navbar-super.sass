@@ -1,4 +1,8 @@
 .super-navbar
+	$item-p-h: 5px
+	$item-p-v-desk: 3px
+	$item-p-v-mobl: 12px
+
 	background-color: hsl(119.12, 68%, 37%)
 	color: $navbar-dark-color
 	font-size: 13px
@@ -12,7 +16,13 @@
 		margin-bottom: 0
 
 		&__title
-			padding: 3px 5px 3px 0
+			line-height: 1em
+
+			@media (min-width: 768px)
+				padding: $item-p-v-desk $item-p-h $item-p-v-desk 0
+
+			@media (max-width: 768px - 1)
+				padding: $item-p-v-mobl $item-p-h $item-p-v-mobl 0
 
 	&__area
 		display: inline-block
@@ -20,8 +30,14 @@
 
 		&__a
 			display: block
-			padding: 3px 5px
+			line-height: 1em
 			color: $navbar-dark-color
+
+			@media (min-width: 768px)
+				padding: $item-p-v-desk $item-p-h
+
+			@media (max-width: 768px - 1)
+				padding: $item-p-v-mobl $item-p-h
 
 			&.active, &:hover, &:focus
 				color: $navbar-dark-active-color
