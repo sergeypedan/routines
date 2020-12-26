@@ -8,21 +8,21 @@
 		/ h5.workout-mobile__excercise__title = link_to excercise.name, excercise, class: "a-hidden-affordance"
 		h5.workout-mobile__excercise__title = excercise.name
 
-		ul.workout-mobile__muscles__ul
-			li = workout.excercise.main_muscle.name
-			- excercise.muscles.each do |muscle|
-				li = muscle.name
-
 		.workout-mobile__WRT
 			- if workout.weight.positive?
 				span.workout-mobile__weight = number_to_human(workout.weight, units: { unit: t("weight.kg") })
 
 			- if workout.resistance_duration
-				span.duration = fa_icon "clock-o", text: "#{workout.resistance_duration} min"
+				span.duration = "#{workout.resistance_duration} min"
 			- elsif workout.repetitions_count&.positive?
 				span.reps
 					| × 
 					= t :reps, count: workout.repetitions_count
+
+		ul.workout-mobile__muscles__ul
+			li = workout.excercise.main_muscle.name
+			- excercise.muscles.each do |muscle|
+				li = muscle.name
 
 	.workout-mobile__excercise__backdrop data-role="backdrop" hidden=""
 	.workout-mobile__excercise__menu hidden=""
