@@ -6,7 +6,7 @@ class MoodEntriesController < DashboardsController
 
 
 	def index
-		@mood_entries = klass.includes(:mood)
+		@mood_entries = klass.includes(:mood).order(created_at: :desc)
 	end
 
 
