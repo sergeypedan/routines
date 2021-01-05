@@ -9,18 +9,18 @@ class DrugIntake < ApplicationRecord
 
 	# Validations
 
-	validates :dosage, presence: true
+	validates :amount, numericality: { greater_than: 0 }
 	validates :drug_id, numericality: { only_integer: true, greater_than: 0 }
 
 end
 
 # == Schema Information
-# Schema version: 20200414044540
+# Schema version: 20210105181809
 #
 # Table name: drug_intakes
 #
 #  id      :bigint           not null, primary key
-#  dosage  :string           not null
+#  amount  :float            default(1.0), not null
 #  drug_id :bigint           not null
 #
 # Indexes

@@ -7,12 +7,13 @@
 			= f.collection_select :drug_id, Drug.all, :id, :name, { prompt: true }, required: true, class: "form-control"
 
 		.form-group
-			= f.label                :created_at, nil, class: :required
-			= f.datetime_local_field :created_at, required: true, class: "form-control", autofocus: f.object.persisted?
+			= f.label      :amount, nil, class: :required
+			= f.text_field :amount, required: true, class: "form-control"
+			.form-text.text-muted = @drug_intake.persisted? ? @drug_intake.drug.form.public_send("unit_#{I18n.locale}") : "pc"
 
 		.form-group
-			= f.label      :dosage, nil, class: :required
-			= f.text_field :dosage, required: true, placeholder: "100 mg", class: "form-control"
+			= f.label                :created_at, nil, class: :required
+			= f.datetime_local_field :created_at, required: true, class: "form-control", autofocus: f.object.persisted?
 
 		= render "application/form_errors", record: f.object
 		.form-actions = save_btn(f)

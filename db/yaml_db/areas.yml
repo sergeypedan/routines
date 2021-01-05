@@ -27,10 +27,10 @@
   path: mood_entries
 -
   controllers:
-    - substances
-    - drug_forms
+    # - substances
+    # - drug_forms
     - drug_intakes
-    - drugs
+    # - drugs
     - health_markers
     - labs
     - measurements
