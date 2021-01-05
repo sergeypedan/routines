@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_24_111032) do
+ActiveRecord::Schema.define(version: 2021_01_04_181650) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,13 +77,6 @@ ActiveRecord::Schema.define(version: 2020_12_24_111032) do
     t.string "name_ru", null: false
   end
 
-  create_table "drug_active_substances", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "daily_dosage"
-    t.string "main_function", null: false
-    t.string "dosage_unit", limit: 20
-  end
-
   create_table "drug_administrations", force: :cascade do |t|
     t.bigint "drug_id", null: false
     t.string "dose", null: false
@@ -106,11 +99,9 @@ ActiveRecord::Schema.define(version: 2020_12_24_111032) do
 
   create_table "drugs", force: :cascade do |t|
     t.string "name", null: false
-    t.bigint "drug_active_substance_id"
     t.bigint "drug_form_id", null: false
     t.bigint "brand_id"
     t.index ["brand_id"], name: "index_drugs_on_brand_id"
-    t.index ["drug_active_substance_id"], name: "index_drugs_on_drug_active_substance_id"
     t.index ["drug_form_id"], name: "index_drugs_on_drug_form_id"
   end
 
@@ -223,6 +214,13 @@ ActiveRecord::Schema.define(version: 2020_12_24_111032) do
     t.index ["user_id"], name: "index_settings_on_user_id"
   end
 
+  create_table "substances", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "daily_dosage"
+    t.string "main_function", null: false
+    t.string "dosage_unit", limit: 20
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -262,14 +260,13 @@ ActiveRecord::Schema.define(version: 2020_12_24_111032) do
     t.index ["excercise_id"], name: "index_workouts_on_excercise_id"
   end
 
-  add_foreign_key "association_drug_substances", "drug_active_substances", column: "substance_id"
   add_foreign_key "association_drug_substances", "drugs"
+  add_foreign_key "association_drug_substances", "substances"
   add_foreign_key "association_excercise_muscles", "excercises"
   add_foreign_key "association_excercise_muscles", "muscles"
   add_foreign_key "drug_administrations", "drugs"
   add_foreign_key "drug_intakes", "drugs"
   add_foreign_key "drugs", "brands"
-  add_foreign_key "drugs", "drug_active_substances"
   add_foreign_key "drugs", "drug_forms"
   add_foreign_key "excercises", "muscles", column: "main_muscle_id"
   add_foreign_key "habit_entries", "habits"

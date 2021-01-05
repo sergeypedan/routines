@@ -5,14 +5,18 @@ class AssociationDrugSubstance < ApplicationRecord
 	# Associations
 
 	belongs_to :drug
-	belongs_to :drug_active_substance,
-							class_name: "DrugActiveSubstance",
-							foreign_key: :substance_id
+	belongs_to :substance
+
+
+	# Validations
+
+	validates :dose, presence: true
+	validates :unit, presence: true
 
 end
 
 # == Schema Information
-# Schema version: 20200414044540
+# Schema version: 20210104181137
 #
 # Table name: association_drug_substances
 #
@@ -30,5 +34,5 @@ end
 # Foreign Keys
 #
 #  fk_rails_...  (drug_id => drugs.id)
-#  fk_rails_...  (substance_id => drug_active_substances.id)
+#  fk_rails_...  (substance_id => substances.id)
 #

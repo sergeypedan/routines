@@ -1,4 +1,6 @@
-ActiveAdmin.register DrugActiveSubstance do
+# frozen_string_literal: true
+
+ActiveAdmin.register Substance do
 
 	menu parent: "Medicine"
 

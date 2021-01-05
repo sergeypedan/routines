@@ -14,7 +14,6 @@ Rails.application.routes.draw do
 	resources :brands
   resources :cities
 	resources :drugs
-	resources :drug_active_substances
 	resources :drug_forms
 	resources :drug_intakes do
 		post :duplicate, on: :member
@@ -33,6 +32,7 @@ Rails.application.routes.draw do
 	resources :mood_entries
 	resources :muscles
 	resources :settings, only: [:index, :edit, :update]
+	resources :substances
 	resources :workouts do
 		post :duplicate, on: :member
 		post :yesterday, on: :member

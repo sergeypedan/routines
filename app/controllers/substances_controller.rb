@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class DrugActiveSubstancesController < DashboardsController
+class SubstancesController < DashboardsController
 
 	def index
 		@substances = klass.all
@@ -21,7 +21,7 @@ class DrugActiveSubstancesController < DashboardsController
 	def create
 		@substance = klass.new(filtered_params)
 		if @substance.save
-			redirect_to drug_active_substances_path
+			redirect_to substances_path
 		else
 			render :edit
 		end
@@ -36,7 +36,7 @@ class DrugActiveSubstancesController < DashboardsController
 	def update
 		@substance = klass.find params[:id]
 		if @substance.update(filtered_params)
-			redirect_to drug_active_substances_path
+			redirect_to substances_path
 		else
 			render :edit
 		end
@@ -49,13 +49,13 @@ class DrugActiveSubstancesController < DashboardsController
 
 
 	private def klass
-		DrugActiveSubstance
+		Substance
 	end
 
 
 	private def filtered_params
 		params
-			.require(:drug_active_substance)
+			.require(:substance)
 			.permit(
 				:daily_dosage,
         :dosage_unit,

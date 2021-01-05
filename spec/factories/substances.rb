@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :drug_active_substance do
+  factory :substance do
     name { "MyString" }
     daily_dosage { "MyString" }
   end

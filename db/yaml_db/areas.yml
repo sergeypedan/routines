@@ -27,7 +27,7 @@
   path: mood_entries
 -
   controllers:
-    - drug_active_substances
+    - substances
     - drug_forms
     - drug_intakes
     - drugs

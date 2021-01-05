@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-class DrugActiveSubstance < ApplicationRecord
+class Substance < ApplicationRecord
 
 	# Associations
 
 	has_many :association_drug_substances
-	has_many :drugs, through: :association_drug_substances
+	has_many :drugs, through: :association_drug_substances, inverse_of: :substances
 
 
 	# Validations
@@ -16,9 +16,9 @@ class DrugActiveSubstance < ApplicationRecord
 end
 
 # == Schema Information
-# Schema version: 20200414044540
+# Schema version: 20210104181137
 #
-# Table name: drug_active_substances
+# Table name: substances
 #
 #  id            :bigint           not null, primary key
 #  daily_dosage  :string

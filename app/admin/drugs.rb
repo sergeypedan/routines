@@ -2,9 +2,15 @@ ActiveAdmin.register Drug do
 
 	menu parent: "Medicine"
 
-	permit_params :name, :drug_active_substance_id, :drug_form_id, :brand_id
+	permit_params :brand_id, :drug_form_id, :name,
+								association_drug_substances_attributes: [:id, :name, :dose, :substance_id, :unit, :_create, :_destroy, :_update]
 
-	includes :active_substance, :form, :brand
+	includes :substances, :form, :brand
+
+
+	filter :name
+	filter :brand
+	filter :substances
 
 
 	index do
@@ -14,7 +20,7 @@ ActiveAdmin.register Drug do
 		column :name
 		column :brand
 		column :form
-		column :active_substance
+		column :substances
 
 		actions
 	end
@@ -25,10 +31,11 @@ ActiveAdmin.register Drug do
 			f.input :name
 			f.input :brand
 			f.input :drug_form_id, as: :radio, collection: DrugForm.pluck(:name_ru, :id)
-			# f.input :drug_active_substance_id
 
-			f.has_many :active_substances, allow_destroy: true do |as|
-				as.input :name
+			f.has_many :association_drug_substances, allow_destroy: true, new_record: true do |s|
+				s.input :substance
+				s.input :dose
+				s.input :unit
 			end
 		end
 

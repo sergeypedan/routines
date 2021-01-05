@@ -30,15 +30,15 @@ module NavbarHelper
 			]
 		when "Medicine"
 			[
-				{ name:          DrugIntake.model_name.human(count: :many), href: drug_intakes_path },
-				{ name:                Drug.model_name.human(count: :many), href: drugs_path },
-				{ name:            DrugForm.model_name.human(count: :many), href: drug_forms_path },
-				{ name: DrugActiveSubstance.model_name.human(count: :many), href: drug_active_substances_path },
-				{ name:                 Lab.model_name.human(count: :many), href: labs_path },
-				{ name:         Measurement.model_name.human(count: :many), href: measurements_path },
-				{ name:   MeasurementsGroup.model_name.human(count: :many), href: measurements_groups_path },
-				{ name:        HealthMarker.model_name.human(count: :many), href: health_markers_path },
-				{ name:               Brand.model_name.human(count: :many), href: brands_path }
+				{ name:        DrugIntake.model_name.human(count: :many), href: drug_intakes_path },
+				{ name:              Drug.model_name.human(count: :many), href: drugs_path },
+				{ name:          DrugForm.model_name.human(count: :many), href: drug_forms_path },
+				{ name:         Substance.model_name.human(count: :many), href: substances_path },
+				{ name:               Lab.model_name.human(count: :many), href: labs_path },
+				{ name:       Measurement.model_name.human(count: :many), href: measurements_path },
+				{ name: MeasurementsGroup.model_name.human(count: :many), href: measurements_groups_path },
+				{ name:      HealthMarker.model_name.human(count: :many), href: health_markers_path },
+				{ name:             Brand.model_name.human(count: :many), href: brands_path }
 			]
 		when "Spirit"
 			[
