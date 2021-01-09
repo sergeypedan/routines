@@ -6,7 +6,8 @@ class DrugIntakesController < DashboardsController
 
 
 	def index
-		@drug_intakes = DrugIntake.includes(:drug).order(created_at: :desc)
+		@intakes = DrugIntake.includes(drug: :form).order(created_at: :desc)
+		render :index_mobile if at_mobile?
 	end
 
 
@@ -15,14 +16,14 @@ class DrugIntakesController < DashboardsController
 
 
 	def new
-		@drug_intake = DrugIntake.new(created_at: Time.current)
+		@intake = DrugIntake.new(created_at: Time.current)
 		render :edit
 	end
 
 
 	def create
-		@drug_intake = DrugIntake.new(filtered_params)
-		if @drug_intake.save
+		@intake = DrugIntake.new(filtered_params)
+		if @intake.save
 			redirect_to drug_intakes_path
 		else
 			render :edit
@@ -35,7 +36,7 @@ class DrugIntakesController < DashboardsController
 
 
 	def update
-		if @drug_intake.update(filtered_params)
+		if @intake.update(filtered_params)
 			redirect_to drug_intakes_path
 		else
 			render :edit
@@ -44,13 +45,13 @@ class DrugIntakesController < DashboardsController
 
 
 	def destroy
-		@drug_intake.destroy
+		@intake.destroy
 		redirect_to drug_intakes_path
 	end
 
 
 	def duplicate
-		DrugIntake.create(@drug_intake.attributes.except("id", "created_at").merge({ created_at: Time.current }))
+		DrugIntake.create(@intake.attributes.except("id", "created_at").merge({ created_at: Time.current }))
 		redirect_to drug_intakes_path
 	end
 
@@ -64,7 +65,7 @@ class DrugIntakesController < DashboardsController
 	end
 
 	def assign_resource
-		@drug_intake = DrugIntake.find params[:id]
+		@intake = DrugIntake.find params[:id]
 	end
 
 end

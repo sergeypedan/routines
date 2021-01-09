@@ -16,13 +16,13 @@ class WorkoutsController < DashboardsController
 
 	def index
 		scope = Workout.includes(excercise: [:main_muscle, :muscles]).order({ date: :desc })
-    if params[:rest].present?
-  		@workouts = scope.where.not(date: upfront_dates)
-  		render "_days_#{at_mobile? ? "mobile" : "desktop"}", layout: false
-    else
-      @workouts = scope.where(date: upfront_dates)
-      render :index_mobile if at_mobile?
-    end
+		if params[:rest].present?
+			@workouts = scope.where.not(date: upfront_dates)
+			render "_days_#{at_mobile? ? "mobile" : "desktop"}", layout: false
+		else
+			@workouts = scope.where(date: upfront_dates)
+			render :index_mobile if at_mobile?
+		end
 	end
 
 

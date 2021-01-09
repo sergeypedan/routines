@@ -4,7 +4,7 @@ ActiveAdmin.register DrugIntake do
 
 	permit_params :amount, :created_at, :drug_id
 
-	includes :drug
+	includes [{ drug: :form }]
 
 	config.sort_order = :created_at_desc
 
@@ -17,10 +17,10 @@ ActiveAdmin.register DrugIntake do
 
 		column :drug
 		column :amount do |rec|
-			[
+			number_to_currency(
 				rec.amount,
-				rec.drug.form.public_send("unit_#{I18n.locale}")
-			].join(" ")
+				unit: rec.drug.form.public_send("unit_#{I18n.locale}")
+			)
 		end
 		column :created_at
 

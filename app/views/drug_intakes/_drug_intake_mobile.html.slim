@@ -1,0 +1,21 @@
+- drug = intake.drug
+
+.cell-1.workout-mobile__excercise data-action="show-cell-menu"
+	.cell-1__content
+		span.workout-mobile__counter
+			= index + 1
+			| .
+		h5.workout-mobile__excercise__title = drug.name
+
+		ul.workout-mobile__muscles__ul
+			- drug.substances.each do |substance|
+				li = substance.name
+
+	.cell-1__backdrop data-role="backdrop" hidden=""
+	.cell-1__menu role="menu" hidden=""
+		= edit_btn(intake, text: fa_icon("pencil"), class: ["btn", "btn-primary"])
+
+		= button_to [:duplicate, intake], { class: "btn btn-primary", form: { class: "form-as-btn" }, remote: false }
+			= fa_icon "copy"
+
+		= delete_btn(intake, { text: fa_icon("trash"), class: ["btn", "btn-outline-danger"] })

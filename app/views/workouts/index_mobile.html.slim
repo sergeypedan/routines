@@ -5,6 +5,6 @@
 div data-container="workouts"
 	= render "workouts/days_mobile"
 
-	- if params[:rest].blank?
-		= button_tag class: "btn btn-primary", data: { action: "load-more-workouts" }, style: "margin: 2rem 0 0 1rem"
-			= fa_icon("refresh", text: "Загрузить всё")
+	/ - if params[:rest].blank?
+	/ 	= button_tag class: "btn btn-primary", data: { action: "load-more-workouts" }, style: "margin: 2rem 0 0 1rem"
+	/ 		= fa_icon("refresh", text: "Загрузить всё")

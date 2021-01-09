@@ -13,7 +13,7 @@
 				th
 
 		tbody
-			- @drug_intakes.each do |intake|
+			- @intakes.each do |intake|
 				tr
 					td = l intake.created_at, format: "%Y, %-d %B, %H:%M %Z"
 					td = intake.drug.name

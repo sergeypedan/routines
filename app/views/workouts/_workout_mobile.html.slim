@@ -20,7 +20,7 @@
 					= t :reps, count: workout.repetitions_count
 
 		ul.workout-mobile__muscles__ul
-			li = workout.excercise.main_muscle.name
+			li = excercise.main_muscle.name
 			- excercise.muscles.each do |muscle|
 				li = muscle.name
 

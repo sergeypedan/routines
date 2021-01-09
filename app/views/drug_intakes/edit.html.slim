@@ -1,6 +1,6 @@
 .container.section-padding
 
-	= form_with model: @drug_intake, local: true do |f|
+	= form_with model: @intake, local: true do |f|
 
 		.form-group
 			= f.label             :drug_id, nil, class: :required
@@ -9,7 +9,7 @@
 		.form-group
 			= f.label      :amount, nil, class: :required
 			= f.text_field :amount, required: true, class: "form-control"
-			.form-text.text-muted = @drug_intake.persisted? ? @drug_intake.drug.form.public_send("unit_#{I18n.locale}") : "pc"
+			.form-text.text-muted = @intake.persisted? ? @intake.drug.form.public_send("unit_#{I18n.locale}") : "pc"
 
 		.form-group
 			= f.label                :created_at, nil, class: :required

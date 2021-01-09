@@ -1,0 +1,10 @@
+.container-fluid style="padding-top: 10px; padding-bottom: 10px"
+	h1 = DrugIntake.model_name.human(count: :many)
+	= add_record_button DrugIntake
+
+div data-container="drug-intakes"
+	= render "drug_intakes/days_mobile"
+
+	- if params[:rest].blank?
+		= button_tag class: "btn btn-primary", data: { action: "load-more-drug-intakes" }, style: "margin: 2rem 0 0 1rem"
+			= fa_icon("refresh", text: "Загрузить всё")
