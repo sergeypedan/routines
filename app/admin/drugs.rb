@@ -7,6 +7,8 @@ ActiveAdmin.register Drug do
 
 	includes :substances, :form, :brand
 
+	config.sort_order = :name
+
 
 	filter :name
 	filter :brand

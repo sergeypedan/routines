@@ -6,6 +6,7 @@ ActiveAdmin.register Substance do
 
 	permit_params :name, :daily_dosage, :main_function, :dosage_unit
 
+	config.sort_order = :name
 
 	index do
 		selectable_column
