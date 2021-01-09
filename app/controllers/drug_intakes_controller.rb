@@ -6,7 +6,7 @@ class DrugIntakesController < DashboardsController
 
 
 	def index
-		@intakes = DrugIntake.includes(drug: :form).order(created_at: :desc)
+		@intakes = DrugIntake.includes(drug: [association_drug_substances: :substance]).order(created_at: :desc)
 		render :index_mobile if at_mobile?
 	end
 

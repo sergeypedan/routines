@@ -8,8 +8,11 @@
 		h5.workout-mobile__excercise__title = drug.name
 
 		ul.workout-mobile__muscles__ul
-			- drug.substances.each do |substance|
-				li = substance.name
+			- drug.association_drug_substances.each.with_index(1) do |ass, index|
+				li
+					= ass.substance.name
+					=< number_to_currency ass.dose, unit: ass.unit
+					= ", " if index < drug.association_drug_substances.size
 
 	.cell-1__backdrop data-role="backdrop" hidden=""
 	.cell-1__menu role="menu" hidden=""
