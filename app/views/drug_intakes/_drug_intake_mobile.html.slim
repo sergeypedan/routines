@@ -14,6 +14,8 @@
 					=< number_to_currency ass.dose, unit: ass.unit
 					= ", " if index < drug.association_drug_substances.size
 
+		= time_tag intake.created_at, l(intake.created_at, format: "%H:%M %Z"), class: "drug-intake-mobile__time"
+
 	.cell-1__backdrop data-role="backdrop" hidden=""
 	.cell-1__menu role="menu" hidden=""
 		= edit_btn(intake, text: fa_icon("pencil"), class: ["btn", "btn-primary"])

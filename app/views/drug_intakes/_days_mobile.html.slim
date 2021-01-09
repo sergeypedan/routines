@@ -1,4 +1,4 @@
-- @intakes.group_by(&:created_at).each do |date, intakes|
+- @intakes.group_by { |intake| intake.created_at.to_date }.each do |date, intakes|
 
 	article.workout-mobile
 		h4.workout-mobile__title = l date, format: "%-d %B %Y"
