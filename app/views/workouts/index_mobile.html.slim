@@ -1,6 +1,6 @@
-.container-fluid style="padding-top: 10px; padding-bottom: 10px"
+- content_for :navbar_after_logo
 	h1 = Workout.model_name.human(count: :many)
-	= add_record_button Workout
+	= add_record_button_navbar Workout
 
 div data-container="workouts"
 	= render "workouts/days_mobile"

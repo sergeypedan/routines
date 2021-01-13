@@ -8,6 +8,13 @@ module ButtonHelper
 						class: "btn btn-primary"
 	end
 
+	def add_record_button_navbar(klass)
+		link_to fa_icon("plus-circle"),
+						[:new, klass.to_s.tableize.singularize],
+						class: "btn-navbar-create",
+						aria: { label: t("helpers.submit.create", model: klass.model_name.human.downcase) }
+	end
+
 
 	# Save
 
