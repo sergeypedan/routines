@@ -1,0 +1,10 @@
+---
+en:
+  activerecord:
+    models:
+      mood_entry:
+        zero:  Current moods
+        one:   Current mood
+        few:   Current moods
+        many:  Current moods
+        other: Current moods
