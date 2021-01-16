@@ -1,0 +1,10 @@
+.cell-1.mood-entry data-action="show-cell-menu"
+	div
+		= l mood_entry.created_at, format: "%H:%M %Z"
+		=< mood_entry.mood.public_send("name_#{I18n.locale}")
+	= tag.p mood_entry.why, class: "mood-entry__comment" if mood_entry.why.present?
+
+	.cell-1__backdrop data-role="backdrop" hidden=""
+	.cell-1__menu role="menu" hidden=""
+		= edit_btn(mood_entry, text: fa_icon("pencil"), class: ["btn", "btn-primary"])
+		= delete_btn(mood_entry, { text: fa_icon("trash"), class: ["btn", "btn-outline-danger"] })

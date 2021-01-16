@@ -7,6 +7,7 @@ class MoodEntriesController < DashboardsController
 
 	def index
 		@mood_entries = klass.includes(:mood).order(created_at: :desc)
+		render :index_mobile if at_mobile?
 	end
 
 

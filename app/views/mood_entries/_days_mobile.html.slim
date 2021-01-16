@@ -1,0 +1,7 @@
+- @mood_entries.group_by { |me| me.created_at.to_date }.each do |date, mood_entries|
+
+	article.mood-day
+		h3.workout-mobile__title = l date, format: "%-d %B %Y"
+
+		- mood_entries.sort_by(&:created_at).each_with_index do |mood_entry, index|
+			= render "mood_entries/mood_entry_mobile", index: index, mood_entry: mood_entry

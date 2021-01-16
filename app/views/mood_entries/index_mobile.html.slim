@@ -1,0 +1,6 @@
+- content_for :navbar_after_logo
+	h1 = MoodEntry.model_name.human(count: :many)
+	= add_record_button_navbar MoodEntry
+
+div data-container="mood-entries"
+	= render "mood_entries/days_mobile"
