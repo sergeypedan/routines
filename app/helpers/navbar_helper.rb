@@ -45,7 +45,7 @@ module NavbarHelper
 				{ name:           MoodEntry.model_name.human(count: :many), href: mood_entries_path },
 				{ name:                Mood.model_name.human(count: :many), href: moods_path }
 			]
-		when "Workout"
+		when "Sport"
 			[
 				{ name:             Workout.model_name.human(count: :many), href: workouts_path },
 				{ name:           Excercise.model_name.human(count: :many), href: excercises_path },
