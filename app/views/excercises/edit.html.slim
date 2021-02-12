@@ -6,6 +6,14 @@
 			= f.label      :name, nil, class: :required
 			= f.text_field :name, required: true, placeholder: "Squats", class: "form-control"
 
+		.form-group
+			= f.label      :flavor_en
+			= f.text_field :flavor_en, placeholder: "sitting", class: "form-control"
+
+		.form-group
+			= f.label      :flavor_ru
+			= f.text_field :flavor_ru, placeholder: "сидя", class: "form-control"
+
 		.row
 			.col style="max-width: 300px"
 				.form-group.form-check

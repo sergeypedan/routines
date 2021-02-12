@@ -20,6 +20,15 @@ class Excercise < ApplicationRecord
 
 	# Methods
 
+	def flavor(locale)
+		public_send "flavor_#{locale}"
+	end
+
+	def l_name(locale)
+		name
+		# public_send "name_#{locale}"
+	end
+
 	def repetition_based?
 		default_time.zero?
 	end
@@ -27,7 +36,7 @@ class Excercise < ApplicationRecord
 end
 
 # == Schema Information
-# Schema version: 20200414044540
+# Schema version: 20210212061702
 #
 # Table name: excercises
 #
@@ -35,6 +44,8 @@ end
 #  default_repetitions_count :integer          default(15), not null
 #  default_time              :integer          default(60), not null
 #  default_weight            :float            default(0.0), not null
+#  flavor_en                 :string
+#  flavor_ru                 :string
 #  name                      :string           not null
 #  repetition_based          :boolean          default(TRUE)
 #  main_muscle_id            :bigint           not null
