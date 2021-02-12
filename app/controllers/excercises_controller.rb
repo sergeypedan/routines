@@ -63,6 +63,7 @@ class ExcercisesController < DashboardsController
 		params.require(:excercise)
 					.permit(
 						:name,
+						:name_en,
 						:default_repetitions_count,
 						:default_time,
 						:default_weight,

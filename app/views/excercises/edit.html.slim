@@ -7,6 +7,10 @@
 			= f.text_field :name, required: true, placeholder: "Squats", class: "form-control"
 
 		.form-group
+			= f.label      :name_en, nil, class: :required
+			= f.text_field :name_en, required: true, placeholder: "Squats", class: "form-control"
+
+		.form-group
 			= f.label      :flavor_en
 			= f.text_field :flavor_en, placeholder: "sitting", class: "form-control"
 

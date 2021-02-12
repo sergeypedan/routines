@@ -15,7 +15,8 @@ class Excercise < ApplicationRecord
 
 	validates :default_repetitions_count, numericality: { only_integer: true, greater_than: 0 }
 	validates :default_weight, numericality: { greater_than_or_equal_to: 0 }
-	validates :name, presence: true
+	validates :name,    presence: true
+	validates :name_en, presence: true
 
 
 	# Methods
@@ -36,7 +37,7 @@ class Excercise < ApplicationRecord
 end
 
 # == Schema Information
-# Schema version: 20210212061702
+# Schema version: 20210212062248
 #
 # Table name: excercises
 #
@@ -47,6 +48,7 @@ end
 #  flavor_en                 :string
 #  flavor_ru                 :string
 #  name                      :string           not null
+#  name_en                   :string
 #  repetition_based          :boolean          default(TRUE)
 #  main_muscle_id            :bigint           not null
 #
