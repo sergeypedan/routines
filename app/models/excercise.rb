@@ -26,7 +26,7 @@ class Excercise < ApplicationRecord
 	end
 
 	def l_name(locale)
-		locale.to_s == "ru" ? name : public_send("name_#{locale}")
+		locale.to_s == "ru" ? name : (public_send("name_#{locale}").presence || name)
 	end
 
 	def repetition_based?
