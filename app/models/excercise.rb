@@ -26,8 +26,7 @@ class Excercise < ApplicationRecord
 	end
 
 	def l_name(locale)
-		name
-		# public_send "name_#{locale}"
+		locale.to_s == "ru" ? name : public_send("name_#{locale}")
 	end
 
 	def repetition_based?
