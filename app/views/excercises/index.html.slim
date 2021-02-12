@@ -16,7 +16,13 @@
 		tbody
 			- @excercises.each do |excercise|
 				tr
-					td = excercise.name
+					td
+						= excercise.l_name(I18n.locale)
+						- flavor = excercise.flavor(I18n.locale)
+						- if flavor.present?
+							|  (
+							= flavor
+							| )
 					td = excercise.main_muscle.name
 					td
 						- if excercise.muscles.any?
