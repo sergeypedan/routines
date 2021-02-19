@@ -25,7 +25,7 @@ class WorkoutsController < DashboardsController
 			format.js do
 				if params[:rest].present?
 					@workouts = scope.where.not(date: upfront_dates)
-					render "_days_#{at_mobile? ? "mobile" : "desktop"}", layout: false
+					render partial: "_days_#{at_mobile? ? "mobile" : "desktop"}", layout: false
 				end
 			end
 		end

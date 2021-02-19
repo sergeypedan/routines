@@ -2,7 +2,7 @@
 	h1 = Workout.model_name.human(count: :many)
 	= add_record_button_navbar Workout
 
-div data-container="workouts"
+div data-container="workouts" style="padding-bottom: 30px"
 	= render "workouts/days_mobile"
 
 	- if params[:rest].blank?
