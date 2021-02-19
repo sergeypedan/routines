@@ -21,6 +21,13 @@ class Excercise < ApplicationRecord
 
 	# Methods
 
+	def name_with_flavor(locale = :en)
+		[
+			l_name(locale),
+			flavor(locale)
+		].select(&:present?).join(" ")
+	end
+
 	def flavor(locale)
 		public_send "flavor_#{locale}"
 	end

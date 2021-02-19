@@ -1,5 +1,4 @@
 .container.section-padding
-
 	= form_with model: @workout, local: true do |f|
 
 		.form-group
@@ -13,7 +12,7 @@
 																			:targeted_excercises, # group_method \
 																			:name,         # group_label_method \
 																			:id,           # option_key_method \
-																			:name,         # option_value_method \
+																			:name_with_flavor,         # option_value_method \
 																			{ prompt: true }, \
 																			{ required: true, autofocus: f.object.new_record?, class: "form-control" }
 
