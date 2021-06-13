@@ -26,9 +26,9 @@
 					= t :reps, count: workout.repetitions_count
 
 		ul.workout-mobile__muscles__ul
-			li = excercise.main_muscle.name
+			li = excercise.main_muscle.l_name(I18n.locale)
 			- excercise.muscles.each do |muscle|
-				li = muscle.name
+				li = muscle.l_name(I18n.locale)
 
 	.cell-1__backdrop data-role="backdrop" hidden=""
 	.cell-1__menu role="menu" hidden=""

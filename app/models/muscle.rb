@@ -4,7 +4,8 @@ class Muscle < ApplicationRecord
 
 	# Validations
 
-	validates :name, presence: true
+	validates :name,    length: { maximum: 255 }, presence: true
+	validates :name_en, length: { maximum: 255 }
 
 
 	# Associations
@@ -14,13 +15,21 @@ class Muscle < ApplicationRecord
 
 	has_many :targeted_excercises, class_name: "Excercise", foreign_key: "main_muscle_id"
 
+
+	# Methods
+
+	def l_name(locale)
+		locale.to_s == "ru" ? name : (public_send("name_#{locale}").presence || name)
+	end
+
 end
 
 # == Schema Information
-# Schema version: 20200414044540
+# Schema version: 20210613205926
 #
 # Table name: muscles
 #
-#  id   :bigint           not null, primary key
-#  name :string           not null
+#  id      :bigint           not null, primary key
+#  name    :string           not null
+#  name_en :string
 #

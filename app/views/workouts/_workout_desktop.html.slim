@@ -9,12 +9,12 @@ tr
 		- else
 			= "× #{workout.repetitions_count}" if workout.repetitions_count && !workout.repetitions_count != 1
 	td.small
-		= link_to workout.excercise.main_muscle.name, workout.excercise.main_muscle, class: "a-hidden-affordance"
+		= link_to workout.excercise.main_muscle.l_name(I18n.locale), workout.excercise.main_muscle, class: "a-hidden-affordance"
 		br
 		- if excercise.muscles.any?
 			ul.tags-1.small
 				- excercise.muscles.each do |muscle|
-					li.tags-1__li = link_to muscle.name, muscle, class: "a-hidden-affordance"
+					li.tags-1__li = link_to muscle.l_name(I18n.locale), muscle, class: "a-hidden-affordance"
 	td
 		- if workout.date.today?
 				= button_to [:yesterday, workout], { class: "btn btn-outline-secondary btn-sm", form: { class: "" }, remote: false }

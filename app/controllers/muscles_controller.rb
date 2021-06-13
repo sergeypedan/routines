@@ -52,7 +52,7 @@ class MusclesController < DashboardsController
 
 
 	def filtered_params
-		params.require(:muscle).permit(:name, :id)
+		params.require(:muscle).permit(:name, :name_en, :id)
 	end
 
 end

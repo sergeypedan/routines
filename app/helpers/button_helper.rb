@@ -4,7 +4,7 @@ module ButtonHelper
 
 	def add_record_button(klass)
 		link_to t("helpers.submit.create", model: klass.model_name.human.downcase),
-						[:new, klass.to_s.tableize.singularize],
+						[:new, klass.to_s.tableize.singularize.to_sym],
 						class: "btn btn-primary"
 	end
 
