@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_13_205926) do
+ActiveRecord::Schema.define(version: 2021_06_20_205328) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -211,6 +211,7 @@ ActiveRecord::Schema.define(version: 2021_06_13_205926) do
   create_table "muscles", force: :cascade do |t|
     t.string "name", null: false
     t.string "name_en"
+    t.index ["name"], name: "index_muscles_on_name", unique: true
   end
 
   create_table "settings", force: :cascade do |t|

@@ -4,7 +4,7 @@ class Muscle < ApplicationRecord
 
 	# Validations
 
-	validates :name,    length: { maximum: 255 }, presence: true
+	validates :name,    length: { maximum: 255 }, presence: true, uniqueness: true
 	validates :name_en, length: { maximum: 255 }
 
 
@@ -25,11 +25,15 @@ class Muscle < ApplicationRecord
 end
 
 # == Schema Information
-# Schema version: 20210613205926
+# Schema version: 20210620205328
 #
 # Table name: muscles
 #
 #  id      :bigint           not null, primary key
 #  name    :string           not null
 #  name_en :string
+#
+# Indexes
+#
+#  index_muscles_on_name  (name) UNIQUE
 #
