@@ -4,11 +4,12 @@ class Excercise < ApplicationRecord
 
 	# Associaitons
 
-	has_many   :excercises, dependent: :destroy
 	has_many   :association_excercise_muscles, dependent: :destroy
 	belongs_to :main_muscle, class_name: "Muscle", foreign_key: "main_muscle_id"
 	has_many   :muscles, through: :association_excercise_muscles
 	has_many   :workouts, dependent: :destroy
+
+	accepts_nested_attributes_for :muscles
 
 
 	# Validations
