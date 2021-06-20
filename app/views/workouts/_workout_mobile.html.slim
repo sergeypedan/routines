@@ -5,7 +5,7 @@
 		span.workout-mobile__counter
 			= index + 1
 			| .
-		/ h5.workout-mobile__excercise__title = link_to excercise.name, excercise, class: "a-hidden-affordance"
+
 		h5.workout-mobile__excercise__title
 			= excercise.l_name(I18n.locale)
 			- flavor = excercise.flavor(I18n.locale)

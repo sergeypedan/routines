@@ -1,7 +1,15 @@
 - excercise = workout.excercise
 tr
 	td style="color: hsl(0, 0%, 80%)" = index + 1
-	td = link_to excercise.name, excercise, class: "a-hidden-affordance"
+	td
+		= link_to excercise, class: "a-hidden-affordance"
+			= excercise.l_name(I18n.locale)
+			- flavor = excercise.flavor(I18n.locale)
+			- if flavor.present?
+				|  (
+				= flavor
+				| )
+
 	td = number_to_human workout.weight, units: { unit: t("weight.kg") } unless workout.weight.zero?
 	td
 		- if workout.resistance_duration
