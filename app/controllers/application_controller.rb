@@ -22,4 +22,8 @@ class ApplicationController < ActionController::Base
 		end
 	end
 
+	def layout_variant
+		at_mobile? ? :mobile : :desktop
+	end
+
 end

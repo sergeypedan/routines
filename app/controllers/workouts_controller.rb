@@ -2,31 +2,38 @@
 
 class WorkoutsController < DashboardsController
 
-	DAYS_TO_SHOW_UPFRONT = { desktop: 3, mobile: 3 }
+	DAYS_PER_PAGE = { desktop: 3, mobile: 1 }
 
 	before_action :set_resource, only: [:destroy, :duplicate, :edit, :update, :yesterday]
 	before_action :load_muscles, only: [:new, :edit]
 
+	protect_from_forgery({ except: :index })
 
-	def upfront_dates
-		dates_count = DAYS_TO_SHOW_UPFRONT.fetch(at_mobile? ? :mobile : :desktop)
-		Workout.select(:date).distinct.order(date: :desc).limit(dates_count).pluck(:date)
-	end
+
+	# def dates
+	# 	dates_count = DAYS_PER_PAGE.fetch(layout_variant)
+	# 	Workout.select(:date).distinct.order(date: :desc).limit(dates_count).pluck(:date)
+	# end
 
 
 	def index
 		scope = Workout.includes(excercise: [:main_muscle, :muscles]).order({ date: :desc })
 		respond_to do |format|
 			format.html do
-				@workouts = scope.where(date: upfront_dates)
+				@next_page = 2
+				@workouts  = scope.where(date: Workout.maximum(:date))
 				render :index_mobile if at_mobile?
 			end
 
 			format.js do
-				if params[:rest].present?
-					@workouts = scope.where.not(date: upfront_dates)
-					render partial: "_days_#{at_mobile? ? "mobile" : "desktop"}", layout: false
-				end
+				current_page       = params[:page].to_i
+				render :bad_request and return if current_page.zero?
+				current_page_index = current_page - 1
+				dates_scoping      = current_page_index..(current_page_index + DAYS_PER_PAGE.fetch(layout_variant) - 1)
+				page_dates         = Workout.distinct.order(date: :desc).pluck(:date)[dates_scoping]
+				@next_page         = (current_page + 1) if page_dates.any?
+				@workouts          = scope.where(date: page_dates)
+				render "index_#{layout_variant}.js"
 			end
 		end
 	end

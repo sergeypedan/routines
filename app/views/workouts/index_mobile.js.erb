@@ -1,0 +1,10 @@
+var root = document.querySelector('[data-container="workouts"]')
+var html = '<%= j render "workouts/days_mobile" %>'
+root.insertAdjacentHTML('beforeend', html)
+
+var button = document.querySelector('[data-action="load-more-workouts"]')
+<% if @next_page %>
+  var html = '<%= j render "workouts/load_more_btn", page_number: @next_page %>'
+  button.insertAdjacentHTML('afterend', html)
+<% end %>
+button.remove()

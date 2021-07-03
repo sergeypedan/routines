@@ -1,0 +1,6 @@
+= link_to fa_icon("refresh", text: "Загрузить ещё"), \
+					workouts_path({ page: page_number, format: :js }), \
+					class: "btn btn-primary", \
+					data: { action: "load-more-workouts" }, \
+					remote: true, \
+					style: "margin: 0 0 30px 1rem"
