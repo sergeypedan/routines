@@ -2,40 +2,35 @@
 
 class WorkoutsController < DashboardsController
 
-	DAYS_PER_PAGE = { desktop: 3, mobile: 1 }
+	DAYS_PER_PAGE = { desktop: 3, mobile: 2 }
 
 	before_action :set_resource, only: [:destroy, :duplicate, :edit, :update, :yesterday]
 	before_action :load_muscles, only: [:new, :edit]
 
-	protect_from_forgery({ except: :index })
-
-
-	# def dates
-	# 	dates_count = DAYS_PER_PAGE.fetch(layout_variant)
-	# 	Workout.select(:date).distinct.order(date: :desc).limit(dates_count).pluck(:date)
-	# end
-
 
 	def index
-		scope = Workout.includes(excercise: [:main_muscle, :muscles]).order({ date: :desc })
 		respond_to do |format|
 			format.html do
-				@next_page = 2
-				@workouts  = scope.where(date: Workout.maximum(:date))
+				setup_workouts_and_next_page(current_page: 1)
 				render :index_mobile if at_mobile?
 			end
 
 			format.js do
-				current_page       = params[:page].to_i
+				current_page = params[:page].to_i
 				render :bad_request and return if current_page.zero?
-				current_page_index = current_page - 1
-				dates_scoping      = current_page_index..(current_page_index + DAYS_PER_PAGE.fetch(layout_variant) - 1)
-				page_dates         = Workout.distinct.order(date: :desc).pluck(:date)[dates_scoping]
-				@next_page         = (current_page + 1) if page_dates.any?
-				@workouts          = scope.where(date: page_dates)
+				setup_workouts_and_next_page(current_page: current_page)
 				render "index_#{layout_variant}.js"
 			end
 		end
+	end
+
+	private def setup_workouts_and_next_page(current_page:)
+		days_per_page      = DAYS_PER_PAGE.fetch(layout_variant)
+		current_page_index = current_page - 1
+		dates_scoping      = current_page_index..(current_page_index + days_per_page - 1)
+		page_dates         = Workout.distinct.order(date: :desc).pluck(:date)[dates_scoping]
+		@next_page         = (current_page + days_per_page) if page_dates.any?
+		@workouts          = Workout.where(date: page_dates).includes(excercise: [:main_muscle, :muscles]).order({ date: :desc })
 	end
 
 
@@ -51,20 +46,14 @@ class WorkoutsController < DashboardsController
 
 	def create
 		@workout = Workout.new(filtered_params)
-		if @workout.save
-			redirect_to workouts_path, notice: "Created"
-		else
-			render :edit
-		end
+		render :edit and return unless @workout.save
+		redirect_to workouts_path
 	end
 
 
 	def update
-		if @workout.update(filtered_params)
-			redirect_to workouts_path, notice: "Updated"
-		else
-			render :edit
-		end
+		render :edit and return unless @workout.update(filtered_params)
+		redirect_to workouts_path
 	end
 
 

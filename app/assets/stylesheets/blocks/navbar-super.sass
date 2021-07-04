@@ -1,11 +1,15 @@
 .super-navbar
 	$item-p-h: 5px
 	$item-p-v-desk: 3px
-	$item-p-v-mobl: 12px
+	$item-p-v-mobl: 5px
 
 	background-color: hsl(119.12, 68%, 37%)
 	color: $navbar-dark-color
 	font-size: 13px
+
+	@media (max-width: 768px - 1)
+		padding-top: 5px
+		padding-bottom: 5px
 
 	.container-fluid
 		display: flex
@@ -48,3 +52,4 @@
 
 .navbar-dark
 	background-color: #22a820
+	border-bottom: solid 1px hsl(119, 68%, 42%)
