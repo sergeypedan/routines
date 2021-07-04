@@ -3,5 +3,9 @@
 	article.workout-mobile
 		h4.workout-mobile__title = l date, format: "%-d %B %Y"
 
-		- workouts.sort_by(&:excercise).each_with_index do |workout, index|
-			= render "workouts/workout_mobile", index: index, workout: workout
+		- workouts.group_by(&:excercise).each_with_index do |(excercise, workouts), index|
+			= render "workouts/workout_group_mobile", excercise: excercise, index: index, workouts: workouts.sort_by(&:created_at)
+
+		/ = render collection: workouts.sort_by(&:excercise), \
+							partial: "workouts/workout_mobile", \
+							as: :workout

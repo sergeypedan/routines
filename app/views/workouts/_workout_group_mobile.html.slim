@@ -1,9 +1,9 @@
-- excercise = workout.excercise
+/ excercise: excercise, index: index, workouts: workouts
 
 .cell-1.workout-mobile__excercise data-action="show-cell-menu"
 	.cell-1__content
 		span.workout-mobile__counter
-			= workout_counter + 1
+			= index + 1
 			| .
 
 		h5.workout-mobile__excercise__title
@@ -14,22 +14,24 @@
 				= flavor
 				| )
 
-		.workout-mobile__WRT
-			- if workout.weight.positive?
-				span.workout-mobile__weight = number_to_human(workout.weight, units: { unit: t("weight.kg") })
-
-			- if workout.resistance_duration
-				span.duration = "#{workout.resistance_duration} min"
-			- elsif workout.repetitions_count&.positive?
-				span.reps
-					| × 
-					= t :reps, count: workout.repetitions_count
-
 		ul.workout-mobile__muscles__ul
 			li = excercise.main_muscle.l_name(I18n.locale)
 			- excercise.muscles.each do |muscle|
 				li = muscle.l_name(I18n.locale)
 
+		- workouts.each do |workout|
+			.workout-mobile__WRT
+				- if workout.weight.positive?
+					span.workout-mobile__weight = number_to_human(workout.weight, units: { unit: t("weight.kg") })
+
+				- if workout.resistance_duration
+					span.duration = "#{workout.resistance_duration} min"
+				- elsif workout.repetitions_count&.positive?
+					span.reps
+						| × 
+						= t :reps, count: workout.repetitions_count
+
+	- workout = workouts.last
 	.cell-1__backdrop data-role="backdrop" hidden=""
 	.cell-1__menu role="menu" hidden=""
 		= edit_btn(workout, text: fa_icon("pencil"), class: ["btn", "btn-primary"])
