@@ -25,6 +25,7 @@ import "modules/habit-stats"
 import "modules/sortable-init"
 import "modules/workouts-excercise"
 import "modules/workouts-load"
+import "modules/workouts-edit"
 
 
 // Stimulus

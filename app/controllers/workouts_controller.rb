@@ -36,11 +36,14 @@ class WorkoutsController < DashboardsController
 
 	def new
 		@workout = Workout.new(date: Date.today)
+		@excercises_data = Excercise.all.to_json(only: [:id, :default_repetitions_count, :default_time, :default_weight], methods: [:repetition_based?])
 		render :edit
 	end
 
 
+
 	def edit
+		@excercises_data = Excercise.all.to_json(only: [:id, :default_repetitions_count, :default_time, :default_weight], methods: [:repetition_based?])
 	end
 
 

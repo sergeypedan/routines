@@ -1,3 +1,5 @@
+= tag.meta nil, name: "excercises", content: @excercises_data
+
 .container.section-padding
 	= form_with model: @workout, local: true do |f|
 
@@ -16,36 +18,38 @@
 																			{ prompt: true }, \
 																			{ required: true, autofocus: f.object.new_record?, class: "form-control" }
 
+		- excercise = @workout&.excercise
 		- if f.object.persisted?
-			.form-group
-				- if @workout.excercise.repetition_based?
+			- if excercise.repetition_based?
+				.form-group data="about-repetitions"
 					= f.label :repetitions_count, nil, class: "control-label"
 					.input-group
-						= f.number_field :repetitions_count, required: true, autofocus: true, class: "form-control"
+						= f.number_field :repetitions_count, required: true, autofocus: f.object.persisted?, class: "form-control"
 						.input-group-append
 							.input-group-text reps
-				- else
+			- else
+				.form-group data="about-duration"
 					= f.label :resistance_duration, nil, class: "control-label"
 					.input-group
-						= f.number_field :resistance_duration, required: true, autofocus: true, class: "form-control"
+						= f.number_field :resistance_duration, required: true, autofocus: f.object.persisted?, class: "form-control"
 						.input-group-append
 							.input-group-text min
 		- else
-			.form-group
+			.form-group data="about-repetitions"
 				= f.label :repetitions_count, nil, class: "control-label"
 				.input-group
 					= f.number_field :repetitions_count, class: "form-control"
 					.input-group-append
 						.input-group-text reps
 
-			.form-group
+			.form-group data="about-duration"
 				= f.label :resistance_duration, nil, class: "control-label"
 				.input-group
 					= f.number_field :resistance_duration, class: "form-control"
 					.input-group-append
 						.input-group-text min
 
-		.form-group
+		.form-group data="about-repetitions"
 			= f.label :weight, nil, class: "control-label"
 			.input-group
 				= f.number_field :weight, required: true, min: 0, step: 0.5, class: "form-control"
