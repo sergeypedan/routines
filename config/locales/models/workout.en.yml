@@ -2,4 +2,8 @@
 en:
   activerecord:
     models:
-      workout: Workout
+      one:   Workout
+      few:   Workouts
+      many:  Workouts
+      other: Workouts
+      zero:  Workouts
