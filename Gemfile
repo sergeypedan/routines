@@ -30,7 +30,6 @@ gem "yaml_db"
 group :development, :test do
   gem "bullet"
   gem "byebug", platform: :mri
-  gem "meta_request"
   gem "pry-rails"
   gem "pry-byebug"
   gem "records_count"

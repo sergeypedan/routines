@@ -1,38 +1,38 @@
-ruby:
-	sortable_data = { habit_id: habit.id,
-										position: habit.position,
-										move_url: "#{move_habit_path(habit)}"
-										# authenticity_token: form_authenticity_token
-									}
+/ ruby:
+/ 	sortable_data = { habit_id: habit.id,
+/ 										position: habit.position,
+/ 										move_url: "#{move_habit_path(habit)}"
+/ 										# authenticity_token: form_authenticity_token
+/ 									}
 
-= tag.tr data: sortable_data
-	td = counter.is_a?(Integer) ? (counter + 1) : counter
-	td = habit.name
-	td = link_to habit.excercise.name, habit.excercise, target: "_blank", class: "small" if habit.excercise
-	td
-		- if habit.time_based?
-			=> Duration.new(habit.time_per_round, :seconds).in_s(habit.time_unit)
-			| / round
-		- else
-			small.text-muted Not a time-based habit
-	td
-		- if habit.rounds_per_day == 1
-			| Once a day
-		- else
-			=> habit.rounds_per_day
-			| times / day
+/ = tag.tr data: sortable_data
+/ 	td = counter.is_a?(Integer) ? (counter + 1) : counter
+/ 	td = habit.name
+/ 	td = link_to habit.excercise.name, habit.excercise, target: "_blank", class: "small" if habit.excercise
+/ 	td
+/ 		- if habit.time_based?
+/ 			=> Duration.new(habit.time_per_round, :seconds).in_s(habit.time_unit)
+/ 			| / round
+/ 		- else
+/ 			small.text-muted Not a time-based habit
+/ 	td
+/ 		- if habit.rounds_per_day == 1
+/ 			| Once a day
+/ 		- else
+/ 			=> habit.rounds_per_day
+/ 			| times / day
 
-	td
-		- if habit.time_based?
-			=> habit.duration.in_s(habit.time_unit)
-			| / day
+/ 	td
+/ 		- if habit.time_based?
+/ 			=> habit.duration.in_s(habit.time_unit)
+/ 			| / day
 
-		- else
-			small.text-muted Not a time-based habit
+/ 		- else
+/ 			small.text-muted Not a time-based habit
 
-	td = link_to "Stats", habit_stat_path(habit)
-	td = habit.position
+/ 	td = link_to "Stats", habit_stat_path(habit)
+/ 	td = habit.position
 
-	td
-		= link_to "Edit", [:edit, habit], class: "btn btn-outline-secondary btn-sm"
-		= link_to "Delete", habit, method: :delete, class: "btn btn-outline-danger btn-sm", style: "margin-left: 10px"
+/ 	td
+/ 		= link_to "Edit", [:edit, habit], class: "btn btn-outline-secondary btn-sm"
+/ 		= link_to "Delete", habit, method: :delete, class: "btn btn-outline-danger btn-sm", style: "margin-left: 10px"

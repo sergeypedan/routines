@@ -18,36 +18,19 @@
 																			{ prompt: true }, \
 																			{ required: true, autofocus: f.object.new_record?, class: "form-control" }
 
-		- excercise = @workout&.excercise
-		- if f.object.persisted?
-			- if excercise.repetition_based?
-				.form-group data="about-repetitions"
-					= f.label :repetitions_count, nil, class: "control-label"
-					.input-group
-						= f.number_field :repetitions_count, required: true, autofocus: f.object.persisted?, class: "form-control"
-						.input-group-append
-							.input-group-text reps
-			- else
-				.form-group data="about-duration"
-					= f.label :resistance_duration, nil, class: "control-label"
-					.input-group
-						= f.number_field :resistance_duration, required: true, autofocus: f.object.persisted?, class: "form-control"
-						.input-group-append
-							.input-group-text min
-		- else
-			.form-group data="about-repetitions"
-				= f.label :repetitions_count, nil, class: "control-label"
-				.input-group
-					= f.number_field :repetitions_count, class: "form-control"
-					.input-group-append
-						.input-group-text reps
+		.form-group data="about-repetitions"
+			= f.label :repetitions_count, nil, class: "control-label"
+			.input-group
+				= f.number_field :repetitions_count, class: "form-control"
+				.input-group-append
+					.input-group-text reps
 
-			.form-group data="about-duration"
-				= f.label :resistance_duration, nil, class: "control-label"
-				.input-group
-					= f.number_field :resistance_duration, class: "form-control"
-					.input-group-append
-						.input-group-text min
+		.form-group data="about-duration"
+			= f.label :resistance_duration, nil, class: "control-label"
+			.input-group
+				= f.number_field :resistance_duration, class: "form-control"
+				.input-group-append
+					.input-group-text min
 
 		.form-group data="about-repetitions"
 			= f.label :weight, nil, class: "control-label"
