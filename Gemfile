@@ -20,7 +20,7 @@ gem "jquery-ui-rails"
 gem "integral-corrector", github: "sergeypedan/integral-corrector"
 gem "pg", ">= 0.18", "< 2.0" # must appear before [puma, rails, russian]
 gem "puma"
-gem "rails", "< 6.1"
+gem "rails"
 gem "sass-rails"
 gem "slim-rails"
 gem "uglifier"
