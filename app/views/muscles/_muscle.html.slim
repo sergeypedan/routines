@@ -1,0 +1,10 @@
+article.muscle-1
+	h4.muscle-1__title = muscle.l_name(I18n.locale)
+	- if muscle.excercises.any?
+		ul.muscle-1__excercises-ul
+			- muscle.excercises.pluck(:id, :name).each do |id, name|
+				li = link_to name, excercise_path(id)
+
+	.muscle-1__actions
+		= link_to "Edit", [:edit, muscle], class: "btn btn-outline-secondary btn-sm"
+		= link_to "Delete", muscle, method: :delete, class: "btn btn-outline-danger btn-sm", style: "margin-left: 10px"

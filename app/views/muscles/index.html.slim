@@ -2,23 +2,6 @@
 	h1 = Muscle.model_name.human(count: :many)
 	= add_record_button Muscle
 
-.container-fluid.section-padding
-	table.table
-		thead
-			tr
-				th = Muscle.human_attribute_name :name
-				th = Muscle.human_attribute_name :excercises
-				th Actions
 
-		tbody
-			- @muscles.each do |muscle|
-				tr
-					td = muscle.name
-					td
-						- if muscle.excercises.any?
-							ul.tags-1.small
-								- muscle.excercises.pluck(:id, :name).each do |id, name|
-									li.tags-1__li = link_to name, excercise_path(id)
-					td
-						= link_to "Edit", [:edit, muscle], class: "btn btn-outline-secondary btn-sm"
-						= link_to "Delete", muscle, method: :delete, class: "btn btn-outline-danger btn-sm", style: "margin-left: 10px"
+.container-fluid.section-padding
+	= render @muscles
