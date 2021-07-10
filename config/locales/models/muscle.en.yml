@@ -1,7 +1,10 @@
 ---
 en:
-
   activerecord:
     models:
-
-      muscle: Muscle
+      muscle:
+        zero:  Muscles
+        one:   Muscle
+        few:   Muscles
+        many:  Muscles
+        other: Muscles
