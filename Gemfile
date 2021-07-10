@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-ruby "2.7.2"
+ruby "2.7.4"
 
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
@@ -9,7 +9,7 @@ gem "activeadmin"
 gem "activeadmin_addons"
 gem "autoprefixer-rails"
 gem "activerecord-sortable"
-gem "bootsnap", ">= 1.1.0", require: false
+gem "bootsnap", require: false
 gem "bootstrap"
 gem "coffee-rails"
 gem "devise"
