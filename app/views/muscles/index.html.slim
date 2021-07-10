@@ -1,7 +1,5 @@
-.container-fluid.masthead-1
+- content_for :navbar_after_logo
 	h1 = Muscle.model_name.human(count: :many)
-	= add_record_button Muscle
+	= add_record_button_navbar Muscle
 
-
-.container-fluid.section-padding
-	= render @muscles
+.container-fluid.pb-4 = render @muscles
