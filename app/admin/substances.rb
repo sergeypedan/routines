@@ -24,4 +24,17 @@ ActiveAdmin.register Substance do
 		actions
 	end
 
+
+	form do |f|
+		f.inputs do
+			f.input :name
+			f.input :main_function
+			f.input :dosage_unit
+			f.input :daily_dosage
+		end
+
+		f.semantic_errors
+		f.actions
+	end
+
 end

@@ -2,4 +2,9 @@
 en:
   activerecord:
     models:
-      substance: Active substance
+      substance:
+        zero:  Substances
+        one:   Substance
+        few:   Substances
+        many:  Substances
+        other: Substances

@@ -1,6 +1,10 @@
 ---
 ru:
-
   activerecord:
     models:
-      substance: Действующее вещество
+      substance:
+        zero:  Веществ
+        one:   Вещество
+        few:   Вещества
+        many:  Веществ
+        other: Вещества
