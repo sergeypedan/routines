@@ -61,7 +61,7 @@ class DrugIntakesController < DashboardsController
 	def filtered_params
 		params
 			.require(:drug_intake)
-			.permit(:created_at, :dosage, :drug_id)
+			.permit(:amount, :created_at, :dosage, :drug_id)
 	end
 
 	def assign_resource
