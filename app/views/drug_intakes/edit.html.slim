@@ -4,7 +4,7 @@
 
 		.form-group
 			= f.label             :drug_id, nil, class: :required
-			= f.collection_select :drug_id, Drug.all, :id, :name, { prompt: true }, required: true, class: "form-control"
+			= f.collection_select :drug_id, Drug.for_select, :id, :name_with_brand, { prompt: true }, required: true, class: "form-control"
 
 		.form-group
 			= f.label      :amount, nil, class: :required

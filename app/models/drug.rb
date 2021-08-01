@@ -7,6 +7,11 @@ class Drug < ApplicationRecord
 	validates :name, presence: true
 
 
+	# Scopes
+
+	scope :for_select, -> { select(:brand_id, :name, :id).order(:name).includes(:brand) }
+
+
 	# Associations
 
 	belongs_to :brand, optional: true
@@ -20,6 +25,13 @@ class Drug < ApplicationRecord
 
 	has_many :substances, through: :association_drug_substances, inverse_of: :drugs
 	accepts_nested_attributes_for :substances
+
+
+	# Methods
+
+	def name_with_brand
+		"#{name} (#{brand.name})"
+	end
 
 end
 
