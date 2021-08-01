@@ -4,7 +4,7 @@ class Brand < ApplicationRecord
 
 	# Validations
 
-	validates :name, presence: true
+	validates :name, presence: true, uniqueness: true
 
 
 	# Associations
@@ -14,10 +14,14 @@ class Brand < ApplicationRecord
 end
 
 # == Schema Information
-# Schema version: 20200414044540
+# Schema version: 20210801173336
 #
 # Table name: brands
 #
 #  id   :bigint           not null, primary key
 #  name :string           not null
+#
+# Indexes
+#
+#  index_brands_on_name  (name) UNIQUE
 #
