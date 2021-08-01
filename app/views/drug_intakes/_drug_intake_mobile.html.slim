@@ -7,13 +7,16 @@
 			| .
 		h5.workout-mobile__excercise__title style="margin-bottom: 5px"
 			= drug.name
+
 			span<
 				| ×
 				=< number_with_precision intake.amount, strip_insignificant_zeros: true
-			span< style="color: hsl(0, 0%, 80%)"
-				| (
-				= drug.brand.name
-				| )
+
+			- if drug.brand
+				span< style="color: hsl(0, 0%, 80%)"
+					| (
+					= drug.brand.name
+					| )
 
 		ul.workout-mobile__muscles__ul
 			- drug.association_drug_substances.each.with_index(1) do |ass, index|
