@@ -5,13 +5,21 @@
 		span.workout-mobile__counter
 			= index + 1
 			| .
-		h5.workout-mobile__excercise__title = drug.name
+		h5.workout-mobile__excercise__title style="margin-bottom: 5px"
+			= drug.name
+			span<
+				| ×
+				=< number_with_precision intake.amount, strip_insignificant_zeros: true
+			span< style="color: hsl(0, 0%, 80%)"
+				| (
+				= drug.brand.name
+				| )
 
 		ul.workout-mobile__muscles__ul
 			- drug.association_drug_substances.each.with_index(1) do |ass, index|
 				li
 					= ass.substance.name
-					=< number_to_currency ass.dose, unit: ass.unit
+					=< number_to_currency ass.dose * intake.amount, unit: ass.unit
 					= ", " if index < drug.association_drug_substances.size
 
 		= time_tag intake.created_at, l(intake.created_at, format: "%H:%M %Z"), class: "drug-intake-mobile__time"
