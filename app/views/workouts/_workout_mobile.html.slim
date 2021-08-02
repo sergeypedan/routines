@@ -15,10 +15,10 @@
 				| )
 
 		.workout-mobile__WRT
-			- if workout.weight.positive?
+			- if workout.weight
 				span.workout-mobile__weight = number_to_human(workout.weight, units: { unit: t("weight.kg") })
 
-			- if workout.resistance_duration
+			- if workout.resistance_duration.positive?
 				span.duration = "#{workout.resistance_duration} min"
 			- elsif workout.repetitions_count&.positive?
 				span.reps

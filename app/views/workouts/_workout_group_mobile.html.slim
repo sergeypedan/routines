@@ -24,12 +24,12 @@
 				- if workout.weight.positive?
 					span.workout-mobile__weight = number_to_human(workout.weight, units: { unit: t("weight.kg") })
 
-				- if workout.resistance_duration
-					span.duration = "#{workout.resistance_duration} min"
-				- elsif workout.repetitions_count&.positive?
+				- if workout.excercise.repetition_based?
 					span.reps
 						| × 
 						= t :reps, count: workout.repetitions_count
+				- elsif workout.resistance_duration&.positive?
+					span.duration = "#{workout.resistance_duration} min"
 
 	- workout = workouts.last
 	.cell-1__backdrop data-role="backdrop" hidden=""
