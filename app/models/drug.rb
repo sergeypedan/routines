@@ -30,7 +30,7 @@ class Drug < ApplicationRecord
 	# Methods
 
 	def name_with_brand
-		"#{name} (#{brand.name})"
+		brand_id ? "#{name} (#{brand.name})" : name
 	end
 
 end
