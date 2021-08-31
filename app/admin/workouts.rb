@@ -15,6 +15,7 @@ ActiveAdmin.register Workout do
 		column :date
 		column :excercise
 		column :repetitions_count
+		column :repetitions_count
 		column :resistance_duration
 		column :weight
 
