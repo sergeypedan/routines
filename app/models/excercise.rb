@@ -22,6 +22,10 @@ class Excercise < ApplicationRecord
 
 	# Methods
 
+	def active_admin_name
+		name_with_flavor(:en)
+	end
+
 	def name_with_flavor(locale = :en)
 		[
 			l_name(locale),
