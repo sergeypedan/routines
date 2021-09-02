@@ -15,9 +15,22 @@ class Excercise < ApplicationRecord
 	# Validations
 
 	validates :default_repetitions_count, numericality: { only_integer: true, greater_than: 0 }
+	validates :default_time,   numericality: { greater_than_or_equal_to: 0 }
 	validates :default_weight, numericality: { greater_than_or_equal_to: 0 }
 	validates :name,    presence: true
 	validates :name_en, presence: true
+
+	validate do
+		if (default_repetitions_count > 1) && default_time.positive?
+			errors.add :default_repetitions_count, "cannot be > 1 if default_time is > 0"
+			errors.add :default_time,              "cannot be > 0 if default_repetitions_count is > 1"
+		end
+
+		if (default_repetitions_count == 1) && default_time.zero?
+			errors.add :default_repetitions_count, "cannot be 1 if default_time is 0"
+			errors.add :default_time,              "cannot be 0 if default_repetitions_count is 1"
+		end
+	end
 
 
 	# Methods
@@ -42,7 +55,7 @@ class Excercise < ApplicationRecord
 	end
 
 	def repetition_based?
-		default_time.zero?
+		default_time.zero? && (default_repetitions_count > 1)
 	end
 
 end
