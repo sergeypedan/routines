@@ -1,8 +1,11 @@
+# frozen_string_literal: true
+
 ActiveAdmin.register Drug do
 
 	menu parent: "Medicine"
 
-	permit_params :brand_id, :drug_form_id, :name,
+	permit_params :name,
+								:brand_id, :drug_form_id,
 								association_drug_substances_attributes: [:id, :name, :dose, :substance_id, :unit, :_create, :_destroy, :_update]
 
 	includes :substances, :form, :brand

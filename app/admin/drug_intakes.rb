@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 ActiveAdmin.register DrugIntake do
 
 	menu parent: "Medicine"

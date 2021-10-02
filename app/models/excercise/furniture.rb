@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Excercise::BodyPosition < ApplicationRecord
+class Excercise::Furniture < ApplicationRecord
 
 	# Validations
 
@@ -29,9 +29,9 @@ class Excercise::BodyPosition < ApplicationRecord
 end
 
 # == Schema Information
-# Schema version: 20211002071756
+# Schema version: 20211002161717
 #
-# Table name: excercise_body_positions
+# Table name: excercise_furnitures
 #
 #  id      :bigint           not null, primary key
 #  name_en :string           not null
@@ -39,6 +39,6 @@ end
 #
 # Indexes
 #
-#  index_excercise_body_positions_on_name_en  (name_en) UNIQUE
-#  index_excercise_body_positions_on_name_ru  (name_ru) UNIQUE
+#  index_excercise_furnitures_on_name_en  (name_en) UNIQUE
+#  index_excercise_furnitures_on_name_ru  (name_ru) UNIQUE
 #

@@ -1,0 +1,10 @@
+---
+en:
+  activerecord:
+    models:
+      excercise/furniture:
+        zero:  Furniture
+        one:   Furniture
+        few:   Furniture
+        many:  Furniture
+        other: Furniture

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_02_071756) do
+ActiveRecord::Schema.define(version: 2021_10_02_161717) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -117,6 +117,24 @@ ActiveRecord::Schema.define(version: 2021_10_02_071756) do
     t.index ["name_ru"], name: "index_excercise_body_positions_on_name_ru", unique: true
   end
 
+  create_table "excercise_furnitures", force: :cascade do |t|
+    t.string "name_en", null: false
+    t.string "name_ru", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["name_en"], name: "index_excercise_furnitures_on_name_en", unique: true
+    t.index ["name_ru"], name: "index_excercise_furnitures_on_name_ru", unique: true
+  end
+
+  create_table "excercise_weight_types", force: :cascade do |t|
+    t.string "name_en", null: false
+    t.string "name_ru", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["name_en"], name: "index_excercise_weight_types_on_name_en", unique: true
+    t.index ["name_ru"], name: "index_excercise_weight_types_on_name_ru", unique: true
+  end
+
   create_table "excercises", force: :cascade do |t|
     t.string "name", null: false
     t.integer "default_repetitions_count", default: 15, null: false
@@ -128,8 +146,12 @@ ActiveRecord::Schema.define(version: 2021_10_02_071756) do
     t.string "flavor_ru"
     t.string "name_en"
     t.bigint "body_position_id"
+    t.bigint "weight_type_id"
+    t.bigint "furniture_id"
     t.index ["body_position_id"], name: "index_excercises_on_body_position_id"
+    t.index ["furniture_id"], name: "index_excercises_on_furniture_id"
     t.index ["main_muscle_id"], name: "index_excercises_on_main_muscle_id"
+    t.index ["weight_type_id"], name: "index_excercises_on_weight_type_id"
   end
 
   create_table "habit_entries", force: :cascade do |t|
@@ -288,6 +310,8 @@ ActiveRecord::Schema.define(version: 2021_10_02_071756) do
   add_foreign_key "drugs", "brands"
   add_foreign_key "drugs", "drug_forms"
   add_foreign_key "excercises", "excercise_body_positions", column: "body_position_id"
+  add_foreign_key "excercises", "excercise_furnitures", column: "furniture_id"
+  add_foreign_key "excercises", "excercise_weight_types", column: "weight_type_id"
   add_foreign_key "excercises", "muscles", column: "main_muscle_id"
   add_foreign_key "habit_entries", "habits"
   add_foreign_key "habit_entries", "users"

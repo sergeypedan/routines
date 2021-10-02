@@ -1,0 +1,10 @@
+---
+ru:
+  activerecord:
+    models:
+      excercise/furniture:
+        zero:  Мебель
+        one:   Мебель
+        few:   Мебель
+        many:  Мебель
+        other: Мебель

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-ActiveAdmin.register Excercise::BodyPosition do
+ActiveAdmin.register Excercise::Furniture do
 
 	menu parent: "Sport"
 

@@ -1,0 +1,10 @@
+---
+кг:
+  activerecord:
+    models:
+      excercise/weight_type:
+        zero:  Отягощений
+        one:   Отягощение
+        few:   Отягощения
+        many:  Отягощений
+        other: Отягощения

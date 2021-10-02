@@ -4,20 +4,22 @@ ActiveAdmin.register Excercise do
 
 	menu parent: "Sport"
 
-	permit_params :default_repetitions_count, :default_time, :default_weight, :flavor_en, :flavor_ru, :main_muscle_id, :name, :name_en, :repetition_based, muscle_ids: []
+	permit_params :default_repetitions_count, :default_time, :default_weight, :flavor_en, :flavor_ru, :name, :name_en, :repetition_based,
+								:body_position_id, :furniture_id, :main_muscle_id, :weight_type_id,
+								muscle_ids: []
 
 
-	includes :main_muscle
+	includes :body_position, :furniture, :main_muscle, :weight_type
 
 	index do
 		selectable_column
 		id_column
 
-		column :name
-		column :flavor_ru
-
 		column :name_en
 		column :flavor_en
+		column :body_position
+		column :weight_type
+		column :furniture
 
 		column :main_muscle
 
@@ -33,6 +35,9 @@ ActiveAdmin.register Excercise do
 
 		f.inputs do
 			f.input :body_position
+			f.input :weight_type
+			f.input :furniture
+
 			f.input :flavor_en
 			f.input :flavor_ru
 		end

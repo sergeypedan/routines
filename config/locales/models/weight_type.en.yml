@@ -1,0 +1,10 @@
+---
+en:
+  activerecord:
+    models:
+      excercise/weight_type:
+        zero:  Weight types
+        one:   Weight type
+        few:   Weight types
+        many:  Weight types
+        other: Weight types

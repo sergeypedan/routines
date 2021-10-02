@@ -6,8 +6,10 @@ class Excercise < ApplicationRecord
 
 	has_many   :association_excercise_muscles, dependent: :destroy
 	belongs_to :body_position, optional: true
+	belongs_to :furniture, optional: true
 	belongs_to :main_muscle, class_name: "Muscle", foreign_key: "main_muscle_id"
 	has_many   :muscles, through: :association_excercise_muscles
+	belongs_to :weight_type, optional: true
 	has_many   :workouts, dependent: :destroy
 
 	accepts_nested_attributes_for :muscles
@@ -62,7 +64,7 @@ class Excercise < ApplicationRecord
 end
 
 # == Schema Information
-# Schema version: 20211002071756
+# Schema version: 20211002161717
 #
 # Table name: excercises
 #
@@ -76,15 +78,21 @@ end
 #  name_en                   :string
 #  repetition_based          :boolean          default(TRUE)
 #  body_position_id          :bigint
+#  furniture_id              :bigint
 #  main_muscle_id            :bigint           not null
+#  weight_type_id            :bigint
 #
 # Indexes
 #
 #  index_excercises_on_body_position_id  (body_position_id)
+#  index_excercises_on_furniture_id      (furniture_id)
 #  index_excercises_on_main_muscle_id    (main_muscle_id)
+#  index_excercises_on_weight_type_id    (weight_type_id)
 #
 # Foreign Keys
 #
 #  fk_rails_...  (body_position_id => excercise_body_positions.id)
+#  fk_rails_...  (furniture_id => excercise_furnitures.id)
 #  fk_rails_...  (main_muscle_id => muscles.id)
+#  fk_rails_...  (weight_type_id => excercise_weight_types.id)
 #
