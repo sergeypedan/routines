@@ -1,16 +1,17 @@
 ---
 ru:
   attributes:
-    name: Название
-    name_en: Название по-английски
-    name_ru: Название по-русски
-    language: Язык
-    time_zone: Временная зона
-    user_id: Пользователь
+    body_position: Положение тела
     created_at: Создан
     email: E-mail
     first_name: Имя
     full_name: Полное имя
+    language: Язык
     last_name: Имя
+    name: Название
+    name_en: Название по-английски
+    name_ru: Название по-русски
     phone: Телефон
+    time_zone: Временная зона
     updated_at: Обновлён
+    user_id: Пользователь

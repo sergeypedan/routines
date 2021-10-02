@@ -27,13 +27,14 @@ ActiveAdmin.register Excercise do
 
 	form do |f|
 		f.inputs do
+			f.input :name_en
 			f.input :name
-			f.input :flavor_ru
 		end
 
 		f.inputs do
-			f.input :name_en
+			f.input :body_position
 			f.input :flavor_en
+			f.input :flavor_ru
 		end
 
 		f.inputs do

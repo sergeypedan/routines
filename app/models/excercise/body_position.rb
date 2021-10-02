@@ -14,6 +14,13 @@ class Excercise::BodyPosition < ApplicationRecord
 		"excercise_"
 	end
 
+
+	# Methods
+
+	def display_name
+		name_en
+	end
+
 end
 
 # == Schema Information

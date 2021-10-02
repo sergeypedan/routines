@@ -36,7 +36,7 @@ class Excercise < ApplicationRecord
 
 	# Methods
 
-	def active_admin_name
+	def display_name
 		name_with_flavor(:en)
 	end
 
