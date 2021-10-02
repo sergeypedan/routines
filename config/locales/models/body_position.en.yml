@@ -1,0 +1,10 @@
+---
+en:
+  activerecord:
+    models:
+      excercise/body_position:
+        zero:  Body positions
+        one:   Body position
+        few:   Body positions
+        many:  Body positions
+        other: Body positions

@@ -1,0 +1,10 @@
+---
+ru:
+  activerecord:
+    models:
+      excercise/body_position:
+        zero:  Положений тела
+        one:   Положение тела
+        few:   Положения тела
+        many:  Положений тела
+        other: Положения тела
