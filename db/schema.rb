@@ -127,6 +127,8 @@ ActiveRecord::Schema.define(version: 2021_10_02_071756) do
     t.string "flavor_en"
     t.string "flavor_ru"
     t.string "name_en"
+    t.bigint "body_position_id"
+    t.index ["body_position_id"], name: "index_excercises_on_body_position_id"
     t.index ["main_muscle_id"], name: "index_excercises_on_main_muscle_id"
   end
 
@@ -285,6 +287,7 @@ ActiveRecord::Schema.define(version: 2021_10_02_071756) do
   add_foreign_key "drug_intakes", "drugs"
   add_foreign_key "drugs", "brands"
   add_foreign_key "drugs", "drug_forms"
+  add_foreign_key "excercises", "excercise_body_positions", column: "body_position_id"
   add_foreign_key "excercises", "muscles", column: "main_muscle_id"
   add_foreign_key "habit_entries", "habits"
   add_foreign_key "habit_entries", "users"

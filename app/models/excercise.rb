@@ -5,6 +5,7 @@ class Excercise < ApplicationRecord
 	# Associaitons
 
 	has_many   :association_excercise_muscles, dependent: :destroy
+	belongs_to :body_position, optional: true
 	belongs_to :main_muscle, class_name: "Muscle", foreign_key: "main_muscle_id"
 	has_many   :muscles, through: :association_excercise_muscles
 	has_many   :workouts, dependent: :destroy
@@ -74,13 +75,16 @@ end
 #  name                      :string           not null
 #  name_en                   :string
 #  repetition_based          :boolean          default(TRUE)
+#  body_position_id          :bigint
 #  main_muscle_id            :bigint           not null
 #
 # Indexes
 #
-#  index_excercises_on_main_muscle_id  (main_muscle_id)
+#  index_excercises_on_body_position_id  (body_position_id)
+#  index_excercises_on_main_muscle_id    (main_muscle_id)
 #
 # Foreign Keys
 #
+#  fk_rails_...  (body_position_id => excercise_body_positions.id)
 #  fk_rails_...  (main_muscle_id => muscles.id)
 #
