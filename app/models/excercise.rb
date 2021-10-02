@@ -45,8 +45,11 @@ class Excercise < ApplicationRecord
 	def name_with_flavor(locale = :en)
 		[
 			l_name(locale),
-			flavor(locale)
-		].select(&:present?).join(" ")
+			weight_type&.public_send("name_#{locale}")&.downcase,
+			flavor(locale)&.downcase,
+			body_position&.public_send("name_#{locale}")&.downcase,
+			furniture&.public_send("name_#{locale}")&.downcase,
+		].select(&:present?).join(", ")
 	end
 
 	def flavor(locale)

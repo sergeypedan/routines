@@ -7,12 +7,13 @@
 			| .
 
 		h5.workout-mobile__excercise__title
-			= excercise.l_name(I18n.locale)
-			- flavor = excercise.flavor(I18n.locale)
-			- if flavor.present?
-				|  (
-				= flavor
-				| )
+			= excercise.name_with_flavor(I18n.locale)
+			/ = excercise.l_name(I18n.locale)
+			/ - flavor = excercise.flavor(I18n.locale)
+			/ - if flavor.present?
+			/ 	|  (
+			/ 	= flavor
+			/ 	| )
 
 		ul.workout-mobile__muscles__ul
 			li = excercise.main_muscle.l_name(I18n.locale)
