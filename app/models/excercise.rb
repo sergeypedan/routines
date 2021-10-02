@@ -61,7 +61,7 @@ class Excercise < ApplicationRecord
 end
 
 # == Schema Information
-# Schema version: 20210212062248
+# Schema version: 20211002071756
 #
 # Table name: excercises
 #
