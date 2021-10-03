@@ -7,6 +7,7 @@ class Excercise < ApplicationRecord
 	has_many   :association_excercise_muscles, dependent: :destroy
 	belongs_to :body_position, optional: true
 	belongs_to :furniture, optional: true
+	belongs_to :grip, optional: true
 	belongs_to :main_muscle, class_name: "Muscle", foreign_key: "main_muscle_id"
 	has_many   :muscles, through: :association_excercise_muscles
 	belongs_to :weight_type, optional: true
@@ -47,6 +48,7 @@ class Excercise < ApplicationRecord
 			l_name(locale),
 			weight_type&.public_send("name_#{locale}")&.downcase,
 			flavor(locale)&.downcase,
+			grip&.public_send("name_#{locale}")&.downcase,
 			body_position&.public_send("name_#{locale}")&.downcase,
 			furniture&.public_send("name_#{locale}")&.downcase,
 		].select(&:present?).join(", ")
@@ -67,7 +69,7 @@ class Excercise < ApplicationRecord
 end
 
 # == Schema Information
-# Schema version: 20211002161717
+# Schema version: 20211003151042
 #
 # Table name: excercises
 #
@@ -82,6 +84,7 @@ end
 #  repetition_based          :boolean          default(TRUE)
 #  body_position_id          :bigint
 #  furniture_id              :bigint
+#  grip_id                   :bigint
 #  main_muscle_id            :bigint           not null
 #  weight_type_id            :bigint
 #
@@ -89,6 +92,7 @@ end
 #
 #  index_excercises_on_body_position_id  (body_position_id)
 #  index_excercises_on_furniture_id      (furniture_id)
+#  index_excercises_on_grip_id           (grip_id)
 #  index_excercises_on_main_muscle_id    (main_muscle_id)
 #  index_excercises_on_weight_type_id    (weight_type_id)
 #
@@ -96,6 +100,7 @@ end
 #
 #  fk_rails_...  (body_position_id => excercise_body_positions.id)
 #  fk_rails_...  (furniture_id => excercise_furnitures.id)
+#  fk_rails_...  (grip_id => excercise_grips.id)
 #  fk_rails_...  (main_muscle_id => muscles.id)
 #  fk_rails_...  (weight_type_id => excercise_weight_types.id)
 #
