@@ -48,10 +48,19 @@ class Excercise < ApplicationRecord
 			l_name(locale),
 			weight_type&.public_send("name_#{locale}")&.downcase,
 			flavor(locale)&.downcase,
+			l_simultaneously(locale),
 			grip&.public_send("name_#{locale}")&.downcase,
 			body_position&.public_send("name_#{locale}")&.downcase,
 			furniture&.public_send("name_#{locale}")&.downcase,
 		].select(&:present?).join(", ")
+	end
+
+	def l_simultaneously(locale = :en)
+		case simultaneously
+		when true  then locale.to_sym == :en ? "simultaneously" : "одновременно"
+		when false then locale.to_sym == :en ? "separately" : "порознь"
+		else nil
+		end
 	end
 
 	def flavor(locale)
@@ -69,7 +78,7 @@ class Excercise < ApplicationRecord
 end
 
 # == Schema Information
-# Schema version: 20211003151042
+# Schema version: 20211003164127
 #
 # Table name: excercises
 #
@@ -82,6 +91,7 @@ end
 #  name                      :string           not null
 #  name_en                   :string
 #  repetition_based          :boolean          default(TRUE)
+#  simultaneously            :boolean
 #  body_position_id          :bigint
 #  furniture_id              :bigint
 #  grip_id                   :bigint

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_03_151042) do
+ActiveRecord::Schema.define(version: 2021_10_03_164127) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -158,6 +158,7 @@ ActiveRecord::Schema.define(version: 2021_10_03_151042) do
     t.bigint "weight_type_id"
     t.bigint "furniture_id"
     t.bigint "grip_id"
+    t.boolean "simultaneously"
     t.index ["body_position_id"], name: "index_excercises_on_body_position_id"
     t.index ["furniture_id"], name: "index_excercises_on_furniture_id"
     t.index ["grip_id"], name: "index_excercises_on_grip_id"
