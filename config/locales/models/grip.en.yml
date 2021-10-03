@@ -1,0 +1,10 @@
+---
+en:
+  activerecord:
+    models:
+      excercise/grip:
+        zero:  Grips
+        one:   Grip
+        few:   Grips
+        many:  Grips
+        other: Grips

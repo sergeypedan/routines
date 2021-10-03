@@ -11,3 +11,4 @@ en:
         default_time: Default duration
         muscle_ids: Muscles
         name: Name
+        workouts_count: Workouts

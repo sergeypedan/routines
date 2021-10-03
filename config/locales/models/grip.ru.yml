@@ -1,0 +1,10 @@
+---
+ru:
+  activerecord:
+    models:
+      excercise/grip:
+        zero:  Хватов
+        one:   Хват
+        few:   Хвата
+        many:  Хватов
+        other: Хваты
