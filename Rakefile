@@ -4,3 +4,12 @@
 require_relative 'config/application'
 
 Rails.application.load_tasks
+
+# localer gem
+# require 'localer'
+# require 'localer/rake_task'
+# Localer::RakeTask.new()
+
+# bundle-audit gem
+# require 'bundler/audit/task'
+# Bundler::Audit::Task.new

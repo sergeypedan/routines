@@ -78,7 +78,7 @@ class Excercise < ApplicationRecord
 end
 
 # == Schema Information
-# Schema version: 20211003164127
+# Schema version: 20211003172118
 #
 # Table name: excercises
 #
@@ -92,6 +92,7 @@ end
 #  name_en                   :string
 #  repetition_based          :boolean          default(TRUE)
 #  simultaneously            :boolean
+#  workouts_count            :integer          default(0), not null
 #  body_position_id          :bigint
 #  furniture_id              :bigint
 #  grip_id                   :bigint

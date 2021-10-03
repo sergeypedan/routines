@@ -4,7 +4,7 @@ class Workout < ApplicationRecord
 
 	# Associations
 
-	belongs_to :excercise
+	belongs_to :excercise, counter_cache: true
 
 
 	# Validations
