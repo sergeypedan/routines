@@ -23,6 +23,7 @@ class Excercise < ApplicationRecord
 	validates :default_weight, numericality: { greater_than_or_equal_to: 0 }
 	validates :name,    presence: true
 	validates :name_en, presence: true
+	validates :workouts_count, counter: true
 
 	validate do
 		if (default_repetitions_count > 1) && default_time.positive?
