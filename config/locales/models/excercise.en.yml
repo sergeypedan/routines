@@ -7,6 +7,7 @@ en:
 
     attributes:
       excercises:
+        angle_max: Max angle
         default_repetitions_count: Default repetitions
         default_time: Default duration
         muscle_ids: Muscles

@@ -18,6 +18,7 @@ class Excercise < ApplicationRecord
 
 	# Validations
 
+	validates :angle_max, allow_nil: true, numericality: { only_integer: true }, angle: true
 	validates :default_repetitions_count, numericality: { only_integer: true, greater_than: 0 }
 	validates :default_time,   numericality: { greater_than_or_equal_to: 0 }
 	validates :default_weight, numericality: { greater_than_or_equal_to: 0 }
@@ -48,6 +49,7 @@ class Excercise < ApplicationRecord
 		[
 			l_name(locale),
 			weight_type&.public_send("name_#{locale}")&.downcase,
+			("upto #{angle_max}" if angle_max),
 			flavor(locale)&.downcase,
 			l_simultaneously(locale),
 			grip&.public_send("name_#{locale}")&.downcase,
@@ -79,11 +81,12 @@ class Excercise < ApplicationRecord
 end
 
 # == Schema Information
-# Schema version: 20211003172118
+# Schema version: 20211006144847
 #
 # Table name: excercises
 #
 #  id                        :bigint           not null, primary key
+#  angle_max                 :integer
 #  default_repetitions_count :integer          default(15), not null
 #  default_time              :integer          default(60), not null
 #  default_weight            :float            default(0.0), not null

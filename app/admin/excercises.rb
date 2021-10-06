@@ -4,8 +4,8 @@ ActiveAdmin.register Excercise do
 
 	menu parent: "Sport"
 
-	permit_params :default_repetitions_count, :default_time, :default_weight, :flavor_en, :flavor_ru, :name, :name_en,
-								:repetition_based, :simultaneously, :workouts_count,
+	permit_params :angle_max, :default_repetitions_count, :default_time, :default_weight, :flavor_en, :flavor_ru, :name,
+								:name_en, :repetition_based, :simultaneously, :workouts_count,
 								:body_position_id, :furniture_id, :grip_id, :main_muscle_id, :weight_type_id,
 								muscle_ids: []
 
@@ -42,6 +42,7 @@ ActiveAdmin.register Excercise do
 			f.input :furniture
 			f.input :grip
 			f.input :simultaneously
+			f.input :angle_max
 
 			f.input :flavor_en
 			f.input :flavor_ru

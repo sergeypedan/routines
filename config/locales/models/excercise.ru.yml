@@ -12,6 +12,7 @@ ru:
 
     attributes:
       excercise:
+        angle_max: Максимальный угол
         default_repetitions_count: Обычно повторений
         default_time: Обычная продолжительность нагрузки
         default_weight: Обычный вес
