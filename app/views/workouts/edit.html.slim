@@ -45,7 +45,7 @@
 			.input-group
 				.input-group-prepend
 					.input-group-text kg
-				= f.number_field :weight, required: true, min: 0, step: 0.5, class: "form-control", data: { "#{st_ctr}-target" => :weight }
+				= f.number_field :weight, required: true, min: 0, step: 0.25, class: "form-control", data: { "#{st_ctr}-target" => :weight }
 				.input-group-append
 					= button_tag fa_icon(:minus), type: :button, data: { action: "click->#{st_ctr}#decrease_weight" }, class: "btn btn-outline-secondary"
 					= button_tag fa_icon(:plus),  type: :button, data: { action: "click->#{st_ctr}#increase_weight" }, class: "btn btn-outline-secondary"

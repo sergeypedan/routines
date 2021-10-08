@@ -31,7 +31,7 @@ ActiveAdmin.register Workout do
 		f.inputs do
 			f.input :repetitions_count
 			f.input :resistance_duration
-			f.input :weight
+			f.input :weight, input_html: { step: 0.25 }
 		end
 
 		f.actions

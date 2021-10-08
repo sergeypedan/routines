@@ -51,7 +51,7 @@ ActiveAdmin.register Excercise do
 		f.inputs do
 			f.input :default_repetitions_count
 			f.input :default_time
-			f.input :default_weight
+			f.input :default_weight, input_html: { step: 0.25 }
 		end
 
 		f.inputs do
