@@ -136,6 +136,9 @@ GEM
     formtastic (4.0.0)
       actionpack (>= 5.2.0)
     formtastic_i18n (0.7.0)
+    formtastic_tristate_radio (0.2.5)
+      formtastic (>= 3, < 5)
+      rails (>= 4, < 7)
     globalid (0.5.2)
       activesupport (>= 5.0)
     has_scope (0.8.0)
@@ -338,6 +341,7 @@ DEPENDENCIES
   factory_bot_rails
   faker
   font-awesome-rails
+  formtastic_tristate_radio
   integral-corrector!
   jbuilder
   jquery-rails

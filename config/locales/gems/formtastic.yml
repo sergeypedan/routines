@@ -1,0 +1,9 @@
+---
+en:
+  formtastic:
+    :null: Undefined
+
+---
+ru:
+  formtastic:
+    :null: Неизвестно
