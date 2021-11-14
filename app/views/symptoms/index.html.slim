@@ -7,12 +7,14 @@
 		thead
 			tr
 				th = Symptom.human_attribute_name :title
+				th = Symptom.human_attribute_name :created_at
 				th = t :duration
 				th
 		tbody
 			- @symptoms.each do |symptom|
 				tr
 					td = symptom.title
+					td = l symptom.created_at, format: "%Y, %B %-d, %H:%M %Z"
 					td
 						- if symptom.duration_value
 							= symptom.duration_value

@@ -10,6 +10,10 @@
 			= f.label     :description
 			= f.text_area :description, class: "form-control"
 
+		.form-group
+			= f.label                :created_at, nil, class: :required
+			= f.datetime_local_field :created_at, required: :true, class: "form-control"
+
 		.row.g-0
 			.form-group.col-auto
 				= f.label        :duration_value

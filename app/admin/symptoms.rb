@@ -4,6 +4,6 @@ ActiveAdmin.register Symptom do
 
 	menu parent: "Medicine"
 
-	permit_params :title, :description, :duration, :duration_unit
+	permit_params :created_at, :title, :description, :duration, :duration_unit
 
 end

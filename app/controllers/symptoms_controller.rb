@@ -43,7 +43,7 @@ class SymptomsController < DashboardsController
 
 
 	private def filtered_params
-		params.require(:symptom).permit(:description, :duration_value, :duration_unit, :title)
+		params.require(:symptom).permit(:created_at, :description, :duration_value, :duration_unit, :title)
 	end
 
 end
