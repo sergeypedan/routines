@@ -30,6 +30,7 @@ module NavbarHelper
 			]
 		when "Medicine"
 			[
+				{ name:           Symptom.model_name.human(count: :many), href: symptoms_path },
 				{ name:        DrugIntake.model_name.human(count: :many), href: drug_intakes_path },
 				{ name:              Drug.model_name.human(count: :many), href: drugs_path },
 				{ name:          DrugForm.model_name.human(count: :many), href: drug_forms_path },
@@ -38,7 +39,7 @@ module NavbarHelper
 				{ name:       Measurement.model_name.human(count: :many), href: measurements_path },
 				{ name: MeasurementsGroup.model_name.human(count: :many), href: measurements_groups_path },
 				{ name:      HealthMarker.model_name.human(count: :many), href: health_markers_path },
-				{ name:             Brand.model_name.human(count: :many), href: brands_path }
+				{ name:             Brand.model_name.human(count: :many), href: brands_path },
 			]
 		when "Spirit"
 			[

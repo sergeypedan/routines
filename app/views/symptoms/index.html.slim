@@ -1,0 +1,22 @@
+.container-fluid.masthead-1
+	h1 = Symptom.model_name.human(count: :many)
+	= add_record_button Symptom
+
+.container-fluid.section-padding
+	table.table
+		thead
+			tr
+				th = Symptom.human_attribute_name :title
+				th = t :duration
+				th
+		tbody
+			- @symptoms.each do |symptom|
+				tr
+					td = symptom.title
+					td
+						- if symptom.duration_value
+							= symptom.duration_value
+							=< symptom.duration_unit
+					td
+						= link_to "Edit", [:edit, symptom], class: "btn btn-outline-secondary btn-sm"
+						= link_to "Delete", symptom, method: :delete, class: "btn btn-outline-danger btn-sm", style: "margin-left: 10px"

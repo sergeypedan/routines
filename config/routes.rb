@@ -33,6 +33,7 @@ Rails.application.routes.draw do
 	resources :muscles
 	resources :settings, only: [:index, :edit, :update]
 	resources :substances
+	resources :symptoms
 	resources :workouts do
 		post :duplicate, on: :member
 		post :yesterday, on: :member

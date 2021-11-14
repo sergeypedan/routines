@@ -1,0 +1,10 @@
+---
+ru:
+  activerecord:
+    models:
+      symptom:
+        zero:  Симптомов
+        one:   Симптом
+        few:   Симптома
+        many:  Симптомов
+        other: Симптомы

@@ -1,0 +1,10 @@
+---
+en:
+  activerecord:
+    models:
+      symptom:
+        zero:  Symptoms
+        one:   Symptom
+        few:   Symptoms
+        many:  Symptoms
+        other: Symptoms

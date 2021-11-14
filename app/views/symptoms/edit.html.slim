@@ -1,0 +1,23 @@
+.container.section-padding
+
+	= form_with model: @symptom, local: true do |f|
+
+		.form-group
+			= f.label      :title, nil, class: :required
+			= f.text_field :title, required: true, class: "form-control"
+
+		.form-group
+			= f.label     :description
+			= f.text_area :description, class: "form-control"
+
+		.row.g-0
+			.form-group.col-auto
+				= f.label        :duration_value
+				= f.number_field :duration_value, class: "form-control"
+
+			.form-group.col-auto
+				= f.label             :duration_unit, nil, class: :required
+				= f.collection_select :duration_unit, Symptom::DURATION_UNITS, :to_s, :to_s, { prompt: true }, required: true, class: "form-control"
+
+		= render "application/form_errors", record: f.object
+		.form-actions = save_btn(f)

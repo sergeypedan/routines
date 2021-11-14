@@ -36,6 +36,7 @@
     - measurements
     - measurements_groups
     - brands
+    - symptoms
   dashboard_action: medicine
   name_en: Medicine
   name_ru: Здоровье
