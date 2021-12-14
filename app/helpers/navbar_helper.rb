@@ -4,17 +4,17 @@ module NavbarHelper
 
 	def super_navbar_a_classes(area)
 		fail ArgumentError, "an Area must be passed" unless area.is_a? Area
-		["super-navbar__area__a", (:active if is_active_area?(area))]
+		["super-navbar__area__a", (:active if is_current_area?(area))]
 	end
 
-	def is_active_area?(area)
-		return true if area.controllers.any? { |ctrlr_name| ctrlr_name == controller_name }
+	def is_current_area?(area)
+		return true if area.controllers.any? { _1 == controller_name }
 		return true if controller_name == "areas" && area.dashboard_action == action_name
 		return false
 	end
 
 	def current_area
-		@ca ||= Area.all.find { |area| is_active_area?(area) }
+		@ca ||= Area.all.find { is_current_area? _1 }
 		fail "No `current_area` for #{controller_name}##{action_name}" unless @ca
 		@ca
 	end
