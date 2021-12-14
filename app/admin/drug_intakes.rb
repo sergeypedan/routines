@@ -33,7 +33,7 @@ ActiveAdmin.register DrugIntake do
 	form do |f|
 		f.inputs do
 			f.input :drug, as: :select, collection: Drug.pluck(:name, :id)
-			f.input :amount, hint: f.object.drug.form.public_send("unit_#{I18n.locale}")
+			f.input :amount, hint: f.object.drug&.form&.public_send("unit_#{I18n.locale}")
 			f.input :created_at, as: :date_time_picker
 		end
 
