@@ -10,7 +10,7 @@ ActiveAdmin.register Drug do
 
 	includes :substances, :form, :brand
 
-	config.sort_order = :name
+	config.sort_order = :name_asc
 
 
 	filter :name
@@ -53,7 +53,7 @@ ActiveAdmin.register Drug do
 		attributes_table(*default_attribute_table_rows)
 
 		panel "substances" do
-			table_for(resource.substances) do
+			table_for(resource.substances.order(:name)) do
 				column :name
 				column :name_alt
 			end
