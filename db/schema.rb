@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_14_160101) do
+ActiveRecord::Schema.define(version: 2021_12_15_155038) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -274,6 +274,7 @@ ActiveRecord::Schema.define(version: 2021_11_14_160101) do
     t.string "daily_dosage"
     t.string "main_function", null: false
     t.string "dosage_unit", limit: 20
+    t.string "name_alt"
   end
 
   create_table "symptoms", force: :cascade do |t|

@@ -10,13 +10,14 @@ class Substance < ApplicationRecord
 
 	# Validations
 
-	validates :main_function, presence: true
-	validates :name,          presence: true
+	validates :main_function, length: { maximum: 255 }, presence: true
+	validates :name,          length: { maximum: 255 }, presence: true
+	validates :name_alt,      length: { maximum: 255 }
 
 end
 
 # == Schema Information
-# Schema version: 20210104181137
+# Schema version: 20211215155038
 #
 # Table name: substances
 #
@@ -25,4 +26,5 @@ end
 #  dosage_unit   :string(20)
 #  main_function :string           not null
 #  name          :string           not null
+#  name_alt      :string
 #

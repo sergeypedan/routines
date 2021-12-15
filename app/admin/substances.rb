@@ -4,7 +4,7 @@ ActiveAdmin.register Substance do
 
 	menu parent: "Medicine"
 
-	permit_params :name, :daily_dosage, :main_function, :dosage_unit
+	permit_params :name, :name_alt, :daily_dosage, :main_function, :dosage_unit
 
 	config.sort_order = :name
 
@@ -28,12 +28,12 @@ ActiveAdmin.register Substance do
 	form do |f|
 		f.inputs do
 			f.input :name
+			f.input :name_alt
 			f.input :main_function
 			f.input :dosage_unit
 			f.input :daily_dosage
 		end
 
-		f.semantic_errors
 		f.actions
 	end
 

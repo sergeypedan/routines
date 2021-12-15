@@ -48,4 +48,16 @@ ActiveAdmin.register Drug do
 		f.actions
 	end
 
+
+	show do
+		attributes_table(*default_attribute_table_rows)
+
+		panel "substances" do
+			table_for(resource.substances) do
+				column :name
+				column :name_alt
+			end
+		end
+	end
+
 end
