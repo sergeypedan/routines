@@ -38,7 +38,7 @@ ActiveAdmin.register Drug do
 			f.input :drug_form_id, as: :radio, collection: DrugForm.pluck(:name_ru, :id)
 
 			f.has_many :association_drug_substances, allow_destroy: true, new_record: true do |s|
-				s.input :substance
+				s.input :substance, as: :select, collection: Substance.for_select
 				s.input :dose
 				s.input :unit
 			end

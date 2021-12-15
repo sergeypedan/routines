@@ -8,6 +8,11 @@ class Substance < ApplicationRecord
 	has_many :drugs, through: :association_drug_substances, inverse_of: :substances
 
 
+	# Scope
+
+	scope :for_select, -> { select("CASE WHEN LENGTH(substances.name_alt) > 0 THEN CONCAT(substances.name, ' (', substances.name_alt, ')') ELSE substances.name END AS name", :id) }
+
+
 	# Validations
 
 	validates :main_function, length: { maximum: 255 }, presence: true
