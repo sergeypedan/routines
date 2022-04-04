@@ -2,6 +2,15 @@
 
 class Substance < ApplicationRecord
 
+	# Validations
+
+	validates :daily_dosage,  length: { maximum: 20  }
+	validates :dosage_unit,   length: { maximum: 255 }
+	validates :main_function, length: { maximum: 255 }, presence: true
+	validates :name,          length: { maximum: 255 }, presence: true, uniqueness: true
+	validates :name_alt,      length: { maximum: 255 }
+
+
 	# Associations
 
 	has_many :association_drug_substances
@@ -11,13 +20,6 @@ class Substance < ApplicationRecord
 	# Scope
 
 	scope :for_select, -> { select("CASE WHEN LENGTH(substances.name_alt) > 0 THEN CONCAT(substances.name, ' (', substances.name_alt, ')') ELSE substances.name END AS name", :id) }
-
-
-	# Validations
-
-	validates :main_function, length: { maximum: 255 }, presence: true
-	validates :name,          length: { maximum: 255 }, presence: true
-	validates :name_alt,      length: { maximum: 255 }
 
 end
 
