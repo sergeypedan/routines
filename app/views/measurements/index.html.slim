@@ -16,7 +16,7 @@
 		tbody
 			- @measurements.each do |measurement|
 				tr
-					td.text-right = l measurement.created_at, format: "%-d %B %Y"
+					td.text-right = l measurement.created_at, format: "%-d %B %Y, %H:%M %Z"
 					td = measurement.marker.public_send("name_#{I18n.locale}".to_sym)
 					td
 						= measurement.value
