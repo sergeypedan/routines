@@ -24,7 +24,7 @@ class Substance < ApplicationRecord
 end
 
 # == Schema Information
-# Schema version: 20211215155038
+# Schema version: 20220404233640
 #
 # Table name: substances
 #
@@ -34,4 +34,8 @@ end
 #  main_function :string           not null
 #  name          :string           not null
 #  name_alt      :string
+#
+# Indexes
+#
+#  index_substances_on_name  (name) UNIQUE
 #
