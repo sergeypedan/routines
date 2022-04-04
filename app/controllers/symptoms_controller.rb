@@ -3,7 +3,7 @@
 class SymptomsController < DashboardsController
 
 	def index
-		@symptoms = Symptom.all
+		@symptoms = Symptom.order(created_at: :desc)
 	end
 
 
