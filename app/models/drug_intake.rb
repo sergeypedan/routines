@@ -9,8 +9,7 @@ class DrugIntake < ApplicationRecord
 
 	# Validations
 
-	validates :amount,  numericality: { greater_than_or_equal_to: 0.000001 }
-	validates :drug_id, numericality: { only_integer: true, greater_than: 0 }
+	validates :amount, numericality: { greater_than: 0 }
 
 end
 

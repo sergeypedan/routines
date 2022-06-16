@@ -6,11 +6,11 @@
 	= form_with model: @workout, local: true do |f|
 
 		.form-group
-			= f.label      :date, nil, class: "control-label"
+			= f.label      :date, nil, class: "control-label required"
 			= f.date_field :date, required: true, class: "form-control"
 
 		.form-group
-			= f.label :excercise_id
+			= f.label                     :excercise_id, class: "control-label required"
 			= f.grouped_collection_select :excercise_id, # attribute on form object \
 																			@muscles,    # collection for optgroups \
 																			:targeted_excercises, # group_method \

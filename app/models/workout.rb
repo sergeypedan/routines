@@ -10,7 +10,6 @@ class Workout < ApplicationRecord
 	# Validations
 
 	validates :date, presence: true
-	validates :excercise_id, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 1 }
 	validates :repetitions_count, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 1 }
 	validates :resistance_duration, numericality: { greater_than: 0 }, allow_nil: true
 	validates :weight, presence: true, numericality: { greater_than_or_equal_to: 0 }
