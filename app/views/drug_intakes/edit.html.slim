@@ -4,7 +4,7 @@
 
 		.form-group
 			- attr_name = :drug_id
-			= f.label             attr_name, nil, (:required if validated_presence(f.object, attr_name))
+			= f.label             attr_name, nil, class: (:required if validated_presence(f.object, attr_name))
 			= f.collection_select attr_name, Drug.for_select, :id, :name_with_brand, { prompt: true }, \
 														required: validated_presence(f.object, attr_name), \
 														class: "form-control"
