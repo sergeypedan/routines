@@ -35,6 +35,7 @@
 													max: validated_numeric_max(f.object, attr_name), \
 													min: validated_numeric_min(f.object, attr_name), \
 													required: validated_presence(f.object, attr_name), \
+													step: input_step(record, attr), \
 													class: "form-control"
 				.input-group-append
 					.input-group-text repetitions
@@ -48,6 +49,7 @@
 													max: validated_numeric_max(f.object, attr_name), \
 													min: validated_numeric_min(f.object, attr_name), \
 													required: validated_presence(f.object, attr_name), \
+													step: input_step(record, attr), \
 													class: "form-control"
 				.input-group-append
 					.input-group-text seconds

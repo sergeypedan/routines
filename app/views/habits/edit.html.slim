@@ -15,6 +15,7 @@
 												max: validated_numeric_max(f.object, attr_name), \
 												min: validated_numeric_min(f.object, attr_name), \
 												required: validated_presence(f.object, attr_name), \
+												step: input_step(record, attr), \
 												class: "form-control"
 
 		.form-group
@@ -25,6 +26,7 @@
 												max: validated_numeric_max(f.object, attr_name), \
 												min: validated_numeric_min(f.object, attr_name), \
 												required: validated_presence(f.object, attr_name), \
+												step: input_step(record, attr), \
 												class: "form-control"
 
 		.form-group
@@ -40,6 +42,7 @@
 													max: validated_numeric_max(f.object, attr_name), \
 													min: validated_numeric_min(f.object, attr_name), \
 													required: validated_presence(f.object, attr_name), \
+													step: input_step(record, attr), \
 													class: "form-control"
 				small.form-text.text-muted Leave 0 if habit is not time-based
 

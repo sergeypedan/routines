@@ -48,6 +48,7 @@
 													inputmode: input_mode(f.object, attr_name), \
 													min: validated_numeric_min(f.object, attr_name), \
 													max: validated_numeric_max(f.object, attr_name), \
+													step: input_step(record, attr), \
 													class: "form-control", data: { "#{st_ctr}-target" => :resistance }
 				.input-group-append
 					= button_tag fa_icon(:minus), type: :button, data: { action: "click->#{st_ctr}#decrease_resistance" }, class: "btn btn-outline-secondary"

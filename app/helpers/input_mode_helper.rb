@@ -21,4 +21,11 @@ module InputModeHelper
 		end
 	end
 
+	def input_step(record, attr)
+		case input_mode(record, attr)
+		when "numeric" then   1
+		when "decimal" then 0.1
+		end
+	end
+
 end
