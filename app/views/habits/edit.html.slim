@@ -8,12 +8,24 @@
 			= f.text_field :name, required: true, autofocus: f.object.new_record?, class: "form-control"
 
 		.form-group
-			= f.label        :position, nil, class: :required
-			= f.number_field :position, required: true, class: "form-control"
+			- attr_name = :position
+			= f.label        attr_name, nil, class: :required
+			= f.number_field attr_name, \
+												inputmode: input_mode(f.object, attr_name), \
+												max: validated_numeric_max(f.object, attr_name), \
+												min: validated_numeric_min(f.object, attr_name), \
+												required: validated_presence(f.object, attr_name), \
+												class: "form-control"
 
 		.form-group
-			= f.label        :rounds_per_day, nil, class: :required
-			= f.number_field :rounds_per_day, required: true, class: "form-control"
+			- attr_name = :rounds_per_day
+			= f.label        attr_name, nil, class: :required
+			= f.number_field attr_name, \
+												inputmode: input_mode(f.object, attr_name), \
+												max: validated_numeric_max(f.object, attr_name), \
+												min: validated_numeric_min(f.object, attr_name), \
+												required: validated_presence(f.object, attr_name), \
+												class: "form-control"
 
 		.form-group
 			= f.label             :excercise_id
@@ -21,8 +33,14 @@
 
 		.row
 			.col-auto.form-group
-				= f.label        :time_per_round, nil, class: :required
-				= f.number_field :time_per_round, required: true, min: 0, class: "form-control"
+				- attr_name = :time_per_round
+				= f.label        attr_name, nil, class: :required
+				= f.number_field attr_name, \
+													inputmode: input_mode(f.object, attr_name), \
+													max: validated_numeric_max(f.object, attr_name), \
+													min: validated_numeric_min(f.object, attr_name), \
+													required: validated_presence(f.object, attr_name), \
+													class: "form-control"
 				small.form-text.text-muted Leave 0 if habit is not time-based
 
 			.col-auto.form-group

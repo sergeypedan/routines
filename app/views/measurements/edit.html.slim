@@ -12,8 +12,15 @@
 			= tag.small link_to("Create a #{f.object.class.model_name.human.downcase}", new_health_marker_path, target: "_blank"), class: "form-text text-muted" if HealthMarker.count.zero?
 
 		.form-group
-			= f.label        :value, nil, class: :required
-			= f.number_field :value, required: true, step: 0.1, class: "form-control"
+			- attr_name = :value
+			= f.label        attr_name, nil, class: :required
+			= f.number_field attr_name, \
+											inputmode: input_mode(f.object, attr_name), \
+											max: validated_numeric_max(f.object, attr_name), \
+											min: validated_numeric_min(f.object, attr_name), \
+											required: validated_presence(f.object, attr_name), \
+											step: 0.1, \
+											class: "form-control"
 
 		.form-group
 			= f.label             :lab_id, nil, class: :required

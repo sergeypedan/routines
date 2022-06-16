@@ -16,8 +16,14 @@
 
 		.row.g-0
 			.form-group.col-auto
-				= f.label        :duration_value
-				= f.number_field :duration_value, class: "form-control"
+				- attr_name = :duration_value
+				= f.label        attr_name
+				= f.number_field attr_name, \
+													inputmode: input_mode(f.object, attr_name), \
+													max: validated_numeric_max(f.object, attr_name), \
+													min: validated_numeric_min(f.object, attr_name), \
+													required: validated_presence(f.object, attr_name), \
+													class: "form-control"
 
 			.form-group.col-auto
 				= f.label             :duration_unit, nil, class: :required

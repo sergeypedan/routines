@@ -8,14 +8,25 @@
 				= f.collection_select :habit_id, Habit.order(:position), :id, :name, { prompt: true }, required: true, class: "form-control"
 
 			.col-auto.form-group
-				= f.label :time, nil, class: :required
+				- attr_name = :time
+				= f.label attr_name, nil, class: :required
 				- if f.object.habit
 					.input-group
-						= f.number_field :time, class: "form-control"
+						= f.number_field attr_name, \
+														inputmode: input_mode(f.object, attr_name), \
+														max: validated_numeric_max(f.object, attr_name), \
+														min: validated_numeric_min(f.object, attr_name), \
+														required: validated_presence(f.object, attr_name), \
+														class: "form-control"
 						.input-group-append
 							.input-group-text = f.object.habit.time_unit
 				- else
-					= f.number_field :time, min: 0, class: "form-control"
+					= f.number_field attr_name, \
+													inputmode: input_mode(f.object, attr_name), \
+													max: validated_numeric_max(f.object, attr_name), \
+													min: validated_numeric_min(f.object, attr_name), \
+													required: validated_presence(f.object, attr_name), \
+													class: "form-control"
 
 			/ .col-auto.form-group
 			/ 	= f.label                    :time_unit, nil, class: :required

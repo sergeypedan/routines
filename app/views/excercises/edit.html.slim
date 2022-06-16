@@ -27,23 +27,42 @@
 			= f.label     :repetition_based?, class: "form-check-label"
 
 		.form-group id="reps-controls"
+			- attr_name = :default_repetitions_count
 			= f.label :default_repetitions_count, nil
 			.input-group
-				= f.number_field :default_repetitions_count, min: 1, class: "form-control"
+				= f.number_field attr_name, \
+													inputmode: input_mode(f.object, attr_name), \
+													max: validated_numeric_max(f.object, attr_name), \
+													min: validated_numeric_min(f.object, attr_name), \
+													required: validated_presence(f.object, attr_name), \
+													class: "form-control"
 				.input-group-append
 					.input-group-text repetitions
 
 		.form-group id="time-controls" hidden="hidden"
+			- attr_name = :default_time
 			= f.label :default_time, nil
 			.input-group
-				= f.number_field :default_time, class: "form-control"
+				= f.number_field attr_name, \
+													inputmode: input_mode(f.object, attr_name), \
+													max: validated_numeric_max(f.object, attr_name), \
+													min: validated_numeric_min(f.object, attr_name), \
+													required: validated_presence(f.object, attr_name), \
+													class: "form-control"
 				.input-group-append
 					.input-group-text seconds
 
 		.form-group
+			- attr_name = :default_weight
 			= f.label :default_weight, nil, class: :required
 			.input-group
-				= f.number_field :default_weight, required: true, min: 0, step: 0.5, class: "form-control"
+				= f.number_field attr_name, \
+													inputmode: input_mode(f.object, attr_name), \
+													max: validated_numeric_max(f.object, attr_name), \
+													min: validated_numeric_min(f.object, attr_name), \
+													required: validated_presence(f.object, attr_name), \
+													step: 0.5, \
+													class: "form-control"
 				.input-group-append
 					.input-group-text Kg
 

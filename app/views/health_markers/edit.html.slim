@@ -43,12 +43,26 @@
 			legend Healthy value
 			.row
 				.form-group.col-auto
-					= f.label        :healthy_value_min, nil, class: :required
-					= f.number_field :healthy_value_min, step: 0.001, required: true, class: "form-control"
+					- attr_name = :healthy_value_min
+					= f.label        attr_name, nil, class: :required
+					= f.number_field attr_name, \
+														inputmode: input_mode(f.object, attr_name), \
+														max: validated_numeric_max(f.object, attr_name), \
+														min: validated_numeric_min(f.object, attr_name), \
+														required: validated_presence(f.object, attr_name), \
+														step: 0.001, \
+														class: "form-control"
 
 				.form-group.col-auto
-					= f.label        :healthy_value_max, nil, class: :required
-					= f.number_field :healthy_value_max, step: 0.001, required: true, class: "form-control"
+					- attr_name = :healthy_value_max
+					= f.label        attr_name, nil, class: :required
+					= f.number_field attr_name, \
+														inputmode: input_mode(f.object, attr_name), \
+														max: validated_numeric_max(f.object, attr_name), \
+														min: validated_numeric_min(f.object, attr_name), \
+														required: validated_presence(f.object, attr_name), \
+														step: 0.001, \
+														class: "form-control"
 
 			.form-group
 				= f.label :healthy_value_source_name

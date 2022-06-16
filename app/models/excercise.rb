@@ -20,7 +20,7 @@ class Excercise < ApplicationRecord
 
 	validates :angle_max, allow_nil: true, numericality: { only_integer: true }, angle: true
 	validates :default_repetitions_count, numericality: { only_integer: true, greater_than: 0 }
-	validates :default_time,   numericality: { greater_than_or_equal_to: 0 }
+	validates :default_time,   numericality: { greater_than_or_equal_to: 0, only_integer: true }
 	validates :default_weight, numericality: { greater_than_or_equal_to: 0 }
 	validates :name,    presence: true
 	validates :name_en, presence: true
