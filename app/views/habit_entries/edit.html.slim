@@ -17,7 +17,7 @@
 														max: validated_numeric_max(f.object, attr_name), \
 														min: validated_numeric_min(f.object, attr_name), \
 														required: validated_presence(f.object, attr_name), \
-														step: input_step(record, attr), \
+														step: input_step(f.object, attr_name), \
 														class: "form-control"
 						.input-group-append
 							.input-group-text = f.object.habit.time_unit
@@ -27,7 +27,7 @@
 													max: validated_numeric_max(f.object, attr_name), \
 													min: validated_numeric_min(f.object, attr_name), \
 													required: validated_presence(f.object, attr_name), \
-													step: input_step(record, attr), \
+													step: input_step(f.object, attr_name), \
 													class: "form-control"
 
 			/ .col-auto.form-group
