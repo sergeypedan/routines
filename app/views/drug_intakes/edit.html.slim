@@ -3,12 +3,22 @@
 	= form_with model: @intake, local: true do |f|
 
 		.form-group
-			= f.label             :drug_id, nil, class: :required
-			= f.collection_select :drug_id, Drug.for_select, :id, :name_with_brand, { prompt: true }, required: true, class: "form-control"
+			- attr_name = :drug_id
+			= f.label             attr_name, nil, (:required if validated_presence(f.object, attr_name))
+			= f.collection_select attr_name, Drug.for_select, :id, :name_with_brand, { prompt: true }, \
+														required: validated_presence(f.object, attr_name), \
+														class: "form-control"
 
 		.form-group
-			= f.label      :amount, nil, class: :required
-			= f.text_field :amount, required: true, class: "form-control"
+			- attr_name = :amount
+			= f.label      attr_name, nil, class: (:required if validated_presence(f.object, attr_name))
+			= f.text_field attr_name, \
+										inputmode: input_mode(f.object, attr_name), \
+										max: validated_numeric_max(f.object, attr_name), \
+										min: validated_numeric_min(f.object, attr_name), \
+										required: validated_presence(f.object, attr_name), \
+										step: input_step(record, attr), \
+										class: "form-control"
 			.form-text.text-muted = @intake.persisted? ? @intake.drug.form.public_send("unit_#{I18n.locale}") : "pc"
 
 		.form-group
