@@ -5,7 +5,7 @@ class WorkoutsController < DashboardsController
 	DAYS_PER_PAGE = { desktop: 3, mobile: 2 }
 
 	before_action :set_resource, only: [:destroy, :duplicate, :edit, :update, :yesterday]
-	before_action :load_muscles, only: [:new, :edit]
+	before_action :load_muscles, only: [:create, :new, :edit]
 
 
 	def index
@@ -49,6 +49,7 @@ class WorkoutsController < DashboardsController
 
 	def create
 		@workout = Workout.new(filtered_params)
+		@workout.resistance_duration = nil if @workout.resistance_duration.zero?
 		render :edit and return unless @workout.save
 		redirect_to workouts_path
 	end

@@ -11,12 +11,12 @@
 
 		.form-group
 			= f.label                     :excercise_id, class: "control-label required"
-			= f.grouped_collection_select :excercise_id, # attribute on form object \
-																			@muscles,    # collection for optgroups \
+			= f.grouped_collection_select :excercise_id,          # attribute on form object \
+																			@muscles,             # collection for optgroups \
 																			:targeted_excercises, # group_method \
-																			:name,         # group_label_method \
-																			:id,           # option_key_method \
-																			:name_with_flavor,         # option_value_method \
+																			:name,                # group_label_method \
+																			:id,                  # option_key_method \
+																			:name_with_flavor,    # option_value_method \
 																			{ prompt: true }, \
 																			{ required: true, autofocus: f.object.new_record?, class: "form-control" }
 
