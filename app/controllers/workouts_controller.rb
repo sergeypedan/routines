@@ -49,7 +49,7 @@ class WorkoutsController < DashboardsController
 
 	def create
 		@workout = Workout.new(filtered_params)
-		@workout.resistance_duration = nil if @workout.resistance_duration.zero?
+		@workout.resistance_duration = nil if @workout.resistance_duration.to_i.zero?
 		render :edit and return unless @workout.save
 		redirect_to workouts_path
 	end
