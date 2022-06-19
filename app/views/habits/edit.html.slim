@@ -4,30 +4,30 @@
 		= f.hidden_field :user_id
 
 		.form-group
-			= f.label      :name, nil, class: :required
+			= f.label      :name, nil, class: (:required if attrs[:required])
 			= f.text_field :name, required: true, autofocus: f.object.new_record?, class: "form-control"
 
 		.form-group
 			- attr_name = :position
-			= f.label        attr_name, nil, class: :required
-			= f.number_field attr_name, \
-												inputmode: input_mode(f.object, attr_name), \
-												max: validated_numeric_max(f.object, attr_name), \
-												min: validated_numeric_min(f.object, attr_name), \
-												required: validated_presence(f.object, attr_name), \
-												step: input_step(f.object, attr_name), \
-												class: "form-control"
+			- attrs = resolved_input_attributes(f.object, attr_name)
+			= f.label        attr_name, nil, class: (:required if attrs[:required])
+			= f.number_field attr_name, class: "form-control", \
+													inputmode: attrs[:inputmode], \
+													min:       attrs[:min], \
+													max:       attrs[:max], \
+													required:  attrs[:required], \
+													step:      attrs[:step]
 
 		.form-group
 			- attr_name = :rounds_per_day
-			= f.label        attr_name, nil, class: :required
-			= f.number_field attr_name, \
-												inputmode: input_mode(f.object, attr_name), \
-												max: validated_numeric_max(f.object, attr_name), \
-												min: validated_numeric_min(f.object, attr_name), \
-												required: validated_presence(f.object, attr_name), \
-												step: input_step(f.object, attr_name), \
-												class: "form-control"
+			- attrs = resolved_input_attributes(f.object, attr_name)
+			= f.label        attr_name, nil, class: (:required if attrs[:required])
+			= f.number_field attr_name, class: "form-control", \
+													inputmode: attrs[:inputmode], \
+													min:       attrs[:min], \
+													max:       attrs[:max], \
+													required:  attrs[:required], \
+													step:      attrs[:step]
 
 		.form-group
 			= f.label             :excercise_id
@@ -36,18 +36,18 @@
 		.row
 			.col-auto.form-group
 				- attr_name = :time_per_round
-				= f.label        attr_name, nil, class: :required
-				= f.number_field attr_name, \
-													inputmode: input_mode(f.object, attr_name), \
-													max: validated_numeric_max(f.object, attr_name), \
-													min: validated_numeric_min(f.object, attr_name), \
-													required: validated_presence(f.object, attr_name), \
-													step: input_step(f.object, attr_name), \
-													class: "form-control"
+				- attrs = resolved_input_attributes(f.object, attr_name)
+				= f.label        attr_name, nil, class: (:required if attrs[:required])
+				= f.number_field attr_name, class: "form-control", \
+													inputmode: attrs[:inputmode], \
+													min:       attrs[:min], \
+													max:       attrs[:max], \
+													required:  attrs[:required], \
+													step:      attrs[:step]
 				small.form-text.text-muted Leave 0 if habit is not time-based
 
 			.col-auto.form-group
-				= f.label  :time_unit, nil, class: :required
+				= f.label  :time_unit, nil, class: (:required if attrs[:required])
 				= f.collection_radio_buttons :time_unit, Habit.time_units_for_radios, :first, :last, {}, { required: true } do |b|
 					.form-check
 						= b.radio_button class: "form-check-input"

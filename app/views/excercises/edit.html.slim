@@ -28,43 +28,43 @@
 
 		.form-group id="reps-controls"
 			- attr_name = :default_repetitions_count
-			= f.label :default_repetitions_count, nil
+			- attrs = resolved_input_attributes(f.object, attr_name)
+			= f.label attr_name, nil, class: (:required if attrs[:required])
 			.input-group
-				= f.number_field attr_name, \
-													inputmode: input_mode(f.object, attr_name), \
-													max: validated_numeric_max(f.object, attr_name), \
-													min: validated_numeric_min(f.object, attr_name), \
-													required: validated_presence(f.object, attr_name), \
-													step: input_step(f.object, attr_name), \
-													class: "form-control"
+				= f.number_field attr_name, class: "form-control", \
+													inputmode: attrs[:inputmode], \
+													min:       attrs[:min], \
+													max:       attrs[:max], \
+													required:  attrs[:required], \
+													step:      attrs[:step]
 				.input-group-append
 					.input-group-text repetitions
 
 		.form-group id="time-controls" hidden="hidden"
 			- attr_name = :default_time
-			= f.label :default_time, nil
+			- attrs = resolved_input_attributes(f.object, attr_name)
+			= f.label attr_name, nil, class: (:required if attrs[:required])
 			.input-group
-				= f.number_field attr_name, \
-													inputmode: input_mode(f.object, attr_name), \
-													max: validated_numeric_max(f.object, attr_name), \
-													min: validated_numeric_min(f.object, attr_name), \
-													required: validated_presence(f.object, attr_name), \
-													step: input_step(f.object, attr_name), \
-													class: "form-control"
+				= f.number_field attr_name, class: "form-control", \
+													inputmode: attrs[:inputmode], \
+													min:       attrs[:min], \
+													max:       attrs[:max], \
+													required:  attrs[:required], \
+													step:      attrs[:step]
 				.input-group-append
 					.input-group-text seconds
 
 		.form-group
 			- attr_name = :default_weight
-			= f.label :default_weight, nil, class: :required
+			- attrs = resolved_input_attributes(f.object, attr_name)
+			= f.label attr_name, nil, class: (:required if attrs[:required])
 			.input-group
-				= f.number_field attr_name, \
-													inputmode: input_mode(f.object, attr_name), \
-													max: validated_numeric_max(f.object, attr_name), \
-													min: validated_numeric_min(f.object, attr_name), \
-													required: validated_presence(f.object, attr_name), \
-													step: 0.5, \
-													class: "form-control"
+				= f.number_field attr_name, class: "form-control", \
+													inputmode: attrs[:inputmode], \
+													min:       attrs[:min], \
+													max:       attrs[:max], \
+													required:  attrs[:required], \
+													step: 0.5
 				.input-group-append
 					.input-group-text Kg
 

@@ -44,25 +44,25 @@
 			.row
 				.form-group.col-auto
 					- attr_name = :healthy_value_min
+					- attrs = resolved_input_attributes(f.object, attr_name)
 					= f.label        attr_name, nil, class: :required
-					= f.number_field attr_name, \
-														inputmode: input_mode(f.object, attr_name), \
-														max: validated_numeric_max(f.object, attr_name), \
-														min: validated_numeric_min(f.object, attr_name), \
-														required: validated_presence(f.object, attr_name), \
-														step: 0.001, \
-														class: "form-control"
+					= f.number_field attr_name, class: "form-control", \
+														inputmode: attrs[:inputmode], \
+														min:       attrs[:min], \
+														max:       attrs[:max], \
+														required:  attrs[:required], \
+														step: 0.001
 
 				.form-group.col-auto
 					- attr_name = :healthy_value_max
+					- attrs = resolved_input_attributes(f.object, attr_name)
 					= f.label        attr_name, nil, class: :required
-					= f.number_field attr_name, \
-														inputmode: input_mode(f.object, attr_name), \
-														max: validated_numeric_max(f.object, attr_name), \
-														min: validated_numeric_min(f.object, attr_name), \
-														required: validated_presence(f.object, attr_name), \
-														step: 0.001, \
-														class: "form-control"
+					= f.number_field attr_name, class: "form-control", \
+														inputmode: attrs[:inputmode], \
+														min:       attrs[:min], \
+														max:       attrs[:max], \
+														required:  attrs[:required], \
+														step: 0.001
 
 			.form-group
 				= f.label :healthy_value_source_name

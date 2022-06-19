@@ -13,14 +13,14 @@
 
 		.form-group
 			- attr_name = :value
+			- attrs = resolved_input_attributes(f.object, attr_name)
 			= f.label        attr_name, nil, class: :required
-			= f.number_field attr_name, \
-											inputmode: input_mode(f.object, attr_name), \
-											max: validated_numeric_max(f.object, attr_name), \
-											min: validated_numeric_min(f.object, attr_name), \
-											required: validated_presence(f.object, attr_name), \
-											step: 0.1, \
-											class: "form-control"
+			= f.number_field attr_name, class: "form-control", \
+											inputmode: attrs[:inputmode], \
+											min:       attrs[:min], \
+											max:       attrs[:max], \
+											required:  attrs[:required], \
+											step: 0.1
 
 		.form-group
 			= f.label             :lab_id, nil, class: :required

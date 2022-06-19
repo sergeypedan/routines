@@ -9,26 +9,25 @@
 
 			.col-auto.form-group
 				- attr_name = :time
-				= f.label attr_name, nil, class: :required
+				- attrs = resolved_input_attributes(f.object, attr_name)
+				= f.label attr_name, nil, class: (:required if attrs[:required])
 				- if f.object.habit
 					.input-group
-						= f.number_field attr_name, \
-														inputmode: input_mode(f.object, attr_name), \
-														max: validated_numeric_max(f.object, attr_name), \
-														min: validated_numeric_min(f.object, attr_name), \
-														required: validated_presence(f.object, attr_name), \
-														step: input_step(f.object, attr_name), \
-														class: "form-control"
+						= f.number_field attr_name, class: "form-control", \
+													inputmode: attrs[:inputmode], \
+													min:       attrs[:min], \
+													max:       attrs[:max], \
+													required:  attrs[:required], \
+													step:      attrs[:step]
 						.input-group-append
 							.input-group-text = f.object.habit.time_unit
 				- else
-					= f.number_field attr_name, \
-													inputmode: input_mode(f.object, attr_name), \
-													max: validated_numeric_max(f.object, attr_name), \
-													min: validated_numeric_min(f.object, attr_name), \
-													required: validated_presence(f.object, attr_name), \
-													step: input_step(f.object, attr_name), \
-													class: "form-control"
+					= f.number_field attr_name, class: "form-control", \
+													inputmode: attrs[:inputmode], \
+													min:       attrs[:min], \
+													max:       attrs[:max], \
+													required:  attrs[:required], \
+													step:      attrs[:step]
 
 			/ .col-auto.form-group
 			/ 	= f.label                    :time_unit, nil, class: :required
