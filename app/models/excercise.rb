@@ -27,12 +27,12 @@ class Excercise < ApplicationRecord
 	validates :workouts_count, counter: true
 
 	validate do
-		if (default_repetitions_count > 1) && default_time.positive?
+		if (default_repetitions_count > 1) && default_time.to_i.positive?
 			errors.add :default_repetitions_count, "cannot be > 1 if default_time is > 0"
 			errors.add :default_time,              "cannot be > 0 if default_repetitions_count is > 1"
 		end
 
-		if (default_repetitions_count == 1) && default_time.zero?
+		if (default_repetitions_count == 1) && default_time.to_i.zero?
 			errors.add :default_repetitions_count, "cannot be 1 if default_time is 0"
 			errors.add :default_time,              "cannot be 0 if default_repetitions_count is 1"
 		end
