@@ -2,41 +2,36 @@
 
 
 // Rails UJS
-import Rails from 'rails-ujs'
+import Rails from "@rails/ujs"
 Rails.start()
 
 
 // Bootstrap
 
-import "bootstrap/dist/js/bootstrap.js"
-import "bootstrap/js/dist/util.js"
-import "bootstrap/js/dist/alert.js"
-import "bootstrap/js/dist/button.js"
-import "bootstrap/js/dist/collapse.js"
+import "bootstrap"
+// import "bootstrap/dist/js/bootstrap.js"
+// import "bootstrap/js/dist/util.js"
+// import "bootstrap/js/dist/alert.js"
+// import "bootstrap/js/dist/button.js"
+// import "bootstrap/js/dist/collapse.js"
 
 
 // App modules
 
-import "modules/reps-based-toggle"
-import "modules/ajax-buttons-1"
-import "modules/ajax-form-helper"
-// import "modules/sortable-init"
-import "modules/habit-stats"
-import "modules/sortable-init"
-import "modules/workouts-excercise"
-import "modules/workouts-load"
-import "modules/workouts-edit"
+import "../modules/reps-based-toggle"
+import "../modules/ajax-buttons-1"
+import "../modules/ajax-form-helper"
+// import "../modules/sortable-init"
+// import "../modules/habit-stats"
+import "../modules/sortable-init"
+import "../modules/workouts-excercise"
+import "../modules/workouts-load"
+import "../modules/workouts-edit"
 
 
 // Stimulus
 
-import { Application } from "stimulus"
-import { definitionsFromContext } from "stimulus/webpack-helpers"
-
-const application = Application.start()
-const context = require.context("../controllers", true, /\.js$/)
-application.load(definitionsFromContext(context))
-
+import '../controllers/index.js'
 
 
 

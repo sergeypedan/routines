@@ -32,7 +32,7 @@
 													min:       attrs[:min], \
 													max:       attrs[:max], \
 													required:  attrs[:required], \
-													step:      attrs[:step]
+													step:      1
 				.input-group-append
 					= button_tag fa_icon(:minus), type: :button, data: { action: "click->#{st_ctr}#decrease_repetitions" }, class: "btn btn-outline-secondary"
 					= button_tag fa_icon(:plus),  type: :button, data: { action: "click->#{st_ctr}#increase_repetitions" }, class: "btn btn-outline-secondary"
@@ -49,13 +49,13 @@
 													min:       attrs[:min], \
 													max:       attrs[:max], \
 													required:  attrs[:required], \
-													step:      attrs[:step]
+													step:      0.25
 				.input-group-append
 					= button_tag fa_icon(:minus), type: :button, data: { action: "click->#{st_ctr}#decrease_resistance" }, class: "btn btn-outline-secondary"
 					= button_tag fa_icon(:plus),  type: :button, data: { action: "click->#{st_ctr}#increase_resistance" }, class: "btn btn-outline-secondary"
 
 		.form-group data="about-repetitions" data-controller=st_ctr
-			- attr_name = :resistance_duration
+			- attr_name = :weight
 			- attrs = resolved_input_attributes(f.object, attr_name)
 			= f.label attr_name, nil, class: "control-label"
 			.input-group

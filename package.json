@@ -1,28 +1,30 @@
 {
   "author": "Sergey Pedan",
   "dependencies": {
-    "@rails/webpacker": "https://github.com/rails/webpacker.git",
-    "bootstrap": "^4.3.1",
-    "coffee-loader": "^0.9.0",
-    "coffeescript": "2.4.1",
-    "core-js": "3",
-    "d3": "^5.9.2",
-    "jquery": "^3.4.1",
-    "jquery-ui": "^1.13.0",
-    "popper.js": "^1.15.0",
-    "rails-ujs": "^5.2.3",
-    "selectize": "^0.12.6",
-    "smooth-scroll": "^16.1.0",
-    "stimulus": "^1.1.1",
-    "webpack-cli": "^4.2.0"
+    "@hotwired/stimulus": "~> 3",
+    "@hotwired/turbo-rails": "~> 7",
+    "@popperjs/core": "~> 2",
+    "@rails/ujs": "~> 6",
+    "@rails/webpacker": "~> 5",
+    "bootstrap": "~> 5",
+    "core-js": "~> 3",
+    "css-loader": "~> 4",
+    "jquery": "~> 3",
+    "jquery-ui": "~> 1",
+    "jquery-serializejson": "~> 3",
+    "mini-css-extract-plugin": "~> 2",
+    "sass": "~> 1",
+    "webpack": "^4.46.0",
+    "webpack-cli": "^3.3.12"
   },
   "devDependencies": {
+    "@webpack-cli/serve": "~> 1",
     "nodep-date-input-polyfill": "^5.2.0",
-    "webpack-dev-server": "^3.7.2"
+    "webpack-dev-server": "~> 3"
   },
   "engines": {
-    "node": "14.x",
-    "yarn": ">= 1.17.3"
+    "node": "16.x",
+    "yarn": ">= 1.22"
   },
   "license": "UNLICENSED",
   "main": "webpack.config.js",
