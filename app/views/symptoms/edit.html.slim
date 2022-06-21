@@ -2,20 +2,20 @@
 
 	= form_with model: @symptom, local: true do |f|
 
-		.form-group
+		.mb-3
 			= f.label      :title, nil, class: :required
 			= f.text_field :title, required: true, class: "form-control"
 
-		.form-group
+		.mb-3
 			= f.label     :description
 			= f.text_area :description, class: "form-control"
 
-		.form-group
+		.mb-3
 			= f.label                :created_at, nil, class: :required
 			= f.datetime_local_field :created_at, required: :true, class: "form-control"
 
 		.row.g-0
-			.form-group.col-auto
+			.mb-3.col-auto
 				- attr_name = :duration_value
 				- attrs = resolved_input_attributes(f.object, attr_name)
 				= f.label        attr_name
@@ -26,7 +26,7 @@
 													required:  attrs[:required], \
 													step:      attrs[:step]
 
-			.form-group.col-auto
+			.mb-3.col-auto
 				= f.label             :duration_unit, nil, class: :required
 				= f.collection_select :duration_unit, Symptom::DURATION_UNITS, :to_s, :to_s, { prompt: true }, required: true, class: "form-control"
 

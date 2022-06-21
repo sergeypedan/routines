@@ -5,44 +5,44 @@
 		fieldset
 			legend Name
 			.row
-				.form-group.col-auto
+				.mb-3.col-auto
 					= f.label      :name_en, nil, class: :required
 					= f.text_field :name_en, required: true, class: "form-control"
 
-				.form-group.col-auto
+				.mb-3.col-auto
 					= f.label      :abbr_en
 					= f.text_field :abbr_en, class: "form-control"
 
 			.row
-				.form-group.col-auto
+				.mb-3.col-auto
 					= f.label      :name_ru, nil, class: :required
 					= f.text_field :name_ru, required: true, class: "form-control"
 
-				.form-group.col-auto
+				.mb-3.col-auto
 					= f.label      :abbr_ru
 					= f.text_field :abbr_ru, class: "form-control"
 
 		fieldset
 			legend Groupping
-			.form-group
+			.mb-3
 				= f.label             :measurement_object_id, nil, class: :required
 				= f.collection_select :measurement_object_id, MeasurementObject.all, :id, :name_en, { prompt: true }, { required: true, class: "form-control" }
 
-			.form-group
+			.mb-3
 				= f.label             :measurements_group_id, nil
 				= f.collection_select :measurements_group_id, MeasurementsGroup.all, :id, :name_en, { include_blank: true }, { class: "form-control" }
 
 		fieldset
 			legend Units of measurement
 			.row
-				.form-group.col-auto
+				.mb-3.col-auto
 					= f.label      :unit, nil, class: :required
 					= f.text_field :unit, required: true, class: "form-control"
 
 		fieldset
 			legend Healthy value
 			.row
-				.form-group.col-auto
+				.mb-3.col-auto
 					- attr_name = :healthy_value_min
 					- attrs = resolved_input_attributes(f.object, attr_name)
 					= f.label        attr_name, nil, class: :required
@@ -53,7 +53,7 @@
 														required:  attrs[:required], \
 														step: 0.001
 
-				.form-group.col-auto
+				.mb-3.col-auto
 					- attr_name = :healthy_value_max
 					- attrs = resolved_input_attributes(f.object, attr_name)
 					= f.label        attr_name, nil, class: :required
@@ -64,11 +64,11 @@
 														required:  attrs[:required], \
 														step: 0.001
 
-			.form-group
+			.mb-3
 				= f.label :healthy_value_source_name
 				= f.text_field :healthy_value_source_name, class: "form-control"
 
-			.form-group
+			.mb-3
 				= f.label :healthy_value_source_url
 				= f.url_field :healthy_value_source_url, class: "form-control"
 

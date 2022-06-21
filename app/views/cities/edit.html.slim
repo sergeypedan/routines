@@ -1,11 +1,11 @@
 .container.section-padding
 	= form_for @city do |f|
 
-		.form-group
+		.mb-3
 			= f.label      :name_en, nil, class: :required
 			= f.text_field :name_en, required: true, class: "form-control"
 
-		.form-group
+		.mb-3
 			= f.label      :name_ru, nil, class: :required
 			= f.text_field :name_ru, required: true, class: "form-control"
 

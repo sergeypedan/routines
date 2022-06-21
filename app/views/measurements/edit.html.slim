@@ -2,16 +2,16 @@
 
 	= form_for @measurement do |f|
 
-		.form-group
+		.mb-3
 			= f.label                :created_at, nil, class: :required
 			= f.datetime_local_field :created_at, required: :true, class: "form-control", placeholder: "2015-05-28"
 
-		.form-group
+		.mb-3
 			= f.label             :marker_id, nil, class: :required
 			= f.collection_select :marker_id, HealthMarker.all, :id, :name_en, { prompt: true }, required: true, class: "form-control"
 			= tag.small link_to("Create a #{f.object.class.model_name.human.downcase}", new_health_marker_path, target: "_blank"), class: "form-text text-muted" if HealthMarker.count.zero?
 
-		.form-group
+		.mb-3
 			- attr_name = :value
 			- attrs = resolved_input_attributes(f.object, attr_name)
 			= f.label        attr_name, nil, class: :required
@@ -22,7 +22,7 @@
 											required:  attrs[:required], \
 											step: 0.1
 
-		.form-group
+		.mb-3
 			= f.label             :lab_id, nil, class: :required
 			= f.collection_select :lab_id, Lab.all, :id, :name, { prompt: true }, required: true, class: "form-control"
 

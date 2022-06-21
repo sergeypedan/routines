@@ -2,19 +2,19 @@
 
 	= form_with model: @drug, local: true do |f|
 
-		.form-group
+		.mb-3
 			= f.label      :name, nil, class: :required
 			= f.text_field :name, required: true, placeholder: "Aspirin", class: "form-control"
 
-		.form-group
+		.mb-3
 			= f.label             :substance_id, nil, class: :required
 			= f.collection_select :substance_id, Substance.all, :id, :name, { prompt: true }, required: true, class: "form-control"
 
-		.form-group
+		.mb-3
 			= f.label             :drug_form_id, nil, class: :required
 			= f.collection_select :drug_form_id, DrugForm.all, :id, :name_en, { prompt: true }, required: true, class: "form-control"
 
-		.form-group
+		.mb-3
 			= f.label             :brand_id
 			= f.collection_select :brand_id, Brand.all, :id, :name, { include_blank: true }, class: "form-control"
 

@@ -2,14 +2,14 @@
 
 	= form_with model: @intake, local: true do |f|
 
-		.form-group
+		.mb-3
 			- attr_name = :drug_id
 			= f.label             attr_name, nil, class: (:required if validated_presence(f.object, attr_name))
 			= f.collection_select attr_name, Drug.for_select, :id, :name_with_brand, { prompt: true }, \
 														required: validated_presence(f.object, attr_name), \
 														class: "form-control"
 
-		.form-group
+		.mb-3
 			- attr_name = :amount
 			- attrs = resolved_input_attributes(f.object, attr_name)
 			= f.label        attr_name, nil, class: (:required if attrs[:required])
@@ -21,7 +21,7 @@
 													step:      attrs[:step]
 			.form-text.text-muted = @intake.persisted? ? @intake.drug.form.public_send("unit_#{I18n.locale}") : "pc"
 
-		.form-group
+		.mb-3
 			= f.label                :created_at, nil, class: :required
 			= f.datetime_local_field :created_at, required: true, class: "form-control", autofocus: f.object.persisted?
 

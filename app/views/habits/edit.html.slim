@@ -3,11 +3,11 @@
 
 		= f.hidden_field :user_id
 
-		.form-group
+		.mb-3
 			= f.label      :name, nil, class: (:required if attrs[:required])
 			= f.text_field :name, required: true, autofocus: f.object.new_record?, class: "form-control"
 
-		.form-group
+		.mb-3
 			- attr_name = :position
 			- attrs = resolved_input_attributes(f.object, attr_name)
 			= f.label        attr_name, nil, class: (:required if attrs[:required])
@@ -18,7 +18,7 @@
 													required:  attrs[:required], \
 													step:      attrs[:step]
 
-		.form-group
+		.mb-3
 			- attr_name = :rounds_per_day
 			- attrs = resolved_input_attributes(f.object, attr_name)
 			= f.label        attr_name, nil, class: (:required if attrs[:required])
@@ -29,12 +29,12 @@
 													required:  attrs[:required], \
 													step:      attrs[:step]
 
-		.form-group
+		.mb-3
 			= f.label             :excercise_id
 			= f.collection_select :excercise_id, Excercise.all, :id, :name, { include_blank: true }, class: "form-control"
 
 		.row
-			.col-auto.form-group
+			.col-auto.mb-3
 				- attr_name = :time_per_round
 				- attrs = resolved_input_attributes(f.object, attr_name)
 				= f.label        attr_name, nil, class: (:required if attrs[:required])
@@ -46,7 +46,7 @@
 													step:      attrs[:step]
 				small.form-text.text-muted Leave 0 if habit is not time-based
 
-			.col-auto.form-group
+			.col-auto.mb-3
 				= f.label  :time_unit, nil, class: (:required if attrs[:required])
 				= f.collection_radio_buttons :time_unit, Habit.time_units_for_radios, :first, :last, {}, { required: true } do |b|
 					.form-check

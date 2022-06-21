@@ -1,11 +1,11 @@
 .container-fluid.section-padding
 	= form_with model: @mood, local: true do |f|
 
-		.form-group
+		.mb-3
 			= f.label      :name_en, nil, class: :required
 			= f.text_field :name_en, required: true, autofocus: f.object.new_record?, class: "form-control"
 
-		.form-group
+		.mb-3
 			= f.label      :name_ru, nil, class: :required
 			= f.text_field :name_ru, required: true, class: "form-control"
 

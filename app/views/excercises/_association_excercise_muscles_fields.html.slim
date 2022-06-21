@@ -1,5 +1,5 @@
 .row
-	.col-sm-4.form-group
+	.col-sm-4.mb-3
 		.row style="margin-bottom: 0"
 			= f.label             "id", "Muscle", class: "required col-form-label col-sm-4"
 			= f.collection_select "id", Muscle.all, :id, :name, { prompt: true }, class: "form-control col-sm-8"

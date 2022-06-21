@@ -1,16 +1,16 @@
 .container.section-padding
 	= form_for @lab do |f|
 
-		.form-group
+		.mb-3
 			= f.label      :name, nil, class: :required
 			= f.text_field :name, required: :true, class: "form-control"
 
-		.form-group
+		.mb-3
 			= f.label             :city_id, nil, class: :required
 			= f.collection_select :city_id, City.all, :id, :name_en, { prompt: true }, { required: :true, class: "form-control" }
 			= tag.small link_to("Create a #{f.object.class.model_name.human.downcase}", new_city_path, target: "_blank"), class: "form-text text-muted" if City.count.zero?
 
-		.form-group
+		.mb-3
 			= f.label      :street_address, nil, class: :required
 			= f.text_field :street_address, required: :true, class: "form-control"
 

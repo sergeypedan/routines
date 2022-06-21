@@ -4,7 +4,7 @@
 	- if Mood.any?
 		= form_for @mood_entry do |f|
 			.row
-				.form-group.col-md-4.col-lg-3
+				.mb-3.col-md-4.col-lg-3
 					= f.label :mood
 					= f.collection_radio_buttons :mood_id, Mood.all, :id, "name_#{I18n.locale}", {}, { required: true } do |b|
 						.form-check
@@ -12,11 +12,11 @@
 							= b.label class: "form-check-label"
 
 				.col-md-8.col-md-7
-					.form-group
+					.mb-3
 						= f.label     :why
 						= f.text_area :why, rows: 3, class: "form-control"
 
-					.form-group
+					.mb-3
 						= f.label     :comment
 						= f.text_area :comment, rows: 3, class: "form-control"
 

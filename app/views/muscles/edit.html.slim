@@ -2,12 +2,12 @@
 
 	= form_with model: @muscle, local: true do |f|
 
-		.form-group
-			= f.label      :name, nil, class: "control-label"
+		.mb-3
+			= f.label      :name, nil, class: "form-label"
 			= f.text_field :name, required: true, class: "form-control"
 
-		.form-group
-			= f.label      :name_en, nil, class: "control-label"
+		.mb-3
+			= f.label      :name_en, nil, class: "form-label"
 			= f.text_field :name_en, required: true, class: "form-control"
 
 		= render "application/form_errors", record: f.object

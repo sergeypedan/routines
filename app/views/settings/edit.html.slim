@@ -2,14 +2,14 @@
 	/ = form_with model: @setting, local: true do |f|
 	= form_for @setting, url: "/settings/#{@setting.id}", local: true, html: { id: nil, class: nil } do |f|
 
-		.form-group
+		.mb-3
 			= f.label                    :language, nil, class: :required
 			= f.collection_radio_buttons :language, Setting::LANGUAGES, :first, :last, {}, { required: true } do |b|
 				.form-check
 					= b.radio_button class: "form-check-input"
 					= b.label class: "form-check-label"
 
-		.form-group
+		.mb-3
 			= f.label            :time_zone, nil, class: :required
 			= f.time_zone_select :time_zone, nil, { default: "Moscow" }, { required: true, class: "form-control", style: "max-width: 300px" }
 
