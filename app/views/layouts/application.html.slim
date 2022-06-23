@@ -13,8 +13,9 @@ html lang=I18n.locale
 		= render "application/favicon"
 
 	= tag.body class: ["#{controller_name}-#{action_name}", "has-sticky-footer"]
-		= render "application/super_navbar"
-		= render "application/navbar"
+		.fixed-bottom
+			= render "application/navbar"
+			= render "application/super_navbar"
 		= render "application/flash"
 		main.expands-to-push-footer-down == yield
 		hr
