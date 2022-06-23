@@ -1,10 +1,10 @@
 - if @areas&.any?
-	nav class="navbar navbar-expand-lg navbar-dark"
+	nav class="container-fluid navbar navbar-expand-lg navbar-dark"
 		= link_to fa_icon("home"), day_habits_path, class: "navbar-brand"
 
 		== yield :navbar_after_logo
 
-		button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"
+		button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"
 			span class="navbar-toggler-icon"
 
 		div class="collapse navbar-collapse" id="navbarNav"
