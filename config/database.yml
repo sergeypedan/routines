@@ -9,12 +9,13 @@ default: &default
 
 development:
   <<: *default
-  database: routines_dev
-  # host: localhost # Heroku
-  host:     "/tmp/"              # works
-  # socket: "/tmp/.s.PGSQL.5432" # does not work
-  # socket: "/tmp/"              # does not work
+  # database: routines_dev
+  database: routines_prod
 
 test:
   <<: *default
   database: routines_test
+
+production:
+  <<: *default
+  database: routines_prod
