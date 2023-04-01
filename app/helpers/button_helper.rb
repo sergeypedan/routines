@@ -10,8 +10,14 @@ module ButtonHelper
 						class: "btn btn-primary"
 	end
 
+	def new_button_label(klass)
+		{
+			Workout => "Log a #{klass.model_name.singular}"
+		}.fetch(klass, t("helpers.submit.create", model: klass.model_name.human.downcase))
+	end
+
 	def add_record_button_navbar(klass)
-		link_to fa_icon("plus-circle", text: t("helpers.submit.create", model: klass.model_name.human.downcase)),
+		link_to fa_icon("plus-circle", text: new_button_label(klass)),
 						[:new, klass.to_s.tableize.singularize.to_sym],
 						class: "btn-navbar-create",
 						aria: { label: t("helpers.submit.create", model: klass.model_name.human.downcase) }
