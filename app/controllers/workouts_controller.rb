@@ -28,7 +28,7 @@ class WorkoutsController < DashboardsController
 		days_per_page      = DAYS_PER_PAGE.fetch(layout_variant)
 		current_page_index = current_page - 1
 		dates_scoping      = current_page_index..(current_page_index + days_per_page - 1)
-		page_dates         = Workout.distinct.order(date: :desc).pluck(:date)[dates_scoping]
+		page_dates         = Array(Workout.distinct.order(date: :desc).pluck(:date)[dates_scoping])
 		@next_page         = (current_page + days_per_page) if page_dates.any?
 		@workouts          = Workout.where(date: page_dates).includes(excercise: [:main_muscle, :muscles]).order({ date: :desc })
 	end
