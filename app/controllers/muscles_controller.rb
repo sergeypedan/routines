@@ -43,6 +43,12 @@ class MusclesController < DashboardsController
 	end
 
 
+	def destroy
+		find_muscle.destroy
+		redirect_to muscles_path, notice: "OK"
+	end
+
+
 	private
 
 
