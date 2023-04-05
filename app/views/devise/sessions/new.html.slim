@@ -10,15 +10,13 @@ section.devise-section
 				.mb-3.mb-3-lg
 					= f.label :email, t("authentication.email"), class: 'form-label required'
 					.input-group
-						.input-group-prepend
-							span.input-group-text = fa_icon "fw at"
+						span.input-group-text = fa_icon "fw at"
 						= f.email_field :email, required: true, placeholder: t("authentication.placeholders.email"), autofocus: true, autocomplete: "email", class: 'form-control'
 
 				.mb-3.mb-3-lg
 					= f.label :password, t("authentication.password"), class: 'form-label required'
 					.input-group
-						.input-group-prepend
-							span.input-group-text = fa_icon "fw key"
+						span.input-group-text = fa_icon "fw key"
 						= f.password_field :password, required: true, placeholder: t("authentication.placeholders.password"), autocomplete: "current-password", class: 'form-control'
 					- if devise_mapping.recoverable? && (controller_name != 'passwords')
 						small.form-text.text-muted = link_to t("authentication.forgot_password"), new_password_path(resource_name)

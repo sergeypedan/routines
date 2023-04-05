@@ -26,8 +26,8 @@ module ButtonHelper
 
 	# Save
 
-	def save_btn(f)
-		f.button fa_icon("cloud-upload", text: t("helpers.submit.save")), class: "btn btn-success"
+	def save_btn(f, size: "md")
+		f.button fa_icon("cloud-upload", text: t("helpers.submit.save")), class: ["btn", "btn-success", "btn-#{size}"]
 	end
 
 

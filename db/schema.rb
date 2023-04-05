@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_04_233640) do
+ActiveRecord::Schema.define(version: 2023_04_02_195523) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -161,6 +161,8 @@ ActiveRecord::Schema.define(version: 2022_04_04_233640) do
     t.boolean "simultaneously"
     t.integer "workouts_count", default: 0, null: false
     t.integer "angle_max"
+    t.string "movement_type"
+    t.string "movement_direction"
     t.index ["body_position_id"], name: "index_excercises_on_body_position_id"
     t.index ["furniture_id"], name: "index_excercises_on_furniture_id"
     t.index ["grip_id"], name: "index_excercises_on_grip_id"

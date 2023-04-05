@@ -19,8 +19,7 @@
 													max:       attrs[:max], \
 													required:  attrs[:required], \
 													step:      attrs[:step]
-						.input-group-append
-							.input-group-text = f.object.habit.time_unit
+						span.input-group-text = f.object.habit.time_unit
 				- else
 					= f.number_field attr_name, class: "form-control", \
 													inputmode: attrs[:inputmode], \

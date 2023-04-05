@@ -2,6 +2,25 @@
 
 class Excercise < ApplicationRecord
 
+	MOVEMENT_TYPES = [
+		"crunch torso",
+		"push",
+		"punch",
+		"kick",
+		"squat",
+		"pull",
+		"raise",
+	].freeze
+
+	MOVEMENT_DIRECTIONS = [
+		"afront 45°",
+		"afront",
+		"down",
+		"to the back",
+		"to the sides",
+		"up"
+	].freeze
+
 	# Associaitons
 
 	has_many   :association_excercise_muscles, dependent: :destroy
@@ -22,6 +41,7 @@ class Excercise < ApplicationRecord
 	validates :default_repetitions_count, numericality: { only_integer: true, greater_than: 0 }
 	validates :default_time,   numericality: { greater_than_or_equal_to: 0, only_integer: true }
 	validates :default_weight, numericality: { greater_than_or_equal_to: 0 }
+	validates :movement_type, length: { maximum: 255 }
 	validates :name,    presence: true
 	validates :name_en, presence: true
 	validates :workouts_count, counter: true
@@ -48,14 +68,16 @@ class Excercise < ApplicationRecord
 	def name_with_flavor(locale = :en)
 		[
 			l_name(locale),
+			movement_type,
 			weight_type&.public_send("name_#{locale}")&.downcase,
-			("upto #{angle_max}" if angle_max),
+			movement_direction,
+			("upto #{angle_max}°" if angle_max),
 			flavor(locale)&.downcase,
 			l_simultaneously(locale),
 			grip&.public_send("name_#{locale}")&.downcase,
 			body_position&.public_send("name_#{locale}")&.downcase,
 			furniture&.public_send("name_#{locale}")&.downcase,
-		].select(&:present?).join(", ")
+		].select(&:present?).join(" ")
 	end
 
 	def l_simultaneously(locale = :en)
@@ -81,7 +103,7 @@ class Excercise < ApplicationRecord
 end
 
 # == Schema Information
-# Schema version: 20211006144847
+# Schema version: 20230402195523
 #
 # Table name: excercises
 #
@@ -92,6 +114,8 @@ end
 #  default_weight            :float            default(0.0), not null
 #  flavor_en                 :string
 #  flavor_ru                 :string
+#  movement_direction        :string
+#  movement_type             :string
 #  name                      :string           not null
 #  name_en                   :string
 #  repetition_based          :boolean          default(TRUE)

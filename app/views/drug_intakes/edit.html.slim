@@ -4,9 +4,10 @@
 
 		.mb-3
 			- attr_name = :drug_id
-			= f.label             attr_name, nil, class: (:required if validated_presence(f.object, attr_name))
+			- attrs = resolved_input_attributes(f.object, attr_name)
+			= f.label             attr_name, nil, class: (:required if attrs[:required])
 			= f.collection_select attr_name, Drug.for_select, :id, :name_with_brand, { prompt: true }, \
-														required: validated_presence(f.object, attr_name), \
+														required: attrs[:required], \
 														class: "form-control"
 
 		.mb-3

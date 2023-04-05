@@ -16,8 +16,7 @@ section.devise-section
 				.mb-3
 					= f.label :email, nil, class: "form-label required"
 					.input-group
-						.input-group-prepend
-							.input-group-text = fa_icon "fw at"
+						span.input-group-text = fa_icon "fw at"
 						= f.email_field :email, autofocus: false, placeholder: t("authentication.placeholders.email"), autocomplete: "email", required: true, class: "form-control form-control-lg"
 					small.form-text.text-muted Мы пришлём вам письмо с просьбой подтвердить этот адрес
 
@@ -25,8 +24,7 @@ section.devise-section
 				.mb-3
 					= f.label :password, t("authentication.new_password"), class: "form-label required"
 					.input-group
-						.input-group-prepend
-							.input-group-text = fa_icon "fw key"
+						span.input-group-text = fa_icon "fw key"
 						= f.password_field :password, autocomplete: "new-password", minlength: @minimum_password_length, placeholder: t("authentication.placeholders.password"), required: true, class: "form-control form-control-lg"
 					- if @minimum_password_length
 						small.form-text.text-muted
