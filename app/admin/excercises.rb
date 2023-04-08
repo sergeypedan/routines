@@ -12,6 +12,20 @@ ActiveAdmin.register Excercise do
 
 	includes :body_position, :furniture, :grip, :main_muscle, :weight_type
 
+	filter :name
+	filter :name_en
+	filter :main_muscle
+	filter :muscles
+	filter :movement_type
+	filter :movement_direction
+	filter :weight_type
+	filter :simultaneously, as: :radio
+	filter :repetition_based, as: :radio
+	filter :body_position
+	filter :grip
+	filter :furniture
+
+
 	index do
 		selectable_column
 		id_column
