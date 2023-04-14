@@ -18,7 +18,7 @@ class Muscle < ApplicationRecord
 
 	# Methods
 
-	def l_name(locale)
+	def l_name(locale = :en)
 		locale.to_s == "ru" ? name : (public_send("name_#{locale}").presence || name)
 	end
 

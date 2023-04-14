@@ -100,7 +100,10 @@ class WorkoutsController < DashboardsController
 	end
 
 	def load_muscles
-		@muscles = Muscle.includes(:targeted_excercises)
+		@name_method = "name#{'_en' if I18n.locale == :en}".to_sym
+		# @name_method = :l_name
+		# @muscles = Muscle.includes(:targeted_excercises).order(@name_method => :asc)
+		@muscles = Muscle.includes(:targeted_excercises).sort_by(&:l_name)
 	end
 
 end

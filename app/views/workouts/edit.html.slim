@@ -11,10 +11,11 @@
 
 		.mb-3
 			= f.label                     :excercise_id, class: "form-label required"
+			/ https://apidock.com/rails/ActionView/Helpers/FormOptionsHelper/grouped_collection_select
 			= f.grouped_collection_select :excercise_id,          # attribute on form object \
 																			@muscles,             # collection for optgroups \
 																			:targeted_excercises, # group_method \
-																			:name,                # group_label_method \
+																			"name#{'_en' if I18n.locale == :en}".to_sym, # group_label_method \
 																			:id,                  # option_key_method \
 																			:name_with_flavor,    # option_value_method \
 																			{ prompt: true }, \

@@ -4,6 +4,7 @@ class Excercise < ApplicationRecord
 
 	MOVEMENT_TYPES = [
 		"crunch torso",
+		"curl",
 		"push",
 		"punch",
 		"kick",
@@ -42,6 +43,8 @@ class Excercise < ApplicationRecord
 	validates :default_time,   numericality: { greater_than_or_equal_to: 0, only_integer: true }
 	validates :default_weight, numericality: { greater_than_or_equal_to: 0 }
 	validates :movement_type, length: { maximum: 255 }
+	validates :synonym_en, length: { maximum: 255 }
+	validates :synonym_ru, length: { maximum: 255 }
 	validates :name,    presence: true
 	validates :name_en, presence: true
 	validates :workouts_count, counter: true
@@ -66,18 +69,26 @@ class Excercise < ApplicationRecord
 	end
 
 	def name_with_flavor(locale = :en)
-		[
-			l_name(locale),
-			movement_type,
-			weight_type&.public_send("name_#{locale}")&.downcase,
-			movement_direction,
-			("upto #{angle_max}°" if angle_max),
-			flavor(locale)&.downcase,
-			l_simultaneously(locale),
-			grip&.public_send("name_#{locale}")&.downcase,
-			body_position&.public_send("name_#{locale}")&.downcase,
-			furniture&.public_send("name_#{locale}")&.downcase,
-		].select(&:present?).join(" ")
+		components = name_components(locale)
+		components = components.values.select(&:present?)
+		components[0] = components.first.titleize
+		components.join(" ")
+	end
+
+	def name_components(locale = :en)
+		{
+			synonym:            l_synonym(locale).presence&.then { "“#{_1}”" },
+			name:               l_name(locale).to_s.tr("_", "").presence,
+			movement_type:      movement_type.presence,
+			weight_type:        weight_type&.public_send("name_#{locale}")&.downcase,
+			movement_direction: movement_direction,
+			angle_max:         ("upto #{angle_max}°" if angle_max),
+			flavor:             flavor(locale)&.downcase,
+			simultaneously:     l_simultaneously(locale),
+			grip:               grip&.public_send("name_#{locale}")&.downcase,
+			body_position:      body_position&.public_send("name_#{locale}")&.downcase,
+			furniture:          furniture&.public_send("name_#{locale}")&.downcase,
+		}
 	end
 
 	def l_simultaneously(locale = :en)
@@ -86,6 +97,10 @@ class Excercise < ApplicationRecord
 		when false then locale.to_sym == :en ? "separately" : "порознь"
 		else nil
 		end
+	end
+
+	def l_synonym(locale = :en)
+		public_send "synonym_#{locale}"
 	end
 
 	def flavor(locale)
@@ -103,7 +118,7 @@ class Excercise < ApplicationRecord
 end
 
 # == Schema Information
-# Schema version: 20230402195523
+# Schema version: 20230408025931
 #
 # Table name: excercises
 #
@@ -120,6 +135,8 @@ end
 #  name_en                   :string
 #  repetition_based          :boolean          default(TRUE)
 #  simultaneously            :boolean
+#  synonym_en                :string
+#  synonym_ru                :string
 #  workouts_count            :integer          default(0), not null
 #  body_position_id          :bigint
 #  furniture_id              :bigint
