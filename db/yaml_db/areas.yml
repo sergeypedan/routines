@@ -13,6 +13,8 @@
     - excercises
     - workouts
     - muscles
+    - foods
+    - meals
   dashboard_action: workout
   name_en: Sport
   name_ru: Спорт
@@ -50,3 +52,6 @@
   name_en: Settings
   name_ru: Настройки
   path: settings
+
+# Also add to
+# def navbar_pages

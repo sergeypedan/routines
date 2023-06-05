@@ -14,10 +14,10 @@ ActiveAdmin.register Excercise do
 
 	filter :name
 	filter :name_en
-	filter :main_muscle, collection: -> { Muscle.order(:name) }
-	filter :muscles, collection: -> { Muscle.order(:name) }
-	filter :movement_type
-	filter :movement_direction
+	filter :main_muscle, collection: -> { Muscle.for_select.order(:name_en) }
+	filter :muscles, collection: -> { Muscle.for_select.order(:name_en) }
+	filter :movement_type, as: :select, collection: -> { Excercise::MOVEMENT_TYPES }
+	filter :movement_direction, as: :select, collection: -> { Excercise::MOVEMENT_DIRECTIONS }
 	filter :weight_type
 	filter :simultaneously, as: :boolean
 	filter :repetition_based, as: :boolean
@@ -31,6 +31,7 @@ ActiveAdmin.register Excercise do
 		id_column
 
 		column :name_en
+		column :synonym_en
 		column :movement_type
 		column :movement_direction
 		column :flavor_en

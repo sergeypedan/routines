@@ -36,9 +36,13 @@
 			margin-top: 1px
 			padding-left: 0
 
+			li + li
+				&::before
+					content: ", "
+
 			li
 				display: inline
-				padding: 3px 3px 3px 0
+				padding: 3px 0 3px 0
 
 				&:first-child
 					font-weight: bold
@@ -46,5 +50,16 @@
 	&__WRT
 		font-size: 12px
 
+		&--averages
+			color: gray
+
 	&__weight
 		padding-right: 5px
+
+.row-xs
+	display: flex
+
+.col-xs-6
+	flex-grow: 0
+	flex-shrink: 0
+	flex-basis: 50%

@@ -1,8 +1,0 @@
-- @intakes.group_by { |intake| intake.created_at.to_date }.each do |date, intakes|
-
-	article.workout-mobile
-		h4.workout-mobile__title = l date, format: "%-d %B %Y"
-
-		/ - intakes.sort_by(&:drug).each_with_index do |intake, index|
-		- intakes.each_with_index do |intake, index|
-			= render "drug_intakes/drug_intake_mobile", index: index, intake: intake

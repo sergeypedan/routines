@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_04_08_025931) do
+ActiveRecord::Schema.define(version: 2023_05_11_072143) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -172,11 +172,24 @@ ActiveRecord::Schema.define(version: 2023_04_08_025931) do
     t.index ["weight_type_id"], name: "index_excercises_on_weight_type_id"
   end
 
+  create_table "foods", force: :cascade do |t|
+    t.string "name_en"
+    t.string "name_ru"
+    t.integer "kcal_in_100_g"
+    t.decimal "protein_in_100_g"
+    t.decimal "carbs_in_100_g"
+    t.decimal "fats_in_100_g"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["name_en"], name: "index_foods_on_name_en", unique: true
+    t.index ["name_ru"], name: "index_foods_on_name_ru", unique: true
+  end
+
   create_table "habit_entries", force: :cascade do |t|
     t.bigint "habit_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "time", default: 0, null: false, comment: "in seconds"
+    t.integer "time", default: 0, null: false
     t.bigint "user_id", null: false
     t.index ["habit_id"], name: "index_habit_entries_on_habit_id"
     t.index ["user_id"], name: "index_habit_entries_on_user_id"
@@ -216,6 +229,14 @@ ActiveRecord::Schema.define(version: 2023_04_08_025931) do
     t.bigint "city_id", null: false
     t.string "street_address"
     t.index ["city_id"], name: "index_labs_on_city_id"
+  end
+
+  create_table "meals", force: :cascade do |t|
+    t.bigint "food_id", null: false
+    t.integer "weight"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["food_id"], name: "index_meals_on_food_id"
   end
 
   create_table "measurement_objects", force: :cascade do |t|
@@ -350,6 +371,7 @@ ActiveRecord::Schema.define(version: 2023_04_08_025931) do
   add_foreign_key "health_markers", "measurement_objects"
   add_foreign_key "health_markers", "measurements_groups"
   add_foreign_key "labs", "cities"
+  add_foreign_key "meals", "foods"
   add_foreign_key "measurements", "health_markers", column: "marker_id"
   add_foreign_key "measurements", "labs"
   add_foreign_key "measurements", "users"

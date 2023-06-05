@@ -39,6 +39,7 @@ end
 
 group :development do
 	gem "annotate"
+	gem "dockerfile-rails"
 	gem "listen"
 	gem "rails_real_favicon"
 	# gem "web-console"

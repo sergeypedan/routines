@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 		post :duplicate, on: :member
 	end
 	resources :excercises
+	resources :foods
 	resources :habit_entries
 	resources :habit_stats
 	resources :habits do
@@ -26,6 +27,9 @@ Rails.application.routes.draw do
 	end
 	resources :health_markers
 	resources :labs
+	resources :meals do
+		post :duplicate, on: :member
+	end
 	resources :measurements
 	resources :measurements_groups
 	resources :moods

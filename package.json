@@ -33,5 +33,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "peerDependencies": {}
+  "peerDependencies": {
+  },
+  "packageManager": "yarn@1.22.19"
 }

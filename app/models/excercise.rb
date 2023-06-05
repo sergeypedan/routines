@@ -5,12 +5,13 @@ class Excercise < ApplicationRecord
 	MOVEMENT_TYPES = [
 		"crunch torso",
 		"curl",
-		"push",
-		"punch",
 		"kick",
-		"squat",
 		"pull",
+		"punch",
+		"push",
 		"raise",
+		"squat",
+		"swing",
 	].freeze
 
 	MOVEMENT_DIRECTIONS = [
@@ -71,7 +72,7 @@ class Excercise < ApplicationRecord
 	def name_with_flavor(locale = :en)
 		components = name_components(locale)
 		components = components.values.select(&:present?)
-		components[0] = components.first.titleize
+		components[0] = components.first.split(" ").then { [_1.first.titleize] + _1[1..] }.join(" ")
 		components.join(" ")
 	end
 
@@ -115,10 +116,24 @@ class Excercise < ApplicationRecord
 		default_time.zero? && (default_repetitions_count > 1)
 	end
 
+	def avg_repetitions
+		return 0 unless repetition_based?
+		workouts.average(:repetitions_count)
+	end
+
+	def avg_time
+		return 0 if repetition_based?
+		workouts.average(:resistance_duration)
+	end
+
+	def avg_weight
+		workouts.average(:weight)
+	end
+
 end
 
 # == Schema Information
-# Schema version: 20230408025931
+# Schema version: 20230511063628
 #
 # Table name: excercises
 #

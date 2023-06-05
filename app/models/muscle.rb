@@ -16,10 +16,19 @@ class Muscle < ApplicationRecord
 	has_many :targeted_excercises, class_name: "Excercise", foreign_key: "main_muscle_id"
 
 
+	# Scopes
+
+	scope :for_select, -> { select(:name_en, :id).order(:name_en) }
+
+
 	# Methods
 
 	def l_name(locale = :en)
 		locale.to_s == "ru" ? name : (public_send("name_#{locale}").presence || name)
+	end
+
+	def display_name
+		name_en
 	end
 
 end

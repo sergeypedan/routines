@@ -1,6 +1,52 @@
-- @workouts.group_by(&:date).each do |date, workouts|
+- @workouts.group_by(&:date).each do |date, day_workouts|
 	tr
-		th colspan="9" style="padding-top: 30px; font-size: 13px" = l date, format: "%-d %B %Y"
+		th colspan="6" style="padding-top: 30px; font-size: 13px" = l date, format: "%-d %B %Y"
 
-	- workouts.sort_by(&:excercise).each_with_index do |workout, index|
-		= render "workouts/workout_desktop", index: index, workout: workout
+	- day_workouts. \
+		group_by { |w| w.excercise.main_muscle }. \
+		each do |muscle, muscle_workouts|
+
+		tr
+			th colspan="6" style="padding-top: 30px; font-size: 13px" = muscle.name_en
+
+		- muscle_workouts. \
+			sort_by(&:created_at). \
+			group_by(&:excercise). \
+			each_with_index do |(excercise, excercise_workouts), index|
+
+			tr
+				td.pt-4 rowapdn=2 style="color: hsl(0, 0%, 80%)" = index + 1
+				td.pt-4 colspan=3
+					b = link_to excercise.name_with_flavor(I18n.locale), excercise, class: "a-hidden-affordance"
+
+					ul.tags-1.small.mt-1
+						li.tags-1__li = link_to excercise.main_muscle.l_name(I18n.locale), excercise.main_muscle, class: "a-hidden-affordance"
+						- excercise.muscles.each do |muscle|
+							li.tags-1__li = link_to muscle.l_name(I18n.locale), muscle, class: "a-hidden-affordance"
+
+			- excercise_workouts.sort_by(&:excercise).each_with_index do |workout, ex_index|
+				- excercise = workout.excercise
+				tr
+					td
+					td
+						=> number_to_human workout.weight, units: { unit: t("weight.kg") } unless workout.weight.zero?
+
+						- if workout.resistance_duration
+							= "#{workout.resistance_duration} min"
+						- else
+							= "× #{workout.repetitions_count}" if workout.repetitions_count && !workout.repetitions_count != 1
+					td
+						- if workout.date.today?
+								= button_to [:yesterday, workout], \
+														{ \
+															class: "btn btn-outline-secondary btn-sm", \
+															form: { class: "" }, \
+															remote: false \
+														}
+									= fa_icon "arrow-down"
+
+					td
+						= button_to [:duplicate, workout], { class: "btn btn-primary btn-sm", form: { class: "", style: "display: inline-block" }, remote: false }
+							= fa_icon "copy"
+						=< edit_btn(workout, text: fa_icon("pencil"))
+						=< delete_btn(workout, text: fa_icon("trash"))

@@ -1,8 +1,9 @@
 .container-fluid.section-padding
-	h1 = @muscle.name
+	h1.mb-2 = @muscle.name
+	= link_to "Edit in admin", [:edit, :admin, @muscle]
 
-	h2 Excercises
+	h2.mt-5 Excercises
 
 	ul
 		- @muscle.excercises.each do |excercise|
-			li = link_to excercise.name, excercise
+			li = link_to excercise.name_with_flavor(I18n.locale), excercise

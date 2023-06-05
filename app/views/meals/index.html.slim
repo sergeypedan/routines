@@ -1,0 +1,13 @@
+- content_for :navbar_after_logo
+	h1 = Meal.model_name.human(count: :many)
+	= add_record_button_navbar Meal
+
+div data-container="meals"
+
+	- @meals.group_by { _1.created_at.to_date }.each do |date, meals|
+
+		article.workout-mobile
+			h4.workout-mobile__title = l date, format: "%-d %B %Y"
+
+			- meals.each_with_index do |meal, index|
+				= render "meals/meal_mobile", index: index, meal: meal

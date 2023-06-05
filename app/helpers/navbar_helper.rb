@@ -19,6 +19,7 @@ module NavbarHelper
 		@ca
 	end
 
+	# # Also add to `areas.yml`
 	def navbar_pages(area_name)
 		case area_name
 		when "Habits"
@@ -52,7 +53,9 @@ module NavbarHelper
 				{ name:           Excercise.model_name.human(count: :many), href: excercises_path },
 				{ name:              Muscle.model_name.human(count: :many), href: muscles_path },
 				{ name:              Weight.model_name.human(count: :many), href: root_path },
-				{ name:        WeightBundle.model_name.human(count: :many), href: root_path }
+				{ name:        WeightBundle.model_name.human(count: :many), href: root_path },
+				{ name:                Food.model_name.human(count: :many), href: foods_path },
+				{ name:                Meal.model_name.human(count: :many), href: meals_path },
 			]
 		when "Settings"
 			[

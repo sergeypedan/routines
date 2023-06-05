@@ -13,7 +13,7 @@ ActiveAdmin.register Muscle do
 		panel "Excercises" do
 			table_for(resource.excercises) do
 				column :id
-				column :name do |rec| link_to exercise_name_combined(rec), admin_excercise_path(rec), target: :_blank end
+				column :name do |rec| link_to rec.name_with_flavor(I18n.locale), admin_excercise_path(rec), target: :_blank end
 			end
 		end
 	end
